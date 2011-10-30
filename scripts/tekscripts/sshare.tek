@@ -1,0 +1,74 @@
+# http://www.geocities.com/joey2cool/teknap_scripts/
+
+assign A1 a
+assign A2 b
+assign A3 c
+assign A4 d
+assign A5 e
+assign A6 f
+assign A7 g
+assign A8 h
+assign A9 i
+assign A10 j
+assign A11 k
+assign A12 l
+assign A13 m
+assign A14 n
+assign A15 o
+assign A16 p
+assign A17 q
+assign A18 r
+assign A19 s
+assign A10 t
+assign A21 u
+assign A22 v
+assign A23 w
+assign A24 x
+assign A25 y
+assign A26 z
+assign A27 1
+assign A28 2
+assign A29 3
+assign A30 4
+assign A36 5
+assign A32 6
+assign A33 7
+assign A34 8
+assign A35 9
+assign A36 0
+assign A37 A
+assign A38 B
+assign A39 C
+assign A40 D
+assign A41 E
+assign A42 F
+assign A43 G
+assign A44 H
+assign A45 I
+assign A46 J
+assign A47 K
+assign A48 L
+assign A49 M
+assign A50 N
+assign A51 O
+assign A52 P
+assign A53 Q
+assign A54 R
+assign A55 S
+assign A56 T
+assign A57 U
+assign A58 V
+assign A59 W
+assign A60 X
+assign A61 Y
+assign A62 Z
+assign B1 96
+assign B2 128
+assign B3 160
+assign B4 192
+
+alias sshare {
+repeat $0 {
+raw 100 "$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62))$(A$rand(62)).mp3" b92870e0d41bc8e698cf2f0a1ddfeac7 60 192 44100 60
+}
+}

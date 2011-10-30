@@ -1,0 +1,32 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/tornado
+
+alias sayc {say $cparse("$*")}
+
+alias tornado
+{
+sayc %W                . '@<@@@@@@@>@. <@@> `  .   '
+sayc %W      .  @@'<@@@@@@@@@@@@@@@@@@@@@@@>@@
+sayc %W      @@<@@@@@@@@@@>@<@@@@@@@@@@@@>@@@@@@ `
+sayc %W   @.<@@@@@@@><@@@@@@@@@@@@@@)@@@@@@@@@@@@@@  .
+sayc %W  <@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>
+sayc %W <@@@@@@@@>@@@@@@@@@@@@@<@@@@@@@@@@@@@@@@@> ` 
+sayc %W  .@<@@@@>##&&&&&<@@@@@@@@>||_<@@@@@@@> .   .'
+sayc %W    @@`<@@###&&&&&!!||||||||-_@@@@`@>.
+sayc %W    `   @@@###&&&&!!||||||||-_@.@@@     '
+sayc %W       `  @.#####&&&!!||||-_ .@ 
+sayc %W             ####&&&!!'||||_-        `
+sayc %W              ###&&!!|||-_
+sayc %W               ##&&!||_
+sayc %W              ##&&!||
+sayc %W             ##&&!|-
+sayc %W            #&!||-
+sayc %W           #&!|
+sayc %W           #&!-
+sayc %W            #&
+sayc %W             #&-
+sayc %W               #'
+}

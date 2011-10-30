@@ -1,0 +1,192 @@
+# Assign BORDERCOLOR and TEXTCOLOR to whichever colors you want for border and text
+# Assign OFFSET to the offset from left side of the window that the whois box will be displayed
+
+assign BORDERCOLOR %G
+assign TEXTCOLOR %W
+assign OFFSET 2
+
+@SHORTWHOIS = []
+@delarray(items)
+@delarray(hitlist)
+@delarray(penalty)
+
+alias fcstr {
+  @:str = [$*]
+  @function_return = TEXTCOLOR ## left(1 $str) ## [%n] ## mid(1 $@str $str)
+}
+
+alias offset_str (nchar) {
+  @:string = []
+  for (@:count=0, count<nchar, @count++) {
+    @string = string ## [ ]
+  }
+  @function_return = string
+}
+
+alias echolistheader (title, name, maxlinelength) {
+  @:line = offset_str($OFFSET) ## [$BORDERCOLOR$chr(201)<$TEXTCOLOR$title$BORDERCOLOR>]
+  @:spacer = (maxlinelength - @name)/2 - (@title + 4)
+  for (@:count=0, count<spacer, @count++) { @line = line ## chr(205) }
+  @line = line ## [$TEXTCOLOR $name $BORDERCOLOR]
+  @spacer = maxlinelength - (spacer + @title + @name + 6)
+  for (@count=0, count<spacer, @count++) { @line = line ## chr(205) }
+  @line = line ## chr(187) ## [%n]
+  echo $cparse($line)
+} 
+
+alias echolistline {
+  @:label = tr(/"//$0)
+  @:info = tr(/"//$1)
+  @:maxlabellength = [$2]
+  @:maxlinelength = [$3]
+  @:maxinfolength = maxlinelength - (maxlabellength + 6)
+  @label = fcstr($(\[$maxlabellength\]label))
+  @info = [$(\[$maxinfolength\]info)]
+  @:line = offset_str($OFFSET) ## [$BORDERCOLOR$chr(186)%n ] ## label ## [$TEXTCOLOR:%n ] ## info ## [ $BORDERCOLOR$chr(186)%n]
+  echo $cparse($line)
+}
+
+alias echolistbottom (maxlinelength) {
+  @:line = offset_str($OFFSET) ## BORDERCOLOR ## chr(200)
+  for (@:count=1, count<maxlinelength-1, @count++) { @line = line ## chr(205) }
+  @line = line ## chr(188) ## [%n]
+  echo $cparse($line)
+}
+
+alias echolistitem {
+  @:maxlabellength = 0
+  @:maxinfolength = 0
+  for (@count=1, count<=numitems(items), @count++) {
+    @:line = word(0 $getitem(items $count))
+    if (@line > maxlabellength) @maxlabellength = @line
+    @line = word(1 $getitem(items $count))
+    if (@line > maxinfolength) @maxinfolength = @line
+  }
+  @:title = word(0 $getitem(items 0))
+  @:name = word(1 $getitem(items 0))
+  @:maxlinelength = maxlabellength + maxinfolength + 6
+  if ((maxlinelength/2)<(@title + @name/2 + 6)) @maxlinelength = (@title + @name/2 + 6)*2
+  echolistheader $getitem(items 0) $maxlinelength
+  for (@count=1, count<numitems(items), @count++) { 
+    @:line = getitem(items $count)
+    echolistline $line $maxlabellength $maxlinelength
+  }
+  echolistbottom $maxlinelength
+} 
+
+alias getlinktypestring (speed, void) {
+  @:speed_string = ["Unknown" "14.4" "28.8" "33.6" "56k" "ISDN 64k" "ISDN 128k" "Cable" "DSL" "T1" "T3+"]
+  return "$word($speed $speed_string)"
+} 
+
+alias gettimestring (timeinsecs, void) { 
+  @:time_string = []
+  @:days = timeinsecs / 86400
+  @:hours = timeinsecs % 86400
+  @:mins = hours % 3600
+  @:secs = mins % 60
+  @:hours = hours / 3600
+  @:mins = mins / 60
+  switch ($days) {
+    (0) {}
+    (1) { @time_string = days ## [ day ] }
+    (*) { @time_string = days ## [ days ] }
+  }
+  switch ($hours) {
+    (0) {}
+    (1) { @time_string = time_string ## hours ## [ hour ] }
+    (*) { @time_string = time_string ## hours ## [ hours ] }
+  }
+  switch ($mins) {
+    (0) {}
+    (1) { @time_string = time_string ## mins ## [ min ] }
+    (*) { @time_string = time_string ## mins ## [ mins ] }
+  }
+  switch ($secs) {
+    (0) {}
+    (1) { @time_string = time_string ## secs ## [ sec] }
+    (*) { @time_string = time_string ## secs ## [ secs] }
+  }
+  @function_return = ["$time_string"]
+} 
+
+on ^604 "*" {
+  @delarray(items)
+  if ([$0] == SHORTWHOIS) {
+    timer 1 @SHORTWHOIS = []
+    @setitem(items 0 inforeq $0)
+    @setitem(items 1 Class $1)
+    @setitem(items 2 IP $12)
+    @setitem(items 3 Client $9)
+    @setitem(items 4 Shared $5)
+    if (match($1 "User" "Leech")) {
+      warn $0
+    }{
+      echolistitem
+    }
+  }{ 
+    @setitem(items 0 whois $0)
+    @setitem(items 1 Class $1)
+    @setitem(items 2 "Online since" "$strftime(${time() - [$2]} %x %X)")
+    @setitem(items 3 "Online for" $gettimestring($2))
+    @setitem(items 4 Channels "$mid(2 ${strlen($3)-4} $3)")
+    @setitem(items 5 Status $4)
+    @setitem(items 6 Shared $5)
+    @setitem(items 7 Downloads $6)
+    @setitem(items 8 Uploads $7)
+    @setitem(items 9 Line $getlinktypestring($8))
+    @setitem(items 10 Client $9)
+    if ([$10] != []) @setitem(items 11 "Total Downloads" $10)
+    if ([$11] != []) @setitem(items 12 "Total Uploads" $11)
+    if ([$12] != []) @setitem(items 13 IP $12)
+    if ([$13] != []) @setitem(items 14 "Listen Port" $13)
+    if ([$14] != []) @setitem(items 15 "Data Port" $14)
+    if ([$15] != [] && [$15] != [unknown]) @setitem(items 16 Email $15)
+    if ([$16] != []) @setitem(items 16 Server $16)
+    echolistitem
+  } 
+}
+
+on ^605 "*" { 
+  @delarray(items)
+  @setitem(items 0 whowas $0)
+  @setitem(items 1 Level $1)
+  @setitem(items 2 "Last Online" "$strftime($2 %x %X)")
+  echolistitem
+  on ^404 ^"User is not currently online."
+} 
+
+on ^404 "% has requested your info" {
+  if ([$0] != SHORTWHOIS) {
+    @SHORTWHOIS = [$0]
+    whois $0
+  }
+}
+
+alias warn {
+  @:nick = [$0]
+  if (finditem(hitlist $nick) < 0) { 
+    @setitem(hitlist $numitems(hitlist) $nick) 
+    @setitem(penalty $numitems(penalty) 0)
+    timer 30 { 
+      @delitem(hitlist 0)
+      @delitem(penalty 0)
+    } 
+  } 
+  @:hitlistplace = finditem(hitlist $nick)
+  @:penal = getitem(penalty $hitlistplace) + 1 
+  @setitem(penalty $hitlistplace $penal)
+  switch ($penal) {
+    (1) {  msg $nick Hi $nick\. This an automated response. Can I help you?
+           echolistitem
+        }
+    (2) { msg $nick This is an automated response. You have requested my info. How can I help you $nick? }
+    (3) { msg $nick You are now requesting my info for the 3rd time. How can I help you, $nick? }
+    (4) { msg $nick Please stop it $nick }
+    (5) { msg $nick PLEASE STOP IT $nick - Get it now???? }
+    (*) { 
+          kill $nick STOP IT
+          @setitem(penalty $hitlistplace 0)
+        }
+  }
+}

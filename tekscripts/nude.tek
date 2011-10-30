@@ -1,0 +1,22 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YPsy
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/nude
+
+alias sayc {say $cparse("$*")}
+
+alias nude
+{
+sayc %G   Oh baby cum and get me...I'm so horny...
+sayc %P             .'''.           .'''.
+sayc %P            /     \\\\\\\         /     \\\\\\\ 
+sayc %P           /  /|   |       |   |\\\\\\\  \\\\\\\ 
+sayc %P          /  / |   |       |   | \\\\\\\  \\\\\\\ 
+sayc %P         /  /  |   |%r.%Po%r. .%Po%r.%P|   |  \\\\\\\  \\\\\\\ 
+sayc %P        /  /   |   '.  %r'  %P.'   |   \\\\\\\  \\\\\\\ 
+sayc %P       /  /    |     '.%r'%P.'     |    \\\\\\\  \\\\\\\ 
+sayc %W      :'':%P     |      %r{%Po%r}%P      |     %W:'':
+sayc %W __..' ..|%P      \\\\\\\      %r|%P      /      %W|.. `..__
+sayc %W'.....' ||%P       '-.__.%y*%P.__.-'       %W|| `.....'
+}  

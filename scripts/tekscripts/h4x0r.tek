@@ -1,0 +1,63 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04H4x0r Script Loaded %>02/h4x0r_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias h4x0r_menu
+{
+ echo
+ echo 57usage : 54/hxr (msg)57 Say converted in room
+ echo 57        54/hxrme (msg)57 Emote converted
+ echo 57        54/hxrmsg (user) (msg)57 Msg converted to user
+ echo 57        54/hxrecho (msg)57 Echos msg converted
+ echo
+}
+
+alias hxr say $h4x0r_chg($0-)
+alias hxrme me $h4x0r_chg($0-)
+alias hxrmsg msg $0 $h4x0r_chg($1-)
+alias hxrecho echo $h4x0r_chg($0-)
+
+alias h4x0r_chg
+{
+ @:new_hxr_msg=[]
+ fec ($0-) hxr_letters
+ {
+  switch ($hxr_letters)
+  {
+   (a) {@new_hxr_msg#=[à]}
+   (b) {@new_hxr_msg#=[á]}
+   (c) {@new_hxr_msg#=[‡]}
+   (d) {@new_hxr_msg#=[ë]}
+   (e) {@new_hxr_msg#=[î]}
+   (f) {@new_hxr_msg#=[Õ]}
+   (g) {@new_hxr_msg#=[9]}
+   (h) {@new_hxr_msg#=[Î]}
+   (i) {@new_hxr_msg#=[‹]}
+   (j) {@new_hxr_msg#=[õ]}
+   (k) {@new_hxr_msg#=[|<]}
+   (l) {@new_hxr_msg#=[œ]}
+   (m) {@new_hxr_msg#=[^^]}
+   (n) {@new_hxr_msg#=[ü]}
+   (o) {@new_hxr_msg#=[è]}
+   (p) {@new_hxr_msg#=[ž]}
+   (q) {@new_hxr_msg#=[Q]}
+   (r) {@new_hxr_msg#=[â]}
+   (s) {@new_hxr_msg#=[5]}
+   (t) {@new_hxr_msg#=[Å]}
+   (u) {@new_hxr_msg#=[æ]}
+   (v) {@new_hxr_msg#=[û]}
+   (w) {@new_hxr_msg#=[vv]}
+   (x) {@new_hxr_msg#=[><]}
+   (y) {@new_hxr_msg#=[]}
+   (z) {@new_hxr_msg#=[2]}
+   (*) {@new_hxr_msg#=hxr_letters}
+  }
+  @function_return=new_hxr_msg
+ }
+}

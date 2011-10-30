@@ -1,0 +1,25 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YNeo
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/email \(nick\) \(email\)
+
+alias sayc {say $cparse("$*")}
+
+alias email (nick,email)
+{
+sayc        %P*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.
+sayc          %W_
+sayc         %W|E]
+sayc        %R,-%W|%R=====-.
+sayc       %R| %W| MAIL %R| %W<------- %RSend email to $nick\.
+sayc       %R|________|___          $email
+sayc            %y||     %R'
+sayc            %y||
+sayc            %y||   %Ywww
+sayc    %Yvwv     %y||   %Y!_!
+sayc    %Y!_!     %y||    %G|  %P!_!
+sayc     %G|      %y|| %G//\\\\\|/  |/
+sayc %G___\\\\\\|//____%y||%G//_\\\\\V/_\\\\\|//__________________________
+}
+    

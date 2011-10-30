@@ -1,0 +1,21 @@
+xecho -b Canada Flag script loaded ... by Princess
+/alias canadaflag
+{
+/sayc %r ANADACANADACAN%W#################################%rADACANADACANAD
+/sayc %r NADACANADACANA%W################%rA%W################%rDACANADACANADA
+/sayc %r ADACANADACANAD%W###############%rADA%W###############%rACANADACANADAC
+/sayc %r DACANADACANADA%W##########%rAC%W##%rADACA%W##%rDA%W##########%rCANADACANADACA
+/sayc %r ACANADACANADAC%W###########%rANADACANADA%W###########%rANADACANADACAN
+/sayc %r CANADACANADACA%W#######%rDA%W###%rADACANADA%W##%rNA%W########%rNADACANADACANA
+/sayc %r ANADACANADACAN%W###%rANADACAN%W##%rACANADA%W##%rNADACANA%W###%rADACANADACANAD
+/sayc %r NADACANADACANA%W####%rADACANADACANADACANADACANA%W####%rDACANADACANADA
+/sayc %r ADACANADACANAD%W##%rNADACANADACANADACANADACANADAC%W##%rACANADACANADAC
+/sayc %r DACANADACANADA%W#####%rCANADACANADACANADACANAD%W#####%rCANADACANADACA
+/sayc %r ACANADACANADAC%W########%rDACANADACANADACAN%W########%rANADACANADACAN
+/sayc %r CANADACANADACA%W##########%rANADACANADACA%W##########%rNADACANADACANA
+/sayc %r ANADACANADACAN%W########%rCANADACANADACANAD%W########%rADACANADACANAD
+/sayc %r NADACANADACANA%W################%rA%W################%rDACANADACANADA
+/sayc %r ADACANADACANAD%W################%rD%W################%rACANADACANADAC
+/sayc %r DACANADACANADA%W################%rA%W################%rCANADACANADACA
+/sayc %r ACANADACANADAC%W#################################%rANADACANADACAN
+}

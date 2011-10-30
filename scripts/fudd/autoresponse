@@ -1,0 +1,55 @@
+/*
+ * Auto-Response script for TekNap
+ *
+ * Author: Brian Weiss <brian@got.net> - 2000
+ */ 
+
+assign AR_BEEP 1
+assign AUTO_RESPONSE 1
+assign AUTO_RESPONSE_STR fudd
+assign FORMAT_PUBLIC %B<%n$2%B>%n $4-
+assign FORMAT_PUBLIC_AR %B<%Y$2%B>%n $4-
+assign FORMAT_PUBLIC_OTHER %b<%n$2%K/%n$3%b>%n $4-
+assign FORMAT_PUBLIC_OTHER_AR %b<%y$2%K/%n$3%b>%n $4-
+
+on ^public "*"
+{
+	if (auto_response && [$0] != auto_response_str && match(*$auto_response_str* $2-))
+	{
+		if (ar_beep)
+		{
+			if (beep == [OFF])
+			{
+				^set BEEP ON
+				beep
+				^set BEEP OFF
+			}{
+				beep
+			}
+		}
+		echo $fparse(FORMAT_PUBLIC_AR $strftime(%X) $*)
+	}{
+		echo $fparse(FORMAT_PUBLIC $strftime(%X) $*)
+	}
+}
+
+on ^public_other "*"
+{
+	if (auto_response && [$0] != auto_response_str && match(*$auto_response_str* $2-))
+	{
+		if (ar_beep)
+		{
+			if (beep == [OFF])
+			{
+				^set BEEP ON
+				beep
+				^set BEEP OFF
+			}{
+				beep
+			}
+		}
+		echo $fparse(FORMAT_PUBLIC_OTHER_AR $strftime(%X) $*)
+	}{
+		echo $fparse(FORMAT_PUBLIC_OTHER $strftime(%X) $*)
+	}
+}

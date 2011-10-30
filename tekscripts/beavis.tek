@@ -1,0 +1,149 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echoc %W Color: %YTuToneBK
+echo
+echoc %WUsage: %Y/beavis, /beavis2
+
+alias sayc {say $cparse("$*")}
+
+alias beavis
+{
+sayc %Y                     MMMMMMM           MMMMMMH 
+sayc %Y               HMMMMM::::::::MMMMMMMMMM::::::TMM
+sayc %Y             MMMI:::::::::::::::::::MMH::::::::TM
+sayc %Y           MMIi::::::::::::::::::::::::::::::::::MMMM
+sayc %Y          MT::::::::::::::::::::::::::::::::::::::=T.IMMM
+sayc %Y        MMMi:::::::::::::::::::::::::::::::::::::::::::MT)MM
+sayc %Y    MMMI.:::::::::::::::::::::::::::::::::::::::::::::::M= MM
+sayc %Y  XMXi::::::::::::::::::::::::::::::::::::::::::::::::::::::=MM
+sayc %Y  MMi::::::::::::::::::::::::::::::::::::::::::::::::::::::.:=MMM
+sayc %Y MM:MMT:::::::::::::::::::::::::::::::::::::::::::::::::::::::MiMM
+sayc %Y MMM:::::::::::::::::::::::::::::::::::::::::::::::::::::::::TM.MM
+sayc %Y  MMi:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::M
+sayc %Y  MM::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::XM
+sayc %YMM:MT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::XM
+sayc %YMM::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::=M
+sayc %YMM:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::M
+sayc %YXMT:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::iM
+sayc %Y  MiMi::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::IM
+sayc %Y    M::::::HH::::::::::::::::::::::::::::::::::::::::::::::::::::::M
+sayc %Y    MT:::::iM::::::::Hi:iXH:::ii::XH:::::::::::::::::::::::::::::::M
+sayc %Y     MX:::::iMX:i::::iMi:iMH::XH::Mi:::::::::::::::::::::::::::::::M
+sayc %Y       Mii::::HMH:::::iMH::MH=:MM=TMi::::::::::::::::::::::::::::::M
+sayc %Y         MMMMMMMMMMMXTi:MMHi:HMMIMMMMii::::::::::::::::::::::::::::X
+sayc %Y          XXOXMMT%y:::::%YT=%y::%YIMMMMMMM=iXMii:::::::::::::::::::::::::::M
+sayc %Y           MMMH%y:::::::::::::::::::::::%YXMi::::::::::::::::::::::::::M
+sayc %y          XMM:::::::::::::::::::::::::::%YXMi::::::::::::::::::::::::M
+sayc %y         XMMT:::::::::::::::::::::::::::::%YXH:::::::::::::::::::::::M
+sayc %y         HMX:::::::::::::::::::::::::::::::%YXX::::::::::::::::::::::M
+sayc %y         MM:::::::::::::::::::::::::::::::::%YHX::::::::::::::::::::=M
+sayc %y         MX::::::::::::::::::::::::::::::::::%YX::::::::::::::::::::IM
+sayc %y        XMI::::::::::::::::::::::::::::::::::%YMH::::::::::::::::::::M
+sayc %y        MM:::::::::::::::::::::::::::::::::::%YMT::::::::::::::::::::I
+sayc %y        MM=:::::::::::::::::::::::::::::::::::%YMi:::::::::::::::::::M
+sayc %y        MMI:::::::::::::::::::::::::::::::::%YTM:::::::::::::::::::=MO
+sayc %y         MH.:::::::::::::::::::iLMXX=:::::::%YMi:::::::::::::::::::MM
+sayc %y         MX::::::::::::::::::MMM:::::::::::%YHM:::::::::::::::::::MM
+sayc %y         MM::::::::::::::::IMT:::::::::::::%YMT::::::::::::::::::MM
+sayc %y          M=:::::::::::::MM:i::::::::::::::%YM:::::::::::::::::::MI
+sayc %y          MH::::::::::MMMM=::::::::::::::i%YM::::::::::::::::::LM
+sayc %y         MMMMT.::::::TM:::::::::::::::::::I%YM::::HH::::::::::::MO
+sayc %y          MM:L%wM:%y:T:MT.::::::::::::::::::::T%YMMiXMT.MH::::::::::M=
+sayc %y           M%w:MX:%y::MMi:::%wMMMM=%y:::::::::::::=%YMMMMMMXMH:::::::::MM
+sayc %y          XM%wIM:%y:M.::=%wMXMMM:M%y::::::::::::::::.%YMXTHM MH::::::::XM
+sayc %y          M%wM %wX%yMMI:%wIMM %wMMM%y:::::::::::::::::::::::M%YIIM:::::::MMO
+sayc %y           M%wMX%yXMI%wLMMM.ML%y.:::::::::::::::::::::::::M%YMT:::::TMM
+sayc %y             MXM%wLMMMT%y::::::::::::::::::::::::::=.%YMMMM:::::MM
+sayc %y             MHM=:::::::::::::::::::::::::::::=%YMMM==Mi::::M
+sayc %y             MM=::::::::::::::::::::::::::::::::::::=%YM:::MM
+sayc %y            MMi::XMMMi:::::::::::::::::::::::::::::::M%Yi:=MT
+sayc %y           MM=:::::::iMH==:::::::::::::::::::::::::::M%YT:XMT
+sayc %y          MT=:=MMMMMMM=HM:::::::::::::::::::::::::::M%YI=MM
+sayc %y         M ::::::.=I= %K.%yMX::::::::::::%rMX%y::::::::::::::X%YMMM
+sayc %y        M:MMMMMMM=.::::::::::::::::%rM  M%y:::::::::::::::M
+sayc %y                M=::::::::::==XMMM:%rX  M=%y::::::::::::::M
+sayc %y                M=.IMMM )X:::%rM%y::%rM    M=%y:::::::::::::::M
+sayc %y                MM::X::%rMMM%y:%rMM      M=%y:::::::::::::::::M
+sayc %r                 MIMMMMM        MMI%y:::::::::::::::::::M
+sayc %r                           MMMMX%y::::::::::::::::::::::M
+sayc %r                       MMMI%y:::::::::::::::::::::::::::M
+sayc %r          MMMMMMMMMMMMI%y:::::::::::::::::::::::::::::::M
+sayc %y           M=:::::::::::::::::::::::::::::::::::::::::M
+sayc %y            MMMi::::::::::==MMMMMMMMMT::::::::::::::::OM
+sayc %y              MM=::::::OMMMM         MMMT::::::::::::::M
+sayc %y               M=::::MM                MMI::::::::::::OM
+sayc %y                MMMMM                   MMH:::::::MMMMMM
+sayc %y                                         MMMMMMMMMMMMMMM
+}
+
+alias beavis2
+{
+sayc %Y                                          `::..   .
+sayc %Y                           `?XXX.  `TC/:.   7X/!!x '?x.
+sayc %Y                             '4C7@C '!+!!XC:.`4!!X!x.?h7h
+sayc %Y                         `!C:. ~!!!fC~!!!+!!CC.'~+h!tX!!?hh:.
+sayc %Y                    '`X!.  !Cd!X!!H!?CC``'!:?CC!CX*!?tX!!H*))h.
+sayc %Y                  ...  '!XC!X!CC?@f!!!C!Cx.!!7!!!7!!!)@Thh!!X)!).
+sayc %Y                   ^!!!C:!CCC!!: ~CCCC!!!h+!CC!X!+7?+C!!?!+)!+XC!+
+sayc %Y               -    `!tXXCC~!!!!!:.!.77C!!!!!!!!!X!))!!!!X7``7!!!C>
+sayc %Y               ^X>:x. C!!!!X: ~!!*!C!!!C!~!X!)7!C!!!)?@!!!?!)?!!!>~
+sayc %Y                 `XC!!:!!!CCC!!.)!7C:!!!:7~!~!!t!! `H!)~~!!!!!!C?@
+sayc %Y                  `!X: `)!!!C44XX!!!.77.X:>-> 7!!X! /!~!.'!> !S!!!
+sayc %Y              +C..  !X7!.'!??X!!!t!!~!!C!~!~'.!~~~ -~` C> !~ /!X`
+sayc %Y                `X!XXM!!4!7!C4!!!!7C`%y,zccccdSSSSSSSSSccx%Y ` .~
+sayc %Y                  'XLS@!)!!7L44X!!! %ydSSSSSSSSSSSSSSSSSSS, %Y '^
+sayc %Y                   `!X?7:!!??X!4?*'%y:SSSSSSSSSSSSSSSSSSSSS
+sayc %Y                  `iXM:!!?Xt!XH!!! %y9SSSSSSSSSSSSSSSSSSSSS
+sayc %Y                   `X3tiXS#?WH!X!! %ySSSSSSSSSSSSSSSSSSSSSS
+sayc %Y                   .MX?*StXX?X!!W?%y SSSSSS>?SSSSSSSSSSSSSS
+sayc %Y                    8??M7T7' r `%y  :SSSSSSSSS,?SSSSSSSSSF
+sayc %Y                    'StMX!':%y JSSdSSSSSSSSSSSSh ?SSSSSS'
+sayc %Y                     tM9MH %ydSSSSSSSSSSSSSSC???rCSSSF,r
+sayc %Y                     4M?t'%y:SSSSSSSSSSSSSSSSh. SSS,cP'
+sayc %Y                     'M>%y.dSSSSSSSSSSSSSSSSS>dSSSC.,
+sayc %Y                      ,%ydSSSSSSSSSSSSSSSSS'cdSSSSr'
+sayc %y                      `SSSSSSSSSSSSSSS??SJcii`?Sh
+sayc %y                       SSSSSSSSSSSSSF%w,::, %y'?h,`SSh
+sayc %y                      jSSSSSSSSSSSSS%w.CC>>>>c%y`'  `''        ..,g q,
+sayc %W                   .'!%ySSSSSSSSSSSSS' %w`'''''' %y           aq`?g`S.Bk
+sayc %W               ,- '  ''?%ySSSSSSSSSSSSSSdSSSSSc, .         .)odSSSSSS
+sayc %W          , -'           `''''   `'?%ySSSSSSSSS??=      .dSSSSSSSSF'
+sayc %W        ,'                           `?%y?SSP       .edSSP''   `
+sayc %W       ,                                `.   %y   zSSS'
+sayc %W       `:dbe,                           ,/%y    eSSF'
+sayc %y       :SSSSP%W'`>                     %W  S%yF  zSSS'
+sayc %y      dSSSP'' %W >                    %W   S%yFeSSS'
+sayc %y    .SSS?F     %W:                    %W   S%ySSS'
+sayc %y    SSSSSSeeu.%W >                    %W   >%yP'
+sayc %y     `''???SSSSSeu,._''uWb,          %W  )
+sayc %y               `''??SPSSSSSSb.       %W  :
+sayc %W                >    %y ?SSS''       %W    C
+sayc %W                F     %y `'          %W    `:
+sayc %W                >                     %W  `>
+sayc %W                >                     %W   ?
+sayc %W               J                       %W   :
+sayc %W               X                ..  .  %W   ?
+sayc %W               'C 4C!~:/'!>C`~C>~.>! ~! ''
+sayc %c                '>!>=.7=.:~~>~4~`C'>>>~!
+sayc %c                 4'!/>!!!!C~~:/C:!C:`:/=':
+sayc %c                 `=:!~:`~!>C.-: 'C>=.':!:'
+sayc %c                  ::=.~C`:`~>!~> ?!/>>~!!C'
+sayc %c                  ~:~'!!:`:`~:>): :C.uJL!~
+sayc %c                    >L.C.:,L:L: %yVSSSSSSS
+sayc %y                    :4SSSSSSSL   ?SS#SSS>
+sayc %y                     'SSSBSSS>    SSSMBS&
+sayc %y                      SSSSSSS      SSS@SF
+sayc %y                      `SSSSSS>     RSSSS
+sayc %y                       SSSSSS     jSS@SP
+sayc %y                       SRSSSR   %w  `!)=!>
+sayc %y                       SSS6T  %w     SSSS'
+sayc %y                       SSRSB   %K   :%wSSSF%K,._
+sayc %w                       !=!C!  %K  .'  ``    ``= .
+sayc %w                       SSSSF %K   C.             '!
+sayc %K                     ,C%wSSSS%KC      ``~'`` --:.._.,)
+sayc %K                    :   ``  `-.
+sayc %K                    C          '!.
+sayc %K                     ` -C._       '.
+sayc %K                           `~:,._ .:
+}

@@ -1,0 +1,54 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/x-files
+
+alias sayc {say $cparse("$*")}
+
+alias x-files
+{ 
+sayc %G	    :<~!!!!!!!!!!!!!!!!!!<~~::  : ::<!!!!!!!!!!!!!!!!<~::
+sayc %G     <!XX!!~MSSSSSSSSSSS&UU!!!!!!!!!!UU8&USSSSSSSSSS8UUXX!!:
+sayc %G    ~!@M*    ^***************TT?H!!XST******   `^** ^*****MH!~ 
+sayc %G   '!M*                         9B!~                       't!~
+sayc %G   `!M>                         9SX                         `X~
+sayc %G    ~!M                  XUL.  JSR!XUU.                    .!!~
+sayc %G     ~!!Xx::xeWSSe       ?SSSSHR?!!!SSSe         :sdSSMMMMR!!~
+sayc %G       '~~!!!!!!MSSU.      MS8!!!~~~!!!SSS.      USSM!!!!!~~~
+sayc %G             ~~!?SSk      SSX!~~ ~~!!MSS~     tSR!!~
+sayc %G               ~~!MS&     'SR!~  ~:!XSS~     .SM!~~
+sayc %G                 ~!TS>     9R!!~~<!XSF       @R!~
+sayc %G                  ~!MSL   'M!!!:!!XSS>     .R!!~
+sayc %G                   `!XSb    !!!!!!!XS*     <M!!~
+sayc %G                     ~!!M    !!!!!SS     .R!!~
+sayc %G                      `~!!    !!XSSS    <M!!~
+sayc %G                       ~!!     ~R**~   .X!!~
+sayc %G                        !!:           tSX!~
+sayc %G                        ~!MSBL       .SM!!~
+sayc %G                        `!!?SSk      tS!!~
+sayc %G                        '<!XSS      XSR!!
+sayc %G                        <!!MSE      ?S!!!
+sayc %G                       ~:!8SS~       !X!!~
+sayc %G                      '!!@Sf          ?!!~:
+sayc %G                     ~!!US*    .u.    !X!!~ 
+sayc %G                    '<!@S      9SS:    t!!!~
+sayc %G                   ~:!XSX      9SSS.   ~RX!!:
+sayc %G                  '<!!SS`     :!TSSS    'MH!!!~
+sayc %G                 ~:!X!     .!!!!!MSS.     'MBX!:
+sayc %G                <<!!R      !!!!!!XSSX       ^9M!~
+sayc %G              '<!!USB      !!!!~~!!SX        ~SX!~
+sayc %G             :~!XST*`     '!!~~~ ~!!Rn        RN!<~
+sayc %G            ~!!XR        .!!!~~  ~~!!SB.      ~S!!:
+sayc %G       ::~~!!!XSE        !!!!~~   ~!!MSS:      9R!!!~:
+sayc %G   <:!!!!!!!XSSS~       :S!!!:~~'~~!!MS!       *SX!!!!::::~
+sayc %G <!!!HWWWWWSSST        sSSSN!!!!!!!!!MSN:       `?XX!!!!!!!!<::
+sayc %G!XM~~                  '***RSSBX!!!!!***          '*SS******X!!
+sayc %G!X~                          `*9SW!                         ^MX!~
+sayc %G!!                             !SS!                           8!:
+sayc %G!@:                            'SSN                           S!~
+sayc %G~!S&u.                        .MSSSX       ..uL              XR!
+sayc %G ~!TRRSSSSSSSSSSSSN::eWSSSSSRRM?!!?RSSk:nMRRSSSh:::sdh:xnnsdM?~~
+sayc %G  '~~!!!!!!!!MM!!!!MMMM!!!!!!~~~~~~!!!!!!!!!!!!!!!!!MMMMM!!~~
+sayc %G                    ~                              `~~~~~ 
+}

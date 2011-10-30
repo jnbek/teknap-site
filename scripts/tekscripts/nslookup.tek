@@ -1,0 +1,54 @@
+eval xecho -b $cparse(%BFixed %Rnslookup %Bfor Windows)
+eval xecho -b $cparse(%BSyntax: %R/nslookup %Bnick/ip/host)
+
+# Written by DJHyperbyte, thanks to TuToneBK for help with EOF
+# Be sure to /set SHELL to your cmd.exe (usually \winnt\system32\cmd.exe)
+
+alias nslookup
+{
+  ^assign NS_TARGET $0
+  if (match(*.* $0))
+  {
+    exec nslookup $0>c:/teknap/nslookup.tmp
+    ^on ^window "* Process % (nslookup *) terminated with return code %"
+    {
+      xecho -b $cparse(%GÚÄÄÄ %WNSLOOKUP results for $NS_TARGET %GÄÄÄ)
+      @:fd = open(//c/teknap/nslookup.tmp r)
+      while (!eof($fd))
+      {
+        xecho -b $cparse(%G³) $read($fd)
+      }
+      xecho -b $cparse(%GÀÄÄÄ%gÄÄÄ%KÄÄÄ)
+      @close($fd)
+      @unlink(//c/teknap/nslookup.tmp)
+      on window -"* Process % (nslookup *) terminated with return code %"
+    }
+  }
+  {
+    whois -cmd
+    {
+      if ([$12])
+      {
+        exec nslookup $12>c:/teknap/nslookup.tmp
+        ^on ^window "* Process % (nslookup *) terminated with return code %"
+        {
+          xecho -b $cparse(%GÚÄÄÄ %WNSLOOKUP results for $NS_TARGET %GÄÄÄ)
+          @:fd = open(//c/teknap/nslookup.tmp r)
+          while (!eof($fd))
+          {
+            xecho -b $cparse(%G³) $read($fd)
+          }
+          xecho -b $cparse(%GÀÄÄÄ%gÄÄÄ%KÄÄÄ)
+          @close($fd)
+          @unlink(//c/teknap/nslookup.tmp)
+          on window -"* Process % (nslookup *) terminated with return code %"
+        }
+      }
+      {
+        xecho -b You need to be mod+ to use this command.
+      }
+    } $0
+  }
+  ^assign -NS_TARGET
+}
+

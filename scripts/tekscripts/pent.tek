@@ -1,0 +1,31 @@
+alias pent
+{
+ eval sayc %r                         %R     ...%r
+ eval sayc %r           s,             %R   .      %r              .s
+ eval sayc %r            ss,          %R    . ..   %r            .ss
+ eval sayc %r            'SsSs,        %R   ..  .  %r         .sSsS'
+ eval sayc %r             sSs'sSs,      %R  .   .  %r      .sSs'sSs
+ eval sayc %r              sSs  'sSs,   %R   ... %r     .sSs'  sSs
+ eval sayc %r               sS,    'sSs,         .sSs'    .Ss
+ eval sayc %r               'Ss       'sSs,   .sSs'       sS'
+ eval sayc %R      ... %r      sSs         ' .sSs'         sSs     %R  ...
+ eval sayc %R     .     %r      sSs       .sSs' ..,       sSs     %R  .
+ eval sayc %R     . ..   %r      sS,   .sSs'  .  'sSs,   .Ss      %R  . ..
+ eval sayc %R     ..  . %r       'Ss .Ss'     .     'sSs. ''      %R  ..  .
+ eval sayc %R     .   .%r         sSs '       .        'sSs,     %R   .   .
+ eval sayc %R      ... %r     .sS.'sSs        .        .. 'sSs,   %R   ...
+ eval sayc %r            .sSs'    sS,     .....     .Ss    'sSs,
+ eval sayc %r         .sSs'       'Ss       .       sS'       'sSs,
+ eval sayc %r      .sSs'           sSs      .      sSs           'sSs,
+ eval sayc %r   .sSs'____________________________ sSs ______________'sSs,
+ eval sayc %r.sSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.Ss SSSSSSSSSSSSSSSSSSSSSs,
+ eval sayc %r                        ...         sS'
+ eval sayc %r                         sSs       sSs
+ eval sayc %r                          sSs     sSs      
+ eval sayc %r                           sS,   .Ss
+ eval sayc %r                           'Ss   sS'
+ eval sayc %r                            sSs sSs
+ eval sayc %r                             sSsSs
+ eval sayc %r                              sSs
+ eval sayc %r                               s
+}

@@ -1,0 +1,58 @@
+assign ELITE_LIST (Elite names here)
+assign ADMIN_LIST (Admin names here)
+assign MOD_LIST (Mod names here)
+^on -msg "*!whos listed" {
+msg $0 This is the Up-to-date list of all the Mod+ on $S\...
+msg $0
+msg $0 -=Elites=-
+msg $0 $ELITE_LIST
+msg $0 
+msg $0 -=Admins=-
+msg $0 $ADMIN_LIST
+msg $0 
+msg $0 -=Moderators=-
+msg $0 $MOD_LIST
+}
+
+^on -msg "*!elite me" {
+if ([$match($0 $ELITE_LIST)] >= 1) {
+setuserlevel $0 elite
+msg $0 Ok, you have been set to Elite :P
+} {
+msg $0 Sorry, i couldn't find you in my Elite list.
+msg $0 To see who's where in my list, type : /msg $N !whos listed
+}
+ }
+
+^on -msg "*!admin me" {
+if ([$match($0 $ADMIN_LIST $ELITE_LIST)] >= 1) {
+setuserlevel $0 admin
+msg $0 Ok, you have been set to Admin :P
+} {
+msg $0 Sorry, i couldn't find you in my Admin list.
+msg $0 To see who's where in my list, type : /msg $N !whos listed
+}
+ }
+
+^on -msg "*!mod me" {
+if ([$match($0 $MOD_LIST $ADMIN_LIST $ELITE_LIST)] >= 1) {
+setuserlevel $0 moderator
+msg $0 Ok, you have been set to Moderator :P
+} {
+msg $0 Sorry, i couldn't find you in my Moderator list.
+msg $0 To see who's where in my list, type : /msg $N !whos listed
+}
+ }
+
+^on -msg "*!user me" {
+setuserlevel $0 user
+msg $0 There ya go m8 :)
+}
+
+^on -msg "*!leech me" {
+setuserlevel $0 leech
+msg $0 Your wish is my command, you SLIMY LEECH ! :P
+}
+
+eval announce /msg $N !whos listed...for up to date Mod+ on $S\...
+

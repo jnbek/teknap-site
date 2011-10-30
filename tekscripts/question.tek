@@ -1,0 +1,29 @@
+xecho -b 51Questions 54Loaded
+xecho -b 54By 51DaRk^PuNk51 
+
+on -public "% % What's TekNap?" { 
+ msg $0 TekNap is a console Napster client written and maintained by the author of a very well known IRC client, BitchX -- Colten Edwards aka q. 
+ msg $0 Owing to the fact that it is based on BitchX, it shares the same script writing abilities. It has built in support for both OpenNap and Napster servers.
+ msg $0 For more information of Teknap go to www.teknap.com !! 
+}
+on -public "% % What is Teknap?" {  
+ msg $0 TekNap is a console Napster client written and maintained by the author of a very well known IRC client, BitchX -- Colten Edwards aka q. 
+ msg $0 Owing to the fact that it is based on BitchX, it shares the same script writing abilities. It has built in support for both OpenNap and Napster servers.
+ msg $0 For more information of Teknap go to www.teknap.com !! 
+}
+on -public "% % What's Floodster?" {
+ msg $0 Floodster is a Napster Client built to flood Napster Servers
+ msg $0 Floodster was made coded by Hymen. To get floodster go to www.geocities.com/teknapster/home.html
+}
+on -public "% % What's Napster?" {
+ msg $0 Napster is a file sharing client that allows you to download music! And is made by Shawn Fanning. For more information go to www.napster.com :)
+}
+on -public "% % What's Napigator?" {
+ msg  $0 Napigator is not a client. Its more of a scheme that allows napster/opennap users to log onto to the servers they wish! For more information go to www.napigator.com 
+}
+on -public "% % What's an IP address?" {
+ msg $0 An IP address is like your license plate. You can't go on the road without one. IP stands for Internet Protocol.  
+ msg $0 If you run Windows, go to START, RUN and then type 'winipcfg' and ok to find out your IP address.
+}
+
+

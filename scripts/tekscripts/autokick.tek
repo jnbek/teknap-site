@@ -1,0 +1,47 @@
+*Author: Neobite.
+*Version: Autokick
+*You may not edit this script at all. Make your own script
+xecho -b Author: Neobite
+xecho -b Version: Autokick
+xecho -b /1 = on
+xecho -b /0 = off
+xecho -b  /neobite = help
+assign -A
+alias 1
+{
+	if (!A)
+	{
+		^assign A 1
+		xecho -b Your Autokick script is on.
+	}
+	{
+		xecho -b You Autokick script is already on!
+	}
+}
+alias 0
+{
+	if (A)
+	{
+		^assign -A
+		xecho -b Your Autokick script is off.
+	}
+	{
+		xecho -b Your Autokick script is already off!
+	}
+}
+alias neobite
+{
+	xecho -b You must be channel op+ to use this script.
+	xecho -b When someone publicly floods this will kick and ban them from 
+	xecho -b the channel.
+	xecho -b /1 = on
+	xecho -b /0 = off
+}
+on ^flood "% PUBLIC *" 
+{	
+	if (A)
+	{
+		raw 829 $C $0 "Out you go"
+		raw 422 $C $0 "Stay out"
+	}
+}

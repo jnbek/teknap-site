@@ -1,0 +1,51 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YADAM
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/penguin
+
+alias sayc {say $cparse("$*")}
+
+alias penguin
+{
+sayc %W ...._ ..,,-======-.
+sayc %W   `''<<::   o.      `I
+sayc %W        `-.'      .cdbc`.
+sayc %W           :      PSSSSSb.
+sayc %W           :...  .dSSSSSS%KI>
+sayc %W         .SSSSSSP'PPSSPP%KIIII>.
+sayc %W        ,SSSSSSP   .P%KIIIIIIIII>
+sayc %W        SSSSSSSk  %KIIIIIIIIIIIIII>
+sayc %W       dSSSSSSSS   %KIIIIIIIIIIIIII:
+sayc %W      dSSSSSSSSSF '%KIIIIIIIIIIIIIII:
+sayc %W     dSSSSSSSSSS  '%KIIIIIIIIIIIIIIII>
+sayc %W     SSSSSSSSSSSS %KIIIIIIIIIIIIIIIIIII
+sayc %W    dSSSSSSSSSSSS '%KIIIIIIIIIIIIIIIIII
+sayc %W    dSSSSSSSSSSSS %KIIIII%WXX%KIIIIIIIIIIIII
+sayc %W    dSSSSSSSSSSSSx%KIIIIII%W:X%KIIIIIIIIIIII>
+sayc %W    3SSSSSSSSSSSS%KIIIIIIII%WS%KIIIIIIIIIIIII
+sayc %W    PSSSSSSSSSSS%KIIIIIIIII%WS%KIIIIIIIIIIIII>
+sayc %W    PSSSSSSSSSSP%KIIIIIII%WXd%KIIIIIIIIIIIIII>
+sayc %W     SSSSSSSSSP%KIIIIIII%WXT%KIIIIIIIIIIIIIIII>
+sayc %W     PSSSSSSSF%KIIIIIII%Wtd%KIIIIIIIIIIIIIIIII>
+sayc %W      SSSSSSS%KIIIIIII%WUd%KIIIIIIIIIIIIIIIIII>
+sayc %W      PSSSSSS%KIIIIIII%WXP%KIIIIIIIIIIIIIIIIIII>
+sayc %W       SSSSSC%KIIIIII%WEE%KIIIIIIIIIIIIIIIIIIII>
+sayc %W       PSSSSS%KIIIIII%WE%KIIIIIIIIIIIIIIIIIIII>
+sayc %W        SSSSSX%KIIIII%WX%KIIIIIIIIIIIIIIIIIIII>
+sayc %W        SSSSb%KIIII%W9%KIIIIIIIIIIIIIIIIIIIII>
+sayc %W         `SSSSSC%KII%W9%KIIIIIIIIIIIIIIIIIIIII
+sayc %W         PSSSSSSbUi%KIIIIIIIIIIIIIIIIIIII
+sayc %W          `SSSSSSSSSSSSSb%KIIIIIIIIIIIIIII
+sayc %W           PSSSSSSSSSSSSSf%KIIIIIIIIIIIIII
+sayc %W            SSSSSSSSSSSSSS<%KIIIIIIIIIIIII>
+sayc %W             PSSSSSSSSSSSF%KIIIIIIIIIIIIIII
+sayc %W               'SSSSSSSSS%KIIIIIIIIIIIIIIIII
+sayc %W                'SSSSSSSS%KIIIIIIIIIIIIIIIII:
+sayc %W                 PSSSSSSP%KIIIIIIIIIIIIIIIIII:
+sayc %W                  SSSSS%KIIIIIIIIIIIIIIIIIIIII
+sayc %y                  `SSSSPP>`-,    %K`'<-<-`<>.|'-
+sayc %y               ,:<<PSSSS-':<:      %K `|| |.<|.'
+sayc %y          =<:<<:<<:'PSP'````           %K `` ` '`
+sayc                     %2%YFor The Linux Lover
+}

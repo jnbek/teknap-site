@@ -1,0 +1,13 @@
+alias zerokill
+{
+        //gusers rick -cmd
+        {
+                //whois -cmd
+                {
+                        if ([$match(0 $5)])
+                        {
+                                raw 610 $0 "Leeches Suck Ass!"
+                        }
+                } $0
+        } -leech -users
+}

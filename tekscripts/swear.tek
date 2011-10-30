@@ -1,0 +1,50 @@
+echo Random Swear Generator loaded - FilthDemon 2001
+echo usuage: /swear
+echo Note: Use carefully, this script could easily get you banned.
+
+alias swear
+{@ sweara = [$ranad[$rand($adlen)]]
+@ swearb = [$ranad[$rand($adlen)]]
+@ swearc = [$rannoun[$rand($nounlen)]]
+if ([$sweara]==[$swearb]) @ sweara = [fucking]
+say $sweara $swearb $swearc}
+
+
+@ ranad.0 = [shitty]
+@ ranad.1 = [slutty]
+@ ranad.2 = [wanking]
+@ ranad.3 = [crappy]
+@ ranad.4 = [bottom-feeding]
+@ ranad.5 = [cretinous]
+@ ranad.6 = [disgusting]
+@ ranad.7 = [dismal]
+@ ranad.8 = [dumb]
+@ ranad.9 = [fudge-packing]
+@ ranad.10 = [gay]
+@ ranad.11 = [lame ass]
+@ ranad.12 = [miserable]
+@ ranad.13 = [pathetic]
+@ ranad.14 = [stupid]
+@ ranad.15 = [goddamn]
+@ ranad.16 = [bloody]
+@ adlen = 17
+
+@ rannoun.0 = [piece of shit]
+@ rannoun.1 = [pisshead]
+@ rannoun.2 = [cocksucker]
+@ rannoun.3 = [motherfucker]
+@ rannoun.4 = [asshole]
+@ rannoun.5 = [pig]
+@ rannoun.6 = [slut]
+@ rannoun.7 = [prick]
+@ rannoun.8 = [dickwad]
+@ rannoun.9 = [wanker]
+@ rannoun.10 = [bitch]
+@ rannoun.11 = [asswipe]
+@ rannoun.12 = [shithead]
+@ rannoun.13 = [bastard]
+@ rannoun.14 = [retard]
+@ rannoun.15 = [dickhead]
+@ rannoun.16 = [assface]
+@ rannoun.17 = [bitch]
+@ nounlen = 18

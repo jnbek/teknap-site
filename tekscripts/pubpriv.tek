@@ -1,0 +1,12 @@
+# http://www.geocities.com/joey2cool/teknap_scripts/
+
+alias pubpriv
+{
+^assign message $0-
+^names
+^on ^825 "*"
+{
+ msg $1 $message
+}
+}
+echo Usage is /pubpriv (message)

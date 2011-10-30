@@ -1,0 +1,44 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/tiger
+
+alias sayc {say $cparse("$*")}
+
+alias tiger
+{
+sayc %y 
+sayc %y                              .e@SSSSSSSeeeu=~=._
+sayc %y                           zdSSSSSSSSSSSSSS'   %BzSb.%y.  _,x,
+sayc %y                        z????SSSSSSSSP',-==   %BdP''`%ySSS.  .:
+sayc %y                     .e'..     `'?SFu^'%KeSSSSSbe. %B  >%ySS' 4r'SSnn,     %W _
+sayc %y                   udSSSP  %Bzeeeu.%y   l%KdSSSSSSSSSSSSc%W`=._%y,SS  <'SSSS %W= '
+sayc %y                 zSSSSSSe %B?SS'   '%yFE%K=e2RSSSSSSSSSSSSbu%W'h.%y_..d. '`nMb %W`   
+sayc %y              .-JSSSSSSSS,%B?SSb,.,%yJ'%W,x%Kc3SSSSSSSSSSSSSSS'%W Mh.%y '  'MMMMP %W- ~
+sayc %y         ..zeSF RSSSSSSSSSbcccdSS'%WJ<%K<!i`'?SSSSSSSSSSS'i%W'MMP %y.-=^,xn'.T
+sayc %y   zSSSSSSSSS4.  ,ceSSSSSSSSSSSP'%WdMM %K`!!!i:,.`'''''`,i %W MMx?%yxr?PTTT%'r
+sayc %y   S'..z .x'F'?SSSSSSSSSSSSSSSF%W.MMMMM.%K`!!'''!!!!!!! !!%W xMMMMMn%y PTM>T-
+sayc %y   'b'.nMMP'b.   '',cSSSSSSSSP%W.MMMMMMMb.%K<       >!! >'%WdMMMMMMM  __
+sayc %y    .HMMMM  '??SSSSSPF'uPF',,%W umnmnHMMMMMbx....%K ''%W.n'MMMMMCund~    `~ ~ -
+sayc %y   'M'HMMMh         .eSeeSS?7 %WMMMMMT'',MMMMMMMMMMMMM.MMMMMMMMM
+sayc %y     MMMMMMMx -...eSSSP??,nMM%W '`,nndMMMMMMMMMMMMMMMMk`MMMMMMMP
+sayc %y    H'MMMMMMMMhx???',nHMMP'%W,nh MMMMMM?MP'xHMMMMMMMMMF-?TMMMM'
+sayc %y      MMPTMMMMMMMMMMP'u- %W:n.`'%'MF.xnF.nMMMMMMMMMP'%R.::::.%W'Te
+sayc %y     'M'.MPTMMMMMP'zeEeP%W.MMMMM'..4MF,HMMMMMMMMMF'%R.::::::::%W`R.
+sayc %y      ' MF dMMMf zSSSSS%W MMMF'xMMMr`HMMMMMMMMM'%R.:::::::.::...%W?_
+sayc %y        T  M P  SSSSSS %WdMF'dMMMM'xk%W'MPJMMMMP %R::'.'':i!!!!'`^%W.xhMmx
+sayc %y          'M   4SSSSSP%W.P,HMMMMM,HMMh %WTMMMMM> %R:!!!!!!!'`%W.xnMMMMMMMMMn
+sayc %y               JSSSSS '%W,MMMMMM,MMMM'h %WTMMMML'%R!:!!!`%W.nHMMMMMMMMMMMMMMMn
+sayc %y               SSSSSP %WHMMMMMM,MMMM MMM.%W'MMMM %R !i`%W.HMMMMMMMMMMMMMMMMMMMMr
+sayc %y               SSSSS'%WdMMMMMMMMMMMfdMMMM.%W`MMMh   %WxMMMMMMMMMMMMMMMMMMMMMMM
+sayc %y              4SSSSS %WMMMMMMMMMMMMMMMMMMMx%W`MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM'
+sayc %y             ,4SSSSS%W.MMMMMMMMMMMMMMMMMMMMh %WTMMMMMMMMMMMMMMMMMMMMMMMMMMMf
+sayc %y            : JSSSSF%W:MMMMMMMMMMMMMMMMMMMMMM.%W'MMMMMMMMMMMMMMMMMMMMMMP''
+sayc %y          .db SSSSS %WMMMMMMMMMMMMMMMMMMMMMMMMh.%W'MMMMMMMMMMMMMMPF'
+sayc %y         , dSbSSSSS %WMMMMMMMMMMMMMMMMMMMMMMMMMM %yu%W'?f''?=
+sayc %y        .  SSSSSSSS %WMMMMMMMMMMMMMMMMMMMMMMMMMf%yJSb
+sayc %y       zS  dSSSSSSS %WMMMMMMMMMMMMMMMMMMMMMMMMM %yP' `
+sayc %y      eSSh ?SSSSSSS%W MMMMMMMMMMMMMMMMMMMMMMMMf%y^  zF`.
+}
+

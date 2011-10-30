@@ -1,0 +1,44 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/lavalamp
+
+alias sayc {say $cparse("$*")}
+
+alias lavalamp
+{
+sayc %b               .88888888.
+sayc %b              .8888888888.
+sayc %b             .88        88.
+sayc %b            .88          88.
+sayc %b           .88            88.
+sayc %b          .88              88.
+sayc %b         .88     %R::.%b        88.
+sayc %b        .88      %R':'%b         88.
+sayc %b       .88          %R .::.%b     88.
+sayc %b      .88           %R.::::    %b  88.
+sayc %b     .88            %R':::'  %b     88.
+sayc %b    .88 %R.:::.  .:.         .:%b    88.
+sayc %b   .88%R  :::::  ':'        ':' %b    88.
+sayc %b   88   %R':::'       .::.        %b   88
+sayc %b   88        %R.::.  .:::::     .:. %b 88
+sayc %b   88        %R'::'  :::::'     ':'%b  88
+sayc %b   '88           %R .:::::  .::.  %b  88'
+sayc %b    '88         %R.:::::'  ::::: %b  88'
+sayc %b     '88        %R::::::.  ':::' %b 88'
+sayc %b      '88      %R ::::::::.    %b  88'
+sayc %b       '88   %R.:. ::::::::.   %b 88'
+sayc %b        '88  %R'::.::::::::::..%b88'
+sayc %b         '88 %R.::::::::::::::%b88'
+sayc %b          '88%R::::::::::::::%b88'
+sayc %b           '88%R::::::::::::%b88'
+sayc %b            88%R::::::::::::%b88
+sayc %b          .888888888888888888.
+sayc %b         .888XXXXXXXXXXXXXX888.
+sayc %b        .888XXXXXXXXXXXXXXXX888.
+sayc %b       .888XXXXXXXXXXXXXXXXXX888.
+sayc %b      .888XXXXXXXXXXXXXXXXXXXX888.
+sayc %b     888XXXXXXXXXXXXXXXXXXXXXXX8888
+sayc %b    88888888888888888888888888888888
+}

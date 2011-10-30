@@ -1,0 +1,18 @@
+/*Anti-Floodster*/ 
+/*by littleo147 aka o*/ 
+/*Help from gircobain and (-_-) aka Jabin and dot_com*/ 
+
+alias checkfloodster { 
+ whois -cmd { 
+    if (match("Floodster*" $9)) { 
+       kill $0 no floodster 
+       ban $0 Floodster Get a new client! 
+    } 
+ } $0 
+} 
+
+on #^join 666 "*" checkfloodster $0 
+on ^flood "% PUBLIC *" 
+on #-msg 123 "*" checkfloodster $0 
+on #-404 456 "% has requested your info" checkfloodster $0 
+on #-404 789 "% has requested a ping" checkfloodster $0

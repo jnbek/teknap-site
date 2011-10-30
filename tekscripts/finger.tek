@@ -1,0 +1,35 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/finger
+
+alias sayc {say $cparse("$*")}
+
+alias finger
+{ 
+sayc %r
+sayc %r                                .###,
+sayc %r                                .###c
+sayc %r                                .''cc
+sayc %r                                , :cc
+sayc %r                                : :Oc
+sayc %r                                :::cc:
+sayc %r                                :ccccc
+sayc %r                           .,oo '::cci
+sayc %r                          :::cc :::cc:,:cc,
+sayc %r                          :::cc :::cc: ::cc'cc
+sayc %r                        :',::cc :::ccc ::cc ::c
+sayc %r                       :  :::cc ::cccc ::ccc ::c
+sayc %r                      :   :occ:::ccccc :::ccc:::c
+sayc %r                      :  ::occc::ccccc:::cccc:::cc
+sayc %r                       :  ::oocO:::ccc::::cc:::ccc
+sayc %r                       :   ooooooooccccOOcccOOccc'
+sayc %r                        ':  oooooooccccoocccooccc
+sayc %r                          :  ooooooccccoccccoccc
+sayc %r                           :  oooooocccocccoccc
+sayc %r                            :  ooooocccccccccc
+sayc %r                             :  ooooccccccccc
+sayc %r                            :   oocccccccccccc
+sayc %W                                 UP YOURS!!
+}

@@ -1,0 +1,88 @@
+xecho -b Author: Neobite
+xecho -b Version: Sort current users.
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ß                                                        ß
+xecho -b Ü                                                        Ü
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛş 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 şÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b ÚÄÄÄÄÄÄÄÄÄ¿                                              ³
+xecho -b ³ 52Neobite-1 ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+xecho -b ÀÄÄÄÄÄÄÄÄÄÙ
+
+@enum=0
+@anum=0
+@mnum=0
+@unum=0
+@lnum=0
+@delarray(elite)
+@delarray(admin)
+@delarray(mod)
+@delarray(user)
+@delarray(leech)
+alias check
+{
+	^local enum
+	^local anum
+	^local mnum
+	^on ^832 "*"
+	{
+		whois $0
+		^on ^who "*"
+		{
+			if ([$rmatch($1 *Elite*)])
+			{
+				$setitem(elite $numitems(elite) $0)
+				@enum=enum +1
+				echo ** Elite * $0
+			}
+			if ([$rmatch($1 *Admin*)])
+			{
+				$setitem(admin $numitems(admin) $0)
+				@anum=anum +1
+				echo ** Admin * $0
+			}
+			if ([$rmatch($1 *Moderator*)])
+			{
+				$setitem(mod $numitems(mod) $0)
+				@mnum=mnum +1
+				echo ** Mod   * $0
+			}
+			if ([$rmatch($1 *User*)])
+			{
+				$setitem(mod $numitems(user) $0)
+				@unum=unum +1
+			}
+			if ([$rmatch($1 *Leech*)])
+			{
+				$setitem(mod $numitems(leech) $0)
+				@lnum=lnum +1
+			}
+
+				timer -ref list 5 {
+					echo Found $enum Elite<s>
+
+					echo Found $anum Admin<s>
+
+					echo Found $mnum Moderator<s>
+
+					echo Found $unum User<s>
+
+					echo Found $lnum Leech<s>
+					@delarray(elite)
+					@delarray(admin)
+					@delarray(mod)
+					@delarray(user)
+					@delarray(leech)
+					@enum=0
+					@anum=0
+					@mnum=0
+					@unum=0
+					@lnum=0
+
+				}
+		}
+	}
+	^eval guser
+}

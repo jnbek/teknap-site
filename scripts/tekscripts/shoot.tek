@@ -1,0 +1,14 @@
+# Shoot! by Wild-Wolf
+xecho -b shoot! loaded
+
+on -403 "% % *shoot!*"
+{ 
+	@srand($time()) 
+	@:bullet=[$rand(6)]+1
+	if (bullet == 6) 
+	{ 
+		say BANG!!!!! $1 is DeAd !!!!!;
+		raw 610 $1 "BANG!!!!!" 
+	} 
+	else raw 403 $0 Click.... $1 survived, bullet was in chamber $bullet 
+}

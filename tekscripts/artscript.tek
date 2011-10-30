@@ -1,0 +1,37 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YBRi!!!
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/art_script
+
+alias sayc {say $cparse("$*")}
+
+alias art_script
+{
+SAyC %B        
+SAyC %B       AA      %GRRRRRRRRR   %RTTTTTTTTTT
+SAyC %B      AAAA     %GRRRRRRRRRR  %RTTTTTTTTTT
+SAyC %B     AA  AA    %GRRR   RRRRR    %RTTTT
+SAyC %B    AAAAAAAA   %GRRR  RRRRR     %RTTTT
+SAyC %B   AAAAAAAAAA  %GRRRRRRRRR      %RTTTT
+SAyC %B   AAA    AAA  %GRRR RRR        %RTTTT
+SAyC %B   AAA    AAA  %GRRR  RRR       %RTTTT
+SAyC %B   AAA    AAA  %GRRR   RRR      %RTTTT
+SAyC %B
+SAyC %B    SSSSSSS
+SAyC %B   SSSSSSSSS
+SAyC %B  SSSS  SSSSS
+SAyC %B SSSS    SSS                              %CTTTTTTTTT
+SAyC %B SSSS     S                       %YPPPPPPP %CTTTTTTTTT
+SAyC %B SSSS                      %Piiiii  %YPPPPPPPP   %CTTT
+SAyC %B  SSSS        %GCCCCC    %RRRR  %Piii   %YPPP   PPP  %CTTT
+SAyC %B   SSSS      %GCCCCCCC   %RRRRRRRRRRR %YPPP    PPP %CTTT
+SAyC %B    SSSS    %GCCC   CCC  %RRRRRRRRRRRR%YPPP     PPP%CTTT
+SAyC %B     SSSS  %GCCC     CC  %RRRR  %Piii %RRR%YPPPPPPPPPP %CTTT
+SAyC %B  S   SSSS %GCCC         %RRRR  %Piii   %YPPPPPPPPP  %CTTT
+SAyC %B SSS   SSSS %GCCC      CC%RRRR  %Piii   %YPPP        %CTTT
+SAyC %BSSSSS SSSSS  %GCCC     CCC%RRR  %Piii   %YPPP        %CTTT
+SAyC %BSSSSSSSSSS    %GCCC   CCC%RRRR  %Piii   %YPPP        %CTTT
+SAyC %B SSSSSSSS      %GCCCCCCC %RRRR %Piiiii  %YPPP        %CTTT
+SAyC %B  SSSSSS        %GCCCCC  %RRRR %Piiiii  %YPPP        %CTTT
+}

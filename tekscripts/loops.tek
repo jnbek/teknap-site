@@ -1,0 +1,19 @@
+xecho -b loops script loaded ... by Princess 
+/alias loops
+{
+/sayc %P           #########
+/sayc %P          #         #
+/sayc %P         #    ###    #
+/sayc %P         #   #   #   #
+/sayc %P   #######   ###############
+/sayc %P  #      #   #   #   #      #
+/sayc %P #   #####   #############   #
+/sayc %P #  #    #   #   #   #    #  #
+/sayc %P #   #############   #####   #
+/sayc %P  #      #   #   #   #      #
+/sayc %P   ###############   #######
+/sayc %P         #   #   #   #
+/sayc %P         #    ###    #
+/sayc %P          #         #
+/sayc %P           #########
+}

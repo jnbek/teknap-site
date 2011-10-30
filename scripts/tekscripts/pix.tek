@@ -1,0 +1,240 @@
+alias rd
+{
+	/csay %1%R$
+}
+
+alias yl
+{
+	/csay %3%Y$
+}
+
+alias gr
+{
+	/csay %2%G$
+}
+
+alias cy
+{
+	/csay %6%C$
+}
+
+alias bl
+{
+	/csay %4%B$
+}
+
+alias pl
+{
+	/csay %5%P$
+}
+
+alias NiteAll
+{
+/eval $csay(%2%G.-*'`'*-.,_,.-*'`'*-.,_%Y $N says Nite All %G.-*'`'*-.,_,.-*'`'*-.,_)
+}
+
+alias byeall
+{
+/eval $csay(%4%G.-*'`'*-.,_,.-*'`'*-.,_%Y $N Says Bye All %G.-*'`'*-.,_,.-*'`'*-.,_)
+}
+
+alias welc (per)
+{
+/eval $csay(%3%Y A big %WWelcome%Y to the %W$C channel %G$per)
+}
+
+alias wb (per)
+{
+/eval $csay(%4%GWelcome Back %2%Y$per%4%G Welcome Back!!!)
+}
+
+alias cya (per)
+{
+/eval $csay(%3%YCya %G$per%Y come back soon!)
+}
+
+alias rofl (per)
+{
+/eval me $cparse(%0%R is %7%BLmao%0%R like a %3%YL%Ru%GN%Ba%PT%Ci%Wc%0%R at %G$per)
+}
+
+alias kiss (per)
+{
+/eval me $cparse("%Wgives %G$per%Y a %RsLoW.... %BLoNG.... %PDeeP.... %CPeNeTRaTiNG.... %WToNSiL-TiCKLiNG.... %RHaiR STRaiGHTeNiNG.. %GToe-CuRLiNG ....")
+/eval me $cparse("%YNeRVe-JaNGLiNG.... %BLiFe-aLTeRiNG.... %MFaNTaSY-CauSiNG.... %CI JuST SaW GoD!.... %PShOOt, DiD MY CLoTHeS FaLL oFF?....")
+/eval me $cparse("%WYeS, i'M GLaD i HaVe TEKNAP.... %YI ThInK I'M iN LoVe...... %W***KISS***")
+}
+
+alias smooch (per)
+{
+/eval me $cparse(%3%WSmooches %G$per%W cause he can)
+}
+
+alias rose (per)
+{  
+/eval csay $cparse("%0%WPretty Roses for %Y$per %R@%G>--->---- %0%G %R@%G>--->---- %R@%G>--->---- ")
+}
+
+alias matrix
+{ eval csay $cparse("%1%R(_|_)%0%0  %4%B(_|_)%0%W which pill will you take??%G The Matrix %Yor %W Your Life")}
+
+alias tnt
+{ 
+/eval csay $cparse("%1%Y D Y N A M I T E %0%W---------%R* %W Catch All You TekNappers!!")
+}
+
+alias pretty (per)
+{
+eval csay $cparse("%R (¯`'·.¸(¯`'·.¸%B _______________ %R¸.·'´¯)¸.·'´¯)")
+eval csay $cparse("%R (¯`'·.¸(¯`'·.¸ %PŸŸŸŸŸŸŸŸŸŸŸŸŸŸŸ %R¸.·'´¯)¸.·'´¯)")
+eval csay $cparse("%W ---==>>>>-----> %G$[15]per%W <-----<<<<==---")
+eval csay $cparse("%R (_¸.·'´(_¸.·'´ %PŸŸŸŸŸŸŸŸŸŸŸŸŸŸŸ %R`'·.¸_)`'·.¸_)")
+eval csay $cparse("%R (_¸.·'´(_¸.·'´%B ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ %R`'·.¸_)`'·.¸_)")
+}
+
+alias tongue (per)
+{
+/eval me $cparse("%Ysticks tongue out at %G$per%4%R :P~ :P~ :P~ :P~ :P~ :P~ %0%Yheheh")
+}
+
+alias happen
+{
+/eval csay $cparse(%YMY %WG%Boo%WD%CN%Be%WSS,,,T%CH%Bi%WS %Bi%WS %Bo%CN%Ye %CH%Ra%GPP%Be%CN%Bi%PN%WG R%Yoo%RM T%Bo%GD%MA%WY%G!!!!")
+}
+
+alias drink
+{
+/eval csay $cparse("%Y Wanna join me ? Hic! .........%W[%3%W__%0%W]D [%4%W__%0%W]D [%5%W__%0%W]D")
+}
+
+alias coffee (per)
+{
+/eval csay $cparse("%Y gives %C$per%Y a cup o coffee %3%Y__%0%yP")
+}
+
+alias union
+{
+/eval say $cparse("     %y**")
+/eval say $cparse("    %y****")
+/eval say $cparse("     %y**")
+/eval say $cparse("     %y**%R&&%W*****%B###########%W*%R&&&&&%W*%B##########%W**%R&&&%W***")
+/eval say $cparse("     %y**%W**%R&&&%W*****%B########%W*%R&&&&&%W*%B########%W**%R&&&%W*****")
+/eval say $cparse("     %y**%B##%W**%R&&&%W*****%B######%W*%R&&&&&%W*%B######%W**%R&&&%W*****%B##")
+/eval say $cparse("     %y**%B####%W**%R&&&%W******%B###%W*%R&&&&&%W*%B###%W**%R&&&%W******%B####")
+/eval say $cparse("     %y**%B#######%W**%R&&&%W*****%B#%W*%R&&&&&%W*%B#%W**%R&&&%W*****%B#######")
+/eval say $cparse("     %y**%W*******************%R&&&&&%W*******************")
+/eval say $cparse("     %y**%R&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+/eval say $cparse("     %y**%R&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+/eval say $cparse("     %y**%R&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+/eval say $cparse("     %y**%W*******************%R&&&&&%W*******************")
+/eval say $cparse("     %y**%B#######%W*****%R&&&%W**%B#%W*%R&&&&&%W*%B#%W*****%R&&&%W**%B#######")
+/eval say $cparse("     %y**%B####%W******%R&&&%W**%B###%W*%R&&&&&%W*%B###%W******%R&&&%W**%B####")
+/eval say $cparse("     %y**%B##%W*****%R&&&%W**%B######%W*%R&&&&&%W*%B######%W*****%R&&&%W**%B##")
+/eval say $cparse("     %y**%W*****%R&&&%W**%B########%W*%R&&&&&%W*%B########%W*****%R&&&%W**")
+/eval say $cparse("     %y**%W***%R&&&%W**%B##########%W*%R&&&&&%W*%B###########%W*****%R&&")
+/eval say $cparse("     %y**")
+/eval say $cparse("     %y**%RF%Wl%Ba%Rg %Wb%By %RL%Wi%Bm%Re%Wy%B!%R!%W! ")
+/eval say $cparse("     %y**")
+/eval say $cparse("     %y**")
+/eval say $cparse("     %y**")
+}
+
+
+alias canada
+{
+/eval say $cparse("     %Y**")
+/eval say $cparse("    %Y****")
+/eval say $cparse("     %Y**")
+/eval say $cparse("     %Y**%R#############%W*****************************%R#############")
+/eval say $cparse("     %Y**%R#############%W**************%R#%W**************%R#############")
+/eval say $cparse("     %Y**%R#############%W*************%R###%W*************%R#############")
+/eval say $cparse("     %Y**%R#############%W*********%R##%W*%R#####%W*%R##%W*********%R#############")
+/eval say $cparse("     %Y**%R#############%W*****%R#%W****%R#########%W****%R#%W*****%R#############")
+/eval say $cparse("     %Y**%R#############%W****%R####%W**%R#########%W**%R####%W****%R#############")
+/eval say $cparse("     %Y**%R#############%W*****%R###################%W*****%R#############")
+/eval say $cparse("     %Y**%R#############%W*******%R###############%W*******%R#############")
+/eval say $cparse("     %Y**%R#############%W*********%R###########%W*********%R#############")
+/eval say $cparse("     %Y**%R#############%W********%R##%W****%R#%W****%R##%W********%R#############")
+/eval say $cparse("     %Y**%R#############%W**************%R#%W**************%R#############")
+/eval say $cparse("     %Y**%R#############%W**************%R#%W**************%R#############")
+/eval say $cparse("     %Y**%R#############%W*****************************%R#############")
+/eval say $cparse("     %Y**")
+/eval say $cparse("     %Y**       %4%RF%Wl%Ra%Wg %Rb%Wy %Ra%Ws%Rh%We%Rs%W!%R!%W! ")
+/eval say $cparse("     %Y**")
+/eval say $cparse("     %Y**")
+/eval say $cparse("     %Y**")
+}
+
+alias usflag
+{
+eval say $cparse("%y.:::.")
+eval say $cparse("%y':::'")
+eval say $cparse("%y .:")
+eval say $cparse("%y .:%B*~*:._.:*~*:.*.:*~*:._.:*~*:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:%W._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:%W._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:%W._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%B*~%W*%B:._.:%W*%B~*:.%W*%B.:*~%W*%B:._.:%W*%B~*:%R._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%W*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%R*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%R*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%W*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%R*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%R*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%W*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%R*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+eval say $cparse("%y .:%R*~*:._.:*~*:.*.:*~*:._.:*~*:%._.:*~*:._.:*~*:._.:*~*:._.:*~*:.")
+}
+
+alias target
+{
+
+/csay       OOOOOOOO
+/csay     OOOOOOOOOOOO                                __
+/csay   OOOOOOOOOOOOOOOO                             /  |
+/csay  OOOOOOOOOOOOOOOOOO                           /   |
+/csay  OOOOOOOOoPoOOOOOOO                          /    |
+/csay OOOOOOOOOOOOOOOOOO        <-------<<<<-{    }    |
+/csay  OOOOOOOOOOOOOOOOOO                          \    |
+/csay  OOOOOOOOOOOOOOOOOO                           \   |
+/csay   OOOOOOOOOOOOOOOO                             \__|
+/csay     OOOOOOOOOOOO
+/csay       OOOOOOOO
+}
+
+alias finger
+{
+eval say $cparse("%Y          _____")
+eval say $cparse("%Y          |_ _|")
+eval say $cparse("    %R n    (%wO O%R)    n")
+eval say $cparse("    %R H    |\_/|_   H")
+eval say $cparse("   %R nHnn%B/ \___/ \%RnnHn")
+eval say $cparse("  %R <V VV%B /      \%R VV V>")
+eval say $cparse("   %R \__\/%B|     |%R\/__/")
+}
+alias Gun 
+{  eval me $cparse("%0%W______________%0%W")
+   eval me $cparse("%0%W|    _________()%0%W")
+   eval me $cparse("%0%W|    _________()%0%W") 
+   eval me $cparse("%3%W|XXX|%0%W_(_/%3%K") 
+   eval me $cparse("%3%W|XXX|%3%W") 
+   eval me $cparse("%3%W|___|%3%W")}
+
+alias ibrator
+{
+                    
+eval csay $cparse("%R   __")                   
+eval csay $cparse("%R  (__)")
+eval csay $cparse("%P  |  |") 
+eval csay $cparse("%P _|  |_")
+eval csay $cparse("%P(__)(__)")
+eval csay $cparse("%w   |  ")
+eval csay $cparse("%Y __%w|%Y_____________  ")
+eval csay $cparse("%0%Y|__Battery Pack__|")}
+

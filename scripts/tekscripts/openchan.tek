@@ -1,0 +1,106 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04OpenChan Script Loaded %>02/oc_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias oc_menu
+{
+ echo
+ echo 57         Usage : 54/openchan_on [OpenNap]
+ echo 57                 54/openchan_sn [SlavaNap]
+ echo
+ echo 00This script opens and properly configs your rooms. :)
+ echo
+}
+
+#---+--<==>--+---{READ INFO ON LINE'S BEFORE USING!!!}---+--<==>--+---#
+
+## This script loads all channels and set's the limit, level, and topic
+## of the room and registers them(If you're using it for the 1st time).
+ 
+## Cloaks the user/bot
+cloak
+
+## Room's
+assign ROOMS TuTone's_Room Trance Rap HipHop R&B Alternative Help Reggae 70's 80's Ambient Anime Blues Brasilian Classical ClassicRock Club Country Comedy Covers Dance Disco DJ Dutch Folk French Funk Game German Gospel Gothic Grunge Guitar HardCore House Industrial International Italian Jazz Jungle Live Lobby Metal NewArtists Oldies Pop Punk Remixes Rock Russian Ska Soundtracks Spanish Techno Themes
+
+## Put in ur server name or 4 ex:"Welcome to *Bob's* (room name) room!"..
+## *Bob's* is what X1 is assigned 2....mine says...
+## "Welcome to TuTone's (blah) room!"
+@SNX=[TuTone's]
+
+## Room levels...usually user or leech(leech,user,moderator,admin,elite)
+@LVL=[leech]
+
+## Room limit....usually 100
+@LMT=[100]
+
+## What it does : opens a room, registers it, sets the level, sets the
+##  limit, and sets the topic...
+#***********(automatically opens a Mods room....see bottom)***********#
+#*********(automatically opens an Admins room....see bottom)**********#
+#**********(automatically opens an Elites room a.k.a. Cave)***********#
+
+alias openchan_sn
+{
+ fe ($rooms) a
+ {
+  j $a
+ }
+ on -825 "*"
+ {
+  m operServ chanlevel $3 $lvl
+  m operServ chanlimit $3 $lmt
+  m chanServ mode $3 +registered -private -invite
+  m chanServ topic $3 "Welcome to $snx $3 room."
+ }  
+ ^list
+ admin_join
+ pause 10
+ clear
+ echo Thank You!
+}
+
+alias openchan_on
+{
+ fe ($rooms) a
+ {
+  j $a
+ }
+ on -825 "*"
+ {
+  m chanserv topic $3 "Welcome to $snx $3 room!"
+  m chanserv mode $3 +registered -private -invite
+  m chanserv level $3 $lvl
+  m chanserv limit $3 $lmt
+ }  
+ ^list
+ admin_join
+ pause 10
+ clear
+ echo Thank You!
+}
+
+alias admin_join
+{
+ j Admins
+ m chanserv topic admins "Welcome to the Admins dwelling!"
+ m chanserv mode admins +registered -private -invite
+ m chanserv level admins mod
+ m chanserv limit admins $lvl
+ j Cabinet
+ m chanserv topic cabinet "Open the Cabinet for a special suprise!"
+ m chanserv mode cabinet +registered -private -invite
+ m chanserv level cabinet admin
+ m chanserv limit cabinet $lvl
+ j Cave
+ m chanserv topic cave "The Cave is for elite beings ONLY!"
+ m chanserv mode cave +registered -private -invite
+ m chanserv level cave elite
+ m chanserv limit cave $lvl
+}

@@ -1,0 +1,14 @@
+xecho -b Ip Saver Loaded
+xecho -b Author: Wech
+
+assign IPS  c:\teknap\SavedIps.txt
+on ^join "*" {
+xecho -b $1 has joined $0 
+whois $1
+eval on ^who "*" 
+{
+@ fd = open($IPS w)
+@ write($fd Name:$0 Ip:$12)
+@ close($fd)
+}
+}

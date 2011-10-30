@@ -1,0 +1,28 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/dolphin
+
+alias sayc {say $cparse("$*")}
+
+alias dolphin
+{
+sayc %C                                _
+sayc %C                              _.-~~.
+sayc %C        _.--~~~~~---....__  .' . .,'
+sayc %C      ,'. . . . . . . . . .~- ._ C
+sayc %C     / .. .%Wc%C. . . . . . . . . . .~-._
+sayc %C  .~__.-~    ~`. . . . . . . . . . . -.
+sayc %W  `----..._      %C~-=~~-. . . . . . . . ~-.
+sayc %W            ~-._   %C`-._ ~=_~~--. . . . . .~.
+sayc %C             / .%W~-.._ %C ~--._-.    ~-. . . . ~-.
+sayc %C             C .C    %W~~--.._%C~'       %C`. . . . .~-.             ,
+sayc %C              `._C          %W~~--.._   %C`. . . . . ~-. %b.- .%C    /.
+sayc %b  . _ . -~\       _ ..  _         %W~~--.%C`_. . . . . .~-_    ,-','`%b .
+sayc %b             ` ._           ~             %C~--. . . . .~=.-'. /%b. `
+sayc %b      - . -~          -. _ . - ~ - _   - ~     %C~--..__~ _,. /%b \ - ~
+sayc %b          . __ ..                   ~-                %C~~_. C%b  `
+sayc %b`. _ _           `-       ..  - .       . - ~ ~ .     \  %C~.*%b` ` `._
+sayc %b     _ ~.., _                                     - .  `  %C.!%b     `
+}

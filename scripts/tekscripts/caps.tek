@@ -1,0 +1,44 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/caps [on|off| ]
+
+@on_tog=0
+
+alias caps (toggle)
+{
+ if (!toggle)
+ {
+  if (on_tog)
+  {echoc %WCaps check is now %Yon.}
+  {echoc %WCaps check is now %Roff.}
+ }
+ {
+  switch ($toggle)
+  {
+   (on)
+   {
+    echoc %WCaps check is now %Yon.
+    @on_tog=1
+    ^on #-public 32132 "*"
+    {
+     if (match($2- $toupper($2-)))
+     {
+      say Hey $0. Hit that [Caps Lock] key.
+     }
+    }
+   }
+   (off)
+   {
+    @on_tog=0
+    ^on #public 32132 -"*"
+    echoc %WCaps check is now %Roff.
+   }
+   (*)
+   {
+    echoc %WError: %Y[on|off| ] only please.
+   }
+  }
+ }
+}

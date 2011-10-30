@@ -1,0 +1,31 @@
+#written by Neo
+alias sayc
+{ 
+	eval say $cparse("$*")
+}
+alias Plane2
+{
+/sayc                %R##### %W| %R#####
+/sayc               %R# %W_ _ %R#%W|%R# %W_ _ %R#
+/sayc               %R#      %W|      %R#
+/sayc         %Y|       %R############
+/sayc                     %R# #
+/sayc  %Y|                  %R# #
+/sayc                    %R#   #
+/sayc         %Y|     %Y|    %R#   #      %Y|        %Y|
+/sayc  %Y|  %Y|             %R#     #               %Y|
+/sayc         %Y| %Y|   %Y|   %R# %W.-. %R#         %Y|
+/sayc                   %R#%W( O )%R#    %Y|    %Y|     %Y|
+/sayc  %Y|  %R################%W. .%R###############  %Y|
+/sayc   %R##  %W_ _|____|     %R###    %W|_ __| _ _ %R##
+/sayc  %R#  %W|                                |  %R#
+/sayc  %R#  %W|    |    |    |   |    |    |   |  %R#
+/sayc   %R######################################
+/sayc                   %R#     #
+/sayc                    %R#####
+/sayc               %WOOOOOOO%R|%WOOOOOOO
+/sayc                      %RU
+/sayc
+/sayc     %Rlook mummy theres a airplane up in the sky
+}
+

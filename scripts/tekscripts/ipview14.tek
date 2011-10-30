@@ -1,0 +1,71 @@
+/*
+
+ipVIEW 1.4
+by joey2cool
+http://2cool.rapigator.com
+
+last modified 10/14/2001 3:45am EST
+
+changes since 1.3 :
+¤ now utilizes teknap's internal longip decoder :)
+¤ fixed any remaining resolving problems(if there was any)
+
+changes since 1.2 :
+¤ fixed resolving
+
+changes since 1.1 :
+¤ fixed it so if you dont specify a nickname it will show an error
+
+changes since 1.0 :
+¤ fixed for TekNap 1.3
+¤ changed colors
+¤ added resolving of hostnames(UNIX ONLY)
+¤ removed ipview_working checks
+¤ added /ip alias(you can use either /ip or /ipview now)
+¤ removed direct browse method of finding IPs(the target can obviously get YOUR ip that way!)
+¤ fixed firewalled error message(when both you and the target have a dataport of 0)
+
+*/
+
+# If you use TekNap for unix turn the following on -
+^assign unixresolving off
+
+xecho -b 56ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b 56³IPVIEW 1.4 LOADED³
+xecho -b 56ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+alias ip { ipview $0- }
+alias ipview {
+if ([$0] != []) {
+raw 211 $0
+^assign nickname $0
+^on ^213 "*" {
+@:revip = longtoip($1)
+repeat 3 {
+@ip_str = [.]##before(1 . $revip)##ip_str
+@:revip = after(1 . $revip)
+}
+@ip_str = revip##ip_str
+if ([$ip_str] != [...]) {
+if ([$unixresolving] == [on]) nslookup -cmd { ipview_report $0 $1 } $ip_str
+if ([$unixresolving] != [on]) ipview_report $ip_str
+^assign -ip_str
+}
+if ([$ip_str] == [...]) {
+@ sentence = [$0] ## ['s IP could not be found!]
+^assign -ip_str
+xecho -b 56$sentence
+^assign -sentence
+}}}
+if ([$0] == []) xecho -b 56You MUST specify a nickname!
+}
+
+alias ipview_report {
+if ([$unixresolving] != [on]) ^assign sentence NICK: $nickname IP: $0
+if ([$unixresolving] == [on]) ^assign sentence NICK: $nickname IP: $0 HOSTNAME: $1
+assign -nickname
+xecho -b 56$sentence
+^assign -sentence
+}
+
+^on ^0 "Both you and % are firewalled;*"

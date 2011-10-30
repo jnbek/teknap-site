@@ -1,0 +1,44 @@
+/******************************
+ *    Type: Function          *
+ *  Author: TuToneBK          *
+ *    Name: GetIP             *
+ *   Usage: $getip(username)  *
+ *    Has a .7 second pause   *
+ ******************************/
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04GetIP Function Loaded %>02\$getip(user)
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias getip (user2chk)
+{
+ @blah_ip=[]
+ ^on ^0 "*" {}
+ ^on ^213 "*"
+ {
+  @:chg_ip=longtoip($1)
+  repeat 3 {@blah_ip=[.]##before(1 . $chg_ip)##blah_ip;@chg_ip=after(1 . $chg_ip)}
+  @blah_ip=chg_ip##blah_ip
+  ^on 213 -"*"
+  ^on 0 -"*"
+ }
+ raw 211 $user2chk
+ pause .7
+ switch ($blah_ip)
+ {
+  (*)
+  {
+   @function_return=blah_ip
+   @blah_ip=0
+  }
+  (...)
+  {
+   return Offline
+  }
+ }
+}

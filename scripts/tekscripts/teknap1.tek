@@ -1,0 +1,234 @@
+/*
+ * ashes teknap startup file
+ * 
+ * Author: various people have helped in getting this to the point it is now 
+ *         My thanks to jenny (p) for the readme!
+ *         brian (fudd) for some awesome scripts you da man!    
+ *	   nadia and snuggs for help with the colors and scripts.
+ *         Limey and o for so much help in figuring this client out...scripts and so on...
+ *
+ *         e-mail me at:  curlingash@hotmail.com
+ */
+assign nick your_nick_here
+assign pass your_password
+
+if (!already_loaded)
+{
+server +add bitchx.dimension6.com:8888:$nick:$pass:0
+server -del bitchx.dimension6.com:8875:::1
+server -del server.napster.com
+server +add godhatesmods.com:8888:$nick:$pass:0
+server +add mp3.chemlab.org:8888:$nick:$pass:0
+server +add imperialfleet.com:8888:$nick:$pass:0
+server +add opennap.squidcafe.com:8888:$nick:$pass:0
+server +add sol.dimension6.com:8888:$nick:$pass:0
+server +add limeynap.yi.org:8888:$nick:$pass:0
+server +add mtvsucks.ircii.org:8888:$nick:$pass:0
+assign already_loaded 1
+}
+
+on ^connect "*"
+{
+ echo *** Connected to $0 on port $1
+}
+
+/* double line status bar to start */
+window double on
+
+/* my various set statements please change to what you need 
+ * for example the set load_path should probably be set load_path //c/teknap/scripts
+ * the default_speed 3 = 33.6 modem , 4 = 56k modem , 10 = T3>
+ * the download_directory is set to drive d:\music you may want //c/teknap/music
+ * send_limit is the maximum # of files you will send to others at once
+ * max_send_nick is the maximum # of files you will send to a user at once
+ * the help_path is probably not needed unless you downloaded the help files :)
+ * scrollback_ratio is a % of screen you want to go back when using page up
+ * should leave flood_warning off and allow_dcc on :)
+ */
+
+set connect_timeout 5
+set suppress_server_motd off
+#set default_speed 3
+set shell //c/command.com
+#set load_path //c/netstuff/TekNap/scripts
+#set download_directory //d/music
+#set send_limit 1
+#set max_sends_nick 1
+set help_path //c/netstuff/TekNap/help
+set scrollback_ratio 100
+set flood_warning off
+set allow_dcc on
+#SET INPUT_PROMPT 14\(12$C14\)
+#SET SHOW_CHANNEL_NAMES ON
+#SET SHOW_NUMERICS_STR 14Ы11М14Ы
+#SET STATUS_CHANNEL %C
+#SET STATUS_FORMAT1 14зд Nick14(10%N14)%A%D Channel14(10%C:10%c14) Stats14(10%s14) %Q %>Lag14(10%L14) д©
+#SET STATUS_FORMAT2 14юд Server14(10%S14)    %d %J    %>Window14(10%R14) Time14(10%T14) ды
+#SET STATUS_HOLD -- more --
+#SET STATUS_NICK %N
+#SET STATUS_QUERY Query(10%Q)
+
+SET AUTO_RECONNECT ON
+SET AUTO_REJOIN 1
+SET CLOCK ON
+SET CLOCK_24HOUR OFF
+
+/* Home directory is assigned in autoexec.bat to c:/netstuff/Teknap
+ * by the command set HOME=//c/netstuff/Teknap
+ *
+ * Assign the script dir to c:/netstuff/Teknap/scripts
+ */
+
+assign SCRIPT_DIR ~/script
+
+/* load some scripts */
+fe () file
+	{
+        	^load $SCRIPT_DIR/$file
+	}
+
+/* allows you to swap between windows with alt 2, alt 3, alt 4
+ * for channels 80's , help, 80's2tek ...
+ * last window is for private msgs and must be loaded last
+ */
+alias startwin
+{
+window new double on bind #80's channel #80's hide
+window new double on bind #help channel #help hide
+window new double on bind #lunas_paintroom channel #lunas_paintroom hide
+window new double on server clawmarks.yi.org:8888:$nick:Iml8:0 hide
+#window new double on server limeynap.yi.org:8888:$nick:Iml8:0 hide
+#window new double on server -irc bitchx.com:6667:$nick hide
+#window new double on server icehawks13.yi.org:8888:$nick:$pass:0 hide
+}
+
+on ^msg "*" { xecho $cparse(%B[%R$0%B] %C$1-) }
+on ^send_msg "*" { xecho $cparse(%B[%Y$0%B] %c$1-) }
+on ^public "*" { xecho $cparse(%P<%G$0%P>%W$2-) }
+
+## Action
+on ^ACTION "*"
+{
+        xecho $cparse("%Y* $0\/$1%N") $2-
+}
+
+
+## WallOp
+on ^627 "*"
+{
+        echo $cparse("%G%7* [Admin] $0: $1- %n")
+}
+
+## Opsay
+on ^404 "% [ops/%]: *"
+{
+        echo $cparse("%Y%4* $tr(/://$1) $0: $2-%n")
+}
+
+## Announce
+on ^628 "*"
+{
+        echo $cparse("%Y%1* [Announcement] $0: $1-%n")
+}
+
+#alias winamp
+#{
+#/exec - name test //c/progra~1/winamp/winamp.exe
+#}
+
+/* to use type win <channel> 
+ * adds a new window join's the channel switch between windows
+ * with the alt # combination ex alt 1 , alt 2 alt 3 
+ */
+
+alias win
+{
+ window new double on bind $0 channel $0 hide
+}
+
+alias wl
+{
+ window last
+}
+
+alias csay { eval say $cparse("$*") }
+
+alias sayc { eval say $cparse("$*") }
+
+alias mes { eval msg $cparse("$*") }
+
+alias cme { eval me $cparse("$*") }
+
+alias ctopic { eval topic $cparse($*) }
+
+alias partall (void)
+{
+	input "Are you sure you want to part all your channels? (y/N) " if ([$0])
+	{
+		switch ($tolower($left(1 $0)))
+		{
+			(y) {
+				fe ($onchannels()) chan
+				{
+					raw 401 $chan
+				}
+			}
+			(*) {#}
+		}
+	}
+}
+
+alias quote raw
+
+alias sv version
+
+alias wi (nicks)
+{
+	if (nicks)
+	{
+		fe ($nicks) n1
+		{
+			whois $n1
+		}
+	}{
+		whois $N
+	}
+}
+
+/* Keep track of channels you have parted for 5 seconds after you
+   part them. (Required for Auto-rejoin on channel clears) */
+on -leave '$N *'
+{
+	local numitm
+	@ numitm = numitems(part)
+	@ setitem(part $numitems(part) $1)
+	timer 5 @ cleanup_part($numitm)
+}
+
+/* Auto-rejoin on kick */
+on -servermsg '% % $N out of channel *'
+{
+	local chan
+	@ chan = before(-1 : $6)
+	if (AUTO_REJOIN)
+	{
+		join $chan
+	}
+}
+
+/* Auto-rejoin on channel clear */
+on -servermsg "% cleared channel *"
+{
+	local chan
+	@ chan = before(-1 : $3)
+	if (AUTO_REJOIN && finditem(part $chan) > -1)
+	{
+		join $chan
+	}
+}
+
+alias cleanup_part (item)
+{
+	@ delitem(part $item)
+	return 1
+}

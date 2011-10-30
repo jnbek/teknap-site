@@ -1,0 +1,142 @@
+xecho -b Author: Neobite
+xecho -b Version: Anti-Flood
+xecho -b здддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+xecho -b ъ                                                        ъ
+xecho -b э                                                        э
+xecho -b Ё       здддддддддддддддддддддддддддддддддддддддд©       Ё
+xecho -b цдддддддешшЧ 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 Чшшеддддддд╢
+xecho -b Ё       юдддддддддддддддддддддддддддддддддддддддды       Ё
+xecho -b юдддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+xecho -b зддддддддд©                                              Ё
+xecho -b Ё 52Neobite-1 цдддддддддддддддддддддддддддддддддддддддддддддды
+xecho -b юддддддддды
+
+@killdate=strftime($time %x)
+@killcount=0
+assign flood_lines 10
+assign -flood_protect
+
+on -public "*" if (flood_protect)
+{
+ @check=[$0]
+ if (finditem(checkusr $check) < [0])
+ {
+  @setitem(checkusr $numitems(checkusr) $check)
+  @setitem(rep $numitems(rep) $check)
+ }
+ @checkusritm = finditem(checkusr $check)
+ @repi = getitem(rep $checkusritm) + 1
+ @setitem(rep $checkusritm $repi)
+ switch ($repi)
+ {
+  (1)
+  {
+   timer 2
+   {
+    @delarray(rep)
+    @delarray(checkusr)
+   }
+  }
+  ($flood_lines)
+  {
+   raw 610 $0 "out you go flooder"
+   cban $C $0 "stay out"
+   @nick=[$0]
+   on -404 "* killed *"
+   {
+    switch ($before(: $2))
+    {
+     ($nick)
+     {
+      if ([$killcount] == 0)
+      {
+       @killcount=killcount + 1
+       me has killed $killcount lamer since $killdate
+      }
+      {
+       @killcount=killcount + 1
+       me has killed $killcount lamers since $killdate
+      }
+     }
+    }
+   }
+  }
+  (*)
+  {
+  }
+ }
+}
+
+on -824 "*" if (flood_protect)
+{
+ @check=[$0$1]
+ if (finditem(checkusr $check) < [0])
+ {
+  @setitem(checkusr $numitems(checkusr) $check)
+  @setitem(rep $numitems(rep) $check)
+ }
+ @checkusritm = finditem(checkusr $check)
+ @repi = getitem(rep $checkusritm) + 1
+ @setitem(rep $checkusritm $repi)
+ switch ($repi)
+ {
+  (1)
+  {
+   timer 2
+   {
+    @delarray(rep)
+    @delarray(checkusr)
+   }
+  }
+  ($flood_lines)
+  {
+   raw 610 $1 "out you go flooder"
+   cban $C $1 "stay out"
+   @nick=[$1]
+   on -404 "* killed *"
+   {
+    switch ($before(: $2))
+    {
+     ($nick)
+     {
+      if ([$killcount] == 0)
+      {
+       @killcount=killcount + 1
+       me has killed $killcount lamer since $killdate
+      }
+      {
+       @killcount=killcount + 1
+       me has killed $killcount lamers since $killdate
+      }
+     }
+    }
+   }
+  }
+  (*)
+  {
+  }
+ }
+}
+
+alias flood_lines (int)
+{
+ ^assign flood_lines $int
+ xecho -b flood_lines set to $int
+}
+
+alias protect (arg)
+{
+ switch ($arg)
+ {
+  (on)
+  {
+   ^assign flood_protect on
+   xecho -b Set flood protection on, kill after $flood_lines lines.
+  }
+  (off)
+  {
+   ^assign -flood_protect
+   xecho -b Set flood protection off.
+  }
+ }
+}

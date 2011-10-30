@@ -1,0 +1,28 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YNeo
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/hammer
+
+alias sayc {say $cparse("$*")}
+
+alias hammer
+{
+sayc %n    ____________________
+sayc %n   /                    \\\\\\ 
+sayc %n   |   %W  In case of  %n   |
+sayc %n   |   %W  Frustration %n   |
+sayc %n   \\\\\\\____________________/
+sayc             %y!  !
+sayc             %y!  !
+sayc             %yL_ !
+sayc            %W/ _)%y!
+sayc           %W/ /__L
+sayc     %W_____%W/ (____)
+sayc     %W       (____)
+sayc     %W_____  (____)
+sayc          %W\\\\\\\_(____)
+sayc             %y!  !
+sayc             %y!  !
+sayc             %y\\\\\\\__/
+}

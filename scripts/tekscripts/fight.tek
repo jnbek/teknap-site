@@ -1,0 +1,57 @@
+xecho -b Fight Loaded
+xecho -b Author: ~N~
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ß                                                        ß
+xecho -b Ü                                                        Ü
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛş 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 şÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b ÚÄÄÄÄÄÄÄÄÄ¿                                              ³
+xecho -b ³ 52Neobite-1 ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+xecho -b ÀÄÄÄÄÄÄÄÄÄÙ
+
+assign F1 $0 kicks $3 in the balls.
+assign F2 $0 runs after $3 with a knife.
+assign F3 $0 takes a big slug at $3 and misses.
+assign F4 $0 takes a big punch at $3 and knocks him unconcious.
+assign F5 $0 gives $3 a nipple twister.
+assign F6 $0 breaks $3's leg.
+assign F7 $0 gives $3 a black eye.
+assign F8 $0 bites $3.
+assign F9 $0 runs over $3 with there car.
+assign F10 $0 scratches $3 with there finger nails.
+assign F11 $0 chokes $3.
+assign F12 $0 smacks $3 across the face.
+assign F13 $0 pulls on $3's hair.
+assign F14 $0 snipes $3.
+assign F15 $0 takes out some nun-chucks and starts swinging them at $3.
+assign F16 $0 hits $3 over the head with a metal pipe.
+assign F17 $0 kills $3 and pokes at them with a stick.
+assign F18 $0 kicks $3 in the kidney. Ouch.
+assign F19 $0 beats $3 with an iron bar.
+assign F10 $0 runs after $3 with a chainsaw.
+assign F21 $0 stabs $3 with a knife.
+assign F22 $0 picks $3 up and throws them across the room.
+assign F23 $0 learns karate real quick and uses it on $3.
+assign F24 $0 takes out a sawed off shotgun and shoots $3.
+assign F25 $0 drops a bomb on $3.
+assign F26 $0 shoves his foot up $3's ass.
+assign F27 $0 kicks $3's ass. 
+assign F28 $0 sticks out his leg and trips $3.
+assign F29 $0 shoots $3 with a flame thrower.
+assign F30 $0 shoots $3 with a tranquilizer dart.
+
+on -public "*" 
+{
+	switch ($2)
+	{
+		(!fight)
+		{
+			eval say $(F$rand(31))
+		}
+		(*)
+		{
+		}
+	}
+}

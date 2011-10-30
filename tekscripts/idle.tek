@@ -1,0 +1,52 @@
+# Idle.rc v1.2
+# By Juhah
+# 
+# This will make the users damn well idle
+
+ASSIGN IDLEROOM #Idle
+ASSIGN IDLETEXT.0 Shut up, this is $IDLEROOM - The Idle Room!
+ASSIGN IDLETEXT.1 This room was made to idle, not to chat. 
+ASSIGN IDLETEXT.2 Quit chatting - else you get kicked!
+ASSIGN IDLETEXT.3 Shut up! You're supposed to idle in here! 
+ASSIGN IDLETEXT.4 Go to #Alternative to chat, here should be idled! 
+ASSIGN IDLETEXT.5 IDLE, not chat! 
+ASSIGN IDLETEXT.6 You should idle in here, not chat.
+ASSIGN IDLETEXT.7 It's time to shut up and idle!
+ASSIGN IDLETEXT.8 Idle or jump!
+ASSIGN IDLETEXT.9 This room should be silent, absolutely silent.
+ASSIGN ACTIONBITCH.0 Think you're smart? Outta here!
+ASSIGN ACTIONBITCH.1 You can stuff your actions up yer ass. 
+ASSIGN ACTIONBITCH.2 Quit doing that! - else you get kicked!
+ASSIGN ACTIONBITCH.3 Shut up! You're supposed to idle in here! 
+ASSIGN ACTIONBITCH.4 Go to #Alternative to chat, here should be idled! 
+ASSIGN ACTIONBITCH.5 IDLE, not chat! 
+ASSIGN ACTIONBITCH.6 You should idle in here, not chat.
+ASSIGN ACTIONBITCH.7 It's time to shut up and idle!
+ASSIGN ACTIONBITCH.8 Idle or jump!
+ASSIGN ACTIONBITCH.9 I'm getting pissed off. *smack*
+
+on #-public 488 '% $IDLEROOM *'
+{
+  if ([$0] != [$N])
+  {
+    eval say $(IDLETEXT.$rand(10))
+    if ([$LAST_NICK_TALK] == [$0])
+    {
+      kick $IDLEROOM $0 $(IDLETEXT.$rand(10))
+    }
+    assign LAST_NICK_TALK $0
+  }
+}
+
+on #-action 488 '$IDLEROOM % *'
+{
+  if ([$1] != [$N])
+  {
+    eval say $(ACTIONBITCH.$rand(10))
+    if ([$LAST_NICK_TALK] == [$1])
+    {
+      kick $IDLEROOM $1 $(ACTIONBITCH.$rand(10))
+    }
+    assign LAST_NICK_TALK $1
+  }
+}

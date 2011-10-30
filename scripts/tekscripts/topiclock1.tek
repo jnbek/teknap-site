@@ -1,0 +1,61 @@
+# Thanks to Snoop_911 for part of this script
+
+xecho -b Topic Lock script loaded
+xecho -b Written by gircobain
+
+# Assign the name of your Openserv Bot here 
+@OPENSERVBOT = [doofus]
+
+@delarray(TLCHANS)
+@delarray(TOPICS)
+
+alias topiclock (toggle) {
+  if (toggle) {
+    switch ($toggle) {
+      (on) {
+        if (finditem(TLCHANS $tolower($C))>-1) {
+          xecho -b Topic lock for $C is already ON
+        }{
+          @setitem(TLCHANS $numitems(TLCHANS) $tolower($C))
+          xecho -b Topic lock for $C is now ON
+#this block retrieves the topic for the channel being locked
+          ^on ^410 '$C *' {
+            @setitem(TOPICS $numitems(TOPICS) $1-)
+            on 410 -'$C *'
+          } 
+          ^raw 205 chanserv topic $C
+        }
+      }
+      (off) {
+        if ((INDEX = finditem(TLCHANS $tolower($C)))<0 ||) {
+          xecho -b Topic lock for $C is already OFF
+        }{
+          @delitem(TLCHANS $INDEX)
+          @delitem(TOPICS $INDEX)
+          xecho -b Topic lock for $C is now OFF
+        }
+      }
+      (*) {
+        xecho -b Usage: /topiclock [on|off]
+      }
+    }
+  }{
+    if (finditem(TLCHANS $tolower($C))>-1) {
+      xecho -b Topic lock for $C is currently ON
+    }{
+      xecho -b Topic lock for $C is currently OFF
+    }
+  }
+}
+
+on -servermsg '% set topic on *' {
+  if ([$0] != OPENSERVBOT) {
+    if ((INDEX = finditem(TLCHANS $tolower($before(: $4))))>-1) {
+      if ([$0] == [$N]) {
+        if ([$5-] != finditem(TOPICS $INDEX)) @setitem(TOPICS $INDEX $5-)
+      }{
+        ^raw 205 chanserv topic $before(: $4) $getitem(TOPICS $INDEX)
+      }
+    }
+  }
+}      

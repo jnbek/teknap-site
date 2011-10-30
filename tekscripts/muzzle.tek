@@ -1,0 +1,73 @@
+/*
+ * Auto-Muzzle script for BWap
+ *  
+ * Author: Brian Weiss <brian@got.net> - 2000
+ */
+
+assign AUTO_MUZZLE 1
+assign AUTO_MUZZLE_TIME 60
+
+alias automuzzle (arg, void)
+{
+	switch ($arg)
+	{
+		(0) 
+		{
+			^assign AUTO_MUZZLE 0
+			xecho -b Auto-muzzle de-activated!
+		}
+		(1) 
+		{
+			^assign AUTO_MUZZLE_ON 1
+			xecho -b Auto-muzzle activated!
+		}
+		(off) 
+		{
+			^assign AUTO_MUZZLE 0
+			xecho -b Auto-muzzle de-activated!
+		}
+		(on) 
+		{
+			^assign AUTO_MUZZLE 1
+			xecho -b Auto-muzzle activated!
+		}
+		(*)
+		{
+			if (AUTO_MUZZLE)
+			{
+				^assign AUTO_MUZZLE 0
+				xecho -b Auto-muzzle de-activated!
+			}{
+				^assign AUTO_MUZZLE 1
+				xecho -b Auto-muzzle activated!
+			}
+		}
+	}
+}
+
+on ^flood "% PUBLIC *" if (AUTO_MUZZLE)
+{
+	if (finditem(pubflood $0) < [0])
+	{
+		xecho -b $1 flooding detected from $0 on $2
+		@ setitem(pubflood $numitems(pubflood) $0)
+# 		if (checkuserclass($0) < [2])
+# 		{
+#			muzzle $0 Auto-muzzle for $auto_muzzle_time seconds: flood
+#			timer $auto_muzzle_time _unmuzzle $0
+#		}
+		whois -cmd
+		{
+			switch ($tr(/"//$1))
+			{
+				(Elite) {;}
+				(Admin) {;}
+				(Moderator) {;}
+				(*) {
+					muzzle $0 Auto-muzzle for $auto_muzzle_time seconds: flood
+					timer $auto_muzzle_time eval unmuzzle $0;@ delitem(pubflood $finditem(pubflood $nick))
+				}
+			}
+		} $0
+	}
+}

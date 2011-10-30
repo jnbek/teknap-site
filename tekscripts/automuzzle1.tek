@@ -1,0 +1,116 @@
+xecho -b Auto-muzzle script loaded
+xecho -b by gircobain 14/01/2001
+
+@CMUZZLE_FILE = [~/cmuzzle.log]
+
+if (fexist($CMUZZLE_FILE)) {
+  @fd = open($CMUZZLE_FILE r)
+  @MUZZLE_LIST = read($fd)
+  @MUZZLE_CHANS = read($fd)
+  @close($fd)
+}{
+  @MUZZLE_LIST = [User]
+  @MUZZLE_CHANS = [#Channel]
+}
+
+alias amuzzle {
+  ^local nick
+  ^local chan
+  ^local INDEX
+  if ([$0] == [] && [$1] == []) {
+    xecho -b Usage: /amuzzle [<channel>] <nick>
+  }{
+    if ([$1] == []) {
+      @nick = [$0]
+      @chan = [$C]
+    }{
+      @chan = [$0]
+      @nick = [$1]
+    }
+    @INDEX = findw($nick $MUZZLE_LIST)
+    if (INDEX<0 || word($INDEX $MUZZLE_CHANS) != chan) {
+      @MUZZLE_LIST = [$MUZZLE_LIST] ## [ ] ## [$nick]
+      @MUZZLE_CHANS = [$MUZZLE_CHANS] ## [ ] ## [$chan]
+      @unlink($CMUZZLE_FILE)
+      @fd = open($CMUZZLE_FILE w)
+      @write($fd $MUZZLE_LIST)
+      @write($fd $MUZZLE_CHANS)
+      @close($fd)
+      xecho -b $nick added to the muzzle list
+      if (findw($nick $chanusers($chan))>-1) cmuzzle $chan $nick "auto-muzzle"
+    }
+  }
+}
+
+alias aunmuzzle {
+  ^local chan
+  ^local nick
+  ^local INDEX 1
+  ^local FLAG 0
+  ^local TEMP_LIST User
+  ^local TEMP_CHANS #Channel
+  if ([$0] == [] && [$1] == []) {
+    xecho -b Usage: /aunmuzzle [<channel>] <nick>
+  }{
+    if ([$1] == []) {
+      @chan = [$C]
+      @nick = [$0]
+    }{
+      @chan = [$0]
+      @nick = [$1]
+    }
+    fe ($restw(1 $MUZZLE_LIST)) USER {
+      if (toupper($USER)==toupper($nick) && toupper($word($INDEX $MUZZLE_CHANS))==toupper($chan)) {
+        xecho -b User $USER removed from the muzzle list
+        @FLAG = 1
+      }{
+        @TEMP_LIST = [$TEMP_LIST] ## [ ] ##[$USER]
+        @TEMP_CHANS = [$TEMP_CHANS] ## [ ] ##[$word($INDEX $MUZZLE_CHANS)]
+      }
+      @INDEX++
+    }
+    if (!FLAG) {
+      xecho -b User $nick not muzzled in $chan
+    }{
+      @MUZZLE_LIST = [$TEMP_LIST]
+      @MUZZLE_CHANS = [$TEMP_CHANS]
+      @unlink($CMUZZLE_FILE)
+      @fd = open($CMUZZLE_FILE w)
+      if (MUZZLE_LIST) {
+        @write($fd $MUZZLE_LIST)
+        @write($fd $MUZZLE_CHANS)
+      }
+      @close($fd)
+    }
+    if (findw($nick $chanusers($chan))>-1 && FLAG) cunmuzzle $chan $nick
+  }
+}
+
+alias mlist {
+  ^local chan
+  ^local i 1
+  if ([$0] == []) { 
+    @chan = [$C]
+  }{
+    @chan = [$0]
+  }
+  xecho -b Auto-muzzled users in $chan:
+  fe ($restw(1 $MUZZLE_LIST)) muzzled {
+    if (toupper($word($i $MUZZLE_CHANS))==toupper($chan)) xecho 	$cparse(%W$muzzled)
+    @i++
+  }
+  xecho -b End of muzzle list
+}
+
+on #-public 23 '$N % !amuzzle %' { amuzzle $3 }
+
+on #-public 23 '$N % !aunmuzzle %*' { aunmuzzle $3 }
+
+on #-public 23 '$N % !mlist' { mlist $C }
+
+on #-join 23 "* *" {
+  @INDEX = findw($1 $MUZZLE_LIST)
+  if (INDEX>-1 && word($INDEX $MUZZLE_CHANS)==[$0]) {
+    cmuzzle $0 $1 "auto-muzzle"
+  }
+}   

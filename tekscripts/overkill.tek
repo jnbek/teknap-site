@@ -1,0 +1,30 @@
+# overkill 1.3
+# by Joey2cool
+# http://2cool.rapigator.com
+
+xecho -b 51ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b 51³ OVERKILL! 1.3 LOADED! ³
+xecho -b 51³ /overkill <username>  ³
+xecho -b 51ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+alias overkill {
+if ([$0] != []) {
+raw 606 $0 leech OVERKILLED!
+raw 613 $0 0
+ban $0 OVERKILLED!
+muzzle $0 OVERKILLED!
+raw 753 $0 fuckedup OVERKILLED!
+whois -cmd {
+ban $12 OVERKILLED!
+raw 10253 $12
+raw 10122 $12 OVERKILLED!
+} $0
+}
+
+if ([$0] == []) {
+input "51Overkill who?" {
+if ([$0] != []) {
+overkill $0
+}
+}
+}
+}

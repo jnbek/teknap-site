@@ -1,0 +1,27 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YJeepFreak
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/stoplight
+
+alias sayc {say $cparse("$*")}
+
+alias stoplight
+{
+sayc %Y     _________
+sayc %Y    |         |
+sayc %Y    | %r .d0b. %Y |
+sayc %Y    | %r O0000 %Y |
+sayc %Y    | %r `D0P' %Y |
+sayc %Y    |         |
+sayc %Y    |         |
+sayc %Y    | %Y .d0b. %Y |
+sayc %Y    | %Y O0000 %Y |
+sayc %Y    | %Y `D0P' %Y |
+sayc %Y    |         |
+sayc %Y    |         |
+sayc %Y    | %G .d0b. %Y |
+sayc %Y    | %G O0000 %Y |
+sayc %Y    | %G `D0P' %Y |     
+sayc %Y    |_________|
+}

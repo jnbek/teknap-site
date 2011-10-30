@@ -1,0 +1,240 @@
+########################################################################################################################
+# AUTO MUZZLE/KICK/KILL FLOOD PROTECTION! (by Spike) Updated: 05/08/02
+# Special thanks to: fudd, gircobain and Khaytsus. Note that the number nick bug is
+# now fixed in gircobains code. Khaytsus is the one that fixed that nasty bug. :)
+# Note that this script does *NOT* rely on TekNap's internal Flood Warning to work.
+# I also added Auto-kick and Auto-kill features. Kicks from channel on a flood, Kills from
+# a server on flood. You can have either one, or all of them enabled at once!! Toggles 
+# with /ak for kick, /am for muzzle, /aki for kill. To enable the banning toggle it with /abX
+# where X would be c for channel ban, or s for server ban. The script bans both IP and nick.
+# Update fixes a bug i currently overlooked. Sorry for any problems this caused anyone. ;-)
+#**********************************************************************************************
+# Settings:
+#*****************************
+ASSIGN AUTO_KICK 0
+ASSIGN AUTO_KILL 0
+ASSIGN AUTO_BANC 0
+ASSIGN AUTO_BANS 0
+ASSIGN AUTO_MUZZLE 0
+ASSIGN FLOOD_WARN 1
+ASSIGN FLOOD_TIME 2
+ASSIGN FLOOD_LINE 6
+ASSIGN AUTO_MUZZLE_TIME 60
+#*****************************
+
+xecho -b Auto Flood Protection loaded.
+xecho -b First 5 options now DISABLED by default.
+xecho -b Toggles:
+xecho -b ./AM  - Auto muzzle.
+xecho -b ./AK  - Auto kick.
+xecho -b ./ABS - Auto ban.
+xecho -b ./ABC - Auto cban.
+xecho -b ./AKI - Auto kill.
+xecho -b ./FW  - Flood warning. (enabled by default)
+
+alias am (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign AUTO_MUZZLE 0
+		}
+		(1)
+		(on)
+		{
+			^assign AUTO_MUZZLE 1
+		}
+		(*)
+		{
+			@AUTO_MUZZLE = AUTO_MUZZLE ? [0] : [1]
+		}
+	}
+		xecho -b Auto-muzzle is now ${AUTO_MUZZLE ? [[ON]] : [[OFF]]}
+}
+alias ak (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign AUTO_KICK 0
+		}
+		(1)
+		(on)
+		{
+			^assign AUTO_KICK 1
+		}
+		(*)
+		{
+			@AUTO_KICK = AUTO_KICK ? [0] : [1]
+		}
+	}
+		xecho -b Auto-kick is now ${AUTO_KICK ? [[ON]] : [[OFF]]}
+}
+alias aki (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign AUTO_KILL 0
+		}
+		(1)
+		(on)
+		{
+			^assign AUTO_KILL 1
+		}
+		(*)
+		{
+			@AUTO_KILL = AUTO_KILL ? [0] : [1]
+		}
+	}
+		xecho -b Auto-kill is now ${AUTO_KILL ? [[ON]] : [[OFF]]}
+}
+alias abs (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign AUTO_BANS 0
+		}
+		(1)
+		(on)
+		{
+			^assign AUTO_BANS 1
+		}
+		(*)
+		{
+			@AUTO_BANS = AUTO_BANS ? [0] : [1]
+		}
+	}
+		xecho -b Auto-ban is now ${AUTO_BANS ? [[ON]] : [[OFF]]}
+}
+alias abc (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign AUTO_BANC 0
+		}
+		(1)
+		(on)
+		{
+			^assign AUTO_BANC 1
+		}
+		(*)
+		{
+			@AUTO_BANC = AUTO_BANC ? [0] : [1]
+		}
+	}
+		xecho -b Auto-cban is now ${AUTO_BANC ? [[ON]] : [[OFF]]}
+}
+alias fw (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign FLOOD_WARN 0
+		}
+		(1)
+		(on)
+		{
+			^assign FLOOD_WARN 1
+		}
+		(*)
+		{
+			@FLOOD_WARN = FLOOD_WARN ? [0] : [1]
+		}
+	}
+		xecho -b Flood-warn is now ${FLOOD_WARN ? [[ON]] : [[OFF]]}
+}
+on #^public 200 "*" _fwarning $0 $1
+on #^public_other 200 "*" _fwarning $0 $1
+on #^824 200 "*" _fwarning $1 $0
+alias _fwarning
+{
+	@check=[x$0x]
+	if (finditem(checkusr $check) < [0])
+	{
+		@setitem(checkusr $numitems(checkusr) $check)
+		@setitem(rep $numitems(rep) $check)
+	}
+		@checkusritm = finditem(checkusr $check)
+		@repi = getitem(rep $checkusritm) + 1
+		@setitem(rep $checkusritm $repi)
+	switch ($repi)
+	{
+		(1)
+		{
+			timer $FLOOD_TIME
+			{ 
+				@delarray(rep)
+				@delarray(checkusr)
+			}
+		}
+		($FLOOD_LINE)
+		{
+		if (FLOOD_WARN) xecho -b PUBLIC: Flooding detected from $0 on $1.
+	        if (AUTO_MUZZLE || AUTO_KICK || AUTO_KILL || AUTO_BANS || AUTO_BANC) if (finditem(pubflood $0) < [0])
+        	{
+			@setitem(pubflood $numitems(pubflood) $0)
+			^assign CC $1
+			//whois -cmd
+			{
+				switch ($tr(/"//$1))
+				{
+					(Elite) {;}
+					(Admin) {;}
+					(Moderator) {;}
+					(*)
+					{
+						@delitem(pubflood $finditem(pubflood $0))
+						if (AUTO_MUZZLE)
+						{
+							xecho -b AUTO-MUZZLE: Muzzled $0 for $auto_muzzle_time seconds.
+							//muzzle $0 Auto-muzzle for $auto_muzzle_time seconds: Public Flooding!
+							timer $auto_muzzle_time xecho -b AUTO-MUZZLE: Unmuzzled $0.
+							timer $auto_muzzle_time //unmuzzle $0 Expired after $auto_muzzle_time seconds.
+						}
+						if (AUTO_KICK)
+						{
+							xecho -b AUTO-KICK: Kicked $0 from channel $CC\.
+							//kick $CC $0 Auto-kicked off channel $CC: Public Flooding!
+						}
+						if (AUTO_BANC)
+						{
+							xecho -b AUTO-BAN: Banned $0 from channel $CC\.
+							//cban $CC $0 Auto-banned from channel: Public Flooding!
+							//cban $CC $12 Auto-banned from channel: Public Flooding!
+						}
+						if (AUTO_BANS)
+						{
+							xecho -b AUTO-BAN: Banned $0 from server.
+							//cban $CC $0 Auto-banned from channel: Public Flooding!
+							//cban $CC $12 Auto-banned from channel: Public Flooding!
+						}
+						if (AUTO_KILL)
+						{
+							xecho -b AUTO-KILL: Killed $0 from server.
+							//kill $0 Auto-killed off server: Public Flooding!
+						}
+					}
+				}
+			} $0
+		}}
+		(*)
+		{
+		}
+	}
+}
+SET FLOOD_WARNING OFF

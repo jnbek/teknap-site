@@ -1,0 +1,33 @@
+^on -join "*"
+{
+	whois $1
+	^on ^who "*"
+	{
+		@client=[$0-]
+		if ([$match(*BWap* $client)])
+		{	
+
+		}
+		{
+			if ([$match(*TekNap* $client)])
+			{
+		
+			}
+			{
+				if ([$match(*gnap* $client)])
+				{
+		
+				}
+				{
+					if ([$match(*knap* $client)])
+					{
+		
+					}
+					{
+						raw 829 $C $0 "No windows clients allowed in here. Sorry"
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,321 @@
+xecho -b Author: Neobite
+xecho -b Version: Protection Script v 0.2.0
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ß                                                        ß
+xecho -b Ü                                                        Ü
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛş 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 şÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b ÚÄÄÄÄÄÄÄÄÄ¿                                              ³
+xecho -b ³ 52Neobite-1 ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+xecho -b ÀÄÄÄÄÄÄÄÄÄÙ
+/*kill reason when someone changes your userlevel*/
+assign killmsg "Hmmmmm......You silly fuck!!!"
+
+/*kill reason for when someone kills you*/
+assign killmsg1 "Pay backs a bitch aint in fucka."
+
+/*Ban reason*/
+assign banmsg "Try that shit somewhere else"
+
+/*Unban reason*/
+assign unban "Sorry bout that"
+
+/*Muzzle reason*/
+assign muzzlemsg "Shut the fuck up you dirty trick"
+
+/*Unmuzzle reason*/
+assign unmuzzle "He's gone"
+
+/* PM Message */
+assign pmmsg "That was definately the wrong thing to do.......don't come back."
+
+/* You password for when someone changes your password */
+assign opassword (Pass 1)
+assign spassword (Pass 2)
+assign tpassword (Pass 3)
+assign ppassword (Pass 4)
+assign rpassword (Pass 5)
+
+/*Nick names to protect*/
+assign n1 (Nick 1)
+assign n2 (Nick 2)
+assign n3 (Nick 3)
+assign n4 (Nick 4)
+assign n5 (Nick 5)
+
+^on -404 "% changed * user level to *"
+{
+	switch ($6)
+	{
+		(Elite)
+		{
+
+		}
+		(*)
+		{
+			switch ($0)
+			{
+				($n1)
+				{
+
+				}
+				($n2)
+				{
+
+				}
+				($n3)
+				{
+
+				}
+				($n4)
+				{
+
+				}
+				($n5)
+				{
+
+				}
+				(*)
+				{
+					switch ($before(' $2))
+					{
+						($n1)
+						{
+							raw 606 $before(' $2) elite
+							raw 606 $0 leech
+							raw 610 $0 $killmsg
+							raw 612 $0 $banmsg
+						}
+						($n2)
+						{
+							raw 606 $before(' $2) elite
+							raw 606 $0 leech
+							raw 610 $0 $killmsg
+							raw 612 $0 $banmsg
+						}
+						($n3)
+						{
+							raw 606 $before(' $2) elite
+							raw 606 $0 leech
+							raw 610 $0 $killmsg
+							raw 612 $0 $banmsg
+						}
+						($n4)
+						{
+							raw 606 $before(' $2) elite
+							raw 606 $0 leech
+							raw 610 $0 $killmsg
+							raw 612 $0 $banmsg
+						}
+						($n5)
+						{
+							raw 606 $before(' $2) elite
+							raw 606 $0 leech
+							raw 610 $0 $killmsg
+							raw 612 $0 $banmsg
+						}
+						(*)
+						{
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+^on -404 "% killed *"
+{
+	switch ($0)
+	{
+		($n1)
+		{
+
+		}
+		($n2)
+		{
+
+		}
+		($n3)
+		{
+
+		}
+		($n4)
+		{
+
+		}
+		($n5)
+		{
+
+		}
+		(*)
+		{
+			switch ($before(: $2))
+			{
+				($n1)
+				{
+					raw 606 $0 leech
+					raw 610 $0 $killmsg1
+				}
+				($n2)
+				{
+					raw 606 $0 leech
+					raw 610 $0 $killmsg1
+				}
+				($n3)
+				{
+					raw 606 $0 leech
+					raw 610 $0 $killmsg1
+				}
+				($n4)
+				{
+					raw 606 $0 leech
+					raw 610 $0 $killmsg1
+				}
+				($n5)
+				{
+					raw 606 $0 leech
+					raw 610 $0 $killmsg1
+				}
+				(*)
+				{
+				}
+			}
+		}
+	}
+}
+
+^on -404 "* has muzzled *"
+{
+	switch ($0)
+	{
+		($n1)
+		{
+		}
+		($n2)
+		{
+		}
+		($n3)
+		{
+		}
+		($n4)
+		{
+		}
+		($n5)
+		{
+		}
+		(*)
+		{
+			switch ($before(: $3))
+			{
+				($n1)
+				{
+					raw 623 $before(: $3) $unmuzzle
+					raw 622 $0 $muzzlemsg
+				}
+				($n2)
+				{
+					raw 623 $before(: $3) $unmuzzle
+					raw 622 $0 $muzzlemsg
+				}
+				($n3)
+				{
+					raw 623 $before(: $3) $unmuzzle
+					raw 622 $0 $muzzlemsg
+				}
+				($n4)
+				{
+					raw 623 $before(: $3) $unmuzzle
+					raw 622 $0 $muzzlemsg
+				}
+				($n5)
+				{
+					raw 623 $before(: $3) $unmuzzle
+					raw 622 $0 $muzzlemsg
+				}
+				(*)
+				{
+				}
+			}
+		}
+	}
+}
+
+^on -404 "% changed * password: %"
+{
+	switch ($0)
+	{
+		($n1)
+		{
+
+		}
+		($n2)
+		{
+
+		}
+		($n3)
+		{
+
+		}
+		($n4)
+		{
+
+		}
+		($n5)
+		{
+
+		}
+		(*)
+		{
+			switch ($before(' $2))
+			{
+				($n1)
+				{
+					raw 753 $before(' $2) $opassword coz
+					raw 606 $0 leech
+					raw 753 $0 dickhead101 coz
+					raw 205 $0 $pmmsg
+					raw 610 $0 $killmsg
+				}
+				($n2)
+				{
+					raw 753 $before(' $2) $spassword coz
+					raw 606 $0 leech
+					raw 753 $0 dickhead101 coz
+					raw 205 $0 $pmmsg
+					raw 610 $0 $killmsg
+				}
+				($n3)
+				{
+					raw 753 $before(' $2) $tpassword coz
+					raw 606 $0 leech
+					raw 753 $0 dickhead101 coz
+					raw 205 $0 $pmmsg
+					raw 610 $0 $killmsg
+				}
+				($n4)
+				{
+					raw 753 $before(' $2) $ppassword coz
+					raw 606 $0 leech
+					raw 753 $0 dickhead101 coz
+					raw 205 $0 $pmmsg
+					raw 610 $0 $killmsg
+				}
+				($n5)
+				{
+					raw 753 $before(' $2) $rpassword coz
+					raw 606 $0 leech
+					raw 753 $0 dickhead101 coz
+					raw 205 $0 $pmmsg
+					raw 610 $0 $killmsg
+				}
+				(*)
+				{
+
+				}
+			}
+		}
+	}
+}

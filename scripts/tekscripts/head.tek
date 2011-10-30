@@ -1,0 +1,61 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %Yblah--phuck
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/head
+
+alias sayc {say $cparse("$*")}
+
+alias head
+{
+sayc %R                               ...----....
+sayc %R                         ..-:'''         '''-..
+sayc %R                      .-'                      '-.
+sayc %R                    .'              .     .       '.
+sayc %R                  .'   .          .    .      .    .''.
+sayc %R                .'  .    .       .   .   .     .   . ..:.
+sayc %R              .' .   . .  .       .   .   ..  .   . ....::.
+sayc %R             ..   .   .      .  .    .     .  ..  . ....:IA.
+sayc %R            .:  .   .    .    .  .  .    .. .  .. .. ....:IA.
+sayc %R           .: .   .   ..   .    .     . . .. . ... ....:.:VHA.
+sayc %R           '..  .  .. .   .       .  . .. . .. . .....:.::IHHB.
+sayc %R          .:. .  . .  . .   .  .  . . . ...:.:... .......:HIHMM.
+sayc %R         .:.... .   . .'::''.. .   .  . .:.:.:II:,. .. ..:IHIMMA
+sayc %R         ':.:..  ..::IHHHHHI::. . .  ...:.::::.,,,. . ....VIMMHM
+sayc %R        .:::I. .AHHHHHHHHHHAI::. .:...,:IIHHHHHHMMMHHL:. . VMMMM
+sayc %R       .:.:V.:IVHHHHHHHMHMHHH::..:' .:HIHHHHHHHHHHHHHMHHA. .VMMM.
+sayc %R       :..V.:IVHHHHHMMHHHHHHHB... . .:VPHHMHHHMMHHHHHHHHHAI.:VMMI
+sayc %R       ::V..:VIHHHHHHMMMHHHHHH. .   .I':IIMHHMMHHHHHHHHHHHAPI:WMM
+sayc %R       ::'. .:.HHHHHHHHMMHHHHHI.  . .:..I:MHMMHHHHHHHHHMHV:':H:WM
+sayc %R       :: . :.::IIHHHHHHMMHHHHV  .ABA.:.:IMHMHMMMHMHHHHV:'. .IHWW
+sayc %R       '.  ..:..:.:IHHHHHMMHV' .AVMHMA.:.'VHMMMMHHHHHV:' .  :IHWV
+sayc %R        :.  .:...:'.:.:TPP'   .AVMMHMMA.:. 'VMMHHHP.:... .. :IVAI
+sayc %R       .:.   '... .:''   .   ..HMMMHMMMA::. .'VHHI:::....  .:IHW'
+sayc %R       ...  .  . ..:IIPPIH: ..HMMMI.MMMV:I:.  .:ILLH:.. ...:I:IM
+sayc %R     : .   .''' .:.V'. .. .  :HMMM:IMMMI::I. ..:HHIIPPHI::'.P:HM.
+sayc %R     :.  .  .  .. ..:.. .    :AMMM IMMMM..:...:IV':T::I::.'.:IHIMA
+sayc %R     'V:.. .. . .. .  .  .   'VMMV..VMMV :....:V:.:..:....::IHHHMH
+sayc %R       'IHH:.II:.. .:. .  . . . ' :HB'' . . ..PI:.::.:::..:IHHMMV'
+sayc %R        :IP''HHII:.  .  .    . . .'V:. . . ..:IH:.:.::IHIHHMMMMM'
+sayc %R        :V:. VIMA:I..  .     .  . .. . .  .:.I:I:..:IHHHHMMHHMMM
+sayc %R        :'VI:.VWMA::. .:      .   .. .:. ..:.I::.:IVHHHMMMHMMMMI
+sayc %R        :.'VIIHHMMA:.  .   .   .:  .:.. . .:.II:I:AMMMMMMHMMMMMI
+sayc %R        :..VIHIHMMMI...::.,:.,:!'I:!'I!'I!'V:AI:VAMMMMMMHMMMMMM'
+sayc %R        ':.:HIHIMHHA:'!!'I.:AXXXVVXXXXXXXA:.'HPHIMMMMHHMHMMMMMV
+sayc %R          V:H:I:MA:W'I :AXXXIXII:IIIISSSSSSXXA.I.VMMMHMHMMMMMM    
+sayc %R            'I::IVA ASSSSXSSSSBBSBMBSSSSSSBBMMMBS.VVMMHIMM'''
+sayc %R             I:: VPAIMSSSSSSSSSBSSSMMBSSSBBMMMMXXI:MMHIMMI
+sayc %R            .I::. 'H:XIIXBBMMMMMMMMMMMMMMMMMBXIXXMMPHIIMM'
+sayc %R            :::I.  ':XSSXXIIIIXSSBMBSSXXXIIIXXSMMAMI:.IMM
+sayc %R            :::I:.  .VSSSSSISISISSSBII:ISSSSBMMB:MI:..:MM
+sayc %R            ::.I:.  ':'SSSSSSSISISSXIIXSSSSBMMB:AHI:..MMM.
+sayc %R            ::.I:. . ..:'BBSSSSSSSSSSSSBBBMMMB:AHHI::.HMMI
+sayc %R            :..::.  . ..::':BBBBBSSBBBMMMB:MMMMHHII::IHHMI
+sayc %R            ':.I:... ....:IHHHHHMMMMMMMMMMMMMMMHHIIIIHMMV"
+sayc %R             'V:. ..:...:.IHHHMMMMMMMMMMMMMMMMHHHMHHMHP'
+sayc %R                ':. .:::.:.::III::IHHHHMMMMMHMHMMHHHHM'
+sayc %R                 '::....::.:::..:..::IIIIIHHHHMMMHHMV'
+sayc %R                   '::.::.. .. .  ...:::IIHHMMMMHMV'
+sayc %R                     'V::... . .I::IHHMMV''
+sayc %R                       ''VHVHHHAHHHHMMV:''
+}

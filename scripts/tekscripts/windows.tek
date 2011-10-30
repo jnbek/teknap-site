@@ -1,0 +1,35 @@
+^bind ^x swap_next_window
+alias join (chan)
+{
+	if (chan)
+	{
+		@ delarray(chanlist)
+		fe ($onchannels()) thischan
+		{ @ setitem(chanlist $numitems(chanlist) $thischan) }
+			if (finditem(chanlist $chan) < [0])
+			{
+				if (numitems(chanlist) > 0) window new
+				type /window channel $chan bind $chan name $chan hide_others ^j
+			} { type /window swap $chan hide_others ^j }
+		   	
+	} { xecho -b Usage: /join <channel> }
+}
+
+alias part (chan) 
+{
+	if (chan)
+	{
+		fe ($onchannels()) thischan
+		{ @ setitem(chanlist $numitems(chanlist) $thischan) }
+		if (finditem(chanlist $chan) >= [0])
+		{
+			raw 401 $chan
+		if (numitems(chanlist) > [1]) type /window swap $chan kill ^j
+		}
+	} { 
+		raw 401 $C
+		if (numitems(chanlist) > [1]) window kill 
+	  }
+}
+
+alias wl (void) { window list }

@@ -1,0 +1,10 @@
+xecho -b Clonekill on.
+
+^on ^servermsg "Clones detected from % *"
+{
+	^assign ip $3
+	xecho -b Clones detected from $3
+#	^gusers * -ip $ip -cmd { msg $0 Stop logging in multiple times!  You were warned.}
+	^gusers * -ip $ip -cmd { tban $0!* 1800 Stop logging in multiple times!  You were warned.}
+#	^gusers * -ip $ip -cmd { kill $0 Stop logging in multiple times!  You were warned.}
+}

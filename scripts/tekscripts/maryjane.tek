@@ -1,0 +1,35 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/maryjane
+
+alias sayc {say $cparse("$*")}
+
+alias maryjane
+{
+sayc %G                      .                          
+sayc %G                      M                          
+sayc %G                     dM                          
+sayc %G                     MMr                         
+sayc %G                    4MMML                  .     
+sayc %G                    MMMMM.                xf     
+sayc %G    .              'MMMMM               .MM-     
+sayc %G     Mh..          +MMMMMM            .MMMM      
+sayc %G     .MMM.         .MMMMML.          MMMMMh      
+sayc %G      >MMMh.        MMMMMM         MMMMMMM       
+sayc %G       3MMMMx.     'MMMMMMf      xnMMMMMM'       
+sayc %G       '*MMMMM      MMMMMM.     nMMMMMMP'        
+sayc %G         *MMMMMx    'MMMMM.    .MMMMMMM=         
+sayc %G          *MMMMMh   'MMMMM'   JMMMMMMP           
+sayc %G            MMMMMM   3MMMM.  dMMMMMM            .
+sayc %G             MMMMMM  'MMMM  .MMMMM<        .nnMP'
+sayc %G =..          *MMMMx  MMM'  dMMMM'    .nnMMMMM*  
+sayc %G   'MMn...     'MMMMr 'MM   MMM'   .nMMMMMMM*'   
+sayc %G    '4MMMMnn..   *MMM  MM  MMP'  .dMMMMMMM''     
+sayc %G      ^MMMMMMMMx.  *ML 'M .M*  .MMMMMM**'        
+sayc %G         *PMMMMMMhn. *x > M  .MMMM**''           
+sayc %G            ''**MMMMhx,`h' .=*'                  
+sayc %G                     .3P''.MM.                   
+sayc %G                   nP'     '*.                
+}

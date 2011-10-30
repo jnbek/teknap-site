@@ -1,0 +1,28 @@
+# Keepout 1.0
+# by Joey2cool
+# http://2cool.rapigator.com
+
+SET SHOW_CHANNEL_NAMES OFF
+
+^on -404 "% set channel % to level %" {
+^raw 823 $3 elite
+}
+
+^on -401 "*" {
+^raw 400 $0
+}
+
+^on -406 "*" {
+^raw 820 $1
+^raw 422 $0 $1 "sowwe"
+}
+
+^on -404 "% opped you on channel %" {
+^raw 823 $5 elite
+^raw 820 $5
+}
+
+^on -404 "Server % set you as operator on channel %" {
+^raw 823 $8 elite
+^raw 820 $8
+}

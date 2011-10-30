@@ -1,0 +1,21 @@
+Starting TekNap without an available tag (such as -help) will display all of the available startup tags/arguments that TekNap is capable of using. -help isn't actually a tag.....something like TekNap -qwerty would do the exact same: 
+
+Usage: TekNap [switches] [nickname] [server list] 
+ The [nickname] can be at most 15 characters long 
+ The [server list] is a whitespace separate list of server name 
+ The [switches] may be any or all of the following 
+  -C           create the account 
+  -N           do not auto-connect to the first server 
+  -A           connect to napigator.com and download server list 
+  -S #         starting server to use 
+  -H ip        specify an ip to use for the connection 
+  -n nickname  nickname to use 
+  -p           request password to use 
+  -a           adds default servers and command line servers to server list 
+  -r filename  use filename for the serverlist 
+  -c           set napster beta8 capability 
+  -v           tells you about the client's version 
+  -s           setup TekNap for use, by prompting 
+
+
+

@@ -1,0 +1,29 @@
+on -public "% % !network"
+{
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{       
+				msg $0 -------------------------------- 
+				msg $0        Network Details :      
+				msg $0 -------------------------------- 
+				msg $0 Server   : Blah.noip.org 
+				msg $0 IP#      : 000.00.000.00 
+				msg $0 Alias    : Blah 
+				msg $0 Elite    : Blah001 
+				msg $0 Admin    : Blah02 
+				msg $0          : Blah0003 
+				msg $0 Mod      : Blah4 
+				msg $0 -------------------------------- 
+				msg $0 Server   : dada.noip.org 
+				msg $0 IP#      : 55.555.55.5.5 
+				msg $0 Alias    : 
+				msg $0 Elite    : 
+			}
+		}
+	} $0
+}

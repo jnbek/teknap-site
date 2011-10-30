@@ -1,0 +1,54 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/faces
+
+alias sayc {say $cparse("$*")}
+
+alias faces
+{
+sayc %W                                    :::iiTT:::TT:::::TTi::::::
+sayc %W                                 ::iIIITTT::TTT::T:::88TT::iii::
+sayc %W                               :iiIIIIII::TTTT::TT:::888::TTIIii::
+sayc %W                              :iIIIIII::ITTT::TTT:::888:TTTTiiiii:
+sayc %W                             ::IIIII:IIIIIIIIiiii::TTTTTTTIIii:::
+sayc %W                             ::TTI:IIiii::::::::::II8Ii:::::::
+sayc %W                              :iTTTIi:: .  ,  .::bT88i:    .
+sayc %W                               :iTTi:: d  ab'.:ibTT88i::  d  .`
+sayc %W                              :iTT8TTIIIIIiiiiabTTT888i:::iii::
+sayc %W                             ::ITT8888888888TTTTTTT888i::iIT88Td:
+sayc %W                             :ITTTTTT888888888TTT888!!Pi:IIT888Td:
+sayc %W                             :iIITTTTTTTTTTTTTTI8'`     ::IITT8TT:
+sayc %W                              :iiIIITTTTTTTTTIIT8a.      ::IIITTI:
+sayc %W                              :iIIiITTTTTIIITT8888aa::   ::IIII:
+sayc %W                                :iIiiiiiiIIIT8888'  '  '  :::::
+sayc %W                                 :iIIiiiiITT8T'  ..       ```
+sayc %W                                 :iIIiiiiITT8T'  ..       ```
+sayc %W                                  :iIIiiIITTIi:::
+sayc %W                                   ':iiiiIITTii::......
+sayc %W                                      ':iiiiiiiiiTTTTTi:.
+sayc %W                                         ''::::iiIIITTT:`
+sayc %W                                             '''::::::``
+sayc %W   ::::::iTT:::::TT:::TTii:::
+sayc %W  ::iii::TT88:::T::TTT::TTTIIIi::
+sayc %W::iiIITT::888:::TT::TTTT::IIIIIIii:
+sayc %W:iiiiiTTTT:888:::TTT::TTTI::IIIIIIi:
+sayc %W :::iiIITTTTTTT::iiiiIIIIIIII:IIIII::
+sayc %W    :::::::iI8II::::::::::iiiII:ITT::
+sayc %W      .    :i88Tb::.  ,  . ::iITTTi:
+sayc %W   `.  d  ::i88TTbi:.'ba  d ::iTTi:
+sayc %W   ::iii:::i888TTTbaiiiiIIIIITT8TTi:
+sayc %W :dT88TIi::i888TTTTTTT8888888888TTI::
+sayc %W:dT888TII:iP!!888TTT888888888TTTTTTI:
+sayc %W:TT8TTII::     `'8ITTTTTTTTTTTTTTIIi:
+sayc %W:ITTIII::      .a8TIITTTTTTTTTIIIii:
+sayc %W :IIII::   ::aa8888TTIIITTTTTIiIIi:
+sayc %W   :::::  '  '  '8888TIIIiiiiiiIi:
+sayc %W     ```       ..  'T8TTIiiiiIIi:
+sayc %W                :::iITTIIiiIIi:
+sayc %W          ......::iiTTIIiiii:'
+sayc %W        .:iTTTTTiiiiiiiii:'
+sayc %W        `:TTTIIIii::::''
+sayc %W         ``::::::'''
+}

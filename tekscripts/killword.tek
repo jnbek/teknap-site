@@ -1,0 +1,28 @@
+/* basic script, no time to write a docbook, blah blah blah!! - Spikey */
+
+ASSIGN WORD_KILLS 1
+ASSIGN KILL_WORDS mason asshole assh0le mas0n jar rum0ur rumour tommfuck arschloch eines glases
+
+on #^public 600 '% % *\\[$KILL_WORDS\\]*' _killw $0 $1
+on #^public_other 600 '% % *\\[$KILL_WORDS\\]*' _killw $0 $1
+on #^824 600 '% % *\\[$KILL_WORDS\\]*' _killw $1 $0
+
+alias _killw if (WORD_KILLS)
+{
+	@setitem(killflood $numitems(killflood) $0)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Elite) {;}
+			(Admin) {;}
+			(Moderator) {;}
+			(*)
+			{
+				if (WORD_KILLS) eval //kill $0 Lam0r.
+				if (WORD_KILLS) eval //ban $12 Lam0r.
+				if (WORD_KILLS) @delitem(killflood $finditem(killflood $0))
+			}
+		}
+	} $0
+}

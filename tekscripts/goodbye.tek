@@ -1,0 +1,24 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/goodbye \(user\)
+
+alias sayc {say $cparse("$*")}
+
+alias goodbye (user)
+{
+sayc %B ,GGGGGGGG .oOOOOOo, .oOOOOOo, DDDDDDDD. BBBBBBb. YY    YY EEEEEEE
+sayc %B GGGGGGGGG OOOOOOOOO OOOOOOOOO DDDDDDDDD BBBBBBBB YY    YY EEEEEEE
+sayc %B GG'       OO'   `OO OO'   `OO DD'   `DD BB    BB YY    YY EE'
+sayc %B GG        OO     OO OO     OO DD     DD BB    BB YY    YY EE
+sayc %B GG   GGGG OO     OO OO     OO DD     DD BB    BP YY    YY EE.
+sayc %B GG   GGGG OO     OO OO     OO DD     DD BBBBBBB   YY  YY  EEEEEEE
+sayc %B GG    `GG OO     OO OO     OO DD     DD BB    Bb   YYYY   EE'
+sayc %B GG     GG OO     OO OO     OO DD     DD BB    BB    YY    EE
+sayc %B GG.   ,GG OO.   ,OO OO.   ,OO DD.   ,DD BB    BB    YY    EE.
+sayc %B GGGGGGGGG OOOOOOOOO OOOOOOOOO DDDDDDDDD BBBBBBBB    YY    EEEEEEE
+sayc %B `GGGGGGG' `OOOOOOO' `OOOOOOO' DDDDDDDD' BBBBBBB'    YY    EEEEEEE
+sayc %B
+sayc %B                            $user
+}

@@ -1,0 +1,82 @@
+xecho -b Author: Neobite
+xecho -b Version: Backwards text
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ß                                                        ß
+xecho -b Ü                                                        Ü
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛş 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 şÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b ÚÄÄÄÄÄÄÄÄÄ¿                                              ³
+xecho -b ³ 52Neobite-1 ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+xecho -b ÀÄÄÄÄÄÄÄÄÄÙ
+
+
+alias sayb (text)
+{
+	eval say $reverse($text)
+}
+alias wsayb (text)
+{
+	eval wallop $reverse($text)
+}
+alias asayb (text)
+{
+	eval admin announce $reverse($text)
+}
+alias pmsayb (nick, text)
+{
+	eval msg $nick $reverse($text)
+}
+alias ksayb (nick, text)
+{
+	raw 610 $nick $reverse($text)
+}
+alias msayb (nick, text)
+{
+	raw 622 $nick $reverse($text)
+}
+alias bsayb (nick, text)
+{
+	raw 612 $nick $reverse($text)
+}
+alias esayb (text)
+{
+	eval me $reverse($text)
+}
+alias umsayb (nick, text)
+{
+	eval unmuzzle $nick $reverse($text)
+}
+alias topicb <channel, nick ,text)
+{
+	eval topic $channel $nick $reverse($text)
+}
+alias cwsayb (channel, nick ,text)
+{
+	m chanserv wallop $channel $nick $reverse($text)
+}
+alias cmsayb (channel, nick ,text)
+{
+	m chanserv muzzle $channel $nick $reverse($text)
+}
+alias cksayb (channel, nick ,text>
+{
+	m chanserv kick $channel $nick $reverse($text)
+}
+alias cbsayb (channel, nick ,text)
+{
+	m chanserv ban $channel $nick $reverse($text)
+}
+alias cusayb (channel, nick ,text)
+{
+	m chanserv ban $channel $nick $reverse($text)
+}
+alias ccsayb (channel, nick ,text)
+{
+	m chanserv clear $channel $nick $reverse($text)
+}
+alias usayb (name, reason)
+{
+	raw 423 $name $reverse($reason)
+}

@@ -1,0 +1,57 @@
+#written by xX-Sgt-Stilletto-Xx
+#edited by BRi
+xecho -b Originally Written by xX-Sgt-Stilletto-Xx
+xecho -b MAJOR Editor: BRi2K
+
+
+alias sac
+{ 
+	eval say $cparse("$*")
+}
+
+alias light
+{
+sac %K   `**********%YLiGHtNiN%K*********'
+sac %K    `******%BFEEL%K*%BTHE%K*%YSHOCK?%K****'
+sac %K     `**' `*****************'%B' '
+sac %B     '    '%K `******'  `***'  %B      '
+sac %B            '%Y `*.   %B  '   '     '
+sac %B  '           %Y  `*.  %B    '  '     '     
+sac %B       '  '  ' %Y   `. %B '       '       
+sac %B              %Y     *.  %B  '  '              
+sac %B        '    '%Y   .'  `*   %B     '   '
+sac %B    '        %Y   .'%B '%Y   `.   %B '           
+sac %B     '   ' %Y   .*      .'%Y `*,  %B  '             
+sac %B '         %Y  .'    %Y  *    ,*`'*            
+sac %B      '    %Y  * %B  '    %Y   '     `.%B '        
+sac %B  '       '%Y   `*    %B  '  '   '%Y  ' %B  '    
+sac %B           %Y  *'`'*    %B    '  %Y   `.  %B '   
+sac %B   '  '%Y    .'  *  `. %B  '      %Y .*`*.
+sac %Y       %Y   .'    `.  `.        .'  %Y   `. 
+sac %Y                    * _.`
+sac %Y                    `%p(O)%Y,
+sac %Y                     `%W|%Y*
+sac %Y                     *%W|%Y`
+sac %Y                     `%W|%Y*
+sac %Y                     *%W|%Y`
+sac %W                     / \\\\\\\\\\\\
+sac %W                    / _ \\\\\\\\\\\\
+sac %W                   _|||||_
+sac %W                  |  |0|  |
+sac %W                 _|  |_|  |_
+sac %W                | %B_________%W |
+sac %W                | %B|_|_|_|_|%W |
+sac %W                | %B|_|_|_|_|%W |
+sac %W                | %B|_|_|_|_|%W |
+sac %W                | %B|_|_|_|_|%W |%Y     ____________
+sac %W                | %B_________%W |%Y     |          |
+sac %W                | %B|_|_|_|_|%W |%w=====%Y|  _____   |
+sac %W                | %B|_|_|_|_|%W |%Y     |  \\\\\\\\\\\\\ | //  |
+sac %W                | %B|_|_|_|_|%W |%Y     |   \\\\\\\\\\\\\.//   |
+sac %W                | %B|_|_|_|_|%W |%Y     |   HIGH   |
+sac %W                |           |%Y     | VOLTAGE! |
+sac %W                |     _     |%Y     |   ____   |
+sac %W                |    |O|    |%Y     |   |  |   |
+sac %W                |____|_|____|%Y     |___|__|___|
+                     
+}

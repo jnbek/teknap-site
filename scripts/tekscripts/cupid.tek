@@ -1,0 +1,55 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/cupid
+
+alias sayc {say $cparse("$*")}
+
+alias cupid
+{
+sayc %R .,,. .,,.
+sayc %R:XXXX,XXXX:   %y                  .SSSSSSS'
+sayc %R'XXXXXXXXX'  %y               .SSSSSSSS%r,WW:,%y  .''':,.
+sayc %R ':XXXXX:'  %y              .SSSSSSSSSS%r:WWW:, %y      '::,
+sayc %R   'XXX'  %y               .SSSSSSSSS%r,WWW< >WW  %y      '::,  '////
+sayc %R    ':' %y                 SSSSSSSSSSSS%r'WWWWWWD   %y      '::,////
+sayc %W                   ,.   %y SSSSSSS%y<<<%rSSSWWWWWW       %r     ,WW%y//:.'.%rW.
+sayc %W                 ,<<<>%y   'SSSSSS$%y<<<%rWWWWWWWWVV> %y       //%r'W,%y:%rWWWW'
+sayc %W               ,<<<<<<>   %y'SSSSSS%y<<%rWWWWWWWWVV>%y      //%r   'WWW%y,%rWWW
+sayc %W            .,<<<<<<<<>>    %y'SSSS%rWWWWWWWWWWW' %y    //%r     .WWWWW%y:,
+sayc %W         .,<<<<<<<<<<<>>>,    %y SS%rWWWWWWWWWW'  %y  //%r      ,WWWW'%y ':,
+sayc %W     .,<<<<<<<<<<<<<<<>>>>>%r,.,,,,WWWWWWWWWW:, %y//%r       ,WWWWW'  %y':
+sayc %W'<<<<<<<<<<<<<<<<<<<<<>>>>>%rWWWWWWWWWWWWWVVVV%y//%rWWWWW:,.,WWWWW'   %y :
+sayc %W   <<<<<<<<<<<<<<<<<<<>>><%rWWWWWWWWWWWWWWVVVVVVWWWWWWWWWWWWW'    %y'
+sayc %W     <<<<<<<<<<<<<<<<<>>><%rWWWWWWWWWWWWWVVVVVVVWWWWWWWWWWWW'
+sayc %W       <<<<<<<<<<<<<<>><<><%rWWWWWWWWW.VVVVVVVWWWWWWWWWWW:'
+sayc %W           <<<<<<<<<>>> <><%rWWWWWW.VVVVVVV'WWWWWWW''     %R .,,. .,,.
+sayc %W              <<<<<>>>   <<%rWW,VVVVVVVVV'WWWWWWWWW  %R     :XXXX,XXXX:
+sayc %r                           WVVVVVVVVVV'WWWWWWWW:'    %R   'XXXXXXXXX'
+sayc %R     .,,. .,,.   %r          VVVVVVVVV'WWWWWWWWWW        %R  ':XXXXX:'
+sayc %R    :XXXX,XXXX:    %r      .WVVVVVVV'WWWWWWWWWWWW          %R  'XXX'
+sayc %R    'XXXXXXXXX'      %r   .WWW''''',WWWWWWWWWWWW:            %R ':'
+sayc %R     ':XXXXX:'    %W    <<>>>>%rWWWWWWWWWWWWWWWWW'
+sayc %R       'XXX'      %W   <<<>>>>>>%rWWWWWWWWWWWWWW'
+sayc %R        ':'       %W <<<>>>>>>>>>%rWWWWWWWWWWW'
+sayc %r                   %W <>%rWWWWWW%W>>>>>>>>>>>>>>>
+sayc %r                    :WWWWWWWWW%W>>>>>>>>>>>>>   %R   .,,. .,,.
+sayc %r                    WWWWWWWWWWW%W>>>>>>>%rWWWWW.    %R:XXXX,XXXX:
+sayc %r                   :WWWWWWWWWW'%W>>>>>%rWWWWWWWW.   %R'XXXXXXXXX'
+sayc %r                   WWWWWWWWWW'  'WWWWWWWWWWWW    %R':XXXXX:'
+sayc %r         .,,:WWWW:,WWWWWWWWW'    'WWWWWWWWWWW      %R'XXX'
+sayc %r        ,WWWWWWWWWWWWWWWWWW'       'WWWWWWWWW       %R':'
+sayc %r       ,WWWWWWWWWWWWWWWWWW'         'WWWWWWWW,
+sayc %r       WWWWWWW'   '':WWW:'           'WWWWWWWW
+sayc %r     .WWWWWWW'                      .WWWWWWWWW
+sayc %r     ''W'W'WW                      ,WWWWWWWWW' %R         .,,. .,,.
+sayc %r           ''                     ,WWWWWWWW'     %R      :XXXX,XXXX:
+sayc %R           .,,. .,,. %r            .WWWWWW:'       %R      'XXXXXXXXX'
+sayc %R          :XXXX,XXXX:%r         .WWWWWWW'            %R     ':XXXXX:'
+sayc %R          'XXXXXXXXX'  %r       WWWWWW'                %R     'XXX'
+sayc %R           ':XXXXX:'    %r       WWWWW'                  %R    ':'
+sayc %R             'XXX'       %r        WWWW.
+sayc %R              ':'         %r       'WWWWW,
+sayc %r                           %r        '' ''
+}

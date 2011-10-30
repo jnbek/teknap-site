@@ -1,0 +1,7 @@
+echo 08 *%* Got20 Bugfix Loaded! *%*
+echo 08 *%*  Author : Gircobain  *%*
+echo
+echo 07 Type 00/got20 (color) (message) 07to perform a Got20 error
+@::got20 = chr(20)
+on ^window '% *$got20*' {xecho -b -w $0 $tr(/$got20//$1-)    $cparse(%YGot20 Performed)}
+alias got20 say $chr(20)$cparse("$0-")

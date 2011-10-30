@@ -1,0 +1,17 @@
+xecho -b Word Completion script loaded!
+xecho -b Written by gircobain 04/11/2001
+
+bind ^I parse_command expand $I
+
+alias expand (input_line) {
+  @charset = [h m d]
+  @wordlist = [Hello monkey "one man @ blah"]
+  @:last_word = rightw(1 $input_line)
+  @:word_pos = findw($last_word $charset)
+  if (word_pos > -1) {
+    parsekey end_of_line
+    parsekey backspace
+    type $word($word_pos $wordlist)
+    type $chr(32)
+  }
+}

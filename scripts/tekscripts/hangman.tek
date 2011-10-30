@@ -1,0 +1,705 @@
+# written by (ice) 
+# ... updated 10/3/2000 for security purposes
+
+# global assigns
+assign TRUE     1
+assign FALSE    0
+
+assign HANG_TIMEOUT 30
+assign NUM_HINTS 7
+assign allow_show_menu 1
+
+assign HANG_ANS     !guess
+assign PLAY_HANG    !hangman
+assign SHOW_SCORE   !score
+assign SHOW_TOPIC   !topic
+assign ADD_SCORE    !cheat
+assign SHOW_MENU    !menu
+assign STOP_HANG    !STOP
+assign START_HANG   !START
+assign CLEAR_SCORES !CLEAR
+
+assign HANGMANFILE ~/hangman.txt
+assign HANGMANHSFILE ~/hscores.txt
+assign HANGMANHSREAD $FALSE
+@ Hangmanfd = 0
+
+
+# this function tests for each !<whatever> case
+alias test_names 
+{
+  ^assign user_name $0
+  ^assign user_chan $1
+  ^assign user_msg  $2-
+  if ([$2] == [$HANG_ANS])
+  {
+    if ([$allow_hang_ans] == [1])
+    {
+      Hangmanguess $user_name $user_msg
+    }
+  }
+  if ([$2] == [$PLAY_HANG])
+  {
+    if ([$allow_play_hang] == [1])
+    {
+      if ([$test_allowed_toplay($user_name)] == [$true])
+      {
+        timer -d 150
+        ^assign -HANGMAN_ALLOWED_TOPLAY
+        if ([$@3] > [0])
+        { Hangmancreate $3- }
+        { Hangmancreate no_topic_given }
+        playhangman_off
+        showscore_off
+        hangman_on
+      }
+      {
+        msg $user_name Sorry, it is someone elses turn to pick the topic.
+      }
+    }
+  }
+  if ([$2] == [$SHOW_TOPIC])
+  {
+    if ([$allow_show_topic] == [1])
+    {
+      Hangmanshowtopic
+    }
+  }
+  if ([$2] == [$SHOW_SCORE])
+  {
+    if ([$allow_show_score] == [1])
+    {
+      Hangmanshowscore
+    }
+  }
+  if ([$2] == [$SHOW_MENU])
+  {
+    if ([$allow_show_menu] == [1])
+    {
+      Hangmanmenu
+    }
+  }
+}
+
+
+
+
+
+# nice little function to turn !CHEAT on 
+alias add_score_on
+{
+  ^assign allow_add_score $true
+}
+
+# nice little function to turn !CHEAT off
+alias add_score_off
+{
+  ^assign allow_add_score $false
+}
+
+
+# nice little function to turn !CLEAR on 
+alias clear_scores_on
+{
+  ^assign allow_clear_scores $true
+}
+
+# nice little function to turn !CLEAR off
+alias clear_scores_off
+{
+  ^assign allow_clear_scores $false
+}
+
+
+# nice little function to turn !STOP & !START on 
+alias start_stop_on
+{
+  ^assign allow_startstop_hang $true
+}
+
+# nice little function to turn !STOP & !START off
+alias start_stop_off
+{
+  ^assign allow_startstop_hang $false
+}
+
+
+# this function reads the entire hangmanfile and puts words into arrays
+alias load_hangman_topics
+{
+  ^local tmp_topic
+  ^local tmp_word
+  ^local tmp_count 0
+  ^local tmp_num
+  if (Hangmantopics && [$@Hangmantopics] > [0])
+  {
+    fe ($Hangmantopics) tmp_topic
+    { ^assign ret $delarray(HangmanArray$tmp_topic) }
+  }
+  
+  ^assign -Hangmantopics
+  while (! eof($0))
+  {
+    ^assign Hangmanline $read($0)
+    if ([$@Hangmanline] > [1])
+    {
+      # me ---------- Read entry: $Hangmanline
+      ^assign Hangmananswer $toupper($after(-1 \* $Hangmanline))
+      ^assign Hangmantopic $toupper($before(-1 \* $after(1 \* $Hangmanline)))
+      ^assign tmp_num $numitems(HangmanArray$Hangmantopic)
+      if ([$tmp_num] > [0])
+      { ^assign ret $setitem(HangmanArray$Hangmantopic $tmp_num $Hangmananswer) }
+      {
+        ^assign ret $setitem(HangmanArray$Hangmantopic 0 $Hangmananswer)
+        ^assign Hangmantopics $Hangmantopics $Hangmantopic
+      }
+      ^assign tmp_count ${tmp_count + 1}
+    }
+  }
+  @ close($Hangmanhs)
+  return $tmp_count
+}
+
+
+# nice little function to set the hangman file
+alias set_hangman_file
+{
+  # $0 should be a valid filename
+  ^assign HANGMANFILE $*
+  @ Hangmanfd = open($HANGMANFILE r)
+  ^assign ret $load_hangman_topics($Hangmanfd)
+  start_stop_on
+  clear_scores_on
+  add_score_on
+  playhangman_on
+  showscore_on
+  showtopic_on
+  say Hangman questions have been loaded, feel free to type !hangman <topic> for a question
+}
+
+
+# nice little function to turn !hangman on 
+alias playhangman_on
+{
+  ^assign allow_play_hang $true
+}
+
+# nice little function to turn !hangman off
+alias playhangman_off
+{
+  ^assign allow_play_hang $false
+}
+
+
+# nice little function to turn hangman on 
+alias hangman_on
+{
+  ^assign allow_hang_ans $true
+}
+
+# nice little function to turn hangman off
+alias hangman_off
+{
+  ^assign allow_hang_ans $false
+}
+
+
+# nice little function to turn show topic on 
+alias showtopic_on
+{
+  ^assign allow_show_topic $true
+}
+
+# nice little function to turn show topic off
+alias showtopic_off
+{
+  ^assign allow_show_topic $false
+}
+
+
+# nice little function to turn show score on 
+alias showscore_on
+{
+  ^assign allow_show_score $true
+}
+
+# nice little function to turn show score off
+alias showscore_off
+{
+  ^assign allow_show_score $false
+}
+
+
+# nice little function to turn menu on 
+alias showmenu_on
+{
+  ^assign allow_show_menu $true
+}
+
+# nice little function to turn show menu off
+alias showmenu_off
+{
+  ^assign allow_show_menu $false
+}
+
+
+on #^public 111 "*"
+{
+  test_names $0 $1 $2-
+}
+
+
+on #^msg 444 "*"
+{
+  if ([$1] == [$STOP_HANG])
+  {
+    if ([$allow_startstop_hang] == [1])
+    {
+      timer -d 199
+      timer -d 110
+      timer -d 150
+      ^assign -HANGMAN_ALLOWED_TOPLAY
+      hangman_off
+      playhangman_off
+      say ---------- Game has been paused, will start again soon
+      msg $0 Hangman paused, to start up type $START_HANG !!
+    }
+  }
+  if ([$1] == [$START_HANG])
+  {
+    if ([$allow_startstop_hang] == [1])
+    {
+      playhangman_on
+      say ---------- Game has started, for next question type: $PLAY_HANG
+      msg $0 Hangman started, to pause type $STOP_HANG !!
+    }
+  }
+  if ([$1] == [$CLEAR_SCORES])
+  {
+    if ([$allow_clear_scores] == [1])
+    {
+      Hangmanclearscore
+      msg $0 Hangman highscores cleared!!
+    }
+  }
+  if ([$1] == [$ADD_SCORE])
+  {
+    if ([$allow_add_score] == [1])
+    {
+      Hangmancheat $0
+      msg $0 I have added 1 to your score, cheater!!
+    }
+  }
+}
+
+
+alias EntryMessageOn
+{
+  on #^join 222 "*"
+  {
+    msg $1 For Hangman Answers type : $HANG_ANS <answer>
+    msg $1 For Hangman Questions type : $PLAY_HANG
+  }
+}
+
+alias EntryMessageOff
+{
+  on -join
+}
+
+alias ExitMessageOff
+{
+  on -leave
+}
+
+alias ExitMessageOn
+{
+  on #^leave 333 "*"
+  {
+    msg $1 Good Bye, hope you enjoyed your stay !!!
+  }
+}
+
+
+alias Hangmanmenu
+{
+  say <><><><><><><><> Hangman Menu <><><><><><><><>
+  say <><><><><>  $SHOW_MENU - to show this menu
+  say <><><><><>  $SHOW_SCORE - to show scores
+  say <><><><><>  $SHOW_TOPIC - to show topics
+  say <><><><><>  $HANG_ANS - to make a guess
+  say <><><><><>  $PLAY_HANG - to start a question
+  say <><><><><><><><><><><><><><><><><><><><><><><>
+}
+
+
+# this function sets it so anyone can type !hangman
+alias clear_allowed_toplay
+{
+  ^assign -HANGMAN_ALLOWED_TOPLAY
+  say ++++++++++ $0 didn't pick, so anyone can type: $PLAY_HANG <topic>
+}
+
+
+# this function sets it so only $0 can type !hangman
+alias set_allowed_toplay
+{
+  ^assign HANGMAN_ALLOWED_TOPLAY $HANGMAN_ALLOWED_TOPLAY $*
+}
+
+
+# this function tests to see who is allowed to call !hangman
+alias test_allowed_toplay
+{
+  ^local tmp_flag
+  ^local tmp_name
+  if ([$@HANGMAN_ALLOWED_TOPLAY] > [0])
+  {
+    ^assign tmp_flag $false
+    fe ($HANGMAN_ALLOWED_TOPLAY) tmp_name
+    {
+      if ([$0] == [$tmp_name])
+      { ^assign tmp_flag $true }
+    }
+    return $tmp_flag
+  }
+  {
+    return $true
+  }
+}
+
+
+# this function returns the topic it was sent if valid .. otherwise gets a new
+alias test_topic
+{
+  ^local tmp_flag $false
+  ^local tmp_count 0
+  ^local tmp_topic
+  ^local my_topic $toupper($0)
+  fe ($Hangmantopics) tmp_topic
+  {
+    if ([$my_topic] == [$tmp_topic])
+    { ^assign tmp_flag $true }
+    ^assign tmp_count ${tmp_count + 1}
+  }
+  if ([$tmp_flag] != [$true])
+  {
+    ^assign tmp_flag $rand($tmp_count)
+    ^assign tmp_count 0
+    fe ($Hangmantopics) tmp_topic
+    {
+      if ([$tmp_flag] == [$tmp_count])
+      { ^assign my_topic $tmp_topic }
+      ^assign tmp_count ${tmp_count + 1}
+    }
+  }
+  return $my_topic
+}
+
+
+# this function returns a random answer from the given topic
+alias get_rand_answer
+{
+  return $getitem(HangmanArray$0 $rand($numitems(HangmanArray$0)))
+}
+
+
+alias Hangmancreate 
+{
+  ^assign Hangmanhnr 0
+  ^assign Hangmanfinished $false
+  ^assign Hangmantopic $test_topic($0)
+  ^assign Hangmananswer $get_rand_answer($Hangmantopic)
+  ^assign Hangmanhint $answer_replace($Hangmananswer)
+  if ([$@Hangmananswer] < [$NUM_HINTS])
+  { ^assign CURRENT_HINTS $@Hangmananswer }
+  { ^assign CURRENT_HINTS $NUM_HINTS }
+  say ---------- Total Letters: $@Hangmananswer ----- Remaining Hints: ${CURRENT_HINTS - 1}
+  say ---------- hint: $Hangmanhint ----- topic: $Hangmantopic
+  say ---------- type: $HANG_ANS <answer>
+  timer -ref 110 $HANG_TIMEOUT { Hangmanhint }
+}
+
+
+# nice little function to replace all letters and numbers in the answer
+alias answer_replace
+{
+  ^assign -mystr
+  fec ($*) mych
+  {
+    if ([$mych] == [ ] || [$mych] == ['] || [$mych] == [&] || [$mych] == [-])
+    { ^assign mystr $mystr$mych }
+    { ^assign mystr $mystr* }
+  }
+  return $mystr
+}
+
+
+alias Hangmanguess
+{
+  ^assign Hangmanguess1 $toupper($2-)
+  if ([$Hangmanfinished] == [$false]) 
+  {
+    if ([$Hangmanguess1] == [$Hangmananswer])
+    {
+      timer -d 110
+      ^assign Hangmanfinished $true
+      say ---------- Congratulations $0 ! You have solved the question. The answer was $Hangmananswer
+      Hangmanaddscore $0 1
+      Hangmanshowscore
+      say ---------- $0 you can pick the topic, type: $PLAY_HANG <topic>
+      set_allowed_toplay $0
+      timer -ref 150 $HANG_TIMEOUT { clear_allowed_toplay $0 }
+      hangman_off
+      playhangman_on
+      showscore_on
+      showtopic_on
+    }
+    {
+      msg $0 ---------- Sorry $0 , $Hangmanguess1 is not correct.
+    }
+  }
+}
+
+
+# this function returns whatever part of the hangman that should be drawn
+alias draw_hangman_body
+{
+  if ([$0] == [${CURRENT_HINTS - 1}])
+  { return O-|--< }
+  if ([$0] == [${CURRENT_HINTS - 2}])
+  { return O-|-- }
+  if ([$0] == [${CURRENT_HINTS - 3}])
+  { return O-|- }
+  if ([$0] == [${CURRENT_HINTS - 4}])
+  { return O-| }
+  if ([$0] == [${CURRENT_HINTS - 5}])
+  { return O- }
+  if ([$0] == [${CURRENT_HINTS - 6}])
+  { return O }
+  { return }
+}
+
+
+alias Hangmanhint 
+{
+  ^assign Hangmanhnr ${Hangmanhnr + 1}
+  if ([$Hangmanhnr] == [$NUM_HINTS] || [$Hangmanhnr] == [$@Hangmananswer])
+  {
+    hangman_off
+    Hangmanend
+  }
+  {
+    ^assign remain $@Hangmananswer
+    ^local tmp_num 0
+    while ([$tmp_num] < [$Hangmanhnr])
+    {
+      ^assign remain ${remain - 1}
+      ^assign tmp_num ${tmp_num + 1}
+    }
+    ^assign Hangmanhint $left($Hangmanhnr $Hangmananswer)$right(${remain} $Hangmanhint)
+    say ---------- Total Letters: $@Hangmananswer ----- $draw_hangman_body($Hangmanhnr)
+    say ---------- hint: $Hangmanhint ----- topic: $Hangmantopic
+    say ---------- type: $HANG_ANS <answer>
+    timer -ref 110 $HANG_TIMEOUT { Hangmanhint }
+  }
+}
+
+
+alias Hangmankillscore
+{
+  if ([$@0] > [0])
+  {
+    ^assign myitem $matchitem(highscorenames $0)
+    if ([$myitem] < [0])
+    {
+      echo >>>>> No such score as $0
+    }
+    {
+      if ([$@1] > [0] && [$1] < [$getitem(highscores $myitem)])
+      {
+        say >>>>>>>>>> CHEATING: subtracting $1 from $0 score
+        ^assign Hangmanscore $getitem(highscores $myitem)
+        ^local tmp_num 0
+        while ([$tmp_num] < [$1])
+        {
+          ^assign Hangmanscore ${Hangmanscore - 1}
+          ^assign tmp_num ${tmp_num + 1}
+        }
+        ^assign ret $setitem(highscores $myitem $Hangmanscore)
+        while ([${myitem + 1}] < [$numitems(highscores)] && [$getitem(highscores $myitem)] < [$getitem(highscores ${myitem + 1})])
+        {
+          ^assign temp_num $getitem(highscores $myitem)
+          ^assign temp_name $getitem(highscorenames $myitem)
+          ^assign ret $setitem(highscores $myitem $getitem(highscores ${myitem + 1}))
+          ^assign ret $setitem(highscorenames $myitem $getitem(highscorenames ${myitem + 1}))
+          ^assign ret $setitem(highscores ${myitem + 1} $temp_num)
+          ^assign ret $setitem(highscorenames ${myitem + 1} $temp_name)
+          ^assign myitem ${myitem + 1}
+        }
+      }
+      {
+        say >>>>>>>>>> REMOVING: $0 from highscores
+        ^assign ret $setitem(highscores $myitem 0)
+        while ([${myitem + 1}] < [$numitems(highscores)] && [$getitem(highscores $myitem)] < [$getitem(highscores ${myitem + 1})])
+        {
+          ^assign temp_num $getitem(highscores $myitem)
+          ^assign temp_name $getitem(highscorenames $myitem)
+          ^assign ret $setitem(highscores $myitem $getitem(highscores ${myitem + 1}))
+          ^assign ret $setitem(highscorenames $myitem $getitem(highscorenames ${myitem + 1}))
+          ^assign ret $setitem(highscores ${myitem + 1} $temp_num)
+          ^assign ret $setitem(highscorenames ${myitem + 1} $temp_name)
+          ^assign myitem ${myitem + 1}
+        }
+        ^assign ret $delitem(highscores $myitem)
+        ^assign ret $delitem(highscorenames $myitem)
+      }
+    }
+  }
+}
+
+
+alias Hangmancheat
+{
+  # echo cheating ....
+  if ([$@0] > [0])
+  {
+    # echo got a user name ....
+    if ([$@1] > [0])
+    {
+      Hangmanaddscore $0 $1
+      say >>>>>>>>>> CHEATING: adding $1 to $0 score
+    }
+    {
+      Hangmanaddscore $0 1
+      say >>>>>>>>>> CHEATING: adding 1 to $0 score
+    }
+  }
+}
+
+
+alias Hangmanaddscore 
+{
+  ^assign myitem $matchitem(highscorenames $0)
+  if ([$myitem] < [0])
+  {
+    ^assign ret $setitem(highscorenames $numitems(highscores) $0)
+    ^assign ret $setitem(highscores $numitems(highscores) $1)
+  }
+  {
+    ^assign Hangmanscore $getitem(highscores $myitem)
+    ^local tmp_num 0
+    while ([$tmp_num] < [$1])
+    {
+      ^assign Hangmanscore ${Hangmanscore + 1}
+      ^assign tmp_num ${tmp_num + 1}
+    }
+    ^assign ret $setitem(highscores $myitem $Hangmanscore)
+    while ([$myitem] > [0] && [$getitem(highscores $myitem)] > [$getitem(highscores ${myitem - 1})])
+    {
+      ^assign temp_num $getitem(highscores $myitem)
+      ^assign temp_name $getitem(highscorenames $myitem)
+      ^assign ret $setitem(highscores $myitem $getitem(highscores ${myitem - 1}))
+      ^assign ret $setitem(highscorenames $myitem $getitem(highscorenames ${myitem - 1}))
+      ^assign ret $setitem(highscores ${myitem - 1} $temp_num)
+      ^assign ret $setitem(highscorenames ${myitem - 1} $temp_name)
+      ^assign myitem ${myitem - 1}
+    }
+  }
+}
+
+
+alias Hangmanend 
+{
+  say ---------- Sorry, the hangman died, answer was: $Hangmananswer . To play type: $PLAY_HANG <topic>
+  hangman_off
+  playhangman_on
+  showscore_on
+  showtopic_on
+}
+
+
+alias Hangmanshowtopic
+{
+  ^local tmp_topic
+  say <><><><><> Hangman Topics <><><><><>
+  fe ($Hangmantopics) tmp_topic
+  {
+    say <><><><><> $tmp_topic
+  }
+  say <><><><><> to play type: $PLAY_HANG <topic>
+}
+
+
+alias Hangmanshowscore 
+{
+  ^assign mycount 0
+  ^assign mynum $numitems(highscores)
+#  if ([$mynum] > [5])
+#  { ^assign mynum 5 }
+  say ********** High Scores **********
+  while ([$mycount] < [$mynum])
+  {
+    say ********** $getitem(highscorenames $mycount) $getitem(highscores $mycount)
+    ^assign mycount ${mycount + 1}
+  }
+}
+
+
+alias Hangmanloadscore 
+{
+  @ Hangmanhs = open($HANGMANHSFILE r)
+  me ---------- Openned file: $HANGMANHSFILE , file desc: $Hangmanhs
+  while (! eof($Hangmanhs))
+  {
+    ^assign mynum $numitems(highscores)
+    ^assign Hangmanline $read($Hangmanhs)
+    if ([$@Hangmanline] > [1])
+    {
+      me ---------- Read entry: $Hangmanline
+      ^assign ret $setitem(highscorenames $mynum $shift(Hangmanline))
+      ^assign ret $setitem(highscores $mynum $shift(Hangmanline))
+    }
+  }
+  @ close($Hangmanhs)
+  me ---------- Closed file desc: $Hangmanhs
+  ^assign HANGMANHSREAD $TRUE
+  Hangmanshowscore
+}
+
+
+alias Hangmansavescore 
+{
+  if ([$HANGMANHSREAD] == [$TRUE])
+  { @ unlink($HANGMANHSFILE) }
+  @ Hangmanhs = open($HANGMANHSFILE w)
+  me ---------- Openned file: $HANGMANHSFILE , file desc: $Hangmanhs
+  ^assign mycount 0
+  ^assign mynum $numitems(highscores)
+  while ([$mycount] < [$mynum])
+  {
+    @ write($Hangmanhs $getitem(highscorenames $mycount) $getitem(highscores $mycount))
+    me ---------- Wrote entry: $getitem(highscorenames $mycount) $getitem(highscores $mycount)
+    ^assign mycount ${mycount + 1}
+  }
+  @ close($Hangmanhs)
+  me ---------- Closed file desc: $Hangmanhs
+}
+
+
+alias Hangmanclearscore
+{
+  ^assign ret $delarray(highscores)
+  ^assign ret $delarray(highscorenames)
+}
+
+
+alias Hangmanstop 
+{
+  timer -d 199
+  timer -d 110
+  say ---------- Hangman Has Stopped ----------
+  showtopic_off
+  hangman_off
+  playhangman_off
+}

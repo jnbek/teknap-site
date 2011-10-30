@@ -1,0 +1,25 @@
+#Quick Website recall 
+xecho -b Usage : /web
+alias web
+{
+ echo 1 - http://jeepfreak.myjeeppage.com
+ echo 2 - http://bwap.virtualave.net
+ echo 3 - http://napigator.com/list.php
+ echo 4 - http://go.to/teknap
+ echo 5 - http://btscripts.virtualave.net
+ echo 6 - http://www.tutoneinc.com
+ {
+  Switch ($"What website do you want to spam? ")
+  {
+   (1) {say try http://jeepfreak.myjeeppage.com }
+   (2) {say try http://bwap.virtualave.net }
+   (3) {say try http://www.napigator.com }
+   (4) {say try http://go.to/teknap }
+   (5) {say try http://btscripts.virtualave.net }
+   (6) {say try http://www.tutoneinc.com/ }
+   (*)
+  }
+ }
+}
+# you can add as many more websites to it as you want, just continues
+# the (#) list. - Gadget/Jeep

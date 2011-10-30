@@ -1,0 +1,45 @@
+xecho -b Msgall Loaded
+xecho -b Author: DeathMetal alias msgall
+alias msgall
+{
+	^guser * -leech -user
+	^on ^832 "*"
+	{
+		whois $0
+		^on ^who "*"
+		{
+			if ([$rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*)]  < 1)
+			{
+				raw 205 $0 Please Join #TheHotTub , we are always lookin for life out there....
+			}
+			{
+			}
+		}
+	}
+	timer -ref leech 120
+	{
+	^guser * -leech -user
+		^on ^832 "*"
+		{
+			whois $0
+			^on ^who "*"
+			{
+				if ([$rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*)]  < 1)
+				{
+				raw 205 $0 Please join #TheHotTub or you might get kicked! *bye bye downloads*
+				timer 250 guser * -leech -user
+			}
+				{
+				}
+			}
+		}
+	}
+}
+on #^msg 122 "*"
+{
+	msg $0 I am a bot, so dun bother talkin to me!  ya got something to say, join #TheHotTub!
+}
+on #^404 123 "* is ignoring you"
+{
+	raw 610 $0 "Don't ignore my bot, tis a bad career move."
+}

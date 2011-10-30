@@ -1,0 +1,189 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK %C& %cDJHyperByte")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK & DJHyperByte's 04Leet Talk Script Loaded %>02/leet_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+assign a.0 A
+assign a.1 4
+assign a.2 @
+assign a.3 a
+
+assign b.0 B
+assign b.1 8
+assign b.2 b
+assign b.3 6
+
+assign c.0 C
+assign c.1 (
+assign c.2 <
+assign c.3 c
+
+assign d.0 D
+assign d.1 [)
+assign d.2 |)
+assign d.3 d
+
+assign e.0 3
+assign e.1 E
+assign e.2 e
+
+assign f.0 ph
+assign f.1 Ph
+assign f.2 pH
+assign f.3 PH
+assign f.4 f
+assign f.5 F
+
+assign g.0 9
+assign g.1 g
+assign g.2 G
+
+assign h.0 |-|
+assign h.1 h
+assign h.2 H
+
+assign i.0 1
+assign i.1 i
+assign i.2 I
+assign i.3 !
+assign i.4 l
+
+assign j.0 j
+assign j.1 J
+assign j.2 _|
+
+assign k.0 k
+assign k.1 K
+assign k.2 |<
+
+assign l.0 l
+assign l.1 L
+assign l.2 I
+assign l.3 !
+assign l.4 1
+
+assign m.0 m
+assign m.1 M
+assign m.2 |\/|
+assign m.3 (\/)
+
+assign n.0 n
+assign n.1 N
+assign n.2 |\|
+assign n.3 (\)
+
+assign o.0 o
+assign o.1 O
+assign o.2 0
+
+assign p.0 p
+assign p.1 P
+
+assign q.0 q
+assign q.1 Q
+
+assign r.0 r
+assign r.1 R
+
+assign s.0 s
+assign s.1 S
+assign s.2 $
+assign s.3 5
+assign s.4 Z
+
+assign t.0 t
+assign t.1 T
+assign t.2 +
+assign t.3 7
+
+assign u.0 u
+assign u.1 U
+
+assign v.0 v
+assign v.1 V
+assign v.2 \/
+
+assign w.0 w
+assign w.1 W
+assign w.2 \/\/
+assign w.3 vv
+
+assign x.0 x
+assign x.1 X
+assign x.2 ><
+
+assign y.0 y
+assign y.1 Y
+
+assign z.0 z
+assign z.1 Z
+assign z.2 2
+assign z.3 S
+
+alias leet_menu
+{
+echo
+echo 09CR34+3D 8Y 7U70N38K @ND DJHYP3R8Y+3
+echo
+echo 57usage : 54/leet (msg)57 Say converted in room
+echo 57        54/leetme (msg)57 Emote converted
+echo 57        54/leetmsg (user) (msg)57 Msg converted to user
+echo 57        54/leetecho (msg)57 Echo msg converted
+echo
+}
+
+@rand_b4=random_source
+set random_source 0
+@srand(9999999999999999999)
+
+alias leet say $leet_chg($0-)
+alias leetme me $leet_chg($0-)
+alias leetmsg msg $0 $leet_chg($1-)
+alias leetecho echo $leet_chg($0-)
+
+alias leet_chg
+{
+ @:new_leet_msg=[]
+ fec ($0-) leet_letters
+ {
+  switch ($leet_letters)
+  {
+   (a) {@new_leet_msg#=[$(a.$rand(4))]}
+   (b) {@new_leet_msg#=[$(b.$rand(4))]}
+   (c) {@new_leet_msg#=[$(c.$rand(4))]}
+   (d) {@new_leet_msg#=[$(d.$rand(4))]}
+   (e) {@new_leet_msg#=[$(e.$rand(3))]}
+   (f) {@new_leet_msg#=[$(f.$rand(6))]}
+   (g) {@new_leet_msg#=[$(g.$rand(3))]}
+   (h) {@new_leet_msg#=[$(h.$rand(3))]}
+   (i) {@new_leet_msg#=[$(i.$rand(5))]}
+   (j) {@new_leet_msg#=[$(j.$rand(3))]}
+   (k) {@new_leet_msg#=[$(k.$rand(3))]}
+   (l) {@new_leet_msg#=[$(l.$rand(5))]}
+   (m) {@new_leet_msg#=[$(m.$rand(4))]}
+   (n) {@new_leet_msg#=[$(n.$rand(4))]}
+   (o) {@new_leet_msg#=[$(o.$rand(3))]}
+   (p) {@new_leet_msg#=[$(p.$rand(2))]}
+   (q) {@new_leet_msg#=[$(q.$rand(2))]}
+   (r) {@new_leet_msg#=[$(r.$rand(2))]}
+   (s) {@new_leet_msg#=[$(s.$rand(5))]}
+   (t) {@new_leet_msg#=[$(t.$rand(4))]}
+   (u) {@new_leet_msg#=[$(u.$rand(2))]}
+   (v) {@new_leet_msg#=[$(v.$rand(3))]}
+   (w) {@new_leet_msg#=[$(w.$rand(4))]}
+   (x) {@new_leet_msg#=[$(x.$rand(3))]}
+   (y) {@new_leet_msg#=[$(y.$rand(2))]}
+   (z) {@new_leet_msg#=[$(z.$rand(4))]}
+   (*) {@new_leet_msg#=leet_letters}
+  }
+  @function_return=new_leet_msg
+ }
+}
+
+on -input "/leet*" if ([$0]!=[/leet_menu]) {type $0 }
+on -input "/dump" set random_source $rand_b4

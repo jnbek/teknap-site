@@ -1,0 +1,46 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/saturn
+
+alias sayc {say $cparse("$*")}
+
+alias saturn
+{
+sayc %r                                                                .:=ii
+sayc %r                                                             .=i>>=::
+sayc %r                                                          ,=i>:>I>>>I
+sayc %r                                                       .=i==>>>>ii>>>
+sayc %r                                                    %r +>+>>iiiiiiii>>I
+sayc %Y                                .,:::++++++::,.      %r >iii+::::iii>>+
+sayc %Y                             .::++=iiiiiiiiii=++:.   %r =::,,,:::=i>>:=
+sayc %Y                           ,:+==ii>>>>>>>>>>>ii==+:,   %r   ,,,:=i>>+=:
+sayc %Y                         ,:+=ii>>>>>>IIIIII>>>>ii===:. %r   ,,:=i>=i+
+sayc %Y                        :+=ii>>>IIIIITIIIIII>>>>iiii=+,  %r ,:=>>:=,
+sayc %Y                      ,+=i>>IIIIIITTTTTITIIIIII>>>I>i=+,  %r+i>=i+
+sayc %Y                     ,+i>>IIIIIITTTTTTTTTTTTI>>IIII>>i=:%r:i>>i='
+sayc %Y                    ,=i>>IIIIITLLTTTTTTTTTTIITTTTIII>+:%r+i>+i`
+sayc %Y                    =i>>IIITTLTLTTTTTTTTTIITTLLTTTII+%r:i>ii:'
+sayc %Y                   +i>>IITTTLLLTTTTTTTTTTTTLLLTTTT+%r:i>>>=%Y,
+sayc %Y                   =>>ITTTTTTTTTTTLTTTTTTLLLLLLTi%r:=>IIi%Yii:
+sayc %Y                  .i>IIITTTTTTTTLTTTITLLLLLLLT>%r:=>I>>%Y>>>i:
+sayc %Y                  :>>IIITTTTTLTTTTTTLLHLLLLL>%r:=>II>%YIIIIi=:
+sayc %Y                  :i>IIITTTTTTTTTLLLHLLHLL>%r+=>II>%YITTTI>i=
+sayc %Y                  .i>IIITTTTITTLLLHHLLLL>%r:=>II>%YITTTTII>i+
+sayc %Y                  %Y=i>IIIIIITTLLLLLLHLL%r=:i>II>%YTTTTTTIII>i'
+sayc %r                +i>%Yi>>>IITTLLLLLLLLT%r=:i>II>%YTTTTLTTIII>i:
+sayc %r              +ii>i:%Y>IITTLLTLLLLT%r=:+i>I>%YITTTTLTTTII>>i:
+sayc %r             =:>i=:,%Y=>ITTTTLTT%rI=:i>>I>%YTTTLLLTTTTTII>i:
+sayc %r           +i>ii::, %Y +>IIITI%r+:+i>I>>%YTTTTLLTTTTTII>>=,
+sayc %r         :=:>i=:,,   %Y ,i++%r::i>>I>%YITTTTTTTTTTIIII>=+'
+sayc %r       .+ii>i=::,,   ,,::=i>>>i%YIITTTTTTTTIIIII>=+
+sayc %r      ,==>ii=::,,,,:::=ii>i>i%YIIIITIIITIIII>>i+:'
+sayc %r     +=:>>i==:::::=iii>+>= %Y `:i>>>IIIII>ii+'
+sayc %r   .+=:>>iiiiiiii>>>+ii:
+sayc %r  .+=:>>iiiiii>>>:ii+
+sayc %r .+=i:>>>>>>>=+ii+
+sayc %r.:==i+::::=>i=:
+sayc %r,+==iiiiii+,
+sayc %r`+=+++:`
+}

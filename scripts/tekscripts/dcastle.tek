@@ -1,0 +1,17 @@
+alias castle               
+{
+/sayc               %y|%r>           
+/sayc               %y|            
+/sayc             %y/^^\\\\\\\\           
+/sayc            %y(____)          
+/sayc            %y| =  |          
+/sayc            %y| =  |          
+/sayc         %y|%r> %y| =  |   |%r>     
+/sayc         %y|  | =  |   |      
+/sayc       %y/^^\\\\\\\\_|    |_/^^\\\\\\\\     
+/sayc      %y| , ' . ' .  ' ' |    
+/sayc      %y|   '        '   |    
+/sayc      %y| = ' .----. ' = |    
+/sayc      %y|   ' | || | '   |    
+/sayc      %y|___'_|'||'|_'___|%B~~~~
+}

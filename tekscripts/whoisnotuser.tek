@@ -1,0 +1,46 @@
+alias echoc {echo $cparse("$*")}
+echoc %W     Script : %YWhoisnotuser
+echoc %W      Author: %YUnknown
+echoc %WReformatted : %YTuToneBK
+echo
+echoc %W      Usage : %Y/notuser
+
+alias notuser
+{
+ echo $cparse($chr(9)%W** $color(%C %c Starting Non-User Search) %W**)
+ fe ($chanusers()) nick
+ {
+  if ([$N]!=nick)
+  {
+   ^whois -cmd
+   {
+    if ([$1] != ["User"])
+    {
+     echo $cparse($chr(9)%W** $color(%C %c $0 is a $tr(/"//$1)) %W**)
+    }
+   } $nick
+  }
+ }
+ ^whois -cmd
+ {
+  if ([$1] != ["User"])
+  {
+   echo $cparse($chr(9)%W** $color(%C %c $0 is a $tr(/"//$1)) %W**)
+  }
+  echo $cparse($chr(9)%W** $color(%C %c Finished Non-User Search) %W**)
+ } $N
+}
+
+alias color (firstcolor,restcolor,string) {
+    @:lastchar = [ ]
+    @:colorstr = []
+    fec ($string) strchar {
+        if (lastchar == [ ] && strchar != [ ]) {
+           @colorstr #= firstcolor ## strchar ## restcolor
+        }{
+           @colorstr #= strchar
+        }
+        @lastchar = strchar
+    }
+    return $cparse($colorstr)
+}

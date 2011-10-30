@@ -1,0 +1,53 @@
+xecho -b pen
+xecho -b Author:ADAM 
+
+alias sayc
+{ 
+	eval say $cparse("$*")
+}
+
+alias p
+
+
+{
+eval sayc %W ...._ ..,,-======-.
+eval sayc %W   `''<<::   o.      `I
+eval sayc %W        `-.'      .cdbc`.
+eval sayc %W           :      PSSSSSb.
+eval sayc %W           :...  .dSSSSSS%KI>
+eval sayc %W         .SSSSSSP'PPSSPP%KIIII>.
+eval sayc %W        ,SSSSSSP   .P%KIIIIIIIII>
+eval sayc %W        SSSSSSSk  %KIIIIIIIIIIIIII>
+eval sayc %W       dSSSSSSSS   %KIIIIIIIIIIIIII:
+eval sayc %W      dSSSSSSSSSF '%KIIIIIIIIIIIIIII:
+eval sayc %W     dSSSSSSSSSS  '%KIIIIIIIIIIIIIIII>
+eval sayc %W     SSSSSSSSSSSS %KIIIIIIIIIIIIIIIIIII
+eval sayc %W    dSSSSSSSSSSSS '%KIIIIIIIIIIIIIIIIII
+eval sayc %W    dSSSSSSSSSSSS %KIIIII%WXX%KIIIIIIIIIIIII
+eval sayc %W    dSSSSSSSSSSSSx%KIIIIII%W:X%KIIIIIIIIIIII>
+eval sayc %W    3SSSSSSSSSSSS%KIIIIIIII%WS%KIIIIIIIIIIIII
+eval sayc %W    PSSSSSSSSSSS%KIIIIIIIII%WS%KIIIIIIIIIIIII>
+eval sayc %W    PSSSSSSSSSSP%KIIIIIII%WXd%KIIIIIIIIIIIIII>
+eval sayc %W     SSSSSSSSSP%KIIIIIII%WXT%KIIIIIIIIIIIIIIII>
+eval sayc %W     PSSSSSSSF%KIIIIIII%Wtd%KIIIIIIIIIIIIIIIII>
+eval sayc %W      SSSSSSS%KIIIIIII%WUd%KIIIIIIIIIIIIIIIIII>
+eval sayc %W      PSSSSSS%KIIIIIII%WXP%KIIIIIIIIIIIIIIIIIII>
+eval sayc %W       SSSSSC%KIIIIII%WEE%KIIIIIIIIIIIIIIIIIIII>
+eval sayc %W       PSSSSS%KIIIIII%WE%KIIIIIIIIIIIIIIIIIIII>
+eval sayc %W        SSSSSX%KIIIII%WX%KIIIIIIIIIIIIIIIIIIII>
+eval sayc %W        SSSSb%KIIII%W9%KIIIIIIIIIIIIIIIIIIIII>
+eval sayc %W         `SSSSSC%KII%W9%KIIIIIIIIIIIIIIIIIIIII
+eval sayc %W         PSSSSSSbUi%KIIIIIIIIIIIIIIIIIIII
+eval sayc %W          `SSSSSSSSSSSSSb%KIIIIIIIIIIIIIII
+eval sayc %W           PSSSSSSSSSSSSSf%KIIIIIIIIIIIIII
+eval sayc %W            SSSSSSSSSSSSSS<%KIIIIIIIIIIIII>
+eval sayc %W             PSSSSSSSSSSSF%KIIIIIIIIIIIIIII
+eval sayc %W               'SSSSSSSSS%KIIIIIIIIIIIIIIIII
+eval sayc %W                'SSSSSSSS%KIIIIIIIIIIIIIIIII:
+eval sayc %W                 PSSSSSSP%KIIIIIIIIIIIIIIIIII:
+eval sayc %W                  SSSSS%KIIIIIIIIIIIIIIIIIIIII
+eval sayc %y                  `SSSSPP>`-,    %W`'<-<-`<>.|'-
+eval sayc %y               ,:<<PSSSS-':<:      %w `|| |.<|.'
+eval sayc %y          =<:<<:<<:'PSP'````           %W `` ` '`
+eval sayc                     %2%YFOR THE LINUX LOVER
+}

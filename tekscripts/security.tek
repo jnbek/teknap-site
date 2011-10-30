@@ -1,0 +1,66 @@
+# written by (ice) as an example to why /eval's can be dangerous
+#
+#
+# ---- This script is to show the dangers of using /eval before
+# ----   saying something that the user has input.  When done
+# ----   testing this script, type: /dump ... to remove it from
+# ----   memory.  Try this script with the following:
+# ----    !sec  $N
+# ----    !nsec $N
+# ----    !sec  testing ;/whois
+# ----    !nsec testing ;/whois
+# ----
+# ---- There are many more security hazards these are just a few
+# ----   to be aware of.  Running this script could allow a true
+# ----   hacker to mess with your machine, as well as your server
+# ----   if this BOT is run with a high enough user level.  Be
+# ----   cautious when using this script, and be aware of the
+# ----   dangers pointed out in this file.  Take for example some
+# ----   mod+ actions that could be exploited:
+# ----   - /setuserlevel <user> <level>
+# ----   - /topic <room> <topic>
+# ----   - /ban <user or ip>
+# ----   - /admin removeserver <server>
+# ----
+# ---- Some other teknap functions to be aware of that could cause
+# ----   serious damage to your machine are:
+# ----   - /unlink <file>    - deletes <file>
+# ----   - /set allow_dcc on - allows anyone to send you files
+# ----   - $default_password - gives your password is var is set
+# ----   - $!<number>!       - gives your history at line # <number>
+#
+#
+
+
+# global assigns
+assign TRUE     1
+assign FALSE    0
+
+assign SEC  !sec
+assign NSEC !nsec
+
+
+# this function tests for each !<whatever> case
+alias test_input 
+{
+  ^assign user_name $0
+  ^assign user_chan $1
+  ^assign user_msg  $2-
+
+  if ([$2] == [$SEC])
+  {
+    say In channel ${user_chan}, ${user_name} said: ${user_msg}
+  }
+  if ([$2] == [$NSEC])
+  {
+    eval say In channel ${user_chan}, ${user_name} said: ${user_msg}
+  }
+}
+
+
+
+on #^public 54321 "*"
+{
+  test_input $0 $1 $2-
+}
+

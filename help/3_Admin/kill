@@ -1,0 +1,12 @@
+Synopsis:
+   kill <nick|nick1,nick2,nick3> [reason]
+
+Description:
+   Kill the users connection to the server with optional reason.
+
+Examples:
+   /kill luna hi!
+   /kill luna,void^ hey!
+
+See Also:
+

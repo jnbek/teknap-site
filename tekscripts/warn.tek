@@ -1,0 +1,29 @@
+echo Join Channel Warn Loaded
+echo Author: TuToneBK  (modified from ~N~'s warn script)
+
+
+alias warn
+{
+ ^guser -u -l -cmd {
+  ^whois -cmd
+  {
+   if (!rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*))
+   {
+    ^m $0 Please join a channel $0.
+    ^m $0 As much as we're glad you're here we would like to know more about you.
+    ^m $0 So join a room :)
+    ^m $0 If you need help with something then join Help :)
+   }
+  } $0
+ }
+}
+
+on -msg "*"
+{
+ ^m $0 I Am A Bot. Do Not Talk To Me For I Will Not Talk Back.
+}
+
+on -404 "* is ignoring you"
+{
+ kill $0 Don't Ignore The Bot!
+}

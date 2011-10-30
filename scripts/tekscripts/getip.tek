@@ -1,0 +1,117 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04GetIP Script Loaded %>02/gip_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias gip_menu
+{
+ echo
+ echo 00Usage for this script is 12/getip (username)
+ echo 00                         12/allips (room)
+ echo 00                         12/sayip (username)
+ echo 00                         12/giveip (user 2 give ip 2) (username)
+ echo
+}
+
+assign -say_ip
+assign -give_ip
+
+on ^213 "*"
+{
+ @:blah_ip=[]
+ @:chg_ip=longtoip($1)
+ repeat 3
+ {
+  @blah_ip=[.]##before(1 . $chg_ip)##blah_ip
+  @chg_ip=after(1 . $chg_ip)
+ }
+ @blah_ip=chg_ip##blah_ip
+ if (blah_ip == [...])
+  {echo 07$chr(249)00$chr(237)07$chr(249) 00$0 07: 00Offline 07$chr(249)00$chr(237)07$chr(249)}
+  {echo 07$chr(249)00$chr(237)07$chr(249) 00$0 07: 00$blah_ip 07$chr(249)00$chr(237)07$chr(249)}
+ if (say_ip)
+ {
+  if (blah_ip != [...])
+  {
+   say 07$chr(249)00$chr(237)07$chr(249) 15User $0's ip is $blah_ip
+  }
+  {
+   say 07$chr(249)00$chr(237)07$chr(249) 15User $0's Offline.
+  }
+  ^assign -say_ip
+ }
+ if (give_ip)
+ {
+  if (blah_ip != [...])
+  {
+   m $give_ip 07$chr(249)00$chr(237)07$chr(249) 11Yo 02$give_ip, 07$0's 11ip is 08$blah_ip
+   ^assign -give_ip
+  }
+ }
+}
+
+alias getip (who) {raw 211 $who}
+
+alias sayip (who)
+{
+ raw 211 $who
+ ^assign say_ip blah
+}
+
+alias giveip (who, who2)
+{
+ raw 211 $who2
+ ^assign give_ip $who
+ echo 07$chr(249)00$chr(237)07$chr(249) 15Giving user 11$who08$who2's15 ip.
+}
+
+alias allips (room)
+{
+ if (room)
+ {
+  ^on ^825 "*"
+  {
+   raw 211 $1
+  }
+  raw 830 $room
+  timer 15 ^on ^825 -"*"
+ }
+ {
+  current_chan?
+ }
+}
+
+alias current_chan?
+{
+ input_char "Would you like to scan $C? [Y/N] :"
+ {
+  switch ($0)
+  {
+   (y)
+   {
+    allips $C
+   }
+   (n)
+   {
+    input "Which room would you like to scan? :" if ([$0])
+    {
+     allips $0
+    }
+    {
+     current_chan?
+    }
+   }
+   (*)
+   {
+    echo 08Y 11or 04N 11please!!;current_chan?
+   }
+  }
+ }
+}
+
+on #-join 420 "*" raw 211 $1

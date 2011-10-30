@@ -1,0 +1,201 @@
+
+/*
+ * Taken from SpikeNAP, this script has to be loaded on TekNap startup so it loads
+ * the internal ignore lists, perferrably quite early as your RC loads.
+ * If your RC doesnt use AUTO_RESPONSE_STR for the auto response assign, then assign it.
+ * - Spike
+ */
+
+#assign AUTO_RESPONSE_STR blah bleh crap
+
+/*
+ * Ignore Scripting
+ * ----------------
+ * Various ignore scripting i wrote.
+ * Channel ignores, Client side ignores, and Server side ignores.
+ * As well as other features that relate to the ignoring side of things.
+ * If you are going to ignore mods, and you are user, its best to NOT use server ignore,
+ * This is just asking to be banned from the network since they will know you ignored them.
+ * Use server side ignores for lamors or people that attempt to leech you of your files
+ * without giving any themselves. They will then not be able to download from you.
+ * Bugs regarding auto responses not being ignored properly were recently fixed.
+ */
+
+alias ignore (nick, unick)
+{
+	if (nick != [] && nick != [-help])
+	{
+		if (nick != [-remove])
+		{
+			fe ($sar(g/,/ /$nick)) xx
+			{
+				^on ^join ^"% $xx *"
+				^on ^leave ^"% $xx *"
+				^on ^msg ^"$xx *"
+				^on ^public ^"$xx % *"
+				^on ^public_other ^"$xx % *"
+				^on ^824 ^"% $xx *"
+				^on ^627 ^"$xx *"
+				^on ^628 ^"$xx *"
+				^on ^404 ^"$xx [ops/%]: *"
+				/* auto responses must be ignored seperatly, sigh */
+				^on ^join ^'% $xx *\\\\[\${auto_response_str}\\\\]*'
+				^on ^leave ^'% $xx *\\\\[\${auto_response_str}\\\\]*'
+				^on ^msg ^'$xx *\\\\[\${auto_response_str}\\\\]*'
+				^on ^public ^'$xx % *\\\\[\${auto_response_str}\\\\]*'
+				^on ^public_other ^'$xx % *\\\\[\${auto_response_str}\\\\]*'
+				^on ^824 ^'% $xx *\\\\[\${auto_response_str}\\\\]*'
+				^on ^627 ^'$xx *\\\\[\${auto_response_str}\\\\]*'
+				^on ^628 ^'$xx *\\\\[\${auto_response_str}\\\\]*'
+				^on ^404 ^'$xx [ops/%]: *\\\\[\${auto_response_str}\\\\]*'
+				/* finally, add the ignored nick to the clients ignorelist table */
+				//ignore $xx
+			}
+		}{
+			unignore $unick
+		}
+	}{
+		xecho -b $teknap Usage: /ignore <nick1,nick2,etc>
+		xecho -b  - Adds <nick> to client ignore list.
+		xecho -b  - Use "/ignores" to view ignore list.
+	}
+}
+alias unignore (nick, void)
+{
+	if (nick != [] && nick != [-help])
+	{
+		fe ($sar(g/,/ /$nick)) xx
+		{
+			^on ^join -"% $xx *"
+			^on ^leave -"% $xx *"
+			^on ^msg -"$xx *"
+			^on ^public -"$xx % *"
+			^on ^public_other -"$xx % *"
+			^on ^824 -"% $xx *"
+			^on ^627 -"$xx *"
+			^on ^628 -"$xx *"
+			^on ^404 -"$xx [ops/%]: *"
+			/* auto responses must be unignored seperatly as well, grumble */
+			^on ^join -'% $xx *\\\\[\${auto_response_str}\\\\]*'
+			^on ^leave -'% $xx *\\\\[\${auto_response_str}\\\\]*'
+			^on ^msg -'$xx *\\\\[\${auto_response_str}\\\\]*'
+			^on ^public -'$xx % *\\\\[\${auto_response_str}\\\\]*'
+			^on ^public_other -'$xx % *\\\\[\${auto_response_str}\\\\]*'
+			^on ^824 -'% $xx *\\\\[\${auto_response_str}\\\\]*'
+			^on ^627 -'$xx *\\\\[\${auto_response_str}\\\\]*'
+			^on ^628 -'$xx *\\\\[\${auto_response_str}\\\\]*'
+			^on ^404 -'$xx [ops/%]: *\\\\[\${auto_response_str}\\\\]*'
+			/* finally, remove the ignored nick from the clients ignorelist table */
+			//ignore -remove $xx
+		}
+	}{
+		xecho -b $teknap Usage: /unignore <nick1,nick2,etc>
+		xecho -b  - Removes <nick> from client ignore list.
+		xecho -b  - Use "/ignores" to view ignore list.
+	}
+}
+alias cignore (chan, uchan)
+{
+	if (chan != [] && chan != [-help])
+	{
+		if (chan != [-remove])
+		{
+			fe ($sar(g/,/ /$chan)) xx
+			{
+				^on ^join ^"$xx % *"
+				^on ^leave ^"$xx % *"
+				^on ^public ^"% $xx *"
+				^on ^public_other ^"% $xx *"
+				^on ^824 ^"$xx % *"
+				//cignore $xx
+			}
+		}{
+			uncignore $uchan
+		}
+	}{
+		xecho -b $teknap Usage: /cignore <channel1,channel2,etc>
+		xecho -b  - Adds <channel> to channel ignore list.
+		xecho -b  - Use "/cignores" to view channel ignore list.
+	}
+}
+alias uncignore (chan, void)
+{
+	if (chan != [] && chan != [-help])
+	{
+		fe ($sar(g/,/ /$chan)) xx
+		{
+			^on ^join -"$xx % *"
+			^on ^leave -"$xx % *"
+			^on ^public -"% $xx *"
+			^on ^public_other "% $xx *"
+			^on ^824 -"$xx % *"
+			//cignore -remove $xx
+		}
+	}{
+		xecho -b $teknap Usage: /uncignore <channel1,channel2,etc>
+		xecho -b  - Removes <channel> from channel ignore list.
+		xecho -b  - Use "/cignores" to view channel ignore list.
+	}
+}
+alias ignores (void) //ignore
+alias cignores (void) //cignore
+alias unsignoreall (void) raw 326
+alias signore (nick, unick)
+{
+	if (nick != [] && nick != [-help] && N != [])
+	{
+		if (nick != [-remove])
+		{
+			fe ($sar(g/,/ /$nick)) xx
+			{
+				raw 322 $xx
+			}
+		}{
+			unsignore $unick
+		}
+	}{
+		xecho -b $teknap Usage: /signore <nick1,nick2,etc>
+		xecho -b  - Adds <nick> to server ignore list.
+		xecho -b  - Doing this to MOD+ is asking to be banned!
+		xecho -b  - Use "/signores" to view server ignore list.
+	}
+}
+alias unsignore (nick, void)
+{
+	if (nick != [] && nick != [-help] && N != [])
+	{
+		fe ($sar(g/,/ /$nick)) xx
+		{
+			raw 323 $xx
+		}
+	}{
+		xecho -b $teknap Usage: /signore <nick1,nick2,etc>
+		xecho -b  - Removes <nick> from server ignore list.
+		xecho -b  - Use "/signores" to view server ignore list.
+	}
+}
+alias signores (void)
+{
+	if (N != [])
+	{
+		xecho -b $teknap Ignore List:
+		raw 320
+	}{
+		xecho -b $teknap Try connecting to a server first.
+	}
+}
+on ^320 "*"
+{
+	if ([$0] == 0)
+	{
+		xecho -b $teknap No users ignored.
+	}{
+		xecho -b $teknap $0 user${[$0] > 1 ? [s] : []} ignored.
+	}
+}
+on ^321 "*" xecho -b $0
+on ^322 "*" xecho -b $teknap Added $0 to server ignore list.
+on ^323 "*" xecho -b $teknap Removed $0 from server ignore list.
+on ^324 "*" xecho -b $teknap User $0 is not on server ignore list.
+on ^325 "*" xecho -b $teknap User $0 is already on server ignore list.
+on ^326 "*" xecho -b $teknap Server ignore list cleared. $0 user${[$0] > 1 ? [s] : []} removed.

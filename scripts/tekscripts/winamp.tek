@@ -1,0 +1,16 @@
+xecho -b Winamp echo loaded
+
+@ unlink(~/Playing.txt)
+
+timer -repeat -1 1 eval CheckSong
+
+alias checkSong {
+  @ fd = open(~/Playing.txt r)
+  @ song = read($fd)
+  if ([$song] != []){
+    me is listenin to : $song
+  }
+  @ close($fd)
+  @ unlink(~/Playing.txt)
+  @ song = Done
+}

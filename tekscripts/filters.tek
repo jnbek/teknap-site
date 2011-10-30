@@ -1,0 +1,131 @@
+## text fades, filters, fun, etc..
+
+## i worked hard on this, thanks to RoboHak(improvements) and shade(suggestions)
+## optimized by Rain
+## optimized again by ttb
+
+alias fade { @ :output=[];@ :xx=0
+	fe ($3-) wd { ${xx % 2==1?{@fc1=[$0];@fc2=[$1];@fc3=[$2]}:{@fc1=[$2];@fc2=[$1];@fc3=[$0]}}
+    	switch ($strlen($wd)) {
+			(1) {@push(output $(fc1)$wd)}
+			(2) {@push(output $(fc1)$left(1 $wd)$(fc2)$right(1 $wd))}
+			(3) {@push(output $(fc1)$left(1 $wd)$(fc2)$mid(1 1 $wd)$(fc3)$right(1 $wd))}
+			(4) {@push(output $(fc1)$left(1 $wd)$(fc2)$mid(1 2 $wd)$(fc3)$right(1 $wd))}
+			(5) {@push(output $(fc1)$left(2 $wd)$(fc2)$mid(2 1 $wd)$(fc3)$right(2 $wd))}
+			(6) {@push(output $(fc1)$left(2 $wd)$(fc2)$mid(2 2 $wd)$(fc3)$right(2 $wd))}
+			(7) {@push(output $(fc1)$left(2 $wd)$(fc2)$mid(2 3 $wd)$(fc3)$right(2 $wd))}
+			(*) {@push(output $(fc1)$left(3 $wd)$(fc2)$mid(3 ${strlen($wd) - 6} $wd)$(fc3)$right(3 $wd))}}
+	@xx++}
+	@ function_return = cparse("$output")
+	^assign -fc1;^assign -fc2;^assign -fc3}
+
+
+alias ifunky {if (strlen($0)>1) {@:strlenofword=strlen($0) - 2;return $(cyn)$left(1 $0)$(cl)$mid(1 $strlenofword $0)$(hwht)$right(1 $0)$(cl)}{return $(cl)$0}}
+alias grfade {if (strlen($0)>1) {return [1;32m$left(1 $0)[0;32m$mid(1 ${strlen($0) - 1} $0)}{return $(cl)$0$(cl)}}
+
+alias say {
+@ :flag = [$0]
+switch ($flag) {
+        (-w) {//say $fade(%K %w %W $1-)}
+        (-m) {//say $fade(%K %m %M $1-)}
+        (-c) {//say $fade(%K %c %C $1-)}
+        (-g) {//say $fade(%K %g %G $1-)}
+        (-y) {//say $fade(%K %y %Y $1-)}
+        (-r) {//say $fade(%K %r %R $1-)}
+	(-b) {//say $fade(%K %b %B $1-)}
+        (*) {//say $0-}
+}}
+
+alias msg {
+@ :flag = [$1]
+switch ($flag) {
+        (-w) {//msg $0 $fade(%K %w %W $2-)}
+        (-m) {//msg $0 $fade(%K %m %M $2-)}
+        (-c) {//msg $0 $fade(%K %c %C $2-)}
+        (-g) {//msg $0 $fade(%K %g %G $2-)}
+        (-y) {//msg $0 $fade(%K %y %Y $2-)}
+        (-r) {//msg $0 $fade(%K %r %R $2-)}
+        (-b) {//msg $0 $fade(%K %b %B $2-)}
+        (*) {//msg $0 $1-}
+}}
+
+alias echo {
+@ :flag = [$0]
+switch ($flag) {
+        (-w) {//echo $fade(%K %w %W $1-)}
+        (-m) {//echo $fade(%K %m %M $1-)}
+        (-c) {//echo $fade(%K %c %C $1-)}
+        (-g) {//echo $fade(%K %g %G $1-)}
+        (-y) {//echo $fade(%K %y %Y $1-)}
+        (-r) {//echo $fade(%K %r %R $1-)}
+        (-b) {//echo $fade(%K %b %B $1-)}
+        (*) {//echo $0-}
+}}
+
+alias me {
+@ :flag = [$0]
+switch ($flag) {
+        (-w) {//me $fade(%K %w %W $1-)}
+        (-m) {//me $fade(%K %m %M $1-)}
+        (-c) {//me $fade(%K %c %C $1-)}
+        (-g) {//me $fade(%K %g %G $1-)}
+        (-y) {//me $fade(%K %y %Y $1-)}
+        (-r) {//me $fade(%K %r %R $1-)}
+        (-b) {//me $fade(%K %b %B $1-)}
+        (*) {//me $0-}
+}}
+
+alias esay {
+@ :flag = [$0]
+switch ($flag) {
+        (-w) {/esay2 $fade(%K %w %W $1-)}
+        (-m) {/esay2 $fade(%K %m %M $1-)}
+        (-c) {/esay2 $fade(%K %c %C $1-)}
+        (-g) {/esay2 $fade(%K %g %G $1-)}
+        (-y) {/esay2 $fade(%K %y %Y $1-)}
+        (-r) {/esay2 $fade(%K %r %R $1-)}
+        (-b) {/esay2 $fade(%K %b %B $1-)}
+        (*) {/esay2 $0-}
+}}
+
+alias emsg {
+@ :flag = [$1]
+switch ($flag) {
+        (-w) {/emsg2 $0 $fade(%K %w %W $2-)}
+        (-m) {/emsg2 $0 $fade(%K %m %M $2-)}
+        (-c) {/emsg2 $0 $fade(%K %c %C $2-)}
+        (-g) {/emsg2 $0 $fade(%K %g %G $2-)}
+        (-y) {/emsg2 $0 $fade(%K %y %Y $2-)}
+        (-r) {/emsg2 $0 $fade(%K %r %R $2-)}
+        (-b) {/emsg2 $0 $fade(%K %b %B $2-)}
+        (*) {/emsg2 $0 $1-}
+}}
+
+
+alias m msg 
+
+alias usay { say $usayfunct($*) }
+# .:. clogic '98
+
+## drendite wrote it, or roque one, duno, just don't complain to me about it
+alias lsay {
+  @ :ee = []
+  @ :aa = [abcdefghijklmnopqrstuvwxyz]
+  @ :bb = [ayh bee sea dee ee eff gee aych eye jay kay ell ehm in oh pea que are ess tea you vee doubleu ex why zee]
+  fec ($tolower($*)) cc {
+    @ :dd = index($cc $aa)
+    if (dd > -1) {
+      push ee $word($dd $bb)
+    } else {
+      push ee $cc
+    }
+  }
+  //send $ee
+  }
+
+alias country if ([$0]) {
+@ :ctry = country($0)
+if (ctry==[unknown]) { echo $(sc3)$0$(cl) is an unknown country }{
+echo $(sc3)$0$(cl) is the country of $(sc3)$ctry$(cl)
+}}{
+echo $scriptname usage: /country <abbr>}

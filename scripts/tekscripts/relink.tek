@@ -1,0 +1,519 @@
+# RELINKER!  Written by Spike, modified by Khaytsus
+
+# Known bugs:
+#
+# /cancel or !cancel cancels ALL pending 2 minute timers.  If two servers unlink
+# in the same two minutes /cancel will stop the attempt to relink both of them.
+# However, the extended relink time is still in effect.
+#
+# On a related note, /cancel or !cancel will not stop the attempt to relink 
+# server which is on the extended relink timer.
+#
+# When the local server unlinks, should it be logged as the hub it was on or
+# the local server itself?  Hmm..
+
+# The following variables will probably need changing for you.
+
+# Location of the relink statistics log (required to save relink stats)
+# Otherwise, the stats are only saved as long as teknap is running.
+assign statlog ~/.TekNap/relinkstats.log
+
+# If set to 0 the relinker is disabled initially.
+assign AUTO_RELINK 1
+
+# Everyone likes different colors, so adjust to taste. 
+assign TIME %B[%W$strftime(%X)%B]
+
+
+# The following variables shouldn't need changing necessarily unless you want adjust the timings.
+
+# Beeps four times when a server departs if set (can also be started with /notify)
+assign AUTO_NOTIFY 0
+
+# How long a remote server is given before it is no longer ignored, in seconds.
+assign REMOTEIGNORE 900
+
+# How long a local server is given before it is no longer ignored, in seconds.
+assign LOCALIGNORE 600
+
+# How long before a relink is attempted *after* the normal 2 minutes.
+# IE:  A relink is attempted at two minutes, if the server does not return
+# it tries again $RELINKRETRY seconds later, and once again after that.
+# Referred to as the extended relink period.
+assign RELINKRETRY 1020
+
+# Leave these alone.  Uninitialized arrays seem to not work consistantly.
+@ setitem(ignorearray 0 init)
+@ setitem(timedarray 0 init)
+
+assign RELINKVERSION .4.7b
+
+eval xecho -b Relinker is loaded ${AUTO_RELINK ? [and enabled.] : [but disabled.]}
+
+on #^msg 422 "% !enable"
+{
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested RELINK enable.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				wallop RELINK: Auto-relink has been enabled by $0.
+				a_relink on
+			}
+		}
+	} $0
+}
+
+on #^msg 422 "% !quietenable"
+{
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested a quiet RELINK enable.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				msg $0 Auto-relink has been enabled.
+				a_relink on
+			}
+		}
+	} $0
+}
+
+on #^msg 422 "% !disable" if (AUTO_RELINK)
+{
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested RELINK disable.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				wallop RELINK: Auto-relink has been disabled by $0.
+				a_relink off
+			}
+		}
+	} $0
+}
+
+on #^msg 422 "% !cancel" if (AUTO_RELINK)
+{	
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested RELINK cancel.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				wallop RELINK: Auto-relink has been cancelled by $0.
+				a_relink off
+				timer 6 a_relink on
+			}
+		}
+	} $0
+}
+
+on #^msg 422 "% !status"
+{	
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested RELINK status.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				msg $0 Auto-relinker is currently ${AUTO_RELINK ? [enabled.] : [disabled.]}
+			}
+		}
+	} $0
+}
+
+on #^msg 422 "% !help"
+{	
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested RELINK help.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				msg $0 !enable  : enables the relinker either initially or after disabling.
+				msg $0 !disable : disables the relinker entirely.
+				msg $0 !status  : notifies you if the relinker is enabled or disabled.
+				msg $0 !relinkstats: Tells which servers have unlinked and how many times.
+				msg $0 !quietenable: Quietly enables the relinker.
+			}
+		}
+	} $0
+}
+
+on #^msg 422 "% !relinkstats"
+{	
+	eval xecho -window public $cparse($TIME %B* RELINK: %wUser %B<%W$0%B> %whas requested RELINK statistics.)
+	//whois -cmd
+	{
+		switch ($tr(/"//$1))
+		{
+			(Moderator) {;}
+			(User) {;}
+			(Leech) {;}
+			(*)
+			{
+				relinkstats $0
+			}
+		}
+	} $0
+}
+
+alias rstat
+{
+	xecho -b Auto-relinker is currently ${AUTO_RELINK ? [enabled.] : [disabled.]}
+}
+
+alias relink
+{
+	xecho -b Auto-relinker has been enabled.
+	wallop RELINK: Auto-relink has been enabled.
+	a_relink on
+}
+
+alias quietrelink
+{
+	xecho -b Auto-relinker has been quietly enabled.
+	a_relink on
+}
+
+alias cancel
+{
+        if (AUTO_RELINK)
+        {
+	        xecho -b Auto-relinker has been cancelled.
+	       	wallop RELINK: Auto-relink has been cancelled.
+	        a_relink off
+	        timer 6 a_relink on
+        }
+}
+
+alias delink
+{
+        if (AUTO_RELINK)
+        {
+		xecho -b Auto-relinker has been disabled.
+	        wallop RELINK: Auto-relink has been disabled.
+	        a_relink off
+        }
+}
+
+alias notify (arg, void)
+{
+        switch ($tolower($arg))
+        {
+                (0)
+                (off)
+                {
+                        ^assign AUTO_NOTIFY 0
+                }
+                (1)
+                (on)
+                {
+                        ^assign AUTO_NOTIFY 1
+                }
+                (*)
+                {
+                        @ AUTO_NOTIFY = AUTO_NOTIFY ? [0] : [1]
+                }
+        }
+	xecho -b Link-notify beep has been ${AUTO_NOTIFY ? [activated.] : [de-activated.]}
+}
+
+alias a_relink (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign AUTO_RELINK 0
+		}
+		(1)
+		(on)
+		{
+			^assign AUTO_RELINK 1
+			statload
+		}
+		(*)
+		{
+			@ AUTO_RELINK = AUTO_RELINK ? [0] : [1]
+		}
+	}
+}
+
+alias relinkretry (server)
+{
+	if (finditem(timedarray $server) > 0)
+	{		
+		eval ^assign hubitem ${finditem(timedarray $server)+1}
+		eval ^assign hubitem2 ${finditem(timedarray $server)}
+		^assign -hub
+		^assign linkstring -
+                eval ^assign hub $getitem(timedarray $hubitem)
+		eval wallop RELINK: Requesting server link: $server $linkstring $hub
+		eval admin connect $server $hub
+	}
+}
+
+alias relinkretrydel (server)
+{
+	if (finditem(timedarray $server) > 0)
+	{       
+		eval ^assign hubitem2 ${finditem(timedarray $server)}
+		eval wallop RELINK: Giving up on server $server after ${(RELINKRETRY*2)/60} minutes.
+		@ delitem(timedarray $hubitem2)
+		@ delitem(timedarray $hubitem2)
+	}
+}
+
+alias showrelink
+{
+	eval xecho 10RELINK: timedarray items $numitems(timedarray): 0:$getitem(timedarray 0) 1:$getitem(timedarray 1) 2:$getitem(timedarray 2) 3:$getitem(timedarray 3) 4:$getitem(timedarray 4) 5:$getitem(timedarray 5) 6:$getitem(timedarray 6) 7:$getitem(timedarray 7)
+	eval xecho 10RELINK: ignorearray items $numitems(ignorearray): 0:$getitem(ignorearray 0) 1:$getitem(ignorearray 1) 2:$getitem(ignorearray 2) 3:$getitem(ignorearray 3) 4:$getitem(ignorearray 4) 5:$getitem(ignorearray 5) 6:$getitem(ignorearray 6) 7:$getitem(ignorearray 7)
+}
+
+alias statadd (serverstat)
+{
+	if (numitems(statlist $serverstat) > 1)
+	{
+		^assign statlistnew 1
+		if (finditem(statlist $serverstat) < -1)
+		{
+			eval ^assign statlisttmp $numitems(statlist)
+			@ setitem(statlist $statlisttmp $serverstat)
+			@ statlisttmp++
+			@ setitem(statlist $statlisttmp 1)
+			^assign statlistnew 0
+		}
+		if (statlistnew)
+		{
+			if (finditem(statlist $serverstat) > -1)
+			{
+				eval ^assign statlisttmp $finditem(statlist $serverstat)
+				@ statlisttmp++
+				eval ^assign statlistnum $getitem(statlist $statlisttmp)
+				@ statlistnum++
+				@ setitem(statlist $statlisttmp $statlistnum)
+			}
+		}
+	}
+	if (numitems(statlist) < 1)
+	{
+		@ setitem(statlist $numitems(statlist) $serverstat)
+		@ setitem(statlist 1 1)
+	}
+	if (numitems(statlist) > 1)
+	{
+		eval ^assign return = $unlink($statlog)
+		@ sl = open($statlog w)
+		eval ^assign statlistitems 0
+		while ( statlistitems < numitems(statlist) )
+		{
+			@ write($sl $getitem(statlist ${statlistitems}))
+			@ statlistitems++
+		}
+		@ close($sl)
+	}
+}
+
+alias statload
+{
+	if (fexist($statlog))
+	{
+		@ line = 0
+		@ sr = open($statlog r)
+		while (!eof($sr))
+		{
+			@ ugh = read($sr)
+			if (eof($sr))
+			{    
+				# done reading statlog
+			}
+			{      
+				@ setitem(statlist $line $ugh)
+				@ line++
+			}
+		}
+		@ close($sr)
+	}
+}
+
+alias relinkstats (nick)
+{
+	^assign cmd msg $nick
+	if (nick == "") 
+	{
+		^assign cmd xecho 
+	}
+	eval ^assign statlistitems $numitems(statlist)
+	if ( statlistitems == 0 )
+	{
+		eval $cmd -b No servers have unlinked since I was started.
+	}
+	while ( statlistitems > 0 )
+	{
+		@ statlistitems--
+		eval $cmd Server $getitem(statlist ${statlistitems-1}) has unlinked $getitem(statlist ${statlistitems}) times.
+		@ statlistitems--
+	}
+	@ nick = []
+}
+
+on #^404 423 "Server * requested link"
+{
+	eval xecho -window public $cparse($TIME %G* %GNETWORK: %wServer %G<%G$1%G> %whas requested link.)
+}
+
+on #^404 423 "Server * has joined"
+{
+	eval xecho -window public $cparse($TIME %G* %GNETWORK: %wServer %G<%B$1%G> %whas joined.)
+        if (finditem(timedarray $1) > 0)
+        {       
+		eval ^assign hubitem ${finditem(timedarray $1)+1}
+		eval ^assign hubitem2 ${finditem(timedarray $1)}
+		^assign linkstring -
+                @ hub eval $getitem(timedarray $hubitem)
+		@ delitem(timedarray $hubitem2)
+		@ delitem(timedarray $hubitem2)
+        }
+}
+
+on #^404 423 "Server link to * failed"
+{
+	eval xecho -window public $cparse($TIME %G* %GNETWORK: %wServer link to %G<%M$1%G> %wfailed.)
+        if (AUTO_NOTIFY) beep
+	if (AUTO_RELINK) wallop RELINK: Server link failed: $1
+}
+
+on #^404 423 "Server % has quit: EOF *"
+{
+	^assign hubtmp $tr(/\(//$5)
+	^assign hub $tr(/\)//$hubtmp)
+	eval xecho -window public $cparse($TIME %G* %GNETWORK: %wServer %G<%R$1%G> %whas quit. $5)
+	if (AUTO_NOTIFY)
+	{
+		beep;timer 1 beep;timer 2 beep;timer 3 beep
+	}
+	if (AUTO_RELINK == 0)
+	{
+#			wallop RELINK: Server $1 relink ignored, relinking disabled.
+	}		
+	if (AUTO_RELINK == 1)
+	{
+		statadd $1
+		if (finditem(ignorearray $1) > 0)
+		{
+			eval wallop RELINK: Server $1 relink ignored, unlinked less than ${REMOTEIGNORE/60} minutes ago.  Will relink in ${RELINKRETRY/60} minutes.
+			if (finditem(timedarray $1) < -1)
+			{
+				@ setitem(timedarray $numitems(timedarray) $1)
+				@ setitem(timedarray $numitems(timedarray) $hub)
+#				timer $RELINKRETRY relinkretry $1
+#				timer ${RELINKRETRY+30} relinkretrydel $1
+#				timer ${(RELINKRETRY*2)+30} relinkretrydel $1
+			}
+		}
+		if (finditem(ignorearray $1) < -1)
+		{
+			@ setitem(ignorearray $numitems(ignorearray) $1)
+			eval timer 1 wallop RELINK: Server split detected: $1 - $hub - Requesting link in 2 minutes.
+			eval timer 3 wallop RELINK: To cancel: /msg $N !cancel
+			if (finditem(timedarray $1) < -1)
+			{
+				@ setitem(timedarray $numitems(timedarray) $1)
+				@ setitem(timedarray $numitems(timedarray) $hub)
+				timer $RELINKRETRY relinkretry $1
+				timer ${RELINKRETRY*2} relinkretry $1
+				timer ${(RELINKRETRY*2)+30} relinkretrydel $1
+			}
+			timer $REMOTEIGNORE @ delitem(ignorearray $finditem(ignorearray $1))
+			timer 2 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) 
+			{
+				timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) 
+				{
+					relinkretry $1
+				}
+			}
+		}
+	}
+}
+
+on #^404 423 "Server * has quit: EOF"
+{
+	eval xecho -window public $cparse($TIME %G* %GNETWORK: %wServer %G<%R$1%G> %whas quit. (local))
+	if (AUTO_NOTIFY)
+	{
+		beep;timer 1 beep;timer 2 beep;timer 3 beep
+	}
+	if (AUTO_RELINK == 0)
+	{
+#			wallop RELINK: Server $1 relink ignored, relinking disabled.
+	}		
+	if (AUTO_RELINK == 1)
+	{
+		statadd $1
+		if (finditem(ignorearray $1) > 0)
+		{
+			eval wallop RELINK: Server $1 relink ignored, unlinked less than ${LOCALIGNORE/60} minutes ago.  Will relink in ${RELINKRETRY/60} minutes.
+			if (finditem(timedarray $1) < -1)
+			{
+				@ setitem(timedarray $numitems(timedarray) $1)
+				@ setitem(timedarray $numitems(timedarray) )
+#				timer $RELINKRETRY relinkretry $1
+#				timer ${RELINKRETRY*2} relinkretry $1
+#				timer ${(RELINKRETRY*2)+30} relinkretrydel $1
+			}
+		}
+		if (finditem(ignorearray $1) < -1)
+		{
+			@ setitem(ignorearray $numitems(ignorearray) $1)
+			timer 1 if (AUTO_RELINK) wallop RELINK: Server split detected: $1 - Requesting link in 2 minutes.
+			timer 3 if (AUTO_RELINK) wallop RELINK: To cancel: /msg $N !cancel
+			if (finditem(timedarray $1) < -1)
+			{
+				@ setitem(timedarray $numitems(timedarray) $1)
+				@ setitem(timedarray $numitems(timedarray) )
+				timer $RELINKRETRY relinkretry $1
+				timer ${RELINKRETRY*2} relinkretry $1
+				timer ${(RELINKRETRY*2)+30} relinkretrydel $1
+			}
+			timer $LOCALIGNORE @ delitem(ignorearray $finditem(ignorearray $1))
+			timer 2 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) 
+			{
+				timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) timer 5 if (AUTO_RELINK) 
+				{
+					relinkretry $1
+				}
+        		}
+		}
+	}
+}
+
+statload

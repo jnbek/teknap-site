@@ -1,0 +1,12 @@
+alias ibrator
+{
+                    
+eval sayc $cparse("%R   __")                   
+eval sayc $cparse("%R  (__)")
+eval sayc $cparse("%P  |  |") 
+eval sayc $cparse("%P _|  |_")
+eval sayc $cparse("%P(__)(__)")
+eval sayc $cparse("%w   |  ")
+eval sayc $cparse("%Y __%w|%Y_____________  ")
+eval sayc $cparse("%0%Y|__Battery Pack__|")
+eval sayc $cparse("%0%Gthe cure for all your problems")}

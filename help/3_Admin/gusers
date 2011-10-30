@@ -1,0 +1,12 @@
+Synopsis:
+   gusers <*|servername> [-elite|-admin|-moderator|-leech]
+
+Description:
+   Shows all users with the specified level on either ALL servers or on the
+   specified server. WARNING this can be a large list!
+
+Examples:
+   /gusers * -admin
+
+See Also:
+

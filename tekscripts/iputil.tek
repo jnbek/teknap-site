@@ -1,0 +1,48 @@
+echo 13 IP Utilities loaded - FilthDemon 2001
+echo 13 These tools get IPs without having to do doing a whois
+echo 13 Usage:
+echo 13 /ipsave 		- Write all online users and their IPs to a file
+echo 13 /ipname <IP> 		- Search for the username for a given IP
+echo 13 /getip <name> 		- Search for the IP for a given name 
+echo 13 /room <on or off> 	- IM you IPs as people enter
+
+assign IPS  c:\teknap\SavedIPs.txt
+assign user demon
+
+alias ipsave
+{@ IP = [void]
+echo 13 Saving names and IPs to $IPS
+/gusers}
+
+alias room
+{@ IP = [Void]
+if ([$0] == [on]) @ IP = [room]
+if ([$0] == [on]) echo 13 MSG IP on room join "on"
+if ([$0] != [on]) echo 13 MSG IP on room join "off"}
+
+alias ipname
+{@ IP = [$0]
+echo 13 Filtering.......
+/gusers}
+
+alias getip
+{@ IP = [$0]
+echo 13 Filtering.......
+/gusers}
+
+on ^832 "*"
+{if ([$1] == [$IP]) echo 16 $1 = $0
+if ([$0] == [$IP]) echo 16 $0 = $1
+if ([$IP] == [void]) @ fd = open($IPS w)
+if ([$IP] == [void]) @ write($fd $0 $1)
+if ([$IP] == [void]) @ close($fd)
+if ([$0] == [$entrant]) raw 205 $user $0 $1}
+
+on ^831 "*"
+{if ([$IP] != [room]) echo 13 Done}
+
+on ^406 "*"
+{@ entrant = [blah]
+if ([$IP] == [room]) @ entrant = [$1]
+if ([$IP] == [room]) /gusers}
+

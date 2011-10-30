@@ -1,0 +1,6 @@
+eval raw 402 $C $cparse( .%y     , _ ,  )
+eval raw 402 $C $cparse( .%y    ( %Bo o%y ) )
+eval raw 402 $C $cparse( .%y   /'` %Y'%y `'\\ )
+eval raw 402 $C $cparse( .%y   |'''''''| )
+eval raw 402 $C $cparse( .%y   |\\\\'''//| ) 
+eval raw 402 $C $cparse( .%y      """ )

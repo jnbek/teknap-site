@@ -1,0 +1,109 @@
+# written by (ice) to piss off guinita .. hehe :-)
+
+#global assigns
+assign true 1
+assign false 0
+
+
+alias cloaked_on
+{
+  ^assign allow_cloaked $true
+  turn_on_names
+}
+
+alias cloaked_off
+{
+  ^assign allow_cloaked $false
+  turn_off_names
+}
+
+
+alias turn_on_names
+{
+  on ^825 "*"
+  {
+    if ([$record_name] == [$true])
+    {
+      ^assign all_names $all_names $1 
+      # eval say $1
+    }
+  }
+}
+
+alias turn_off_names
+{
+  on ^825 -
+}
+
+
+alias turn_on_entry
+{
+  on #^channel_join 666 "*"
+  {
+    timer -ref 660 2 {
+      eval saycloaked
+      eval say I will magically tell you all the cloaked users in this room ...
+    }
+  }
+}
+
+alias turn_off_entry
+{
+  on #channel_join 666 -
+}
+
+
+alias say_cloaked_names
+{
+  ^local my_tmp_name
+  ^local my_tmp
+  ^assign -cloaked_users
+  # eval say visible: $vis_names
+  # eval say all:     $all_names
+  fe ($all_names) my_tmp_name
+  {
+    ^assign there_flag $false
+    fe ($vis_names) my_tmp
+    { 
+      if ([$my_tmp] == [$my_tmp_name])
+      {
+        ^assign there_flag $true
+      }
+    }
+    if ([$there_flag] == [$false])
+    {
+      ^assign cloaked_users $cloaked_users ${my_tmp_name},
+    }
+  }
+  if (cloaked_users)
+  {
+    eval say I see: $cloaked_users cloaked!
+  }
+  {
+    eval say I don't see any cloaked users in here today!
+  }
+}
+
+alias get_vis_names
+{
+  ^assign -vis_names
+  ^assign vis_names $chanusers()
+}
+
+alias get_all_names
+{
+  ^assign -all_names
+  ^assign record_name $true
+  names 
+  timer -ref 663 3 { ^assign record_name $false }
+}
+
+alias saycloaked
+{
+  if ([$allow_cloaked] == [$true])
+  {
+    get_all_names
+    timer -ref 661 2 { get_vis_names
+                       say_cloaked_names }
+  }
+}

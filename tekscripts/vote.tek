@@ -1,0 +1,237 @@
+xecho -b Author: Neobite
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ß                                                        ß
+xecho -b Ü                                                        Ü
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛþ 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 þÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b ÚÄÄÄÄÄÄÄÄÄ¿                                              ³
+xecho -b ³ 52Neobite-1 ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+xecho -b ÀÄÄÄÄÄÄÄÄÄÙ
+
+@forr=0
+@against=0
+@curr=0
+@setpole=1
+@delarray(creator)
+@delarray(names)
+alias vote (question)
+{
+	if ([$setpole] == 1)
+	{
+		@quest=[$question]
+		@setitem(creator $numitems(creator) $N)
+		eval say A vote has been requested ----------
+		eval say --------- !+vote  - to vote for ----
+		eval say --------- !-vote  - to vote against-
+		eval say Vote question ----------------------
+		eval say $quest
+		eval say ------------------------------------
+		@setpole=0
+		timer -ref vote -rep 6 20 { 
+			eval say Current pole -----------------------
+			eval say ------------------------------------
+			eval say $quest
+			eval say ------------------------------------
+			eval say --------- !+vote  - to vote for ----
+			eval say --------- !-vote  - to vote against-
+			eval say ------------------- For    : $forr
+			eval say ------------------- Against: $against
+			eval say ------------------------------------
+			@curr++
+		}
+		{
+			if ([$curr] == 6)
+			{
+				timer -ref vote 20 { 
+					if ([$forr] > [$against])
+					{
+						eval say End pole ---------------------------
+						eval say Question: $quest
+						eval say ------------------- For    : $forr
+						eval say ------------------- Against: $against
+						eval say ------------------------------------
+						eval say For wins, with $forr votes.
+						eval say ------------------------------------
+						@curr=0
+						@delarray(names)
+						@delarray(creator)
+						@setpole=1
+						timer -d vote
+						@forr=0
+						@against=0
+					}
+					{
+						if ([$forr] < [$against])
+						{
+							eval say End pole ---------------------------
+							eval say Question: $quest
+							eval say ------------------- For    : $forr
+							eval say ------------------- Against: $against
+							eval say ------------------------------------
+							eval say Against wins, with $against votes.
+							eval say ------------------------------------
+							@curr=0
+							@delarray(names)
+							@delarray(creator)
+							@setpole=1
+							timer -d vote
+							@forr=0
+							@against=0
+						}
+						{
+							if ([$forr] == [$against])
+							{
+								eval say End pole ---------------------------
+								eval say Question: $quest
+								eval say ------------------- For    : $forr
+								eval say ------------------- Against: $against
+								eval say ------------------------------------
+								eval say It's a tie! How, boring.
+								eval say ------------------------------------
+								@curr=0
+								@delarray(names)
+								@delarray(creator)
+								@setpole=1
+								timer -d vote
+								@forr=0
+								@against=0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	{
+		echo There is already a pole set.
+	}
+}
+^on #-public 430 "*"
+{
+	switch ($2)
+	{
+		(!+vote)
+		{
+			if ([$setpole] == 0)
+			{
+				if ([$finditem(names $0)] >= 0)
+				{
+					eval say $0 you have already voted!
+				}
+				{
+					@setitem(names $numitems(names) $0)
+					@forr++
+					raw 205 $0 Your vote has been counted, please wait for the result.
+				}
+			}
+			{
+				eval say There is no voting pole set, sorry.
+				eval say Use !setpole [question]
+			}
+		}
+		(!-vote)
+		{
+			if ([$setpole] == 0)
+			{
+				if ([$finditem(names $0)] >= 0)
+				{
+					eval say $0 you have already voted!
+				}
+				{
+					@setitem(names $numitems(names) $0)
+					@against++
+					raw 205 $0 Your vote has been counted, please wait for the result.
+				}
+			}
+			{
+				eval say There is no voting pole set, sorry.
+				eval say Use !setpole [question]
+			}
+		}
+		(!setpole)
+		{
+
+			if ([$setpole] == 0)
+			{
+				eval say There is already a pole set.
+			}
+			{
+				eval vote $3-
+				@setpole=0
+				@setitem(creator $numitems(creator) $0)
+			}
+		}
+		(!stoppole)
+		{
+			if ([$setpole] == 0)
+			{
+				if ([$finditem(creator $0)] >= 0)
+				{
+					if ([$forr] > [$against])
+					{
+						eval say End pole ---------------------------
+						eval say Question: $quest
+						eval say ------------------- For    : $forr
+						eval say ------------------- Against: $against
+						eval say ------------------------------------
+						eval say For wins, with $forr votes.
+						eval say ------------------------------------
+						@curr=0
+						@delarray(names)
+						@delarray(creator)
+						@setpole=1
+						timer -d vote
+						@forr=0
+						@against=0
+					}
+					{
+						if ([$forr] < [$against])
+						{
+							eval say End pole ---------------------------
+							eval say Question: $quest
+							eval say ------------------- For    : $forr
+							eval say ------------------- Against: $against
+							eval say ------------------------------------
+							eval say Against wins, with $against votes.
+							eval say ------------------------------------
+							@curr=0
+							@delarray(names)
+							@delarray(creator)
+							@setpole=1
+							timer -d vote
+							@forr=0
+							@against=0
+						}
+						{
+							if ([$forr] == [$against])
+							{
+								eval say End pole ---------------------------
+								eval say Question: $quest
+								eval say ------------------- For    : $forr
+								eval say ------------------- Against: $against
+								eval say ------------------------------------
+								eval say It's a tie! How, boring.
+								eval say ------------------------------------
+								@curr=0
+								@delarray(names)
+								@delarray(creator)
+								@setpole=1
+								timer -d vote
+								@forr=0
+								@against=0
+							}
+						}
+					}
+				}
+				{
+					eval say $0, you do not have permission to stop this.
+				}
+			}
+			{
+				eval say There is no pole to stop.
+			}
+		}
+	}
+}

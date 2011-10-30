@@ -1,0 +1,30 @@
+/**********************
+ *    Type: Bot       *
+ *  Author: TuToneBK  *
+ *    Name: GoOff     *
+ **********************/
+echo 58 GoOff Bot Loaded
+echo 58 Author : TuToneBK
+echo
+echo 57  Usage : 54/gooff (username)
+echo
+echo 00Use this script to go off on a moron in a chatroom.
+echo
+
+alias gooff
+{
+ if ([$0])
+ {
+  say $0 your a fucking moron!
+  say Were you made fun of as a child $0\?
+  say Maybe that's why you're in here being lame as FuCk!
+  say I can't think of anything other possible reason
+  say Can anyone??.......I don't think there is
+  say $0\.......there is no hope for you what-so-ever
+  say You might as well get on a bus and join the circus because your case of down syndrome is the worst i've ever seen
+  say Just fucking leave $0\.....or maybe one of the 'bouncers' will escort you out :)
+ }
+ {
+  echo Please enter a name to go off on $N
+ }
+}

@@ -1,0 +1,73 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/skull1, /skull2
+
+alias sayc {say $cparse("$*")}
+
+
+alias skull1
+{
+sayc %W             ..ooo@@@XXXxxxxx..
+sayc %W          .oo@@XXXxxxxxx..     ` .
+sayc %W        .o@XXxxxx..               ` .
+sayc %W      o@Xx..                  ..ooooooo
+sayc %W    .@Xxx.                 ..o@@^^   ^^@@o
+sayc %W  .ooo@@@@@@ooo..      ..o@@^          @Xx
+sayc %W  o@@^^^     ^^^@@@ooo.oo@@^             x
+sayc %W xzI    -*--      ^^^o^^        --*-     x
+sayc %W @@@o     ooooooo^@@^o^@X^@oooooo     .Xxx
+sayc %WI@@@@@@@@@XXxxxx  < o@o >Xxx@ROMBASED@@@Xxx
+sayc %WI@@@@XXxxxx  oo@@@@Xx @@Xxx   ^^^@@@@@@@Xxx
+sayc %W @Xxxx     o@@@@@@@Xx @@XXxxx  >    ^^@Xxx
+sayc %W  ^   xx o@@@@@@@@Xx  ^ @XXxxx    xxx
+sayc %W        o@@^^^ooo I^^ I^o ooo   .  x
+sayc %W        oo @^ IX      I   ^X  @^ oo
+sayc %W        IX     U  .        V     IX
+sayc %W         V     .           .     V
+}
+alias skull2
+{
+sayc %w                             .xm*f''??T?@hc.
+sayc %w                           z@'` '~<<!!!!!!!?*m.
+sayc %w                         z###K   ~~</!!!!!!!!!Mh
+sayc %w                       .f` '##k'`~~\!!!!!!!!!!!MMc
+sayc %w                      :'     f*! ~:~<!!!!!!!!!!XHMk
+sayc %w                      f      '  n:~<!!!!!!!!!!!HMMM.
+sayc %w                     d          X~!~<!!!!!!!X!X!SMMR
+sayc %w                     M :   x::  :~~!>!!!!!!MNWXMMM@R
+sayc %K  n      %w            E ' *  ueeeeiu<!!XUWWWWWXMRHMMM                 %K:.
+sayc %K  E.     %w            E  8 .########K!!########&M#RMM               %K :'5
+sayc %K z  :    %w            3  # 4########!~!*########!#MM#             %K  :' `
+sayc %K K   ':.  %w           ?> # '#######~!!!!TR#####R?@MME            %K  z   R
+sayc %K ?      .  %w           5     ^'''~~~:XW!!!!T?T!XSMMM~            %K:^    J
+sayc %K  '.    ^s  %w           ?.       ~~d#X#NX!!!!!!M!MM            %K f     :~
+sayc %K   '+.    #L %w           *c:.    .~'?!??!!!!!XX@M@~          %K z'    .*
+sayc %K     '+      L%w           #c`'!+~~~!/!!!!!!@*TM8M          %K z'    .~
+sayc %K       ':    ' .  %w       'C*X  .!~!~!!!!!X!!!@RF        %K .#     +
+sayc %K         ':    ^ . %w       9-MX!X!!X~H!!M!N!X#MM        %K.#`    +'
+sayc %K           #:    'n %w      'L'!~M~>H!M!XX!#!XMXF      %K.+`   .z'
+sayc %K             #:    ':%w      R *H#@@#H#*@#@#@# M~    %K z`    +'
+sayc %K                :   `*L %w   'k' M!~M~X!!#!@H!tF   %K z'    z'
+sayc %K                 *:   ^*L%w   'k ~~~!~!!!!!M!X*  %K z*   .+'
+sayc %K                   's   ^*L %w ' :.~~~:!!!!XH' %K z#   .*'
+sayc %K                     #s   ^ L  %w^'#4@UU@##'  %Kz#   .*'
+sayc %K                       #s   ^ L           z#   .r'
+sayc %K                         #s   ^ .       u#   .r'
+sayc %K                           #i   ' .   u#   .@'
+sayc %K                             #s   ^ u#   .@'
+sayc %K                               #s x#   .*'
+sayc %K                                x#`  .@ .
+sayc %K                              x#`  .d'  ' .
+sayc %K                            xf~  .r' #s   ' .
+sayc %y                      u %K  x*`  .r'     #s   ' . %y x.
+sayc %y                       Mu%K*`  x*'         #m.  ' z%yX'
+sayc %y                      :R<h%K x*              'h..*%ydN.
+sayc %y                    u@NM5e#>.                7?dMRMh.
+sayc %y                  z#@M@##P'~                 *''*@MM#hL
+sayc %y                u@@MM8*                          '*#M@Mh.
+sayc %y              z#RRM8F'                             'N8@M#bL
+sayc %y             5`RM##                                  'R88f>R
+sayc %y             'h.#'                                     ##x*
+}

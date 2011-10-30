@@ -1,0 +1,17 @@
+#Written by Yellowsuit
+alias sayc
+{ 
+	eval say $cparse("$*")
+}
+/alias train 
+{
+/sayc
+/sayc %B  j jumps on a train to LamerVille and runs over the lamer $0Nate!
+/sayc %K           . . . . o o o o o
+/sayc %K                 _____      o      %Y_______
+/sayc %K        ____====  ]OO|_n_n__][.   %Y |%Rlamer%Y|
+/sayc %K       [________]_|__|________)<  %Y |%Rville%Y|
+/sayc %K        oo    oo  'oo OOOO-| oo\\_   %Y~~~|~~~
+/sayc %W      +--+--+--+--+--+--+--+--+-%yYellowsuit%W+--+--+--+--+
+/sayc 
+}

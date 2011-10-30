@@ -1,0 +1,2070 @@
+alias sayc
+{
+	eval say $cparse("$*")
+}
+
+
+alias icon
+{ 
+sayc %wSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+sayc %wSS%BSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%BSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSSS%BS%wSSS%BS%wSSS%BS%wSS
+sayc %wSS%BSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSSS%BS%wSSS%BS%wSSS%BS%wSS
+sayc %wSS%BSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSS%WSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS%wSS
+sayc %wSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+sayc %w
+sayc %w TTTTT EEEE K K N   N  A   PPP 
+sayc %w   T   E    K K NN  N A A  P P
+sayc %w   T   EE   KK  N N N AAA  PPP
+sayc %w   T   E    K K N  NN A A  P
+sayc %w   T   EEEE K K N   N A A  P 
+}
+
+
+alias light
+{
+sayc %K   `**********%YLiGHtNiN%K*********'
+sayc %K    `******%BFEEL%K*%BTHE%K*%YSHOCK?%K****'
+sayc %K     `**' `*****************'%B' '
+sayc %B     '    '%K `******'  `***'  %B      '
+sayc %B            '%Y `*.   %B  '   '     '
+sayc %B  '           %Y  `*.  %B    '  '     '     
+sayc %B       '  '  ' %Y   `. %B '       '       
+sayc %B              %Y     *.  %B  '  '              
+sayc %B        '    '%Y   .'  `*   %B     '   '
+sayc %B    '        %Y   .'%B '%Y   `.   %B '           
+sayc %B     '   ' %Y   .*      .'%Y `*,  %B  '             
+sayc %B '         %Y  .'    %Y  *    ,*`'*            
+sayc %B      '    %Y  * %B  '    %Y   '     `.%B '        
+sayc %B  '       '%Y   `*    %B  '  '   '%Y  ' %B  '    
+sayc %B           %Y  *'`'*    %B    '  %Y   `.  %B '   
+sayc %B   '  '%Y    .'  *  `. %B  '      %Y .*`*.
+sayc %Y       %Y   .'    `.  `.        .'  %Y   `. 
+sayc %Y                    * _.`
+sayc %Y                    `%p(O)%Y,
+sayc %Y                     `%W|%Y*
+sayc %Y                     *%W|%Y`
+sayc %Y                     `%W|%Y*
+sayc %Y                     *%W|%Y`
+sayc %W                     / \\\\\\\\\\\\
+sayc %W                    / _ \\\\\\\\\\\\
+sayc %W                   _|||||_
+sayc %W                  |  |0|  |
+sayc %W                 _|  |_|  |_
+sayc %W                | %B_________%W |
+sayc %W                | %B|_|_|_|_|%W |
+sayc %W                | %B|_|_|_|_|%W |
+sayc %W                | %B|_|_|_|_|%W |
+sayc %W                | %B|_|_|_|_|%W |%Y     ____________
+sayc %W                | %B_________%W |%Y     |          |
+sayc %W                | %B|_|_|_|_|%W |%w=====%Y|  _____   |
+sayc %W                | %B|_|_|_|_|%W |%Y     |  \\\\\\\\\\\\\ | //  |
+sayc %W                | %B|_|_|_|_|%W |%Y     |   \\\\\\\\\\\\\.//   |
+sayc %W                | %B|_|_|_|_|%W |%Y     |   HIGH   |
+sayc %W                |           |%Y     | VOLTAGE! |
+sayc %W                |     _     |%Y     |   ____   |
+sayc %W                |    |O|    |%Y     |   |  |   |
+sayc %W                |____|_|____|%Y     |___|__|___|
+}
+
+
+alias matrix
+{
+sayc %1%R(_|_)%0%0  %4%B(_|_)%0%W which pill will you take??%G The Matrix %W or %w Your Life} 
+
+
+
+alias mul
+{
+sayc %G                        .                          
+sayc %G                        M                          
+sayc %G                       dM                          
+sayc %G                       MMr                         
+sayc %G                      4MMML                  .     
+sayc %G                      MMMMM.                xf     
+sayc %G      .              'MMMMM               .MM-     
+sayc %G       Mh..          +MMMMMM            .MMMM      
+sayc %G       .MMM.         .MMMMML.          MMMMMh      
+sayc %G        >MMMh.        MMMMMM         MMMMMMM       
+sayc %G         3MMMMx.     'MMMMMMf      xnMMMMMM'       
+sayc %G         '*MMMMM      MMMMMM.     nMMMMMMP'        
+sayc %G           *MMMMMx    'MMMMM.    .MMMMMMM=         
+sayc %G            *MMMMMh   'MMMMM'   JMMMMMMP           
+sayc %G              MMMMMM   3MMMM.  dMMMMMM            .
+sayc %G               MMMMMM  'MMMM  .MMMMM<        .nnMP'
+sayc %G   =..          *MMMMx  MMM'  dMMMM'    .nnMMMMM*  
+sayc %G     'MMn...     'MMMMr 'MM   MMM'   .nMMMMMMM*'   
+sayc %G      '4MMMMnn..   *MMM  MM  MMP'  .dMMMMMMM''     
+sayc %G        ^MMMMMMMMx.  *ML 'M .M*  .MMMMMM**'        
+sayc %G           *PMMMMMMhn. *x > M  .MMMM**''           
+sayc %G              ''**MMMMhx,`h' .=*'                  
+sayc %G                       .3P''.MM.                   
+sayc %G                     nP'     '*.                
+sayc %G 
+}
+
+
+
+alias tnt
+{
+sayc %1%Y D Y N A M I T E %0%W----------------%R* %W Catch All You TekNappers!!
+}
+
+
+alias tong
+{
+sayc %R                    ..:::..
+sayc %R                  .!!!UWWX!.    ..!!!!!!.
+sayc %R                 !!!WSSSSSB!. .!!!USSSSW!!.
+sayc %R               :!!!MR##SSSR!!!!!!9SSSSSSE!!
+sayc %R              :!!!!!!!!!!!!!!!!!!!!!!!T!!!!:
+sayc %R             :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+sayc %R           .!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:
+sayc %R          .!!!!!XUSSNU!!!!!!!!!!!!!!!!!!!!!!!.
+sayc %R        .!!!!!tSSSSSSSSW!!!!XWSSSSSSW!!!!!!!!!.
+sayc %R      .!!!:'   #SSSSSSSSSSSSSSSSSSSSSSX!!!!!!!!.
+sayc %R    .!!!!'         ?SSSSSSSSSSSSSSSSSSSW!!!!!!!!!.
+sayc %R  .!!!!.        %r :!!!!!!!'%R   #SSSSS#.#SSSR!!!!!!!!!.
+sayc %R    !!!!.     %r.!!!!!!!!:    .....!!!!!!!!!..%R !!!!!!!.
+sayc %R     !!!!.  %r:!!!!!!!!!' .!!!!!!!!!!!!!!!!!!!!%R !!!!!'
+sayc %R      !!!!:%r!!!!!XW!!' :!!!!!!!!!!!!!!!!!!!!%R !!!!!'
+sayc %R       !!%r!!!!!WSR!! .!!!!!!!!!!!!WS?!!!!!!%R !!!!'
+sayc %r       !!!!!XSSx!! :!!!!!!!!!!!XSS!!!!!!%R !!!!!'
+sayc %r      !!!!!WSS?!! !!!!!!!!!!!!@SR!!!!!%R :!!!!!'
+sayc %r    .!!!!!@SS!!! !!!!!!!!!!!!SSR!!!!!%R !!!!!!
+sayc %r   .!!!!!SSS?!! !!!!!!!!!!!!SSR!!!!!%R !!!!!!
+sayc %r  .!!!!!@SSx!! !!!!!!!!!!!!SSS!!!!!%R !!!!!!'
+sayc %r  !!!!!9SSR!!'.!!!!!!!!!!!8SS!!!!!%R !!!!!!'
+sayc %r .!!!!XSSS!!! !!!!!!!!!!!tSSx!!!!%R .!!!!!:
+sayc %r !!!!!9SSR!!! !!!!!!!!!!XSSS!!!!'%R.!!!!!!
+sayc %r.!!!!!SSS!!!!!!!!!!!!!!!SSSx!!!!%R !!!!!!'
+sayc %r!!!!!!SSE!!!!!!!!!!!!!!9SSS!!!!%R .!!!!!:
+sayc %r!!!!!!!M!!!!!!!!!!!!!!tSSS!!!!!%R !!!!!:
+sayc %r!!!!!!!!!!!!!!!!!!!!!tSSSR!!!!%R !!!!!:
+sayc %r'!!!!!!!!!!!!!!!!!!!tSSSS!!!!!%R !!!!'
+sayc %r :!!!!!!!!!!!!!!!!!!SSSS!!!!!%R !!''
+sayc %r  :!!!!!!!!!!!!!!!!!!SS!!!!!i
+sayc %r   '!!!!!!!!!!!!!!!!!!!!!!!'
+sayc %r    '!!!!!!!!!!!!!!!!!!!!:'
+sayc %r      '!!!!!!!!!!!!!!!!:'
+sayc %r        '!!!!!!!!!!!!i'
+sayc %r		''''''
+}
+
+
+alias train 
+{
+sac
+sayc %B         KEDEKEDENG KEDEKEDENG 
+sayc %K           . . . . o o o o o
+sayc %K                 _____      o      
+sayc %K        ____====  ]OO|_n_n__][.   
+sayc %K       [________]_|__|________)<  
+sayc %K        oo    oo  'oo OOOO-| oo\\_   
+sayc %W      +--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+sayc 
+}
+
+
+alias train2
+{
+sayc            . . . . o o o o o
+sayc                  _____      o      
+sayc         ____====  ]OO|_n_n__][.   
+sayc        [________]_|__|________)<  
+sayc         oo    oo  'oo OOOO-| oo\\_ 
+}
+
+  
+alias finger
+{                                        
+sayc %y                                .###,
+sayc %y                                .###c
+sayc %y                                .''cc
+sayc %w                                , :cc
+sayc %w                                : :Oc
+sayc %w                                :::cc:
+sayc %w                                :ccccc
+sayc %w                           .,oo '::cci
+sayc %w                          :::cc :::cc:,:cc,
+sayc %w                          :::cc :::cc: ::cc'cc
+sayc %w                        :',::cc :::ccc ::cc ::c
+sayc %w                       :  :::cc ::cccc ::ccc ::c
+sayc %w                      :   :occ:::ccccc :::ccc:::c
+sayc %w                      :  ::occc::ccccc:::cccc:::cc
+sayc %w                       :  ::oocO:::ccc::::cc:::ccc
+sayc %w                       :   ooooooooccccOOcccOOccc'
+sayc %w                        ':  oooooooccccoocccooccc
+sayc %w                          :  ooooooccccoccccoccc
+sayc %w                           :  oooooocccocccoccc
+sayc %w                            :  ooooocccccccccc
+sayc %w                             :  ooooccccccccc
+sayc %w                            :   oocccccccccccc
+sayc %W                                 UP YOURS!!
+}
+
+
+
+alias smiley
+{
+sayc %Y      .o#############o.
+sayc %Y    .o#################o.
+sayc %Y  .o####' `#######' `####o.
+sayc %Y .######   #######   ######.
+sayc %Y.#######. .#######. .#######.
+sayc %Y#############################
+sayc %Y#############################
+sayc %Y#############################
+sayc %Y#############################
+sayc %Y`###########################'
+sayc %Y `###.`###############'.###'
+sayc %Y  `###.`#############'.###'
+sayc %Y    `###.`##%r000000%Y#'.###'
+sayc %Y      `####%r000%Ro%r0000%Y###'
+sayc %Y        `*#%r0000%Ro%r000%Y#*'
+sayc %r          0000%Ro%r000'
+sayc %r          `00%Ro%r000'
+sayc %r           `000*'
+}
+        
+
+
+
+
+alias bears
+{
+sayc                   %P(~%W.%w_%W.%P~)                
+sayc                     %P(%wY%P)                  
+sayc      %Y(~%W.%w_%W.%Y~)  %R@>%G--%P()%G-,-%P()%G--    %Y(~%W.%w_%W.%Y~)   
+sayc        %Y(%wY%Y)        %P(_)-(_)        %Y(%wY%Y)     
+sayc    %G--%Y()%G-,-%Y()%G--%R<@           %R@>%G--%Y()%G-,-%Y()%G-- 
+sayc      %Y(_)-(_)      %B(~%W.%w_%W.%B~)      %Y(_)-(_)   
+sayc                     %B(%wY%B)                  
+sayc                 %G--%B()%G-,-%B()%G--%R<@            
+sayc                   %B(_)-(_)                
+sayc   %P@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+}
+
+
+alias sylv
+{
+sayc %K                         .::::'`
+sayc %K                   : :::::'
+sayc %K                 .::::::.::::::::::
+sayc %K            ..:::::``::::::::
+sayc %r      ,cC''%K:::::: .:::::::::::::
+sayc %r      `?SSSSP'%K::::::::::::::::::::
+sayc %r         ''%K:::::::::::::::::::::::
+sayc %K          .:::::::::::%W dSc`:`%W,c%K:::
+sayc %K          `::::::::::: %WSSSS,%W SS %K:                         
+sayc %W         ,,,,%K```::::::%W F `S'  ?%K::  ..:::::::::::..
+sayc %W       ,dSSSSSSSSSSc,` '  ?::   . %K:::::::::::::::::
+sayc %W     dSSSSSSSSSSSSSSSSSSScSF,dSSF%K::::::::::::::::::
+sayc %W   dSSSSSSSSSSSF?SSSSSSSSS.SSSSS %K::::::::::::::::::%W.
+sayc %W ,SS????SSSSSSSSShccc-SSSSSSSSSS,%K::::::::::::::::'%W,S
+sayc %W '    4SSSSSSSSSSSSSS,`?SSSSSSSSSc%K`:::::::::::''%W,S'
+sayc %W      SSS'`.SSSSSSSSSSSL`SSSSSSSSSSSbccc,cccSSSS'
+sayc %W      `      %K::: %W`?SSSSSS,??SSSSSSSSSSP'????'
+sayc %K              :::: %W`SSSSSS
+sayc %K               :::::%W`SdS
+sayc %K                 :: %W:?SSS%K::::
+sayc %K               :::'.:%W4SSS%K'.:::
+sayc %K              ::: ::%W4SSSSS%K :`::
+sayc %K              :::`: %WSSSSSSL%K::`:
+sayc %K              `:::::?%WSSSSSS%K<: :
+sayc %W          ,,  %K``  :::'%WSSSS %K::''
+sayc %W         SS??' =4- ,,%K`::'?::%W,c='? Lcdbc,                   
+sayc %W       'cSSSS',SSSSSc''  'dLdSSSSb,?SSSS
+sayc %W       ??SSSS,??SSSSSS     SSSSSc S SS J
+sayc %W       `?SSSS3`zSSSSP'     `?SSSSP` `
+sayc %W 
+}
+
+
+alias x
+{ 
+sayc %G	    :<~!!!!!!!!!!!!!!!!!!<~~::  : ::<!!!!!!!!!!!!!!!!<~::
+sayc %G     <!XX!!~MSSSSSSSSSSS&UU!!!!!!!!!!UU8&USSSSSSSSSS8UUXX!!:
+sayc %G    ~!@M*    ^***************TT?H!!XST******   `^** ^*****MH!~ 
+sayc %G   '!M*                         9B!~                       't!~
+sayc %G   `!M>                         9SX                         `X~
+sayc %G    ~!M                  XUL.  JSR!XUU.                    .!!~
+sayc %G     ~!!Xx::xeWSSe       ?SSSSHR?!!!SSSe         :sdSSMMMMR!!~
+sayc %G       '~~!!!!!!MSSU.      MS8!!!~~~!!!SSS.      USSM!!!!!~~~
+sayc %G             ~~!?SSk      SSX!~~ ~~!!MSS~     tSR!!~
+sayc %G               ~~!MS&     'SR!~  ~:!XSS~     .SM!~~
+sayc %G                 ~!TS>     9R!!~~<!XSF       @R!~
+sayc %G                  ~!MSL   'M!!!:!!XSS>     .R!!~
+sayc %G                   `!XSb    !!!!!!!XS*     <M!!~
+sayc %G                     ~!!M    !!!!!SS     .R!!~
+sayc %G                      `~!!    !!XSSS    <M!!~
+sayc %G                       ~!!     ~R**~   .X!!~
+sayc %G                        !!:           tSX!~
+sayc %G                        ~!MSBL       .SM!!~
+sayc %G                        `!!?SSk      tS!!~
+sayc %G                        '<!XSS      XSR!!
+sayc %G                        <!!MSE      ?S!!!
+sayc %G                       ~:!8SS~       !X!!~
+sayc %G                      '!!@Sf          ?!!~:
+sayc %G                     ~!!US*    .u.    !X!!~ 
+sayc %G                    '<!@S      9SS:    t!!!~
+sayc %G                   ~:!XSX      9SSS.   ~RX!!:
+sayc %G                  '<!!SS`     :!TSSS    'MH!!!~
+sayc %G                 ~:!X!     .!!!!!MSS.     'MBX!:
+sayc %G                <<!!R      !!!!!!XSSX       ^9M!~
+sayc %G              '<!!USB      !!!!~~!!SX        ~SX!~
+sayc %G             :~!XST*`     '!!~~~ ~!!Rn        RN!<~
+sayc %G            ~!!XR        .!!!~~  ~~!!SB.      ~S!!:
+sayc %G       ::~~!!!XSE        !!!!~~   ~!!MSS:      9R!!!~:
+sayc %G   <:!!!!!!!XSSS~       :S!!!:~~'~~!!MS!       *SX!!!!::::~
+sayc %G <!!!HWWWWWSSST        sSSSN!!!!!!!!!MSN:       `?XX!!!!!!!!<::
+sayc %G !XM~~                  '***RSSBX!!!!!***          '*SS******X!!
+sayc %G !X~                          `*9SW!                         ^MX!~
+sayc %G 8!                             !SS!                           8!:
+sayc %G !@:                            'SSN                           S!~
+sayc %G !S&u.                        .MSSSX       ..uL              XR!
+sayc %G ~!TRRSSSSSSSSSSSSN::eWSSSSSRRM?!!?RSSk:nMRRSSSh:::sdh:xnnsdM?~~
+sayc %G  '~~!!!!!!!!MM!!!!MMMM!!!!!!~~~~~~!!!!!!!!!!!!!!!!!MMMMM!!~~
+sayc %G                    ~         FILES                `~~~~~
+}
+
+
+alias hello2
+{
+sayc %G ---  ---  %R------- %Y ---     %g---     %B-------
+sayc %G ---  ---  %R---     %Y ---     %g---     %B--   --
+sayc %G --------  %R------- %Y ---     %g---     %B--   --
+sayc %G ---  ---  %R---     %Y ---     %g---     %B--   --
+sayc %G ---  ---  %R------- %Y ------- %g------- %B-------
+sayc
+}
+
+
+alias smiley2
+{
+sayc %W      +++      +++     
+sayc %W     + %B@ %W+    + %B@ %W+
+sayc %W      +++  %Y**  %W+++
+sayc %Y          *__*
+sayc %R       0        0
+sayc %R        [][][][]
+}
+
+
+alias inject
+{
+sayc %W      _______________________
+sayc %W |____|  %R|  |  |  |  |   |   %W|________
+sayc %W |----|__%R|%W__%R|%W__%R|%W__%R|%W__%R|%W___%R|%W___| 
+sayc %YCome on its time for your INJECTION
+}
+
+
+alias druppel
+{
+sayc   _______________________
+sayc  |                       |
+sayc  |          *            |
+sayc  |         **            |
+sayc  |        ***            |
+sayc  |      ******           |
+sayc  |     ********          |
+sayc  |    **********         |
+sayc  |    **********         |
+sayc  |     *********         |
+sayc  |      *******          |
+sayc  |        ***            |
+sayc  |                       |
+sayc  |_______________________|
+}
+
+
+alias plane
+{
+sayc                %R##### %W| %R#####
+sayc               %R# %W_ _ %R#%W|%R# %W_ _ %R#
+sayc               %R#      %W|      %R#
+sayc         %Y|       %R############
+sayc                     %R# #
+sayc  %Y|                  %R# #
+sayc                    %R#   #
+sayc         %Y|     %Y|    %R#   #      %Y|        %Y|
+sayc  %Y|  %Y|             %R#     #               %Y|
+sayc         %Y| %Y|   %Y|   %R# %W.-. %R#         %Y|
+sayc                   %R#%W( O )%R#    %Y|    %Y|     %Y|
+sayc  %Y|  %R################%W. .%R###############  %Y|
+sayc   %R##  %W_ _|____|     %R###    %W|_ __| _ _ %R##
+sayc  %R#  %W|                                |  %R#
+sayc  %R#  %W|    |    |    |   |    |    |   |  %R#
+sayc   %R######################################
+sayc                   %R#     #
+sayc                    %R#####
+sayc               %WOOOOOOO%R|%WOOOOOOO
+sayc                      %RU
+}
+
+
+alias dragon
+{
+sayc %r
+sayc %r   .:'                                  `:.
+sayc %r  ::'                                    `::
+sayc %r :: :.                                 .: ::
+sayc %r  `:. `:.             .             .:'  .:'
+sayc %r   `::. `::           !           ::' .::'
+sayc %r       `::.`::.    .' ! `.    .::'.::'
+sayc %r         `:.  `::::'':!:``::::'   ::'
+sayc %r         :'*:::.  .:' ! `:.  .:::*`:
+sayc %r        :: %RHHH:%r:.   ` ! '   .:%R:HHH%r ::
+sayc %r       ::: %R`H TH:%r:.  `!'  .:%R:HT H'%r :::
+sayc %r       ::..  %R`THHH:%r`:   :'%R:HHHT'%r  ..::
+sayc %r       `::      %R`T:%r `. .' %R:T'%r      ::'
+sayc %r         `:. .   %R:%r         %R:%r   . .:'
+sayc %r           `::'               `::'
+sayc %r             :'  .`.  .  .'.  `:
+sayc %r             :' ::.       .:: `:
+sayc %r             :' `:::     :::' `:
+sayc %r              `.  ``     ''  .'
+sayc %r               :`...........':
+sayc %r               ` :`.     .': '
+sayc %r                `:  ```'''  :'
+sayc %R                     GRRR
+}
+
+
+alias peek
+{
+sayc           %y||            ||   %W(\../)   %y||           ||
+sayc          %y_||____________||____%W(oo)%y____||___________||_
+sayc          %y-||------------||---%y----%y-----||-----------||-
+sayc         %y _||____________||___%W( __ )%y___||___________||_
+sayc          %y-||------------||------------||-----------||-
+sayc           %y||            ||   %W||%W ||    %y||           ||%y
+sayc      %G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sayc     %G^^^^^^^^^^^^^            ^^^^^^^^^^           ^^^^^^^^^^^^^^^
+}
+
+
+alias geo
+{
+sayc          o
+sayc         ooo
+sayc        ooooo
+sayc       ooooooo
+sayc      ooooooooo
+sayc     ooooooooooo   
+sayc      ooooooooo  o
+sayc       ooooooo  ooo
+sayc        ooooo  ooooo
+sayc         ooo  ooooooo
+sayc          o  ooooooooo
+sayc            ooooooooooo
+sayc             ooooooooo
+sayc              ooooooo
+sayc               ooooo
+sayc                ooo
+sayc                 o       o
+sayc                ooo     ooo 
+sayc               ooooo   ooooo
+sayc              ooooooo ooooooo
+sayc               ooooo   ooooo
+sayc                ooo     ooo
+sayc                 o       o
+sayc                 ooooooooo     
+sayc                  ooooooooo
+sayc                   ooooooooo
+sayc                    ooooooooo
+sayc                     ooooooooo
+sayc                      ooooooooo
+sayc                       ooooooooo
+sayc                      ooooooooo
+sayc                     ooooooooo
+sayc                    ooooooooo
+sayc                   ooooooooo
+sayc                  ooooooooo
+sayc                 ooooooooo
+sayc                 ooooooooo     
+sayc                  ooooooooo
+sayc                   ooooooooo
+sayc                    ooooooooo
+sayc                     ooooooooo
+sayc                      ooooooooo
+sayc                       ooooooooo
+sayc                      ooooooooo
+sayc                     ooooooooo
+sayc                    ooooooooo
+sayc                   ooooooooo
+sayc                  ooooooooo
+sayc                 ooooooooo       
+sayc                 ooooooooo     
+sayc                  ooooooooo
+sayc                   ooooooooo
+sayc                    ooooooooo
+sayc                     ooooooooo
+sayc                      ooooooooo
+sayc                       ooooooooo
+sayc                      ooooooooo
+sayc                     ooooooooo
+sayc                    ooooooooo
+sayc                   ooooooooo
+sayc                  ooooooooo
+sayc                 ooooooooo
+sayc                 ooooooooo     
+sayc                  ooooooooo
+sayc                   ooooooooo
+sayc                    ooooooooo
+sayc                     ooooooooo
+sayc                      ooooooooo
+sayc                       ooooooooo
+sayc                      ooooooooo
+sayc                     ooooooooo
+sayc                    ooooooooo
+sayc                   ooooooooo
+sayc                  ooooooooo
+sayc                 ooooooooo       
+sayc                 o       o
+sayc                ooo     ooo 
+sayc               ooooo   ooooo
+sayc              ooooooo ooooooo
+sayc               ooooo   ooooo
+sayc                ooo     ooo
+sayc                 o       o
+sayc                 o
+sayc                ooo
+sayc               ooooo
+sayc              ooooooo
+sayc             ooooooooo
+sayc            ooooooooooo   
+sayc             ooooooooo  o
+sayc              ooooooo  ooo
+sayc               ooooo  ooooo
+sayc                ooo  ooooooo
+sayc                 o  ooooooooo
+sayc                   ooooooooooo
+sayc                    ooooooooo
+sayc                     ooooooo
+sayc                      ooooo
+sayc                       ooo
+sayc                        o
+}
+
+
+alias tnt2
+{ 
+sayc %1%Y D Y N A M I T E %0%W----------------%R* %W Here's a bundle
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R*
+sayc %1%Y D Y N A M I T E %0%W----------------%R* %WCatch All You $XPLODE!! 
+}
+
+
+alias scrollbot
+{
+sayc %R SCROLL     SCROLL     SCROLL     SCROLL
+sayc %r  SCROLL     SCROLL     SCROLL     SCROLL
+sayc %y   SCROLL     SCROLL     SCROLL     SCROLL
+sayc %Y    SCROLL     SCROLL     SCROLL     SCROLL
+sayc %G     SCROLL     SCROLL     SCROLL     SCROLL
+sayc %g      SCROLL     SCROLL     SCROLL     SCROLL
+sayc %B       SCROLL     SCROLL     SCROLL     SCROLL
+sayc %b        SCROLL     SCROLL     SCROLL     SCROLL
+sayc %P         SCROLL     SCROLL     SCROLL     SCROLL
+sayc %p          SCROLL     SCROLL     SCROLL     SCROLL
+sayc
+sayc %R SCROLL     SCROLL     SCROLL     SCROLL
+sayc %r  SCROLL     SCROLL     SCROLL     SCROLL
+sayc %y   SCROLL     SCROLL     SCROLL     SCROLL
+sayc %Y    SCROLL     SCROLL     SCROLL     SCROLL
+sayc %G     SCROLL     SCROLL     SCROLL     SCROLL
+sayc %g      SCROLL     SCROLL     SCROLL     SCROLL
+sayc %B       SCROLL     SCROLL     SCROLL     SCROLL
+sayc %b        SCROLL     SCROLL     SCROLL     SCROLL
+sayc %P         SCROLL     SCROLL     SCROLL     SCROLL
+sayc %p          SCROLL     SCROLL     SCROLL     SCROLL
+sayc
+sayc %R SCROLL     SCROLL     SCROLL     SCROLL
+sayc %r  SCROLL     SCROLL     SCROLL     SCROLL
+sayc %y   SCROLL     SCROLL     SCROLL     SCROLL
+sayc %Y    SCROLL     SCROLL     SCROLL     SCROLL
+sayc %G     SCROLL     SCROLL     SCROLL     SCROLL
+sayc %g      SCROLL     SCROLL     SCROLL     SCROLL
+sayc %B       SCROLL     SCROLL     SCROLL     SCROLL
+sayc %b        SCROLL     SCROLL     SCROLL     SCROLL
+sayc %P         SCROLL     SCROLL     SCROLL     SCROLL
+sayc %p          SCROLL     SCROLL     SCROLL     SCROLL
+sayc
+sayc %R SCROLL     SCROLL     SCROLL     SCROLL
+sayc %r  SCROLL     SCROLL     SCROLL     SCROLL
+sayc %y   SCROLL     SCROLL     SCROLL     SCROLL
+sayc %Y    SCROLL     SCROLL     SCROLL     SCROLL
+sayc %G     SCROLL     SCROLL     SCROLL     SCROLL
+sayc %g      SCROLL     SCROLL     SCROLL     SCROLL
+sayc %B       SCROLL     SCROLL     SCROLL     SCROLL
+sayc %b        SCROLL     SCROLL     SCROLL     SCROLL
+sayc %P         SCROLL     SCROLL     SCROLL     SCROLL
+sayc %p          SCROLL     SCROLL     SCROLL     SCROLL
+sayc
+sayc %R SCROLL     SCROLL     SCROLL     SCROLL
+sayc %r  SCROLL     SCROLL     SCROLL     SCROLL
+sayc %y   SCROLL     SCROLL     SCROLL     SCROLL
+sayc %Y    SCROLL     SCROLL     SCROLL     SCROLL
+sayc %G     SCROLL     SCROLL     SCROLL     SCROLL
+sayc %g      SCROLL     SCROLL     SCROLL     SCROLL
+sayc %B       SCROLL     SCROLL     SCROLL     SCROLL
+sayc %b        SCROLL     SCROLL     SCROLL     SCROLL
+sayc %P         SCROLL     SCROLL     SCROLL     SCROLL
+sayc %p          SCROLL     SCROLL     SCROLL     SCROLL
+sayc
+sayc %R SCROLL     SCROLL     SCROLL     SCROLL
+sayc %r  SCROLL     SCROLL     SCROLL     SCROLL
+sayc %y   SCROLL     SCROLL     SCROLL     SCROLL
+sayc %Y    SCROLL     SCROLL     SCROLL     SCROLL
+sayc %G     SCROLL     SCROLL     SCROLL     SCROLL
+sayc %g      SCROLL     SCROLL     SCROLL     SCROLL
+sayc %B       SCROLL     SCROLL     SCROLL     SCROLL
+sayc %b        SCROLL     SCROLL     SCROLL     SCROLL
+sayc %P         SCROLL     SCROLL     SCROLL     SCROLL
+sayc %p          SCROLL     SCROLL     SCROLL     SCROLL
+sayc
+}
+
+
+alias weird
+{
+sayc %y   |||||||||||||||||
+sayc %y   |||||||||||||||||
+sayc %C  sssssss     sssssss
+sayc %C ssssssss     ssssssss
+sayc %C  sssssssssssssssssss
+sayc %C   ssssss     ssssss
+sayc %C    sssssssssssssss
+sayc %C     ssss     ssss
+sayc %C       sssssssss
+sayc %C       ss     ss
+sayc %C        sssssss
+sayc %r ssssssss     ssssssss
+sayc %W ssssssss     ssssssss
+sayc %b ssssssss     ssssssss
+sayc %r ssssssss     ssssssss
+sayc %W ssssssss     ssssssss
+sayc %b ssssssss     ssssssss
+}
+
+
+alias ball
+{
+sayc                   888888888888
+sayc              8888888888888888888888
+sayc            88888888888888888888888888
+sayc          888888888888888888888888888888
+sayc        8888888888888888888888888888888888
+sayc       88888888888888         8888888888888
+sayc      8888888888888     888     888888888888
+sayc     888888888888      8   8      88888888888
+sayc    888888888888      8     8      88888888888
+sayc    88888888888       8     8       8888888888
+sayc   888888888888        8   8        88888888888
+sayc   888888888888         888         88888888888
+sayc   888888888888        8   8        88888888888
+sayc   888888888888       8     8       88888888888
+sayc   888888888888       8     8       88888888888
+sayc    888888888888      8     8      88888888888
+sayc    8888888888888      8   8      888888888888
+sayc     88888888888888     888     8888888888888
+sayc      888888888888888         88888888888888
+sayc       888888888888888888888888888888888888
+sayc        8888888888888888888888888888888888
+sayc          888888888888888888888888888888
+sayc            88888888888888888888888888
+sayc              8888888888888888888888
+sayc                   888888888888
+}
+
+
+alias dolphin
+{
+sayc %B                                        __
+sayc %B                                    _.-~  )
+sayc %B                         _..--~~~~,'   ,-/     _
+sayc %B                      .-'. . . .'   ,-','    ,' )
+sayc %B                    ,'. . . %W_%B   ,--~,-'__..-'  ,'
+sayc %B                  ,'. . .  %W(@)%B' ---~~~~      ,'
+sayc %B                 /. . . . '~~             ,-'
+sayc %B                /. . . . .             ,%B-'
+sayc %B               / . . . %w.  %w- .        %B,'
+sayc %B              : . . . %w.   %w    _     %B/
+sayc %B             . . . . %w.    %w      `-.%B:
+sayc %B            . . . .%w/  - .          )
+sayc %B           .  . . %w|  _____..---.._/ 
+sayc %W     ~---~~~~----~---~~~~----~---~~~~----~---~~~~----
+sayc
+}
+
+alias kikker
+{
+sayc      o_o
+sayc     (   )
+sayc    ( | | )
+sayc      ^ ^
+}
+
+
+alias kikker2
+{
+sayc %G     o_o
+sayc %G    (   )
+sayc %G   ( | | )
+sayc %G     ^ ^
+}
+
+
+alias cartoon
+{
+sayc
+sayc              .::::.             
+sayc ..         ..::::::''::         
+sayc ::::..  .::''''':::    ''.      
+sayc ':::::::'         '.  ..  '.    
+sayc  ::::::'            : '::   :   
+sayc   :::::     .        : ':'   :  
+sayc   :::::    :::       :.     .'. 
+sayc  .::::::    ':'     .' '.:::: : 
+sayc  ::::::::.         .    ::::: : 
+sayc :::::    '':.... ''      '''' : 
+sayc ':::: .:'              ...'' :  
+sayc  ..::.   '.........:::::'   :   
+sayc   '':::.   '::'':'':::'   .'    
+sayc         '..  ''.....'  ..'      
+sayc            ''........''         
+sayc
+}
+
+
+alias uilen 
+{
+sayc         %W*   %W*                                   %Y)     
+sayc                    %W*        %W*            %W*
+sayc         %W*                        %W*
+sayc                  %W*                        %W*  
+sayc             %W*               %W*
+sayc                             %B___            
+sayc                     %y_      %B(%W*.*%B)
+sayc                    %y| |     %B(   )
+sayc        %B___         %y| |______%R๑%y_%R๑%y______
+sayc       %B(%W*.*%B)        %y| |---------------
+sayc       %B(   )        %y| | 
+sayc    %y____%R๑%y_%R๑%y_________| |            %B___
+sayc    %y----------------| |           %B(%W*.*%B)
+sayc                    %y| |           %B(   )
+sayc                    %y| |            %R๑ ๑
+sayc %G###############################################
+sayc %G###############################################
+}
+
+alias bye 
+{
+sayc %4%Y,.*'*.,.*'\%GBYE $0%Y'*.,.*'*. 
+}
+
+
+alias zweden
+{
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%B________%Y___%B___________________
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%Y########%Y###%Y###################| 
+sayc %W   ||%Y########%Y###%Y###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B########%Y###%B###################|
+sayc %W   ||%B~~~~~~~~%Y~~~%B~~~~~~~~~~~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W   ||
+}
+
+
+alias amerika 
+{
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%B_____________%w_________________
+sayc %W   ||%B#%W*%B#%W*%B#%W*%B#%W*%B#%W*%B#%W*%B#%w#################|
+sayc %W   ||%B##%W*%B#%W*%B#%W*%B#%W*%B#%W*%B##%r#################|
+sayc %W   ||%B#%W*%B#%W*%B#%W*%B#%W*%B#%W*%B#%W*%B#%w#################|
+sayc %W   ||%B##%W*%B#%W*%B#%W*%B#%W*%B#%W*%B##%r#################|
+sayc %W   ||%B#%W*%B#%W*%B#%W*%B#%W*%B#%W*%B#%W*%B#%w#################| 
+sayc %W   ||%r##############################|
+sayc %W   ||%w##############################|
+sayc %W   ||%r##############################|
+sayc %W   ||%w##############################|
+sayc %W   ||%r##############################|
+sayc %W   ||%r~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W   ||
+}
+
+
+alias canada
+{
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%r_________%w_____________%r_________
+sayc %W   ||%r#########%w#############%r#########|
+sayc %W   ||%r#########%w######%r#%w######%r#########|
+sayc %W   ||%r#########%w#####%r###%w#####%r#########|
+sayc %W   ||%r#########%w####%r#####%w####%r#########| 
+sayc %W   ||%r#########%w#%r###########%w#%r#########|
+sayc %W   ||%r#########%w##%r#########%w##%r#########|
+sayc %W   ||%r#########%w###%r#######%w###%r#########|
+sayc %W   ||%r#########%w######%r#%w######%r#########|
+sayc %W   ||%r#########%w######%r#%w######%r#########|
+sayc %W   ||%r#########%w#############%r#########|
+sayc %W   ||%r~~~~~~~~~%w~~~~~~~~~~~~~%r~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W     
+}
+
+alias sayc
+{
+	eval say $cparse("$*")
+}
+
+
+alias hooters 
+{
+sayc %y
+sayc %y 000    000
+sayc %y 000    000             0000000000000             .d000b.
+sayc %y 000    000             0000000000000            000` `000.
+sayc %y 000    000                  000                 000.   `000
+sayc %y 0000000000                  000                  `000.
+sayc %y 0000000000  .d0b.   .d0b.   000    .d0b.   00 .d00 `000.
+sayc %y 000    000 00   00 00   00  000  .000 000  00000     `000.
+sayc %y 000    000 00   00 00   00  000  000,,,000 000` `00b   .000
+sayc %y 000    000 00   00 00   00  000  Y0.    .  000   `000..000`
+sayc %y 000    000  YD0DY   YD0DY   000   `YD0DY   000     `0000P
+sayc %y 
+}
+
+
+alias poison 
+{
+sayc 
+sayc %Y  G O T  J E E P  P O I S O N ?%0%Y
+sayc %G           __________ %0%G
+sayc %G          (%0%YO %0%G|||||| %0%YO%0%G)%0%G
+sayc %G           | |||||| |%0%G 
+sayc %G           | |||||| |%0%G
+sayc %G           | |||||| |%0%G
+sayc %G           |________|%0%G 
+sayc %G        ____        ____%0%G
+sayc %G       [~,~,]      [~,~,]%0%G
+sayc %G       [,~,~]X    X[,~,~]%0%G
+sayc %G       [____] X  X [____]%0%G
+sayc %G               XX%0%G
+sayc %G        ____   XX   ____%0%G
+sayc %G       [~,~,] X  X [~,~,]%0%G
+sayc %G       [,~,~]X    X[,~,~]%0%G
+sayc %G       [____]      [____]%0%G
+sayc 
+}
+
+
+alias lameshot 
+{
+sayc %W                                          __
+sayc %W                         _________________::           n
+sayc %W           %r,%W ----==++//<#[.|.|.|.|.|<|=|=|=::==========[:|
+sayc %W                         ^~~~~~~~~~~~~~~~~::           u
+sayc %W                                          ^^
+sayc %C             %W*%Cgives %Y$0%C the anti-lamer shot%W*%C
+}
+
+
+alias nude 
+{
+sayc
+sayc %G Oh baby cum and get me...I'm so horny...
+sayc %P             .'''.           .'''.
+sayc %P            /     \\\\\\         /     \\\\\\
+sayc %P           /  /|   |       |   |\\\\\\  \\\\\\
+sayc %P          /  / |   |       |   | \\\\\\  \\\\\\
+sayc %P         /  /  |   |%r.%Po%r. .%Po%r.%P|   |  \\\\\\  \\\\\\
+sayc %P        /  /   |   '.  %r'  %P.'   |   \\\\\\  \\\\\\ 
+sayc %P       /  /    |     '.%r'%P.'     |    \\\\\\  \\\\\\
+sayc %W      :'':%P     |      %r{%Po%r}%P      |     %W:'':
+sayc %W __..' ..|%P      \\\\\\         %P      /      %W|.. `..__
+sayc %W'.....' ||%P       '-.__.%y*%P.__.-'       %W|| `.....'
+sayc 
+} 
+
+
+alias shot 
+{
+sayc  ~~ -----|''''''|----8  <----- *Take the anti-lamer shot *
+}
+
+
+alias rose2
+{
+sayc %r                     ..ooo.
+sayc %r                 .888888888.
+sayc %r                 88'P''''T'''T888 8o
+sayc %r             o8o 8.8''8 88o.''8o 8o
+sayc %r            88 . o88o8 8 88.''8 88P''o
+sayc %r           88 o8 88 oo.8 888 8 888 88
+sayc %r           88 88 88o888'' 88''  o888 88
+sayc %r           88.''8o.''T88P.88''. 88888 88
+sayc %r           888.''888.''88P''.o8 8888 888
+sayc %r           ''888o''8888oo8888 o888 o8P''
+sayc %r            ''8888.''''888P''P.888''.88P
+sayc %r             ''88888ooo  888P''.o888
+sayc %r               ''''8P''''.oooooo8888P
+sayc %g      .oo888ooo.  %r  888888888P8
+sayc %g    o88888''888''88o.  %r''8888''''.88   %g.oo888oo..
+sayc %g     8888'' ''88 88888.       88''.o88888888''888.
+sayc %g     ''8888o.''''o 88''88o.    o8''.888''888''88 ''88P
+sayc %g      T888C.oo. ''8.''8''8   o8''o888 o88'' ''.=888''
+sayc %g       88888888o ''8 8 8  .8 .8''88 8''''.o888o8P
+sayc %g        ''8888C.o8o  8 8  8'' 8 o'' ...o''''''8888
+sayc %g          ''88888888 '' 8 .8  8   88888888888''
+sayc %g            ''8888888o  .8o='' o8o..o\88oo88''
+sayc %g                ''888'' 88''    888888888''''
+sayc %g                    o8P       ''888''''''
+sayc %g              ...oo88
+sayc %g     ''8oo...oo888''''       
+sayc %g       ''''888'''' 
+}
+
+
+alias stoplight 
+{
+sayc %Y     _________
+sayc %Y    |         |
+sayc %Y    | %r .d0b. %Y |
+sayc %Y    | %r O0000 %Y |
+sayc %Y    | %r `D0P' %Y |
+sayc %Y    |         |
+sayc %Y    |         |
+sayc %Y    | %Y .d0b. %Y |
+sayc %Y    | %Y O0000 %Y |
+sayc %Y    | %Y `D0P' %Y |
+sayc %Y    |         |
+sayc %Y    |         |
+sayc %Y    | %G .d0b. %Y |
+sayc %Y    | %G O0000 %Y |
+sayc %Y    | %G `D0P' %Y |     
+sayc %Y    |_________|
+sayc 
+}
+
+
+alias wow 
+{
+sayc
+sayc %G       *****        O P I E  &  A N T H O N Y      *****
+sayc %Y _____               ____    _____    _____               ____
+sayc %Y %    %      _      /   /   0  _   0  %    %      _      %   %
+sayc %Y  %    %    / %    /   /  0  0   0  0  %    %    / %    %   %
+sayc %Y   %    %  /   %  /   /  0  0     0  0  %    %  /   %  %   %
+sayc %Y    %    %/  _  %/   /   0  0     0  0   %    %/  _  %%   %
+sayc %Y     %      / %     /     0  0 _ 0  0     %      / %     %
+sayc %Y      %____/   %___/        0_____0        %____/   %___%
+sayc
+sayc %G                  1 0 2.7 fm   N E W  Y O R K  !!
+sayc
+sayc %Y                    WWW.FOUNDRYMUSIC.COM/OPANT
+sayc
+sayc %G                 ! W h i p  E m  O u t  W e d s !
+sayc 
+}
+
+
+alias colorssay 
+{ 
+sayc These r the colors: %W%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 %0 %cc%CC%yy%YY%mm%MM%kk%KK %rr%RR%gg%GG%bb%BB %pp%PP%ww%WW
+}
+
+
+alias smile
+{
+sayc
+sayc         %Y@@@@            @@@@
+sayc        %Y@%b@@@@%Y@          @%b@@@@%Y@
+sayc       %Y @%b@@@@%Y@          @%b@@@@%Y@
+sayc         %Y@@@@            @@@@
+sayc 
+sayc    %Y@                             @
+sayc     %Y@@                         @@
+sayc       %Y@@@                   @@@
+sayc          %Y@@@@@         @@@@@
+sayc             %Y@@@@@@@@@@@@@
+sayc              %R@    @    @
+sayc              %R@    @    @
+sayc              %R@    @    @
+sayc              %R@    @    @
+sayc               %R@       @
+sayc                %R@@@@@@@
+}
+
+
+alias canada2
+{
+sayc %rACANADACANADACAN%7                                   %n%rNADACANADACANADA
+sayc %rCANADACANADACANA%7                 %n%rA%7                 %n%rADACANADACANADAC
+sayc %rANADACANADACANAD%7                %n%rADA%7                %n%rDACANADACANADACA
+sayc %rNADACANADACANADA%7           %n%rAC%7  %n%rADACA%7  %n%rDA%7           %n%rACANADACANADACAN
+sayc %rADACANADACANADAC%7            %n%rANADACANADA%7            %n%rCANADACANADACANA
+sayc %rDACANADACANADACA%7        %n%rDA%7   %n%rADACANADA%7  %n%rNA%7         %n%rANADACANADACANAD
+sayc %rACANADACANADACAN%7    %n%rANADACAN%7  %n%rACANADA%7  %n%rNADACANA%7    %n%rNADACANADACANADA
+sayc %rCANADACANADACANA%7     %n%rADACANADACANADACANADACANA%7     %n%rADACANADACANADAC
+sayc %rANADACANADACANAD%7   %n%rNADACANADACANADACANADACANADAC%7   %n%rDACANADACANADACA
+sayc %rNADACANADACANADA%7      %n%rCANADACANADACANADACANAD%7      %n%rACANADACANADACAN
+sayc %rADACANADACANADAC%7         %n%rDACANADACANADACAN%7         %n%rCANADACANADACANA
+sayc %rDACANADACANADACA%7           %n%rANADACANADACA%7           %n%rANADACANADACANAD
+sayc %rACANADACANADACAN%7         %n%rCANADACANADACANAD%7         %n%rNADACANADACANADA
+sayc %rCANADACANADACANA%7                 %n%rA%7                 %n%rADACANADACANADAC
+sayc %rANADACANADACANAD%7                 %n%rD%7                 %n%rDACANADACANADACA
+sayc %rNADACANADACANADA%7                 %n%rA%7                 %n%rACANADACANADACAN
+sayc %rADACANADACANADAC%7                                   %n%rCANADACANADACANA
+}
+
+
+alias japan2
+{
+sayc %7                                              
+sayc %7        %1  %7  %1  %7        %1   %7       %1  %7  %1  %7        
+sayc %7       %1  %7  %1  %7      %1         %7     %1  %7  %1  %7       
+sayc %7      %1  %7  %1  %7     %1             %7    %1  %7  %1  %7      
+sayc %7               %1                 %7              
+sayc %7              %1                   %7             
+sayc %7             %1                     %7            
+sayc %7              %1                   %7             
+sayc %7               %1                 %7              
+sayc %7      %1  %7  %1  %7     %1             %7     %1  %7  %1  %7     
+sayc %7       %1  %7  %1  %7      %1         %7      %1  %7  %1  %7      
+sayc %7        %1  %7  %1  %7        %1   %7        %1  %7  %1  %7       
+sayc %7                                              %0 
+}
+
+
+alias canada3
+{
+sayc %1          %4   %7                         %4   %1          
+sayc %1          %4   %7            %1 %7            %4   %1          
+sayc %1          %4   %7           %1   %7           %4   %1          
+sayc %1          %4   %7          %1     %7          %4   %1          
+sayc %1          %4   %7        %1         %7        %4   %1          
+sayc %1          %4   %7         %1       %7         %4   %1          
+sayc %1          %4   %7         %1       %7         %4   %1          
+sayc %1          %4   %7     %1      %1        %7   %7   %4   %1          
+sayc %1          %4   %7   %1                  %7    %4   %1          
+sayc %1          %4   %7     %1              %7      %4   %1          
+sayc %1          %4   %7       %1          %7        %4   %1          
+sayc %1          %4   %7         %1       %7         %4   %1          
+sayc %1          %4   %7            %1 %7            %4   %1          
+sayc %1          %4   %7            %1 %7            %4   %1          
+sayc %1          %4   %7            %1  %7           %4   %1          
+sayc %1          %4   %7            %1  %7           %4   %1          
+sayc %1          %4   %7                         %4   %1          %0 
+}
+
+
+alias neder
+{ 
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%r______________________________
+sayc %W   ||%r##############################|
+sayc %W   ||%r##############################|
+sayc %W   ||%r##############################|
+sayc %W   ||%W##############################|
+sayc %W   ||%W##############################| 
+sayc %W   ||%W##############################|
+sayc %W   ||%b##############################|
+sayc %W   ||%b##############################|
+sayc %W   ||%b##############################|
+sayc %W   ||%b~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W   ||
+}
+
+
+alias tnt3
+{ 
+sayc %1%Y D Y N A M I T E %0%W------------%R* %W Here's a bundle
+sayc %1%Y D Y N A M I T E %0%W-----------%R*
+sayc %1%Y D Y N A M I T E %0%W----------%R*
+sayc %1%Y D Y N A M I T E %0%W---------%R*
+sayc %1%Y D Y N A M I T E %0%W--------%R*
+sayc %1%Y D Y N A M I T E %0%W-------%R*
+sayc %1%Y D Y N A M I T E %0%W------%R*
+sayc %1%Y D Y N A M I T E %0%W-----%R*
+sayc %1%Y D Y N A M I T E %0%W----%R*
+sayc %1%Y D Y N A M I T E %0%W---%R*
+sayc %1%Y D Y N A M I T E %0%W--%R*
+sayc %1%Y D Y N A M I T E %0%W-%R*%WCatch All You $XPLODE!!
+}
+
+
+alias fuku
+{
+sayc %W   ___")
+sayc %W <(%R@%W*%R@%W)> <%Y^>")
+sayc %W   |^|%Y___//")
+sayc %Y  ( . ) %G FUCK YOU")
+sayc %B  |_|_| %G ->$SCREW_WHO<-")
+}
+
+
+alias wet
+{ 
+sayc %1%Yiamwet__ %0%W----------------%R* %W is nasty!!!!!!!! HA HA HA!!
+}
+
+
+alias dalmatians
+{
+sayc %W                               ..
+sayc %W                   .udSSSSSbeSE&Su
+sayc %W            ...  udSS&&SSSSSSCu 9Sk u
+sayc %W          eP~~ :dSSLueddSSSSSSS `S `Sh
+sayc %W       .xd~.~ 4SSSSSS~~&SSSSSSS. S. SF
+sayc %W      SSS~ ~ F-&SSSScdeu`SSSSSSb &SSS
+sayc %W      &S~    (,r~SSSS.`~&J2SSSSS  `&~%k)
+sayc %W       ~     `.  3SSSSbudSSSSSSF
+sayc %W               :-&SSSSSP~~&SSS~
+sayc %W              (   'SSSSS SSSSC:%k)
+sayc %W              `b,,zSSSF dSFSSF %Rf %Wdc
+sayc %W                ~~`~~.+ S~ %R,u+~%W.dSS
+sayc %W                    ~--' %R-~~%W.udSSSSk
+sayc %W                        FSSSSSS`SSSSSSS.
+sayc %W                         SSSSSF   SSSSSk .
+sayc %W                         SSSSS 4.zSSSS&S.Sb.
+sayc %W                       4 SSSSS dSSSSSS.3SSP~-
+sayc %W                       4 SSSSS dSSSSSS.3SSP~-
+sayc %W                       4 &SSSS,&SSSSP~.  , &Sec
+sayc %W                       `h SSSSS,~SSF ,d, SS SSSc
+sayc %W                        9L &SSSF SSb &dSbSS `SSS
+sayc %W                   . eu.`Sc &SSF SSSb`&SSSS .SSS
+sayc %W                  4S ~~~:SSF `~,zSSSS `SSSS dSSS           ,-
+sayc %W                  .~ :-&SSP~ ~e~,9SF,d SSSS.SSSS        ,e~
+sayc %W                   ~  4SS~ d. /'SP~,SS SSSSS~SP~.c,__,edF
+sayc %W                   '.   ,eSSSbe- ,e&SS 4SSF '..< `~~~~``
+sayc %W              ...: zSdSP~b.~'.zdP~.. ~b.~~ ::::::
+sayc %W           :::::: xSS &~ 9SSSSe--'~~Sc'SF ::::::::..
+sayc %W          .::::: .&SSr-   SSSSS    .~SSSF.::::::::::::.
+sayc %W          :::::      (    SSSSS    SL'SS :::::::::::::::%k)
+sayc %W          ::::       (:.3 SSSSS,-edSS.SS :::::::::::::::%k)
+sayc %W          ::'         P~'zSSSSSSu,~~~ ~S `::::::::::::::
+sayc %W               _,-----4SSSSSSSSSSSdSSSSSb `::::::::::::
+sayc %W             .'./----nx`SSSSSSSSC&SSSSSSSb. ::::::::::  J&e,,u
+sayc %W             ':)))))~ zSSSSSSSSSb,. .c 3SSc. :::::::  && &&&&
+sayc %W             `b `<(>'.dSSSSSSSSSSSP~,SSSSSSSSk `::'`     ,eee>-c..%k)
+sayc %W              `&becedSSSSSSSSSSSP~,SSSSF&&SSSSF          zSE~~`SSbc
+sayc %W                '~ s,~&SSSSSPF~,cPF~',,edSSSSS      r-~4dSF`~&VS~zc..
+sayc %W                   `~~-,,,,,r--~.zdSSSSSSF 3SS     (,,eSSSSc,dS J  SS%k)
+sayc %W                               SSSSSSSSSSc,dSSc     &&SSF',i9S~,SedSS
+sayc %W                               SSSSSSSSSSc,dSSc     &&SSF',i9S~,SedSS
+sayc %W                 .,ueu         SSSSSSSSSSS&SSSS     ,   ,dSSS~ SSSSSS
+sayc %W             dSSSP~ue:&.       SSSSSSSSSP  &SSS,     ~~~-SSSS dSSSP~'
+sayc %W             P~~ --~~~``       JSSSSSSSSL  dSSSF.        `~&SSbc,
+sayc %W                 eedSSSSSSbu   4SSSSSSSSSSSSSS~%B.M  %W       udSSSSSSu
+sayc %W               'zSSSSFSSP&&&S  JSSSSSSSSSSSSP~%Bd'u. %W     ,F3SS&SSSSb.
+sayc %W              ( SSSSSb 9F ec.  SSSSSSSSSSSS~ %BxP' %WSSu    xSF SF S~`,ze%k)
+sayc %W            ..4dSSF.`3kd uSSL  SSSSSSSSSS~ %Bd~ %W:SSSSb.  SS> S xS dSP~.
+sayc %W          .` + SSF ) dS~:SSSL %BL%W`&&&SSSP~ %BdP' %WzSSSSSSSL &Sr S SS,_ ,d
+sayc %W          `+edSSSL ',SS S~~SS %B~Mny,,,uxpP~  %WudSSSSF&SSS. &b & SSPF~ .u
+sayc %W            ~SSSSS&SSSS S, dSh %B`~&dMMP~ %WueSSSSSSF  `SSh  S>  ~S edSSS
+sayc %W            <`~~~~,.&SS &&&&~~ F%Y&%Wr.zeeSSSSSSSSSSF   SSSb `~  JS   SSS
+sayc %W            .`~~~~&SeSS+      S'%Y:%W &SSSSSS~SSSSSSb,,uSSSS.    &F  JSSR
+sayc %W          .eS&&hc  ~~~~-     4'%YdMm,%W`SSSSF SSSSSSSSSSSSSSb     ,-(9SS%k)
+sayc %W        uzSSS  c~bu%G``~`%W.   f f %YMMMM> %WSSSP dSSSSSSSSSSSSSSS,  dP~  JSSb
+sayc %W .  .,,,. ~~&&&S &SSS~dS. x .k %YMMM~ %WJSSS~ SSSSSSSSSSSSSSSSb  `~~&SSSSb
+sayc %W S:SS&&SSSSee,. -e`&F.SS~ F JSe,.,udSSSS d~ '3SSSSSSSSSSSSSck  /~`~~~,
+sayc %W S:Ske-SSSSSSE .~L`~SSF JF SSSSSSSSSSSF F   4SF&SSSSSSSSSSSS. ~-~---~.
+sayc %W SF~~  ~SSSSS~~4~u9  SS <S  SSSSSSSSSSS  L  .dS   SSSSSSSSF&SS.      '
+sayc %W S~: _  SSSSF  ':SF .SS <S. SSSSSSSSSSF  SbP~&&b,zSSSSSP&,nn-~/.  ...
+sayc %W ~ S,~~,SSSSbJ  JP :FSSb SF SSSSSSSSSS~ dSS    ~SSSSSSP .~~~....zdSSSS
+sayc %W :SSS&SSSSSP~~-,^  S `SS &b &SSSSSSSSSu SSS.    SSSSSS~ S~udSSSSSSSSSS
+sayc %W S :eSSSS  ... >  `beSS  S.`SSSSSSSSSS &SSSc..zSSSSSF~'-dSSSSSSSSSSSS
+sayc %W S :eSSSS  ... >  `beSS  S.`SSSSSSSSSS &SSSc..zSSSSSF~'-dSSSSSSSSSSSS
+sayc %W SSL^SSSSSb.`' /    `SSS  ~k &SSSSSSSSSb &SSSSSSSF`,~ Sbe..~SSSSSSSSSS
+sayc %W SSSk`&&S&&&-r-      &SS.. 3L &SSSSSSSSSk`SSSSSS,c`9r SSSSS &SSSSSSSSS
+sayc %W SSSSk ---'           SSSSr &, &SSSSSSSSS.`SSSS'4SbeF SSSSSr SSSSSSSSS
+sayc %W PFF~                  `~~~ `SL ~SSSSSSSSh `SSSk SSS  SSSSSF SSSSSSSSS
+sayc %W ---'.L                      `Sc `&SSSSSSSk ~SSSb.`&F SSSSSk SSSSSSSSS
+sayc %W eedS&S                       `Sbu ~&SSSSSS. 9SSSSb & &SSSSF.&SSSSSSP~
+sayc %W SSSF4SF                       ~SSbu ~&SSSSh  SSSSSb & SP~.zSbc.   - '
+sayc %W SSS~4SF           ...          &SSSbu `&SS~ ..  ...~ ~.eSSSSSSbc '&SS
+sayc %W SSS 4SF         .dF:C&SSSSL    `SSSSSF  ~~.dSSSSP~~b  ~&SSSSSSSSSSc S
+sayc %W SS~ SS   .....  ~ -4Sb ~SSS    dSSSSS     dSSP~,eW.~k :, `~&SSSSSSSSS
+sayc %W SF d~,edSSSSS&SSSbe      &~    dSSSSS    `P~ .ePPPS 3r `:::  ~SSSSSSS
+sayc %W ~ d &SSSSSS~zdSSSSS-,          JSSSSF         `~~.,,,,,.  ``  JSSSSSS
+sayc %W   .eeer~SSSz~~'SSSS )          SSSSS           ,r4SSSSSSSbc.  SSSSSSS
+sayc %W SSSSSSF.SSSh,  3SSS :          SSSSP          <  dSSSSSC~&SSb ~SSS~~&
+sayc %W SSSSSP JSSSL,--~~~~~'          SSSSF         ,d,_SSSSSSSb 3SPF.9SS
+sayc %W SSSSS  SSSSP dS~~&SSSbe.-     dSSSS         :   dSSSS~~~&rJP e..~~s
+sayc %W SSSS~ dSSSS 4SC .dSSP~~&.     dSSSF    _.,--&F&SSSSS~&b &SS  S~~SeL~S
+sayc %W ~&&F JSSSSF SSSSP~  eSS /     SSSS~   dF':::.~'SSSSS  ~-dSF Jb  dSS,`
+sayc %W e+  .~&S&&/ SP~ .d u`~~~      &SSS    &b.`'',zdSSSSC.. ,SS~ SSSSSSSb
+sayc %W S c `&          'S SkdSSSSSSSec.~F     &&--SSSSSSFSSSSSSdSr SS&S 'SS
+sayc %W F SF.dSSF        - ~/4SSSSSC~~&Sb.         `SSSSSb+ ~SSSSSk 9F  &zSSL
+sayc %W L.z.&SSSk         'r dSSSSSSSh 3SS-       / `~~~~.zSk9SSSSSL'k,,dSSSF
+sayc %W L.z.&SSSk         'r dSSSSSSSh 3SS-       / `~~~~.zSk9SSSSSL'k,,dSSSF
+sayc %W S SS.~SSSu..    -  LdSSSS~~~&SLdP~uSe     b`-~.zSS&SSSSSSSSS.~SSP~~.e
+sayc %W Sc'SS ~&&&S   ,nx/~SSSSS~'&b SS~ zSSS&s.  `~~~~~~. &SSSSSSSSS %P.%W .eJ~&
+sayc %W SSc.ed+-x S ,'..~~'SSSS   S dF d~~&  `S     zedS   `&SSSSP~%P.e~%W dSSbc'
+sayc %W ~~&S&SSb`   4.~~,ueSSSSSk. LdS  E   bcSS     SSS~    %P<_~.,edP~%W ~  ~SS
+sayc %W    ~&S&~     ~~&SSSSSSS~&&SSSS 'SbeSSSSS    dSS~    du%P`~~~~ %W.r L   SS
+sayc %W                 ~&&SPF~,z.3SSSr SSSSSSSS    SS~    dSSSSeSSSS~ See~&S
+sayc %W                ^:,.. zdSSSSSSSS 3SSSSPF~   zSS     `&Sr&SSSSS :SSS  3
+sayc %B _%W             '<_''.dSS&SSSSSSSb &~~  ..  dSS        SL`SSSSSL^SSSbdS
+sayc %B Mhn,%W             `~~~~  ~SSSSSSS~ %r/%W d.' eeSSS        `S.~SSSSS,3SSSSS
+sayc %B MMMMMn%W                   `&&&~~%r >~%W.f`~c &SP~/        dSSr~SSSF dSSSSS
+sayc %B MMMMMMMx%W               d.%r`:::>~`%W.eSL  Sc   .r'    ,dSSSSSu`&~ dSSSSSS
+sayc %B MMMMMMMMM.%W             dShu..udS~3SSbdSSc '~.SSSedSSSSSSP~  .dSSSSSSS
+sayc %B `TMMMMMMMMr%W            dS &SSSSS 4SSSSSSSb  4SSSSSSPF~      dSSSSSSSS
+sayc %R bc%B~TMMMMMMM.%W           SS &SSSSS 4SSSSSSSSb. ~&&PF         dSSSSSSSF
+sayc %G n%R`&c%B`TMMMMMh%W           SS `SSSSF 4SSSSSSSSSSbdSbcz        zSSSSSSS~ d
+sayc %G Mh.%R~b %B~MMMMM.%W          &S  SSSSL dSSSSSSSSSSSSSSS~4&CChnedSSSSSSF  <S
+sayc %G MMT`%R`&.%B`MMMM>%W           3  SSSSS &SSSSSSSSSSSSSSSu dP:dCJSSSPF~   &.`
+sayc %G MMMM  %R&r%B`MMM>%W           dL &SSSSS.&SSSSSSSSSSSSSP~u`<dSSSSF        ~4
+sayc %G MMMMM` %R&L%B`MM>%W           SSL`SSSSSS &SS `SSS SSSF dSSb.`~~~u.      .u
+sayc %G MMMMMM` %R& %B`M'%W          d '3b.&SSSSF 3P/.dSS 'S~ dSSSSSSSSP~b ..zeSP~
+sayc %G MMMMMMMx %R/ %B~%W           d. SSS+ `&SF 4  ~SSSb.F :SSSSSSSSS  4 `&~
+sayc %G MMMMMMMT %R^L%W            SSSSS~    ~b 4  .SSSP  :SSSSSSSSSS/+d
+sayc %G MMMMMMMM` %R&%W           .SSSS~.-+ee.` 4SdSSSF : SSSSSSSSSS~  S       z-
+sayc %G MMMMMMMM:%W        .,,,zSSSSP fC:BSSS 4SSSSS :S.~SSSSSSSSSu,c~       .d
+sayc %G MMMMMMMM~%W       <F&:2SSSP~  ~'SSPFF 4SSSS  ~~~ `~&SSSSSSSF         ~
+sayc %G MMMMMM'%W         `&SSSSP~            dSSSP   ,<-SSbu ~&&&~           `
+sayc %G PMMM'%W                              uSSSS~   dSC:eSSSb
+sayc %W                                :C&&&SSF     `~4SSS~
+sayc %W                                4F:CdSS
+sayc %W                                `'~~~~
+sayc %W
+sayc %P                              101 Dalmations
+}
+
+
+alias tweetie2
+{
+sayc %r                                ,:::::::::,.
+sayc %r                             ,:!!!!!!!!!!!!!!!::,
+sayc %r                          ,:!!!!!!!!!!!!!!!!!!!!!!!:,
+sayc %r                        :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:,
+sayc %r                      :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!''''-
+sayc %r                     :!!!!!!!!!!!!!!!!!!!!!!'''``%W_.,nmnndMMMMMMMn
+sayc %r                   .!!!!!!!!' !!!!!!''``%W_..xnndMMMMMMMMMMMMMMMMMMb
+sayc %r                  :!!!!!!!! :!!''`%W.xndMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+sayc %r                 :!!!!!!!!  %W`_.nmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,
+sayc %r                :!!!!!!'`%W.xnMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+sayc %r               :!!!!!'%W.ndMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+sayc %r              :!!!!'%W,dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMPPPP'''''''TTMMb
+sayc %r             :!!!!'%W,MP'MMMMMMMMMMMMMMMMMMPPP''''`%Y.,,ccr===$$$$$c`%W=nMMMr
+sayc %r             !!!!! %WMP dMMMMMMMMMMMPP''%Y.,cccdSSSSSSSSSShc, `?SSSSh.%W'MMM
+sayc %r            `!!!!! %W',dMMMMMMPP'' %Y,ccSSSSSSSSSSSSSSSSSSSSSSc,`SSSSS %W4MM
+sayc %r            `!!!! %W,dMMMMP''  %Y,cSSSSSSSSSSSSSSSSSSSSSSSSSSSSScSSSSSr%W`T
+sayc %r            `!!! %WuMMMP'%Y.zd',cSS?SSSSSSSSSSSSSSSSSSSS??SS SSSSSSSSSS
+sayc %r            `!! %W:MMMP%Y,SSSScS'SS SSSSSSSSSSSSSSSSSSSSF<SF SPPSSSSSSS
+sayc %W           _,,_ MMMM %Y<SSSSSS ?S.'SSSSSSSSSSSSSSSSSSS'dP dS',SSSSSSP
+sayc %W      ,dh:MMMMM 4MMML %YSSSS'?h.'S ?SSSSSSSSSSSSSSSSS' ' zF zSSSSSSS'
+sayc %W     dMMMMMMMMMn 'TTM %YSSSSc,'? %W.,.%Y'SSSSSSSSSSSSSSP'%W,MM,%Y ,dSSSSSSS'
+sayc %W    dMMMMMMMMMMMMmnx..%Y`SSSSSS %W4MMMn %Y?SSSSSSSSSSSS %WuMMMM %Y?SSSSSSSP
+sayc %W  .nMMMMMMMMMMMMMMMMMM,%Y`SSSSS %WMMMMMb %YSSSSSSSSSSSF%W,MMMMM %YdSSSSSSP
+sayc %W  MMMMMMMMMMMMMMMMMMMM  %Y'SSSS %WMM''`'-%Y`SSSSSSSSSS %W`'%B..%W`T %YSSSSSSP
+sayc %W  MMMMMMMMMMMMMMMMMMMP   %Y?SSS %WT'%B,SSh  %YSSSSSSSSSS  %BcSSL  %YSSSSSP
+sayc %W  jMMMMMMMMMMMMMMMMM'     %Y?SSh%W' %Bd???S %Y?SSSSSSSSS %Bd' `S %YdSSSSP
+sayc %W   TMMMMMMMMMMMMMMM'       %Y'SSr %BSF  ?h%Y<SSSSSSSSS %BP   F %YSSSSP
+sayc %W     'MMMMMMMMMMMP'         %Y`SS.%B`L  dF%Y:SSSSSSSSS.%B?  / %YdSSSP
+sayc %W      '4MMM''PP''            %Y`ss.%B`- ' %YdSSSSSSSSSh .,,zdSS'
+sayc %W        `'`                    %YShcsshcSSS??'''??SSSSSSSSSh.
+sayc %W                              %YdSSSSSSSP' %yj????  %Y'SSSSSSSSSS
+sayc %Y                             ,SSSSSSSS . %y-===-'%Y.,cSSSSSSSSF
+sayc %Y                              ?SSSSSSS???ScccSSS??SSSSSSP'
+sayc %Y                               `'??''%W.xn %Y?SSSSP'%Wxn
+sayc %W                                     'MMbx.,,,nmMM
+sayc %W                                       '''PPPPP''
+sayc %r                                      :!!!!!!!!!!
+sayc %r                                     :!'!!!!!!!!<!
+sayc %r                                    :!' !!!!!!!, !:
+sayc %r                                   :!! !!!!!!!!! `!.
+sayc %r                                   `! :!!!!!!!!!! !!
+sayc %r                                   `!:!!!!!!!!!!!:'
+sayc %r                                     !!!!!!!!!!!!!
+sayc %W                                  .xr%r`!!!!!!!!!!!! %Wh.
+sayc %W                                 uMMM,%r`'`<!!!!''`%W,dMM
+sayc %W                                 4MMMMmnn,.,,,ndMMMMP
+sayc %W                                  4MMMMMMMMMMMMMMMP'
+sayc %W                                    `'44MMMMPP''
+sayc %y                                        cr    c,
+sayc %y                                        SS    Sh              .,...
+sayc %y                    ,ccSSSSccccc,,,..,,,cS.   ?S,,,..,,,cccdSSSSSSSSh.
+sayc %y                  zS???SSSSSSSSSSSSSSSSSSSh   <SSSSSSSSSSSSSSSSSL.,.`?S
+sayc %y                  ?',cSSSSSSSSSSSSSSSSSSSSP'  `SSSSSSSSSSSSSSSSSSSSc '
+sayc %y                   <SSSSSSSSSSSSSSSSSS??'       '??SSSSSSSSSSSSSSSSSS
+sayc %y                    ?SSSSSSSSSSSSS??'               ''??SSSSSSSSSP''
+sayc %y                       ''''''''''                         `''''
+}
+
+
+alias cbox
+  {
+  ^local text
+  @text=[$0-]
+  if ((@#text < 1) || ($@text > 50))
+    {
+    echo Text Out Of Range 1 to 50 characters only.
+    }
+    {
+    sayc $chr(10)%C\ษ$left($@Text ออออออออออออออออออออออออออออออออออออออออออออออออออ)\ป$chr(10)\บ%Y$text%C\บ$chr(10)\ศ$left($@Text ออออออออออออออออออออออออออออออออออออออออออออออออออ)\ผ$chr(10)
+    }
+  }
+
+
+alias box
+  {
+  ^local text
+  @text=[$0-]
+  if ((@#text < 1) || ($@text > 50))
+    {
+    echo Text Out Of Range 1 to 50 characters only.
+    }
+    {
+    say $chr(10)\ษ$left($@Text ออออออออออออออออออออออออออออออออออออออออออออออออออ)\ป$chr(10)\บ$text\บ$chr(10)\ศ$left($@Text ออออออออออออออออออออออออออออออออออออออออออออออออออ)\ผ$chr(10)
+    }
+  }
+
+
+
+alias truck 
+{
+sayc %w         ,'     %m ____________________________________
+sayc %g     ____%W|%g _/_  %m|                                    |
+sayc %g ___%W/|%g_] %W|%g|   | %m| %Y$[34]* %m|
+sayc %W|%Y.%g__|__|_%W|%g|___| %m|____________________________________|
+sayc %W|%m=%B(_)%W[___][___]%m==%B(_)(_)%m=%R:                  %B(_)(_)%m=%R:
+}
+
+
+alias kus
+{
+sayc  KKKK      KKKK     UUUU      UUUU     'SSSSSSSSSSSS       
+sayc  KKKK     KKKK      UUUU      UUUU     SSSSSSSSSSSSS
+sayc  KKKK   KKKK        UUUU      UUUU     SS
+sayc  KKKK  KKKK         UUUU      UUUU     SS
+sayc  KKKK KKKK          UUUU      UUUU     SSSSSSSSSSSS'
+sayc  KKKK  KKKK         UUUU      UUUU     'SSSSSSSSSSSS    
+sayc  KKKK   KKKK        UUUU      UUUU                SS
+sayc  KKKK    KKKK       UUUU      UUUU                SS
+sayc  KKKK     KKKK      UUUU      UUUU                SS
+sayc  KKKK      KKKK     UUUUUUUUUUUUUU     SSSSSSSSSSSSS
+}
+
+
+alias hand
+{
+sayc  HHHH     HHHH  'AAAAAAAAAAA' 'NNNN'        NNNN 'DDDDDDDDD'
+sayc  HHHH     HHHH  AAAAAAAAAAAAA NNNNNN        NNNN DDDDDDDDDDD
+sayc  HHHH     HHHH  AAAA     AAAA NNNN NN       NNNN DDDD      DD
+sayc  HHHH     HHHH  AAAA     AAAA NNNN  NN      NNNN DDDD       DD
+sayc  HHHHHHHHHHHHH  AAAA     AAAA NNNN   NN     NNNN DDDD        DD
+sayc  HHHHHHHHHHHHH  AAAAAAAAAAAAA NNNN    NN    NNNN DDDD         DD
+sayc  HHHH     HHHH  AAAAAAAAAAAAA NNNN     NN   NNNN DDDD         DD
+sayc  HHHH     HHHH  AAAA     AAAA NNNN      NN  NNNN DDDD        DD 
+sayc  HHHH     HHHH  AAAA     AAAA NNNN       NN NNNN DDDD       DD
+sayc  HHHH     HHHH  AAAA     AAAA NNNN        NNNNNN DDDDDDDDDDDD
+sayc  HHHH     HHHH  AAAA     AAAA NNNN        NNNNNN 'DDDDDDDDDD'
+}
+
+
+    
+alias sayc
+{
+	eval say $cparse("$*")
+}
+
+alias sad
+{
+sayc %b   ,MMM8&&&.                         ,&&&88MMM
+sayc %b  MMMMM88&&&&                      ,&&&88MMM'
+sayc %b MMMMM88&&&&&&                    &&&88MMM'
+sayc %b MMMMM88&&&&&&                  &&&88MMM
+sayc %b  MMMMM88&&&&                  &&&88MM'
+sayc %b   'MMM8&&&'                  &&&88MM
+sayc %b               MMMM88&&&&&   &&&88MM
+sayc %b               MMMM88&&&&&   &&&88MM
+sayc %b               MMMM88&&&&&   &&&88MM,
+sayc %b   ,MMM8&&&.                 '&&&88MMM
+sayc %b  MMMMM88&&&&                 '&&&88MMM
+sayc %b MMMMM88&&&&&&                 '&&&88MMM
+sayc %b MMMMM88&&&&&&                   '&&&88MMM
+sayc %b  MMMMM88&&&&                      '&&&88MMM
+sayc %b   'MMM8&&&'                         '&&&88MMM
+}
+
+
+alias happy
+{
+sayc %B                              MMM88&&&,
+sayc %B        ,MMM8&&&.              `'MMM88&&&,
+sayc %B       MMMMM88&&&&                'MMM88&&&,
+sayc %B      MMMMM88&&&&&&                 'MMM88&&&,
+sayc %B      MMMMM88&&&&&&                   'MMM88&&&
+sayc %B      MMMMM88&&&&&&                    'MMM88&&&
+sayc %B       MMMMM88&&&&                       MMM88&&&
+sayc %B        'MMM8&&&'     MMMM888&&&&         'MM88&&&
+sayc %B                      MMMM88&&&&&          MM88&&&
+sayc %B                      MMMM88&&&&&          MM88&&&
+sayc %B        ,MMM8&&&.                          MM88&&&
+sayc %B       MMMMM88&&&&                        ,MM88&&&
+sayc %B      MMMMM88&&&&&&                      MMM88&&&'
+sayc %B      MMMMM88&&&&&&                     MMM88&&&'
+sayc %B      MMMMM88&&&&&&                   MMM88&&&'
+sayc %B       MMMMM88&&&&                  MMM88&&&'
+sayc %B        'MMM8&&&'                MMM88&&&'
+sayc %B                              MMM88&&&'
+}
+
+
+alias gay
+{ 
+sayc %P .GG     A   Y   Y%0%W
+sayc %P G      A A   Y Y%0%W
+sayc %P G GG  AAAAA   Y%W 
+sayc %P GGGG  A   A   Y%0%W
+}
+
+
+alias alien2
+{
+sayc %G       _                      _______                      _
+sayc %G    _dMMMb._              .adOOOOOOOOOba.              _,dMMMb_
+sayc %G   dP'  ~YMMb            dOOOOOOOOOOOOOOOb            aMMP~  `Yb
+sayc %G   V      ~`Mb          dOOOOOOOOOOOOOOOOOb          dM'~      V
+sayc %G            `Mb.       dOOOOOOOOOOOOOOOOOOOb       ,dM'
+sayc %G             `YMb._   |OOOOOOOOOOOOOOOOOOOOO|   _,dMP'
+sayc %G        __     `YMMM| OP'~`YOOOOOOOOOOOP'~`YO |MMMP'     __
+sayc %G      ,dMMMb.     ~~' OO     `YOOOOOP'     OO `~~     ,dMMMb.
+sayc %G   _,dP~  `YMba_      OOb      `OOO'      dOO      _aMMP'  ~Yb._
+sayc %G   MMP'     `~YMMa_   YOOo      OOO      oOOP   _adMP~'      `YMM
+sayc %G               `YMMMM `OOOo     OOO     oOOO' MMMMP' 
+sayc %G       ,aa.     `~YMMb `OOOb._,dOOOb._,dOOO'dMMP~'       ,aa.
+sayc %G     ,dMYYMba._         `OOOOOOOOOOOOOOOOO'          _,adMYYMb. 
+sayc %G    ,MP'   `YMMba._      OOOOOOOOOOOOOOOOO       _,adMMP'   `YM.
+sayc %G    MP'        ~YMMMba._ YOOOOPVVVVVYOOOOP  _,adMMMMP~       `YM
+sayc %G    YMb           ~YMMMM `OOOOI`````IOOOOO' MMMMP~           dMP
+sayc %G     `Mb.           `YMMMb`OOOI,,,,,IOOOO'dMMMP'           ,dM'
+sayc %G       `'                  `OObNNNNNdOO'                   `'
+sayc %G                             `~OOOOO~'        
+sayc %G                 
+}
+
+
+alias lamp
+{
+sayc %b                .88888888.
+sayc %b               .8888888888.
+sayc %b              .88        88.
+sayc %b             .88          88.
+sayc %b            .88            88.
+sayc %b           .88              88.
+sayc %b          .88     %r::.        %b88.
+sayc %b         .88      %r':'         %b88.
+sayc %b        .88           %r.::.     %b88.
+sayc %b       .88           %r.::::      %b88.
+sayc %b      .88            %r':::'       %b88.
+sayc %b     .88 %r.:::.  .:.         .:    %b88.
+sayc %b    .88  %r:::::  ':'        ':'     %b88.
+sayc %b    88   %r':::'       .::.           %b88
+sayc %b    88        %r.::.  .:::::     .:.  %b88
+sayc %b    88        %r.::.  .:::::     .:.  %b88
+sayc %b    88        %r'::'  :::::'     ':'  %b88
+sayc %b    '88            %r.:::::  .::.    %b88'
+sayc %b     '88         %r.:::::'  :::::   %b88'
+sayc %b      '88        %r::::::.  ':::'  %b88'
+sayc %b       '88       %r::::::::.      %b88'
+sayc %b        '88   %r.:. ::::::::.    %b88'
+sayc %b         '88  %r'::.::::::::::..%b88'
+sayc %b          '88 %r.::::::::::::::%b88'
+sayc %b           '88%r::::::::::::::%b88'
+sayc %b            '88%r::::::::::::%b88'
+sayc %b             88%r::::::::::::%b88
+sac %b           .888888888888888888.
+sayc %b          .888XXXXXXXXXXXXXX888.
+sayc %b         .888XXXXXXXXXXXXXXXX888.
+sayc %b        .888XXXXXXXXXXXXXXXXXX888.
+sayc %b       .888XXXXXXXXXXXXXXXXXXXX888.
+sayc %b      888XXXXXXXXXXXXXXXXXXXXXXX8888
+sayc %b     88888888888888888888888888888888
+}
+
+
+alias bliksem
+{
+sayc %K`**********%YLiGHtNiN%K*********'
+sayc %K `*************************'
+sayc %K  `**' `*****************'
+sayc %K         `******'  `***'
+sayc %W           `*.
+sayc %W             `*.
+sayc %W               `.
+sayc %W                *.
+sayc %W              .'  `*
+sayc %W             .'     `.
+sayc %W           .*      .' `*,
+sayc %W          .'      *    ,*`'*
+sayc %W          *           '     `.
+sayc %W           `*         '      '
+sayc %W          *'`'*              `.
+sayc %W        .'     `.           .*`*.
+sayc %W       .'       `.        .'     `.
+}
+
+
+alias matrix2 
+{
+sayc           Take The %bBlue%w Pill,
+sayc     Wake Up in Bed Believe What You Want;
+sayc           Take The %rRed%w Pill,
+sayc     Stay In Wonderland, And I'll Show 
+sayc     You How Deep The Rabbit Hole Goes.
+sayc          %b(@@@|@@@)  %r(@@@|@@@)
+}
+
+
+alias napi
+{
+sayc 
+sayc %B     NN   NN    %bA  %B  PPPPP %bIII%B GGGGGGG    %bA  %BTTTTTTT %bOOOOO %BRRRRRRR
+sayc %B     NNN  NN   %bAAA   %BPP  PP%bIII%BGGG        %bAAA %BTTTTTTT%bOO   OO%BRR   RR
+sayc %B     NNNN NN  %bAA AA  %BPPPPPP%bIII%BGGG GGGG  %bAA AA %B TTT  %bOO   OO%BRRRRRR
+sayc %B     NN NNNN %bAAAAAAA %BPP    %bIII%BGGG   GG%b AAAAAAA %BTTT %b OO   OO%BRR   RR
+sayc %B     NN  NNN%bAAA   AAA%BPP    %bIII%B GGGGGGG%bAAA   AAA%BTTT %b  OOOOO %BRR   RR
+}
+
+
+
+alias mm
+{
+sayc %r                           _____
+sayc %r                      _.-'~     ~'-._
+sayc %r                   ,-~%K.-.         .-.%r~-.
+sayc %r                 ,'   %W.-.         .-.   %r`,
+sayc %r                /    %W/  _\\\\\\\\       /  _\\\\\\\\    %r\\\\\\\\
+sayc %W       .-.     %r|     %W| ( |       | ( |     %r|%W     .-.%k%0))
+sayc %W  .-----\\\\\\\\ \\\\\\\\   %r|      %W`---'       `---'      %r|%W   / /-----.
+sayc %W :----     |--%r|    %R`,                 ,'    %r|%W--|     ----:
+sayc %W :----  `-'|--%r|      %R^~-.,_______,.-~^      %r|%W--|`-'  ----:
+sayc %W  `---....'   %r|         %Y_     %R`-'           %r|%W   `....---'
+sayc %r               |       %Y[ '-~-.-~-.         %r|
+sayc %r                \\\\\\\\       %Y| .-. .-. |       %r/
+sayc %r                 `.     %Y| | | | | |     %r.'
+sayc %r                   `._ %Y[___]|__]|__] %r_.'
+sayc %r                      `--.._____..--'
+sayc %K                      /  /       \\\\\\\\  \\\\\\\\
+sayc %K                     /  /         \\\\\\\\  \\\\\\\\
+sayc %Y                .---'~==~\\\\\\\\       /~==~'---.
+sayc %Y               (          |     |          )
+sayc %Y                '--------'       '--------'
+}
+
+
+alias mm2
+{
+sayc %Y                           _____
+sayc %Y                      _.-'~     ~`-._
+sayc %Y                   ,-'%K.-.         .-.%Y`-.
+sayc %Y                 ,'   %W.-.         .-.   %Y`,
+sayc %Y                /    %W/  _\\\\\\\\       /  _\\\\\\\\    %Y\\\\\\\\
+sayc %Y               |     %W| ( |       | ( |     %Y| %k))
+sayc %Y              |      %W`._.'       `._.'      %Y|
+sayc %Y              |                             |
+sayc %Y              |                             %Y|
+sayc %W       .-.    %Y|    %R'.                 ,'    %Y|    %W.-.
+sayc %W  .-----\\\\\\\\ \\\\\\\\   %Y|      %R^:-.,_______,.-'^      %Y|   %W/ /-----.
+sayc %W :----     |--%Y|       %R`-'                   %Y|%W--|     ----:
+sayc %W :----  `-'|__%Y|                             %Y|%W__|`-'  ----:
+sayc %W  '---....'   %Y|                             %Y|   %W'....---'
+sayc %Y              |        %W _                   %Y|
+sayc %Y              |        %W[ '-~-.-~-.          %Y|
+sayc %Y              |         %W| .-. .-. |         %Y|
+sayc %Y              |         %W| | | | | |         %Y|
+sayc %Y               |       %W[___]|__]|__]       %Y|
+sayc %Y                \\\\\\\\                         /
+sayc %Y                 `.                     .'
+sayc %Y                   `._               _.'
+sayc %Y                      `--.._____..--'
+sayc %K                       /  /     \\\\\\\\  \\\\\\\\
+sayc %K                      /  /       \\\\\\\\  \\\\\\\\
+sayc %Y                .---`~==~\\\\\\\\       /~==~'---.
+sayc %Y               (          |     |          )
+sayc %Y                `--------'       `--------'
+}
+
+
+alias playboy2
+{ 
+sayc %W   mm.           dM8%W")
+sayc %W   YMMMb.       dMM8%W")
+sayc %W    YMMMMb     dMMM'%W")
+sayc %W     `YMMMb   dMMMP%W")
+sayc %W       `YMMM  MMM'%W")
+sayc %W         ''MbdMP%W")
+sayc %W      .dMMMMMM.P%W")
+sayc %W     dMM  MMMMMM%W")
+sayc %W     8MMMMMMMMMMI%W")
+sayc %W      YMMMMMMMMM%W")
+sayc %W       ''MMMMMMP%W")
+sayc %W        MxM .mmm%W")
+sayc %W        W''W '''%W")
+}
+
+
+alias barrett                             
+{
+sayc %0%RBBBBB.       A       RRRRR.   RRRRR.   EEEEEE TTTTTTT TTTTTTT%0%R
+sayc %0%RB   .B      A A      R   .R   R   .R   E         T       T%0%R
+sayc %0%RB  .B      A   A     R  .R    R  .R    E         T       T%0%R
+sayc %0%RBBBB.     A     A    RRRRR    RRRRR    EEEE      T       T%0%R
+sayc %0%RB   B.   AAAAAAAAA   R    R   R    R   E         T       T%0%R
+sayc %0%RB   .B  A         A  R     R  R     R  E         T       T%0%R
+sayc %0%RBBBBB  A           A R      R R      R EEEEEE    T       T%0%R
+}
+
+
+alias dragon2
+{
+sayc %C                               ,   ,        
+sayc %G                               S,  S,     %C,             
+sayc %G                                'ss.Sss. .s'       
+sayc %C                        ,%G     .ssSSSSSSSs,                    
+sayc %G                        S. sSSSSSSSSSSS`SSSs         
+sayc %G                        'SSSSSSSSSSSSSSS%Ro%GSSS       ,       
+sayc %G                       sSSSSSSSSSSSSSSSSSSSSSs,  ,s     
+sayc %G                      sSSSSSSSSS'SSSSS''''SSSSS'SSSS,      
+sayc %G                      sSSSSSSSSs''SSSssssss'SSSSSSSS'    
+sayc %G                     sSSSSSSSSSS'      `'''ss'S'Ss''        
+sayc %G                     sSSSSSSSSSS,           `'''''      
+sayc %G                     sSSSSSSSSSS,                 S.sSSs  
+sayc %G                     sSSSSSSSSSSs,...            `sSS'  %C`   
+sayc %G                 %C`%GssssSSSSSSSSSSSSSSSSS%g####%Gs.   .SS'S%C. %G.sSSs 
+sayc %G                   `''''SSSSSSSSSSSSSSSSS%g#####%GSSSS'   sSS'  %C`
+sayc %G                       'SSSSSSSSSSSSSSSSSS%g####:''%G   .SSS:    
+sayc %G                        'SSSSSSSSSSSSSSSSSSSSS%g##.%G  .SS' S     
+sayc %G                         SS''SSSSSSSSSSSSSSSSSSSSSSSS'   %C`   
+sayc %G                         SS'  'S'SSSSSSSSSSSSSSS%g###''         
+sayc %C                        , '     '  %GSSSSSSSSSSSSS%g####.        
+sayc %G                        S.       .sSSSSSSSSSSSSSS%g####.       
+sayc %C            ,           %G'Ss.   ..ssSSSSSSSSSSSSSSS%g####       
+sayc %G            S           .SSSSSSSSSSSSSSSSSSSSSSS%g#####'       
+sayc %G            Ss     ..sSSSSSSSSSSSSSSSSSSSSSS%g######''         
+sayc %G             `SSsSSSSSSSSSSSSSSSSSSSSSSS%g########'            
+sayc %C      ,      %GsSSSSSSSSSSSSSSSSSSSSS%g#########'''              
+sayc %G      S    sSSSSSSSSSSSSSSSSSSSSS%g#######'''%G  s%C'     ,        
+sayc %G      SS..SSSSSSSSSSSSSSSSSS%g######''%G     ..,SS...  ,S        
+sayc %G        `SSSSSSSSSSSSSSS%g######''%G     .sSSSSSSSSSSsSS         
+sayc %G         SSSSSSSSSSSS%g#####'%G       .sSSSSSSSSSSSSSSSSSs.      
+sayc %G         SSSSSSSSSSS%g#####'%G     sSSSSSSSSS%g#######%GSSSSSSSS.   
+sayc %R    %R>%Y\<%G   SSSSSSSSSSS%g#####%G     sSSSSSSS%g###'    `####%GSSSSSSS.  
+sayc %Y    %Y>%R\<%G  'SSSSSSSSSSSS%g####.%G   SSSSSSS%g###'        `###%GSSSSSS  
+sayc %R   \<%Y\<%R>%Y>%G 'SSSSSSSSSSSSS%g####. %GSSSSSS%g###'           `###%GSSSSS  
+sayc %Y   >%R\<%Y>%R\<%G  SSSSSSSSSSSSSS%g#####.%GSSSSS%g###'           .###%GSSSSS  
+sayc %R  <%Y>%R>%Y\<%R\>%Y>%G  SSSSSSSSSSSSS%g######.%GSS%g##'            .###%GSSSSSS' 
+sayc %R  >%Y\<%R\<%Y>%R\<%Y>%G `SSSSSSSSSSSSSSS%g#######.         ..####%GSSSSSSSS'   
+sayc %Y >%R>\<%Y\<%R>%GS%Y>%R\<%Y>%G `SSSSSSSSSSSSSSSSSS%g###############%GSSSSSSSSS 
+sayc %Y \<%R\<%Y>%R>%Y>%GSS%R>%Y\<%R\<%Y'%R.%G`'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS, 
+sayc %R >%Y\<%R\<%Y>%GSSSs%Y>%R\<%Y\<%R>%G  .`SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS''`SS 
+sayc %Y \<%R.%Y>%GSSSSs%Y/%G     .sSSSSSS%g##%GSSSSSSSSSSSSSSSSSSS''         %C'   
+sayc %R  %Y'%R>%Y_%GSSSSSSSSSSSSSSSSS%g##'%G  SS        `SS.      `SS.        
+sayc %G    `'SSSSSSSSSSSSSS%g#'%G      S          `S        `S        
+sayc %G        `'''''''''''      %C'           '            '      
+}
+
+
+alias robo
+{
+sayc %y                            ...----....
+sayc %y                      ..-:'''         '''-..
+sayc %y                    .-'                      '-.
+sayc %y                  .'              .     .       '.
+sayc %y                .'   .          .    .      .    .''.
+sayc %y              .'  .    .       .   .   .     .   . ..:.
+sayc %y            .' .   . .  .       .   .   ..  .   . ....::.
+sayc %y           ..   .   .      .  .    .     .  ..  . ....:IA.
+sayc %y          .:  .   .    .    .  .  .    .. .  .. .. ....:IA.
+sayc %y         .: .   .   ..   .    .     . . .. . ... ....:.:VHA.
+sayc %y         '..  .  .. .   .       .  . .. . .. . .....:.::IHHB.
+sayc %y        .:. .  . .  . .   .  .  . . . ...:.:... .......:HIHMM.
+sayc %y       .:.... .   . .'::''.. .   .  . .:.:.:II:,. .. ..:IHIMMA
+sayc %y       ':.:..  ..::IHHHHHI::. . .  ...:.::::.,,,. . ....VIMMHM
+sayc %y      .:::I. .AHHHHHHHHHHAI::. .:...,:IIHHHHHHMMMHHL:. . VMMMM
+sayc %y     .:.:V.:IVHHHHHHHMHMHHH::..:' .:HIHHHHHHHHHHHHHMHHA. .VMMM.
+sayc %y     :..V.:IVHHHHHMMHHHHHHHB... . .:VPHHMHHHMMHHHHHHHHHAI.:VMMI
+sayc %y     ::V..:VIHHHHHHMMMHHHHHH. .   .I':IIMHHMMHHHHHHHHHHHAPI:WMM
+sayc %y     ::'. .:.HHHHHHHHMMHHHHHI.  . .:..I:MHMMHHHHHHHHHMHV:':H:WM
+sayc %y     :: . :.::IIHHHHHHMMHHHHV  .ABA.:.:IMHMHMMMHMHHHHV:'. .IHWW
+sayc %y     '.  ..:..:.:IHHHHHMMHV' .AVMHMA.:.'VHMMMMHHHHHV:' .  :IHWW
+sayc %y      :.  .:...:'.:.:TPP'   .AVMMHMMA.:. 'VMMHHHP.:... .. :IVAI
+sayc %y     .:.   '... .:''   .   ..HMMMHMMMA::. .'VHHI:::....  .:IHW'
+sayc %y     ...  .  . ..:IIPPIH: ..HMMMI.MMMV:I:.  .:ILLH:.. ...:I:IM
+sayc %y   : .   .''' .:.V'. .. .  :HMMM:IMMMI::I. ..:HHIIPPHI::'.P:HM.
+sayc %y   :.  .  .  .. ..:.. .    :AMMM IMMMM..:...:IV':T::I::.'.:IHIMA
+sayc %y   'V:.. .. . .. .  .  .   'VMMV..VMMV :....:V:.:..:....::IHHHMH
+sayc %y     'IHH:.II:.. .:. .  . . . ' :HB'' . . ..PI:.::.:::..:IHHMMV'
+sayc %y      :IP''HHII:.  .  .    . . .'V:. . . ..:IH:.:.::IHIHHMMMMM'
+sayc %y      :V:. VIMA:I..  .     .  . .. . .  .:.I:I:..:IHHHHMMHHMMM
+sayc %y      :'VI:.VWMA::. .:      .   .. .:. ..:.I::.:IVHHHMMMHMMMMI
+sayc %y      :.'VIIHHMMA:.  .   .   .:  .:.. . .:.II:I:AMMMMMMHMMMMMI
+sayc %y      :..VIHIHMMMI...::.,:.,:!'I:!'I!'I!'V:AI:VAMMMMMMHMMMMMM'
+sayc %y      ':.:HIHIMHHA:'!!'I.:AXXXVVXXXXXXXA:.'HPHIMMMMHHMHMMMMMV
+sayc %y        V:H:I:MA:W'I :AXXXIXII:IIIISSSSSSXXA.I.VMMMHMHMMMMMM    
+sayc %y          'I::IVA ASSSSXSSSSBBSBMBSSSSSSBBMMMBS.VVMMHIMM'''
+sayc %y           I:: VPAIMSSSSSSSSSBSSSMMBSSSBBMMMMXXI:MMHIMMI
+sayc %y          .I::. 'H:XIIXBBMMMMMMMMMMMMMMMMMBXIXXMMPHIIMM'
+sayc %y          :::I.  ':XSSXXIIIIXSSBMBSSXXXIIIXXSMMAMI:.IMM
+sayc %y          :::I:.  .VSSSSSISISISSSBII:ISSSSBMMB:MI:..:MM
+sayc %y          ::.I:.  ':'SSSSSSSISISSXIIXSSSSBMMB:AHI:..MMM.
+sayc %y          ::.I:. . ..:'BBSSSSSSSSSSSSBBBMMMB:AHHI::.HMMI
+sayc %y          :..::.  . ..::':BBBBBSSBBBMMMB:MMMMHHII::IHHMI
+sayc %y          ':.I:... ....:IHHHHHMMMMMMMMMMMMMMMHHIIIIHMMV
+sayc %y           'V:. ..:...:.IHHHMMMMMMMMMMMMMMMMHHHMHHMHP'
+sayc %y              ':. .:::.:.::III::IHHHHMMMMMHMHMMHHHHM'
+sayc %y               '::....::.:::..:..::IIIIIHHHHMMMHHMV'
+sayc %y                 '::.::.. .. .  ...:::IIHHMMMMHMV'
+sayc %y                   'V::... . .I::IHHMMV''    
+sayc %y                     ''VHVHHHAHHHHMMV:''
+}
+
+
+alias smurf
+{
+sayc %W                              _,,aaaaa,,_
+sayc %W                           _,dP'''    `''''Ya,_
+sayc %W                        ,aP''                `'Yb,_
+sayc %W                      ,8''                       `'8a,
+sayc %W                    ,8'                             `'8,_
+sayc %W                  ,8'                                  'Yb,
+sayc %W                ,8'                                      `8,
+sayc %W               dP'                                        8I
+sayc %W             ,8'                           bg,_          ,P'
+sayc %W            ,8'                              'Y8'Ya,,,,ad'
+sayc %W           ,d'                            a,_ I8   `''''
+sayc %W          ,8'                              ''888
+sayc %W          dP     __                           `Yb,
+sayc %W         dP'  _,d8P::::Y8b,                     `Ya
+sayc %B    ,adba%W8',d88P%B::::::::::%W'b:::Ya,_               Ya
+sayc %B   dP':::'Y88P:%W:P'''YP'''Y%Bb:::::::%W'Ya,             'Y,
+sayc %B   8:::::::Yb%W:d' _  '_    dI%B:::::::::%W'Yb,__,,gd88ba,db
+sayc %B   Yb:::::::'%W8(,8P _d8   d8%B:::::::::::::Y88P'::::::Y8I%k)
+sayc %B   `Yb::::::::%W''::'':b,,dP%B:::::::::::::::::::aaa::::8%k)
+sayc %B     `Y8a::::::::::::::::::::::::::::::::::8P''Y8)::8I
+sayc %B       8b'ba:::::::::::::::::adP:::::::::::':::dP:::8'
+sayc %B       `8b::::::::::::::aad888P:::::::::::::::dP:::8'
+sayc %B        `8b:::::::::''''88'  d::::::::::b::::::::dP'
+sayc %B          'Yb:::::::::::Y8bad:::::::::::'8Paaa'''
+sayc %B            `'Y8a::::::::::::::::::aadP''
+sayc %B                ``''Y88bbbdddd88P''8b,
+sayc %B                         _,d8'::::::'8b,
+sayc %B                       ,dP8':::::::::::'b,
+sayc %B                     ,dP'8:::::::Yb:::::'b,
+sayc %B                   ,8P:dP:::::::::Yb:::::'b,
+sayc %B                _,dP::8':::::::::::Yb:::::'b
+sayc %B      ,aaaaaa,,d8P:::8'::::::::::::dP::::::8
+sayc %B   ,ad'::::::::'::::8':::::::::::dP:::::::dI
+sayc %B  dP':adP'::::::::dP:::::aaaad88'::::::adP%W:8b%B,___
+sayc %B d8:::8:::aadP'::8'Y8:d8P':::::::::::dP'%W:d''`Yb%B:'b
+sayc %B 8I::::'''::::::dP I8P':::::::::::a8%W'a8P'     'b%B:P
+sayc %B Yb::::'8baa8''''  8:::d'::::::::%Wd8P''         8%B'
+sayc %B  'YbaaP::8:P      `8:d:::a:::%W:::dP           ,8
+sayc %B     `'Y8P''         Yb::d::%W:aadP'           ,d'
+sayc %B                      'YP::%W:~P'             ,d'
+sayc %B                       %W'8bdP'    _        ,8'
+sayc %W                       ,8'```Yba,d`      ,d'
+sayc %W                     ,P'     d'8'     ,d'
+sayc %W                    ,8'     d'8'     ,P'
+sayc %W                    (b      8 I      8,%k)
+sayc %W                     Y,     Y,Y,     `b,
+sayc %W               ____   '8,__ `Y,Y,     `Y''b,
+sayc %W           ,adP''''b8P''''''''Ybdb,        Y,
+sayc %W         ,dP'    ,dP'            ```       `8
+sayc %W        ,8'     ,P'                        ,P
+sayc %W        8'      8)                        ,8'
+sayc %W        8,      Yb                      ,aP'
+sayc %W        `Ya      Yb                  ,ad''
+sayc %W          'Ya,___ 'Ya             ,ad''
+sayc %W            `````````Yba,,,,,,,adP''
+sayc %W                       `````````
+}
+
+
+alias tweetie
+{
+sayc %Y			                                       
+sayc %Y                          t   .                          
+sayc %Y                           ?  `                          
+sayc %Y                           l  `,  .                      
+sayc %Y                           `t  t  `                      
+sayc %Y                            ?  `  `                      
+sayc %Y                         _,,:cc,,,:.                     
+sayc %Y                   ,,cSSSSSS:SSSSSSSSSSSc,               
+sayc %Y               ,cSSSSSSSSSSSSSSSSSSSSSSSSSSh,            
+sayc %Y            ,cSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSc,         
+sayc %Y         ,dSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,       
+sayc %Y       ,SSSSS`,dSSSSSSSSSSSSSSSSSSSSSSSSShc`?SSSSSc      
+sayc %Y      ,SSSSSuSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSh,?SSSSL     
+sayc %Y      JSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSbSSSSS`    
+sayc %Y      SSSSSSSPSS?SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS`    
+sayc %Y      SSSSSSSS`Sb`SSSSSSSSSSSSSSSSSSSSS`S`dSSSSSSSSS     
+sayc %Y      `SSSSSSc `,nn,?SSSSSSSSSSSSSSS`,,`r`,dSSSSSSS'     
+sayc %Y       `SSSSSSS MMMMM`SSSSSSSSSSSSF,MMMb`SSSSSSSSS'      
+sayc %Y        `SSSSSS`MMTTM.?SSSSSSSSSSS,MMMMM SSSSSSSS'       
+sayc %Y         `SSSSS,M%B`::: %Y`SSSSSSSSSS'M%B`,,``%Y,SSSSSSS'        
+sayc %Y           ?SSSS,%B`` ``%Y SSSSSSSSSS%B ,`'``%Y JSSSSSP'         
+sayc %Y            ?SSSS,%B`  `%Y SSSSSSSSSS%B `'  `%Y,SSSSSF           
+sayc %Y             `SSSS.%B`-' %YSSSSSSSSSS,%B`--'%Y,SSSSS'            
+sayc %Y               SSSSShhSSSSS????SSShcSSSSSSS'             
+sayc %Y              dSSSSSSSSS `======' SSSSSSSSS:             
+sayc %Y              SSSSSSSSSSSSc,,,,cSSSSSSSSSSS'             
+sayc %Y               `?SSSSP`` `SSSSSS?????SS??`               
+sayc %Y                          SSSSS                          
+sayc %Y                         4SSSSSc                         
+sayc %Y                       ,SSSSSSS`c                        
+sayc %Y                      zS`SSSSSSS`S,                      
+sayc %Y                     zS`SSSSSSSSS`Sc                     
+sayc %Y                    `S`SSSSSSSSSS:?S                     
+sayc %Y                    `S`SSSSSSSSSSS:S                     
+sayc %Y                     ?LSSSSSSSSSSS:S                     
+sayc %Y                      ?SSSSSSSSSSSd'                     
+sayc %Y                      `SSSSSSSSSSF                       
+sayc %Y                       `?Sc`??3SF                        
+sayc %y                        CCC   CCC                        
+sayc %y  ,:`CC`C`:,,.          `CC   CCC              .,,,,,.   
+sayc %y CCC`CCCCCCCCCCCCCCCCCCCCCC   CC`CCCCCCCCCCCCCCCCCCCCCC`, 
+sayc %y ``,CCCCCCCCCCCCCCCCCCCCCCCC, `CCCCCCCCCCCCCCCCCCCCCC```C 
+sayc %y  CCCCCCCCCCCCCCCCCCCCCCC`'   `'CCCCCCCCCCCCCCCCCCCCCCC` 
+sayc %y   `''``CCCCCCCC``''               `'``CCCCCCCCCCCCCCC`  
+}
+
+
+alias japan
+{
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%w______________________________
+sayc %W   ||%w##############################|
+sayc %W   ||%w##############################|
+sayc %W   ||%w#############%r@@@@%w#############|
+sayc %W   ||%w###########%r@@@@@@@@%w###########|
+sayc %W   ||%w##########%r@@@@@@@@@@%w##########| 
+sayc %W   ||%w##########%r@@@@@@@@@@%w##########|
+sayc %W   ||%w###########%r@@@@@@@@%w###########|
+sayc %W   ||%w#############%r@@@@%w#############|
+sayc %W   ||%w##############################|
+sayc %W   ||%w##############################|
+sayc %W   ||%w~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W   ||
+}
+
+
+alias france
+{
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%r__________%w__________%b__________
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########| 
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r##########%w##########%b##########|
+sayc %W   ||%r~~~~~~~~~~%w~~~~~~~~~~%b~~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W   ||
+}
+
+
+alias aussie 
+{
+sayc %W   __
+sayc %W  <__>
+sayc %W   ||%r___%w____%r_%w____%r___%b_______________
+sayc %W   ||%r###%w####%r#%w####%r###%b###############|
+sayc %W   ||%w###%r###%w#%r#%w#%r###%w###%b#######%W*%b#######|
+sayc %W   ||%r###############%b###############|
+sayc %W   ||%w###%r###%w#%r#%w#%r###%w###%b####%W*%b#####%W*%b####|
+sayc %W   ||%r###%w####%r#%w####%r###%b###############| 
+sayc %W   ||%b########################%W.%b#####|
+sayc %W   ||%b#######%W*%b######################|
+sayc %W   ||%b######%W***%b#############%W*%b#######|
+sayc %W   ||%b#######%W*%b######################|
+sayc %W   ||%b##############################|
+sayc %W   ||%b~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sayc %W   ||
+sayc %W   ||  
+sayc %W   ||
+}
+
+
+alias free
+{
+sayc %rFFFFFFFFFFFFF
+sayc %rFFFFFFFFFFFFF
+sayc %rFFFF
+sayc %rFFFF                      %P    eEEEe      %b   eEEEe
+sayc %rFFFFFFFFFFFF%g R          %P     EEEEEEE   %b    EEEEEEE
+sayc %rFFFFFFFFFFFF%g RR         %P   EEE    EEE  %b   EEE   EEE
+sayc %rFFFF        %g RRRRRRRRRR %P  EEE      EEE %b  EEE     EEE
+sayc %rFFFF        %g RRRRRRRRRRR%P EEE        EEE%b EEE       EEE
+sayc %rFFFF        %g RRR       R%P EEEEEEEEEEEEEE%b EEEEEEEEEEEEEE
+sayc %rFFFF        %g RRR        %P EEEEEEEEEEEEEE%b EEEEEEEEEEEEEE
+sayc %rFFFF        %g RRR        %P EEE           %b EEE
+sayc %rFFFF        %g RRR        %P  EEE        EE%b  EEE       EE
+sayc %rFFFF        %g RRR        %P   EEEEEEEEEEEE%b   EEEEEEEEEEE
+sayc %rFFFF        %g RRR        %P    EEEEEEEEEE %b    EEEEEEEEE
+}
+
+
+alias dag
+{
+sayc %RG%Bo%Pe%Yd%ge%Gd%ca%rg %rT%ge%gk%bN%ca%Wp%Gp%Ce%Br%Rs
+}
+
+
+alias castle               
+{
+sayc               %y|%r>           
+sayc               %y|            
+sayc             %y/^^\\\\\\\\           
+sayc            %y(____)          
+sayc            %y| =  |          
+sayc            %y| =  |          
+sayc         %y|%r> %y| =  |   |%r>     
+sayc         %y|  | =  |   |      
+sayc       %y/^^\\\\\\\\_|    |_/^^\\\\\\\\     
+sayc      %y| , ' . ' .  ' ' |    
+sayc      %y|   '        '   |    
+sayc      %y| = ' .----. ' = |    
+sayc      %y|   ' | || | '   |    
+sayc      %y|___'_|'||'|_'___|%B~~~~
+}
+
+alias xmast
+{
+sayc %r                                ,:::::::::,.
+sayc %r                             ,:!!!!!!!!!!!!!!!::,
+sayc %r                          ,:!!!!!!!!!!!!!!!!!!!!!!!:,
+sayc %r                        :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:,
+sayc %r                      :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!''''-
+sayc %r                     :!!!!!!!!!!!!!!!!!!!!!!'''``%W_.,nmnndMMMMMMMn
+sayc %r                   .!!!!!!!!' !!!!!!''``%W_..xnndMMMMMMMMMMMMMMMMMMb
+sayc %r                  :!!!!!!!! :!!''`%W.xndMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+sayc %r                 :!!!!!!!!  %W`_.nmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,
+sayc %r                :!!!!!!'`%W.xnMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+sayc %r               :!!!!!'%W.ndMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+sayc %r              :!!!!'%W,dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMPPPP'''''''TTMMb
+sayc %r             :!!!!'%W,MP'MMMMMMMMMMMMMMMMMMPPP''''`%Y.,,ccr===$$$$$c`%W=nMMMr
+sayc %r             !!!!! %WMP dMMMMMMMMMMMPP''%Y.,cccdSSSSSSSSSShc, `?SSSSh.%W'MMM
+sayc %r            `!!!!! %W',dMMMMMMPP'' %Y,ccSSSSSSSSSSSSSSSSSSSSSSc,`SSSSS %W4MM
+sayc %r            `!!!! %W,dMMMMP''  %Y,cSSSSSSSSSSSSSSSSSSSSSSSSSSSSScSSSSSr%W`T
+sayc %r            `!!! %WuMMMP'%Y.zd',cSS?SSSSSSSSSSSSSSSSSSSS??SS SSSSSSSSSS
+sayc %r            `!! %W:MMMP%Y,SSSScS'SS SSSSSSSSSSSSSSSSSSSSF<SF SPPSSSSSSS
+sayc %W           _,,_ MMMM %Y<SSSSSS ?S.'SSSSSSSSSSSSSSSSSSS'dP dS',SSSSSSP
+sayc %W      ,dh:MMMMM 4MMML %YSSSS'?h.'S ?SSSSSSSSSSSSSSSSS' ' zF zSSSSSSS'
+sayc %W     dMMMMMMMMMn 'TTM %YSSSSc,'? %W.,.%Y'SSSSSSSSSSSSSSP'%W,MM,%Y ,dSSSSSSS'
+sayc %W    dMMMMMMMMMMMMmnx..%Y`SSSSSS %W4MMMn %Y?SSSSSSSSSSSS %WuMMMM %Y?SSSSSSSP
+sayc %W  .nMMMMMMMMMMMMMMMMMM,%Y`SSSSS %WMMMMMb %YSSSSSSSSSSSF%W,MMMMM %YdSSSSSSP
+sayc %W  MMMMMMMMMMMMMMMMMMMM  %Y'SSSS %WMM''`'-%Y`SSSSSSSSSS %W`'%B..%W`T %YSSSSSSP
+sayc %W  MMMMMMMMMMMMMMMMMMMP   %Y?SSS %WT'%B,SSh  %YSSSSSSSSSS  %BcSSL  %YSSSSSP
+sayc %W  jMMMMMMMMMMMMMMMMM'     %Y?SSh%W' %Bd???S %Y?SSSSSSSSS %Bd' `S %YdSSSSP
+sayc %W   TMMMMMMMMMMMMMMM'       %Y'SSr %BSF  ?h%Y<SSSSSSSSS %BP   F %YSSSSP
+sayc %W     'MMMMMMMMMMMP'         %Y`SS.%B`L  dF%Y:SSSSSSSSS.%B?  / %YdSSSP
+sayc %W      '4MMM''PP''            %Y`ss.%B`- ' %YdSSSSSSSSSh .,,zdSS'
+sayc %W        `'`                    %YShcsshcSSS??'''??SSSSSSSSSh.
+sayc %W                              %YdSSSSSSSP' %yj????  %Y'SSSSSSSSSS
+sayc %Y                             ,SSSSSSSS . %y-===-'%Y.,cSSSSSSSSF
+sayc %Y                              ?SSSSSSS???ScccSSS??SSSSSSP'
+sayc %Y                               `'??''%W.xn %Y?SSSSP'%Wxn
+sayc %W                                     'MMbx.,,,nmMM
+sayc %W                                       '''PPPPP''
+sayc %r                                      :!!!!!!!!!!
+sayc %r                                     :!'!!!!!!!!<!
+sayc %r                                    :!' !!!!!!!, !:
+sayc %r                                   :!! !!!!!!!!! `!.
+sayc %r                                   `! :!!!!!!!!!! !!
+sayc %r                                   `!:!!!!!!!!!!!:'
+sayc %r                                     !!!!!!!!!!!!!
+sayc %W                                  .xr%r`!!!!!!!!!!!! %Wh.
+sayc %W                                 uMMM,%r`'`<!!!!''`%W,dMM
+sayc %W                                 4MMMMmnn,.,,,ndMMMMP
+sayc %W                                  4MMMMMMMMMMMMMMMP'
+sayc %W                                    `'44MMMMPP''
+sayc %y                                        cr    c,
+sayc %y                                        SS    Sh              .,...
+sayc %y                    ,ccSSSSccccc,,,..,,,cS.   ?S,,,..,,,cccdSSSSSSSSh.
+sayc %y                  zS???SSSSSSSSSSSSSSSSSSSh   <SSSSSSSSSSSSSSSSSL.,.`?S
+sayc %y                  ?',cSSSSSSSSSSSSSSSSSSSSP'  `SSSSSSSSSSSSSSSSSSSSc '
+sayc %y                   <SSSSSSSSSSSSSSSSSS??'       '??SSSSSSSSSSSSSSSSSS
+sayc %y                    ?SSSSSSSSSSSSS??'               ''??SSSSSSSSSP''
+sayc %y                       ''''''''''                         `''''
+}
+
+alias bt
+{
+sayc %B                 __        _          __              __       __    %KO
+sayc %B   >--.____,--._'  `----._' `---.__,-'  `--.__,----._'  `~--._'  `._,%K|
+sayc %B        `                                                            %K|
+sayc %B         `          %GH%gT%GT%gP%G:%g/%G/%gB%GT%gS%GC%gR%GI%gP%GT%gS%G.%gV%GI%gR%GT%gU%GA%gL%GA%gV%G%gE.%GN%gE%GT%g/                 %K|
+sayc %B         '       __        _          __              __       __    %K|
+sayc %B   >--._'__,--._'  `----._' `---.__,-'  `--.__,----._'  `~--._'  `._,%K|
+sayc %B                                                                     %K|
+sayc %y                                                                     %K|
+sayc %y     <c--._   <c--._    <c--._   <c--._    <c--._   <c--._    <c--._ %K|
+sayc %y      <_ >,'   <_ >,'    <_ >,'   <_ >,'    <_ >,'   <_ >,'    <_ >,'%K|
+sayc %y      |,--.,-. |,-.`     |,--.,-. |,-.`     |,--.,-. |,-.`     |,--.,%KO%y.
+sayc %y      |'-----' || ' >,-, |'-----' || ' >,-, |'-----' || ' >,-, |'-----'
+sayc %y      '.--.'   `<_>'__'  '.--.'   `<_>'__'  '.--.'   `<_>'__'  '.--.'
+sayc %y       |`  `_   |  |      |`  `_   |  |      |`  `_   |  |      |`  `_
+sayc %y       <_`.__>  <___>     <_`.__>  <___>     <_`.__>  <___>     <_`.__>
+}
+
+

@@ -1,0 +1,56 @@
+xecho -b Adjust Clock on Daylight Savings script loaded!
+xecho -b Written by gircobain 12/10/2001
+
+# TIME_DIFF defines how many hours will the clock be set ahead or behind
+
+assign TIME_DIFF 1
+
+alias adjclock (toggle) {
+   timer -del DELAY
+   timer -del CLOCKADJ
+   switch ($toggle) {
+      (on) {
+         if (CLOCK_24HOUR == [ON]) {  
+            ^set CLOCK_FORMAT $strftime(${time() + TIME_DIFF * 3600} %H:%M)
+         }{
+            ^set CLOCK_FORMAT $gen_time_string()
+         }
+         @:FP = Floating_Point
+         ^set Floating_Point 0
+         @:secs = 60 - strftime(%S)
+         ^set Floating_Point $FP
+         timer -ref DELAY $secs {
+            timer -ref CLOCKADJ -rep -1 60 {
+               ^local newtime
+               if (CLOCK_24HOUR == [ON]) {
+                  @newtime = strftime(${time() + TIME_DIFF * 3600} %H:%M)
+               }{
+                  @newtime = gen_time_string()
+               }
+               ^set CLOCK_FORMAT $newtime
+            }
+         }
+      }
+      (off) {
+         timer -del DELAY
+         timer -del CLOCKADJ
+         ^set -CLOCK_FORMAT
+      }
+     (*) { 
+         xecho -b Usage: ADJCLOCK [ON | OFF]
+      }
+   }
+}
+      
+
+alias gen_time_string (void) {
+   @:hours = strftime(%H) + TIME_DIFF
+   if (hours > 23) @hours =  0
+   if (hours < 0) @hours = 23
+   if (hours == 0) return 12:$strftime(%M)am
+   if (hours < 10) return 0$hours:$strftime(%M)am
+   if (hours < 12) return $hours:$strftime(%M)am
+   if (hours == 12) return 12:$strftime(%M)pm
+   if (hours < 22) return 0${hours - 12}:$strftime(%M)pm
+   return ${hours - 12}:$strftime(%M)pm
+}   

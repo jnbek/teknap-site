@@ -1,0 +1,67 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %Yblah--phuck
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/tweety_xmas
+
+alias sayc {say $cparse("$*")}
+
+alias tweety_xmas
+{
+sayc %r                              ,:::::::::,.
+sayc %r                           ,:!!!!!!!!!!!!!!!::,
+sayc %r                        ,:!!!!!!!!!!!!!!!!!!!!!!!:,
+sayc %r                      :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:,
+sayc %r                    :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!''''-
+sayc %r                   :!!!!!!!!!!!!!!!!!!!!!!'''``%W_.,nmnndMMMMMMMn
+sayc %r                 .!!!!!!!!' !!!!!!''``%W_..xnndMMMMMMMMMMMMMMMMMMb
+sayc %r                :!!!!!!!! :!!''`%W.xndMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+sayc %r               :!!!!!!!!  %W`_.nmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,
+sayc %r              :!!!!!!'`%W.xnMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+sayc %r             :!!!!!'%W.ndMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+sayc %r            :!!!!'%W,dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMPPPP'''''''TTMMb
+sayc %r           :!!!!'%W,MP'MMMMMMMMMMMMMMMMMMPPP''''`%Y.,,ccr===$$$$$c`%W=nMMMr
+sayc %r           !!!!! %WMP dMMMMMMMMMMMPP''%Y.,cccdSSSSSSSSSShc, `?SSSSh.%W'MMM
+sayc %r          `!!!!! %W',dMMMMMMPP'' %Y,ccSSSSSSSSSSSSSSSSSSSSSSc,`SSSSS %W4MM
+sayc %r          `!!!! %W,dMMMMP''  %Y,cSSSSSSSSSSSSSSSSSSSSSSSSSSSSScSSSSSr%W`T
+sayc %r          `!!! %WuMMMP'%Y.zd',cSS?SSSSSSSSSSSSSSSSSSSS??SS SSSSSSSSSS
+sayc %r          `!! %W:MMMP%Y,SSSScS'SS SSSSSSSSSSSSSSSSSSSSF<SF SPPSSSSSSS
+sayc %W         _,,_ MMMM %Y<SSSSSS ?S.'SSSSSSSSSSSSSSSSSSS'dP dS',SSSSSSP
+sayc %W    ,dh:MMMMM 4MMML %YSSSS'?h.'S ?SSSSSSSSSSSSSSSSS' ' zF zSSSSSSS'
+sayc %W   dMMMMMMMMMn 'TTM %YSSSSc,'? %W.,.%Y'SSSSSSSSSSSSSSP'%W,MM,%Y ,dSSSSSSS'
+sayc %W  dMMMMMMMMMMMMmnx..%Y`SSSSSS %W4MMMn %Y?SSSSSSSSSSSS %WuMMMM %Y?SSSSSSSP
+sayc %W.nMMMMMMMMMMMMMMMMMM,%Y`SSSSS %WMMMMMb %YSSSSSSSSSSSF%W,MMMMM %YdSSSSSSP
+sayc %WMMMMMMMMMMMMMMMMMMMM  %Y'SSSS %WMM''`'-%Y`SSSSSSSSSS %W`'%B..%W`T %YSSSSSSP
+sayc %WMMMMMMMMMMMMMMMMMMMP   %Y?SSS %WT'%B,SSh  %YSSSSSSSSSS  %BcSSL  %YSSSSSP
+sayc %WjMMMMMMMMMMMMMMMMM'     %Y?SSh%W' %Bd???S %Y?SSSSSSSSS %Bd' `S %YdSSSSP
+sayc %W TMMMMMMMMMMMMMMM'       %Y'SSr %BSF  ?h%Y<SSSSSSSSS %BP   F %YSSSSP
+sayc %W   'MMMMMMMMMMMP'         %Y`SS.%B`L  dF%Y:SSSSSSSSS.%B?  / %YdSSSP
+sayc %W    '4MMM''PP''            %Y`ss.%B`- ' %YdSSSSSSSSSh .,,zdSS'
+sayc %W      `'`                    %YShcsshcSSS??'''??SSSSSSSSSh.
+sayc %W                            %YdSSSSSSSP' %yj????  %Y'SSSSSSSSSS
+sayc %Y                           ,SSSSSSSS . %y-===-'%Y.,cSSSSSSSSF
+sayc %Y                            ?SSSSSSS???ScccSSS??SSSSSSP'
+sayc %Y                             `'??''%W.xn %Y?SSSSP'%Wxn
+sayc %W                                   'MMbx.,,,nmMM
+sayc %W                                     '''PPPPP''
+sayc %r                                    :!!!!!!!!!!
+sayc %r                                   :!'!!!!!!!!<!
+sayc %r                                  :!' !!!!!!!, !:
+sayc %r                                 :!! !!!!!!!!! `!.
+sayc %r                                 `! :!!!!!!!!!! !!
+sayc %r                                 `!:!!!!!!!!!!!:'
+sayc %r                                   !!!!!!!!!!!!!
+sayc %W                                .xr%r`!!!!!!!!!!!! %Wh.
+sayc %W                               uMMM,%r`'`<!!!!''`%W,dMM
+sayc %W                               4MMMMmnn,.,,,ndMMMMP
+sayc %W                                4MMMMMMMMMMMMMMMP'
+sayc %W                                  `'44MMMMPP''
+sayc %y                                      cr    c,
+sayc %y                                      SS    Sh              .,...
+sayc %y                  ,ccSSSSccccc,,,..,,,cS.   ?S,,,..,,,cccdSSSSSSSSh.
+sayc %y                zS???SSSSSSSSSSSSSSSSSSSh   <SSSSSSSSSSSSSSSSSL.,.?S
+sayc %y                ?',cSSSSSSSSSSSSSSSSSSSSP'  `SSSSSSSSSSSSSSSSSSSSc '
+sayc %y                 <SSSSSSSSSSSSSSSSSS??'       '??SSSSSSSSSSSSSSSSSS
+sayc %y                  ?SSSSSSSSSSSSS??'               ''??SSSSSSSSSP''
+sayc %y                     ''''''''''                         `''''
+}

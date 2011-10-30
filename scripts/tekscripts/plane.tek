@@ -1,0 +1,45 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YNeo
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/plane, /plane2
+
+alias sayc {say $cparse("$*")}
+
+alias plane
+{
+sayc %W                              |
+sayc %W                              |
+sayc %W                            .-'-.
+sayc %W                           ' ___ '
+sayc %W                 .........'  .-.  '.........
+sayc %W .........................'  '-'  '..........................
+sayc %W  '''''+''''+''':'  '::::::',_ _,'::::::'  ':'''+''''+''''''
+sayc %W                 '..'         '         '..'
+}
+
+alias plane2
+{
+sayc                %R##### %W| %R#####
+sayc               %R# %W_ _ %R#%W|%R# %W_ _ %R#
+sayc               %R#      %W|      %R#
+sayc         %Y|       %R############
+sayc                     %R# #
+sayc  %Y|                  %R# #
+sayc                    %R#   #
+sayc         %Y|     %Y|    %R#   #     %Y|          %Y|
+sayc  %Y|  %Y|             %R#     #               %Y|
+sayc         %Y| %Y|   %Y|   %R# %W.-. %R#         %Y|
+sayc                   %R#%W( O )%R#    %Y|    %Y|     %Y|
+sayc  %Y|  %R################%W. .%R###############  %Y|
+sayc   %R##  %W_ _|____|     %R###    %W|_ __| _ _ %R##
+sayc  %R#  %W|                                |  %R#
+sayc  %R#  %W|    |    |    |   |    |    |   |  %R#
+sayc   %R######################################
+sayc                   %R#     #
+sayc                    %R#####
+sayc               %WOOOOOOO%R|%WOOOOOOO
+sayc                      %RU
+sayc
+sayc     %RLook mummy theres an airplane up in the sky!
+}

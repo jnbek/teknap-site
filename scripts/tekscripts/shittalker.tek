@@ -1,0 +1,219 @@
+## I IMPROVED THE SHIT A BIT SOON IT WILL WORK ON SENTENCE'S
+/*
+* Talk Shit script.
+* Warning : Very annoying :P
+*
+* created bye Chanbot and xecho
+*
+* Define words to go off on, and who not to go off on
+*/
+
+assign FUNNY_TRIGGER whoops lol hehe haha lmao hahaha hehehe geez suss giggles LOL LMAO 
+assign BAD_TRIGGER dumbass punk dick wanker suck bitch bastard damn dammit shit shit! fuck fucker fucking fuck! crap asshole eikel lul
+assign DONT_GO_OFF_ON ShitTalker JustCountingCrows Ren_TinTin needasoul
+assign HOW_TRIGGER ya? you? hoest? het? all? hoest
+assign FROM_TRIGGER from? vandaan vandaan? from hmm hmmm hmmmm hmmmmm
+assign HUH_TRIGGER huh heh ?? huh? QUESTION question ??? ???? ????? ?????? understand otherstand
+assign CHAT_TRIGGER hi hello hallo ciao hey hay 
+assign LEAVE_TRIGGER bye seeya adios leaving parting weg vandoor l8ter later brb straks bbl 
+assign YELL_TRIGGER !! ! !!! !!!! !!!!! grrr grrrr grrrrr
+assign LA_TRIGGER lalala zucht pff pfff grrr grrrr grrrrr hump humping leg sex ren Ren Renny Ren_TinTin
+/*
+* What to say when ppl laugh etc
+*/
+assign AO Nice one, $0.
+assign A1 That was easy.
+assign A2 Sorry, $0. You got in my way.
+assign A3 Why do you keep trying to hurt me, $0?
+assign A4 Indeed.
+assign A5 If you need that back part of you skull back, $0, it's right over there on the wall.
+assign A6 That was fun.
+assign A7 I wish someone good would join the server.
+assign A8 Killing is fun.
+assign A9 You flew back pretty good, $0.
+assign A10 I had to do it, $0. You understand.
+assign A11 That looked painful.
+assign A12 Oh, $0... what... what have I done?
+assign A13 I've always been better, $0. Always.
+assign A14 Don't get so worked up, $0. It's just a game.
+assign A15 Oh, my! That certainly was messy.
+assign A16 Keyboarder, $0?
+assign A17 You should've run while you had the chance, $0.
+assign A18 This is quite fun.
+assign A19 $0 is a perfect example of how not to play.
+assign A20 My goodness. I didn't think it was possible to play that badly.
+assign A21 I bet you hate it when that happens, don't you, $0?
+assign A22 Your blood looks pretty, $0.
+assign A23 Why does everyone keep trying to hurt me?
+assign A24 That'll teach you.
+assign A24 Hey, come on, $0. You almost hurt me that time.
+assign A25 Enjoyable. Quite enjoyable.
+assign A26 You're fun to murder, $0.
+assign A27 Yep. I love that feeling.
+assign A28 How nice.
+assign A29 Mmm... blood.
+
+/*
+* What to say on bad words
+*/
+assign BO That was not at all nice of you, $0.
+assign B1 Oh, I see. I certainly see.
+assign B2 NO! I HATE YOU!
+assign B3 Why must you taunt me so, $0?
+assign B4 S...stop...hurting...me.
+assign B5 I see how it must be now, $0. You know what I must do.
+assign B6 So, $0, you think that's funny? DO YOU?
+assign B7 F...filth.
+assign B8 I thought I knew you, $0. I see now that I was only a fool.
+assign B9 I would appreciate it if you could avoid doing such a thing in the future, $0.
+assign B10 I loved you, $0.
+assign B11 For years... for years I loved you, AND YOU REPAY ME WITH -THIS-!
+assign B12 Ha...ha.
+assign B13 That's... nice.
+assign B14 I will hurt you, $0. I will hurt you very badly.
+assign B15 I hate it when that happens.
+assign B16 You are nothing, $0. Nothing at all.
+assign B17 Oh, I see, $0. You think you can treat me this way? No. I will show you how it is.
+assign B18 Ouch.
+assign B19 I think someone needs a face-beating! ::cough $0 cough::
+assign B20 Why, $0? WHY DO YOU CONTINUE WITH THIS HORRIBLE VIOLENCE?!
+assign B21 I... have no words that can express my feelings.
+assign B22 Oh, $0... I... thought we were friends.
+assign B23 Please... just... don't hurt my family, $0. Please.
+assign B24 I do not appreciate being murdered violently, $0.
+assign B25 I... I know a pain... greater than any you will ever feel, $0.
+assign B26 Death will not stop me, $0. I will make you pay.
+assign B27 I hate you, $0. I... hate you.
+assign B28 How could you... do this to me, $0? You are not even human.
+assign B29 $0 is using a bot.
+assign B30 Oh darn.
+
+assign D0 fine thnx 
+assign D1 alright and you $0
+assign D2 good thanks for asking
+assign D3 bad no just joking i am alright and you $0
+assign D4 normal and you $0
+
+assign F0 Where you from like it matters?
+assign F1 i come from my mama and you?
+assign F2 i come from... eej mind your own buisness (lol)
+
+assign G0 difficult isnt it, $0??
+assign G1 cant you understand it, $0??
+assign G2 your not very smart $0 (lol)$0
+assign G3 are you dumb or just acting that way, $0??
+assign G4 YOUDUMB ASS!!! (lol)
+
+assign C0 hi how are ya??
+assign C1 hello $0 nice day isnt it??
+assign C2 hi $0 your having a good day??
+assign C3 he you your dead meat $0 !!!
+assign C4 hi $0 i am xecho
+
+assign H0 ahhh leaving already $0
+assign H1 bye $0 i will miss you !!
+assign H2 see ya later $0 !!
+assign H3 hope to see you again $0
+assign H4 going somewhere $0 ??
+
+assign E0 DONT yell $0 i aint deaf!!
+assign E1 is can hear ya $0
+assign E2 why do ppl always yell??
+assign E3 dont be angry $0
+
+assign S0 humps $0 leg
+assign S1 you like it when i hump your leg that way $0
+assign S2 was the hump good for you $0
+assign S3 hear is a napkin, sorry bout the mess $0
+
+/*
+* Random message on joining channel
+*/
+assign W0 Hi there, $1. How's it goin?
+assign W1 Yo $1, zup bro?
+assign W2 HEY PPL! Look, it's $1 !
+assign W3 Zup $1, life been sweet?
+assign W4 Oh Oh, $1 is in da house...
+
+/*
+* Random message on having more than 10 files
+*/
+assign X0 Yo $1, ya gonna share summa those $2 files with me?
+assign X1 Cool! At least $1 came here with a few files :)
+assign X2 Hey peeps! It's leech time, $1 brought $2 files with him. :)
+assign X3 Good boy $1, bringin those $2 files with ya. :P
+
+/*
+* Random message on having more than 10 files
+*/
+assign Z0 Hey sweety, you forgot to give xecho and poesje there Gnite kiss before leaving :P
+assign Z1 Good nite, big kiss, and see ya soon $1
+
+/*
+* Random message on having less than 10 files
+*/
+assign Y0 You know $1, your one greedy mofo comin here with only $2 files :P
+assign Y1 Hey $1, i'd hide in shame if i where you commin here with only $2 files! LOL
+
+/*
+* On channel join sends an auto greet
+*/
+on ^join "*" {
+if ([$match($1 $DONT_GO_OFF_ON)] < 1) {
+timer 3 {
+eval say ${W$rand(4)}
+}
+timer 13 {
+if ([$2] > 10) { eval say ${X$rand(3)} }
+if ([$2] < 10) { eval say ${Y$rand(1)} }
+}
+}
+echo $1 sharing $2 files has joined the Room.
+}
+
+/*
+* This send a private message to anyone that leaves the channel
+*/
+on ^leave "*" {
+if ([$match($1 $DONT_GO_OFF_ON)] < 1) {
+eval msg $1 ${Z$rand(1)}
+}
+echo Parting msg sent to $1 :)
+}
+
+/*
+* Goes off if any of the words in the wordlist are pronounced
+*/
+on ^public "*" {
+
+if ( ([$common($2- / $FUNNY_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${A$rand(29)} }
+{
+if ( ([$common($2- / $BAD_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${B$rand(30)} }
+}
+if ( ([$common($2- / $HOW_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${D$rand(4)} }
+{
+if ( ([$common($2- / $FROM_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${F$rand(2)} }
+}
+if ( ([$common($2- / $HUH_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${G$rand(4)} }
+{
+if ( ([$common($2- / $LA_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${S$rand(3)} }
+}
+if ( ([$common($2- / $LEAVE_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO_OFF_ON)] < 1) )
+{ eval say ${H$rand(4)} }
+{
+if ( ([$common($2- / $CHAT_TRIGGER)] > 1 ) && ([$match($0 $DONT_GO OFF_ON) < 1) )
+{eval say ${C$rand(4)} }
+}
+if ( ([$common($2- / $YELL_TRIGGER)] > 1 ) && ($match($0 $DONT_GO_OFF_ON) < 1) )
+{eval say ${E$rand(3)} }
+
+echo <$0> $2-
+}
+
+echo Shitty IS LOADED!!!!!!!!!help!!

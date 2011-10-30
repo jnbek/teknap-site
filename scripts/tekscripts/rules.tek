@@ -1,0 +1,31 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Rules Script Loaded %>02Trigger : !rules (user)
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+@a_cnt=10
+
+@A.0=[Welcome to $S]
+@A.1=[Please follow these rules while you are here]
+@A.2=[Do not clone other users]
+@A.3=[Do not threaten mods+]
+@A.4=[Do not flood]
+@A.5=[Do not threaten users]
+@A.6=[Do not run long scripts or annoying bots]
+@A.7=[If you violate any of the above rules you will be warned to stop]
+@A.8=[If you do not stop, you will be killed or worse]
+@A.9=[Thank you for visiting!!]
+
+on -public "% % !rules %" 
+{
+ say Please read these rules $3\. Thank you!
+ for (@:cnt=0,cnt<a_cnt,@cnt++)
+ {
+  m $3 $(a.$cnt)
+ }
+}

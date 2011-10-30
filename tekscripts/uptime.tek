@@ -1,0 +1,23 @@
+xecho -b Uptime loaded!
+xecho -b Written by gircobain 15/12/2001
+xecho -b uptime.exe must be in c:/teknap
+
+alias uptime {
+  if (fexist(//c/teknap/uptime.exe) != 1) {
+    xecho -b File missing: uptime.exe
+  }{
+    exec c:/teknap/uptime.exe>c:/uptime.txt
+    ^on ^window "* Process % (c:/teknap/uptime.exe>c:/uptime.txt) terminated with return code %" {
+      @:fd = open(//c/uptime.txt r)
+      @:line = read($fd)
+      if (!match(\\\\* $line)) {
+        xecho -b Unexpected error
+      }{
+        echo $mid(2 $@line $line)
+      }
+      @close($fd)
+      @unlink(//c/uptime.txt)
+      on window -"* Process % (c:/teknap/uptime.exe>c:/uptime.txt) terminated with return code %"
+    }
+  }
+}

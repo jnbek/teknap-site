@@ -1,0 +1,15 @@
+alias Cloaking
+	{
+	^local channelname
+	@channelname=[$C]
+	^part $channelname
+	^on ^409 $channelname {on 409 -;timer 1 Cloaked}
+	^join $channelname
+	}
+alias Cloaked
+	{
+	^on ^825 * {if ([$findw($1 $channelnicks($0))] == [-1]) {echo [1m$chr(10)Channel $0 Cloaked User $1$chr(10)$chr(10)}}
+	^on ^830 * {echo [1m $chr(10) ** Finished Cloaked User Search ** $chr(10)$chr(10);on 825 -;on 830 -}
+	echo [1m $chr(10) ** Starting Cloaked User Search ** $chr(10)$chr(10)
+	raw 830 $C
+	}

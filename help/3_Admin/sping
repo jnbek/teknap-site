@@ -1,0 +1,13 @@
+Synopsis:
+   sping <.>|<server.name>
+
+Description:
+    Sends a server ping to the server and times the result. Gives an
+    indication of lag and distance.
+
+Examples:
+    /sping .
+    /sping bitchx.dimension6.com
+
+See Also:
+

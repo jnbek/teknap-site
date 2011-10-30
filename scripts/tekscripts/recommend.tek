@@ -1,0 +1,45 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Recommend Script Loaded %>02Trigger : !song
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+@song_cnt=26
+
+assign A0 Fredro Starr ft. Sin - Big Shots
+assign A1 Talib Kweli & DJ Hi-Tek - Eternalists
+assign A2 Guru ft. Les Nubians - Who's There
+assign A3 Talib Kweli & DJ Hi-Tek ft. Les Nubians - Love Language
+assign A4 Fredro Starr - Dat Be Dem
+assign A5 Fredro Starr ft. Outlawz - Thug Warz
+assign A6 Capone -n- Noreaga - Phonetime
+assign A7 Jay-Z - Soon You'll Understand
+assign A8 Fredro Starr ft. Jill Scott - Shining Through
+assign A9 Prodigy of Mobb Deep ft. Bars & Hooks - Diamond
+assign A10 Prodigy of Mobb Deep - H.N.I.C.
+assign A11 Bob Marley - Sun Is Shining
+assign A12 Bob Marley - Rainbow Country
+assign A13 Capone -n- Noreaga - Invincible
+assign A14 Rugged - Cut You Off
+assign A15 Choclair - Situation 9
+assign A16 Fredro Starr - What If
+assign A17 Fredro Starr - Dyin' For Rap
+assign A18 Citizen Kane - Soldier Story
+assign A19 Infinite - 360 Degrees
+assign A20 DJ Honda ft. Mos Def - Travelin Man
+assign A21 Nas & Nature - In Too Deep
+assign A22 Ja Rule - Suicide Freestyle
+assign A23 Murder Inc. - Murderers
+assign A24 Ghost Face Killah - Mighty Healthy
+assign A25 Ghost Face Killah - Stay True
+
+say *If you would like a song recommendation just type !song and you will get a recommendation of some of the hottest songs out!!!*
+
+on -public "% % !song"
+{
+ say $(A$rand($song_cnt))
+}

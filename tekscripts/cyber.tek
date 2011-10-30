@@ -1,0 +1,42 @@
+
+/* Cyber messages */
+assign C1 $0 goes down on $3
+assign C2 $0 69's $3
+assign C3 $0 sucks on $3's clitoris
+assign C4 $0 flicks $3's clit with his tongue
+assign C5 $0 wiggles on $3's lap
+assign C6 $0 plays with $3's nipples
+assign C7 $0 nibbles $3's ears
+assign C8 $0 smooches $3
+assign C9 $0 fucks $3
+assign C10 $0 drinks $3's cum
+assign C11 $0 pours honey all over $3 and licks it off
+assign C12 $0 inserts his dick into $3 and screws for all he's worth
+assign C13 $0 gets his buzzy egg on his tongue and licks $3's clit
+assign C14 $0 plays with $3 with a vibrator
+assign C15 $0 bends $3 and pulls on her hair
+assign C16 $0 gently bites on $3's inner thighs
+assign C17 $0 shaves $3's pubic hair
+assign C18 $0 slips a finger into $3 and plays
+assign C19 $0 bends $3 over and shags
+assign C20 $0 rubs his dick around $3's pussy
+assign C21 $0 puts his tongue in $3's pussy
+assign C22 $0 cums over $3's pussy
+assign C23 $0 cums in $3's mouth
+assign C24 $0 cums on $3's tits
+assign C25 $0 bends $3 over and spanks her ass
+assign C26 $0 ties $3 to the bed and screws her senseless
+assign C27 $0 flips $3 over, removes her panties and slurps
+assign C28 $0 inserts a banana into $3 and eats it slowly
+assign C29 $0 pours hot wax onto $3's nipples
+assign C30 $0 runs ice cubes over $3's nekkid body
+assign C31 $0 slaps $3's ass and tits
+
+assign CYBER_TRIGGER cyber
+
+/* cyber */
+on -public '% % $cyber_trigger*'
+{
+eval say $(C$rand(32))
+}
+

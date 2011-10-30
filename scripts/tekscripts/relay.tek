@@ -1,0 +1,216 @@
+# RelayBOT by joey2cool
+#
+# Takes stuff said or done(/me) in channels and relays to a channel and/or nick
+# 
+# all commands are sent to the bot in PM or can be said in the channel(excluding !login and !setpassword for security reasons)
+#
+# Commands :
+# !quit
+# !info #channel(channel is optional)
+# !login password
+# !setpassword password
+# !join #channel
+# !part #channel
+# !list #channel
+# !whois user
+# !me #channel message
+# !say #channel message
+# !say #channel message
+# !relaychan #channel (if "" it wont relay to a channel)
+# !relaynick nickname (if "" it wont relay to a nickname. When you login relaynick is automatically set to your nick)
+#
+# Note : if the wrong password is sent, the sender is automatically ignored
+#
+# Set the password or the first person to msg it -
+# !setpassword passwordhere
+# will gain control of the bot!
+# ^assign password password
+#
+# OR
+#
+# You can also make it so only one nickname can send commands to the bot :
+# ^assign master nickname
+
+
+^on -205 "*" {
+if ([$0] != [$MASTER]) {
+if ([$1] == [!login]) {
+if ([$2] == [$password]) {
+^msg $0 Password Accepted!
+^assign relaynick $0
+^assign master $0
+}
+if ([$2] != [$password]) {
+^msg $0 Wrong Password! You Suck!
+ignore $0
+}
+}
+if ([$1] == [!setpassword]) {
+if ([$password] == []) {
+^assign master $0
+^assign password $2
+}
+}
+}
+
+if ([$0] == [$master]) {
+
+if ([$1] == [!login]) {
+^msg $0 You are already logged in!
+}
+
+if ([$1] == [!setpassword]) {
+^assign password $2
+^msg $0 Set password to $2
+}
+
+if ([$1] == [!relaychan]) {
+^assign relaychan $2
+^msg $0 Set relaychan to $2
+}
+
+if ([$1] == [!relaynick]) {
+^assign relaynick $2
+^msg $0 Set relaynick to $2
+}
+
+if ([$1] == [!whois]) {
+^raw 603 $2
+^on -604 "*" {
+^msg $master $0-
+}
+}
+
+if ([$1] == [!list]) {
+^raw 830 $2
+^on -825 "$2 % % %" {
+@ list = [$list] ## [ $1]
+}
+^on -830 "*" {
+^msg $master $list
+^assign -list
+}
+}
+
+if ([$1] == [!say]) {
+^raw 402 $2-
+}
+if ([$1] == [!info]) {
+if ([$2] == []) {
+^msg $master Relay Script by joey2cool - http://2cool.rapigator.com
+}
+if ([$2] != []) {
+^raw 402 $2 Relay Script by joey2cool - http://2cool.rapigator.com
+}
+}
+if ([$1] == [!me]) {
+^raw 824 $2 "$3-"
+}
+
+if ([$1] == [!join]) {
+^raw 400 $2
+^on -405 "$2" {
+^raw 205 $master Joined $0!
+}
+}
+if ([$1] == [!quit]) {
+quit
+}
+if ([$1] == [!part]) {
+^raw 401 $2
+^on -401 "$2" {
+^raw 205 $master Parted $0!
+}
+}
+}
+
+}
+
+^on -403 "*" {
+if ([$1] == [$master) {
+if ([$2] == [!quit]) {
+quit
+}
+
+if ([$2] == [!relaychan]) {
+^assign relaychan $3
+^raw 402 $0 Set relaychan to $3
+}
+if ([$2] == [!relaynick]) {
+^assign relaynick $3
+^raw 402 $0 Set relaynick to $3
+}
+if ([$2] == [!say]) {
+^raw 402 $3-
+}
+
+if ([$2] == [!info]) {
+if ([$3] == []) {
+^raw 402 $0 Relay Script by joey2cool - http://2cool.rapigator.com
+}
+if ([$3] != []) {
+^raw 402 $3 Relay Script by joey2cool - http://2cool.rapigator.com
+}
+}
+
+if ([$2] == [!list]) {
+^assign channel $0
+^raw 830 $3
+^on -825 "$3 % % %" {
+@ list = [$list] ## [ $1]
+}
+^on -830 "*" {
+^raw 402 $channel $list
+^assign -list
+}
+}
+
+if ([$2] == [!whois]) {
+^assign channel $0
+^raw 603 $3
+^on -604 "*" {
+^raw 402 $channel $0-
+}
+}
+
+if ([$2] == [!me]) {
+^raw 824 $3 "$4-"
+}
+if ([$2] == [!join]) {
+^assign channel $0
+^raw 400 $3
+^on -405 "$3" {
+^raw 402 $channel Joined $0!
+}
+}
+if ([$2] == [!part]) {
+^assign channel $0
+^raw 401 $3
+^on -401 "$3" {
+^raw 402 $channel Parted $0!
+}
+}
+}
+
+if ([$0] != [$relaychan]) {
+if ([$relaychan] != [""]) {
+^raw 402 $relaychan $0 - $1: $2-
+}
+if ([$relaynick] != [""]) {
+^msg $master $0 - $1: $2-
+}
+
+}
+}
+
+^on -824 "*" {
+if ([$0] != [$relaychan]) {
+if ([$relaychan] != [""]) {
+^raw 402 $relaychan $0 - *** $1-
+}
+if ([$relaynick] != [""]) {
+^msg $master $0 - *** $1-
+}
+
+}
+}

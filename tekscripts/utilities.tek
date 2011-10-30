@@ -1,0 +1,32 @@
+alias whereis {
+  if ([$0] == [*]) {
+    fe ($channelnicks($C)) nick {
+      ^raw 205 nickserv server $nick
+    }
+  }{
+    ^raw 205 nickserv server $0
+  }
+}
+
+alias isonline {
+  ^local flag, nick
+  @online = 0
+  @nick = [$0]
+  ^on ^301 "*"
+  ^raw 207 $nick
+  ^on ^209 '$nick *' {
+    eval xecho -b User $nick is online
+    ^on 209 -'$nick *'
+    ^on 301 -"*"
+    ^raw 303 $nick
+    timer 1 { ^on 301 -"*" }
+    @online = 1
+  }
+  timer 3 {
+    if (!online) eval xecho -b User $nick is offline
+    ^on 209 -'$nick *'
+    ^on 301 -"*"
+    ^raw 303 $nick
+    timer 1 { ^on 301 -"*" }
+  }
+}

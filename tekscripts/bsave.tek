@@ -1,0 +1,32 @@
+echo Browse Saver v1.04 Loaded - © FilthDemon 2000
+echo Usage /bs <user>
+
+assign t  c:\teknap\Savedbrowse.txt
+
+alias bs (x)
+{@ l = 0
+echo Browsing, may take up to 5min.......
+raw 603 $x
+raw 211 $x}
+
+alias v
+{@ meg = w/1000000
+@ m = a/60
+@ l = l + 1
+@ fd = open($t w)
+if ([$l] == [1]) @ write($fd $y) 
+@ write($fd $z $meg meg, $b kbps, $m min)
+if ([$l] == [$c]) @ write($fd $l files written) 
+if ([$l] == [$c]) echo browse finished, file written
+@ close($fd)}
+
+on ^604 "*"
+{@ c = [$5]}
+
+on ^212 "*"
+{@ y = [$0]
+@ z = [$1]
+@ w = [$3]
+@ b = [$4]
+@ a = [$6]
+/v}

@@ -1,0 +1,39 @@
+# written by (ice) as a quick solution to channel invites on Nakedfeet
+
+assign INVITE_CHAN #NakedFeet
+
+assign ALLOW_INVITE 1
+
+assign INVITE_OFF  !stop
+assign INVITE_ON   !start
+assign INVITE_ME   !invite
+assign INVITE_ME2  invite
+
+on #^msg 12345 "*" 
+{
+  if ([$1] == [$INVITE_ME] || [$1] == [$INVITE_ME2])
+  {
+    echo ***** Received invite request from $0 *****
+    if ([$ALLOW_INVITE] == [1])
+    {
+      msg $0 ***** You are now being invited in to $INVITE_CHAN
+      msg chanserv invite $INVITE_CHAN $0
+    }
+    {
+      msg $0 Sorry, this function has been turned off.
+    }
+  }
+  if ([$1] == [$INVITE_OFF])
+  {
+    echo ***** Received request from $0 to turn off invite *****
+    msg $0 ***** Invite is OFF now, to turn back on type: /msg $N $INVITE_ON
+    ^assign ALLOW_INVITE 0
+  }
+  if ([$1] == [$INVITE_ON])
+  {
+    echo ***** Received request from $0 to turn on invite *****
+    msg $0 ***** Invite is ON now, to turn back off type: /msg $N $INVITE_OFF
+    ^assign ALLOW_INVITE 1
+  }
+}
+

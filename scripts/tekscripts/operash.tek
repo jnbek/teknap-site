@@ -1,0 +1,278 @@
+/*
+ * Some stuff for ops+
+ *
+ * Author: Brian Weiss <brian@got.net> - 2000
+ * Some editing by ashes
+ */
+
+assign AUTO_RESPONSE_STR Your_nick_here
+
+
+alias links (void)
+{
+	admin links
+}
+
+alias lusers (void)
+{
+	admin stats
+}
+
+alias pingme (void)
+{
+	ping $N
+}
+
+#######################
+## Here are some new alias' for doofus these commands will not be echoed in the channel
+## these alias' will only affect users for the current window. ie. you must be watching
+## the channel.
+## written by ashes Sept 2000
+
+# muzzle via doofus   ex. /md <nick>
+alias md { m doofus user $C $0 \-1 }
+
+# channel ban via doofus and kick from channel	ex. /bd <nick>
+alias bd 
+{ 
+	m doofus user $C $0 \-2 
+	kick $0
+}
+
+# unmuzzle or unban via doofus 	ex. /unmb <nick>
+alias unmb { m doofus user $C $0 1 }
+
+# a opme command (same as typing !op in the channel)	ex. /opme
+alias opme { m doofus op $C $N }
+
+# alias to turn opguard on. this means no one will be oped in the channel unless on the list
+alias opon { m doofus opguard $C on }
+
+# alias to turn opguard off. if a user enters a empty room they will be oped
+alias opoff { m doofus opguard $C off }
+
+# alias to turn topic lock on. if topic lock is on only users of 3+ can change topic 
+alias tlockon { m doofus topiclock $C on }
+
+# alias to turn topic lock off. if off any op may change topic
+alias tlockoff { m doofus topiclock $C off }
+
+# alias to allow any user to set the topic
+alias allsettopic { m doofus mode $C +topic }
+
+# alias to turn off anyone setting topic
+alias topicoff { m doofus mode $C -topic }
+
+# alias to set channel to invite only
+alias inviteonly { m doofus mode $C +invite }
+
+# alias to invite yourself (if op level 2+) to a invite only channel
+# usage /joininvite <channel>
+alias joininvite { m doofus invite $0 }
+
+# alias to remove invite only status on channel
+alias notinvite { m doofus mode $C -invite }
+
+#######################
+## These are the aliases that make doing a command shorter.
+## For example, typing /opsay does the same thing as typing /msg chanserv wallop <channel>
+## Remember, these will only work if you are a channel op in the room!
+## With the commands that use the chanserv feature, you may only use one word reasons,
+## unless you put the reason in " "
+
+#Shortened version of /kick. You do not need to type the roomname with TekNap.
+alias k { kick }                           
+
+#Channel muzzle. example: /cm <nick> <reason> 
+alias cm { m chanserv muzzle $C }      
+
+#Channel unmuzzle. example /um <nick> <reason>
+alias um { m chanserv unmuzzle $C }   
+
+#Ban someone from the channel. example: /cban <nick> <reason>
+alias cban { m chanserv ban $C }         
+
+#Unban someone from the channel. example: /cunban <nick> <reason>
+alias cunban { m chanserv unban $C }   
+  
+#Invite someone into an INVITE only room
+alias inv { raw 10210 $C $0 }         
+
+#Send a message to all the channel ops/mods+ in that room. example: /ops <message>
+alias ops { raw 10208 $C $* }          
+
+#Give voice to someone in a MODERATED room. example: /voice <nick>
+alias voice { m chanserv voice $C }
+
+#Remove voice from someone in a MODERATED room. example: /unvoice <nick>
+alias unvoice { m chanserv unvoice $C }
+
+#allow the topic to be set by anyone in room. example: /usettopic
+alias usettopic { m chanserv mode $C +topic }
+
+#remove the topic to be set by anyone in room. example: /notopic
+alias notopic { m chanserv mode $C -topic }
+
+assign AUTO_MUZZLE 1
+assign AUTO_MUZZLE_TIME 120
+
+/* Toggle auto-muzzle on/off */
+alias automuzzle (arg, void)
+{
+	switch ($arg)
+	{
+		(0) {^assign AUTO_MUZZLE 0}
+		(1) {^assign AUTO_MUZZLE 1}
+		(off) {^assign AUTO_MUZZLE 0}
+		(on) {^assign AUTO_MUZZLE 1}
+		(*) {@ AUTO_MUZZLE = AUTO_MUZZLE ? [0] : [1]}
+	}
+	xecho -b Auto-muzzle has been ${AUTO_MUZZLE ? [activated] : [de-activated]}
+}
+
+alias tmuzzle (time, nick, reason)
+{
+	if (time && nick)
+	{
+		raw 622 $nick \"${reason ? reason : [Temporary muzzle for $time seconds]}\"
+		timer $time raw 623 $nick
+	}{
+		xecho -b Usage: /tmuzzle <seconds> <nick> [reason]
+		xecho -b   - Muzzles <nick> for <seconds>
+	}
+}
+
+#######################
+## Auto-response 
+## This script beeps you when someone types your nick in the chat.
+## It will beep if you are in the room, regardless of whether that is your current screen.
+
+assign AUTO_RESPONSE 1
+assign AR_BEEP 1
+
+
+on ^public '% % *$AUTO_RESPONSE_STR*' if (auto_response)
+{
+	if (AR_BEEP)
+	{
+		echo $cparse(%B<%Y$0%B>%g$2-)
+		if (beep == [OFF])
+		{
+			^set BEEP ON
+			beep
+			^set BEEP OFF
+		}{
+			beep
+		}
+	}{
+		echo $cparse(%B<%Y$0%B>%g$2-)
+	}
+}{
+	echo $cparse(%B<%n$0%B>%g$2-)
+}
+
+on ^public_other '% % *$AUTO_RESPONSE_STR*' if (AUTO_RESPONSE_STR)
+{
+	if (AR_BEEP)
+	{
+		echo $cparse(%b<%y$0%K/%n$1%b>%g$2-)
+		if (beep == [OFF])
+		{
+			^set BEEP ON
+			beep
+			^set BEEP OFF
+		}{
+			beep
+		}
+	}{
+		echo $cparse(%b<%y$0%K/%n$1%b>%g$2-)
+	}
+}{
+	echo $cparse(%b<%n$0%K/%n$1%b>g$2-)
+}
+
+ 
+alias ignore (nick, void)
+{
+	if (nick)
+	{
+		^local nickitm
+		@ nickitm = finditem(ignores $nick)
+		if (nickitm <= -1)
+		{
+			@ setitem(ignores $numitems(ignores) $nick)
+			^on ^join ^"% $nick *"
+			^on ^leave ^"% $nick *"
+			^on ^msg ^"$nick *"
+			//ignore $nick
+			raw 322 $nick
+		}
+	}{
+		^local ignorecmd
+		@ ignorecmd = CMDCHARS ## CMDCHARS ## [ignore]
+		eval $ignorecmd
+	}
+}
+
+alias unignore (nick, void)
+{
+	if (nick)
+	{
+		^local nickitm
+		@ nickitm = finditem(ignores $nick)
+		if (nickitm > -1)
+		{
+			@ delitem(ignores $getitem(ignores $nickitm))
+			^on ^join -"% $nick *"
+			^on ^leave -"% $nick *"
+			^on ^msg -"$nick *"
+			//ignore -$nick
+			raw 323 $nick
+		}
+	}{
+		^local ignorecmd
+		@ ignorecmd = CMDCHARS ## CMDCHARS ## [ignore]
+		eval $ignorecmd
+	}
+}
+
+on #^flood 421 "% PUBLIC *" if (AUTO_MUZZLE)
+{
+	^assign chan $2
+	^assign nick $0
+	^assign type $1
+	if (chan && nick && type)
+	{
+                   switch ($chan)
+                  {
+                          (#lunas_paintroom)	{return}
+                          (#trivia)		{return}
+                          (*)			{ }
+                  }
+       if (finditem(pubflood $nick) < [0])
+	       {
+		@ setitem(pubflood $numitems(pubflood) $nick)
+		whois -cmd
+			{
+			switch ($tr(/"//$1))
+				{
+					(Elite) {#}
+					(Admin) {#}
+					(Moderator) {#}
+					(*) {
+						xecho -b PUBLIC flooding detected from $nick on $chan - Muzzling for $AUTO_MUZZLE_TIME seconds
+						m chanserv muzzle $chan $nick \"Auto-muzzle for $AUTO_MUZZLE_TIME seconds: flooding $chan not a good plan!!\"
+						whois -cmd { Xecho -win 0 $chr(27)[32m Muzzled user info is : $0 $1 $3 $4 $9 $12 $14 $16 } $Nick
+	    	                                timer $AUTO_MUZZLE_TIME m chanserv unmuzzle $chan $nick;@ delitem(pubflood $finditem(pubflood $nick))
+					}
+				}
+			} $nick
+		}
+		wait -cmd @ chan = nick = type = []
+	}
+}
+on ^322 ^"*"
+on ^323 ^"*"
+
+
+assign LOADED 1

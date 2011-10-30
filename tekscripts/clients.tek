@@ -1,0 +1,26 @@
+/*
+wech
+
+This script will tell everyones client version. The command is /clients
+
+
+*/
+
+xecho -b Client viewer loaded
+xecho -b Made by wech
+
+
+alias clients
+{
+        ^guser
+                ^on ^832 "*"
+                        {
+             whois $0
+              ^on ^who "*"
+             {
+xecho -b 50Username: 57$0 50Client version: 57$9
+ }
+ }
+ }
+
+

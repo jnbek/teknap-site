@@ -1,0 +1,70 @@
+xecho -b 51Scheme Script 54Loaded
+xecho -b 54By 51DaRk^PuNk51 
+xecho -b 54Type 51/command 54for a list of commands 
+
+alias command
+{
+ echo 08Commands:
+ echo 00 /status 07-shows wat your status bar looks like on teknap
+ echo 00 /getip <username>   07-gets a users ip address
+ echo 00 /notuser 07-tells you if there is a mod+ online
+ echo 00 /wscheme 07-makes lots of changes in your whois info (only works in napster)
+ echo 00 /got <message> 07-makes user status bar disapear and have a certain message on it
+ echo 00 /switchstat 07-makes your status bar appear on someone elses statusbar 
+}
+alias status eval say $status(1 0)
+alias got20 say $chr(20)$0$1-    
+alias switchstat eval say $chr(20)$status(1 0)
+assign -say_ip
+assign -give_ip
+alias ipdec (longip, void) {@:bb = [.]
+@:chg_ip = longtoip($longip)
+@:dig_4 = before(1 . $chg_ip)
+@chg_ip = after(1 . $chg_ip)
+@:dig_3 = before(1 . $chg_ip)
+@chg_ip = after(1 . $chg_ip)
+@:dig_2 = before(1 . $chg_ip)
+@:dig_1 = after(1 . $chg_ip)
+@:blah = dig_1##bb##dig_2##bb##dig_3##bb##dig_4
+return $blah}
+on ^213 "*" {@:blah_ip = ipdec($1);if (blah_ip == [...]) {
+echo 07$chr(249)00$chr(237)07$chr(249) 00$0 07: 00Offline 07$chr(249)00$chr(237)07$chr(249)}{
+echo 07$chr(249)00$chr(237)07$chr(249) 00$0 07: 00$blah_ip 07$chr(249)00$chr(237)07$chr(249)}
+if (!say_ip) {}{if (blah_ip != [...]) {say 07$chr(249)00$chr(237)07$chr(249) 15User $0's ip is $blah_ip}
+{say 07$chr(249)00$chr(237)07$chr(249) 15User $0's Offline.}
+^assign -say_ip};if (!give_ip) {}{if (blah_ip != [...]) {
+m $give_ip 07$chr(249)00$chr(237)07$chr(249) 15$0's ip is $blah_ip
+^assign -give_ip}}}
+alias getip (who) {raw 211 $who}
+alias notuser {
+ echo [1m $chr(10) ** Starting Non-User Search ** $chr(10)$chr(10)
+fe ($chanusers()) nick
+	{
+	if ([$N] != [$nick])
+		{
+		^whois -cmd {
+			if ([$1] != ["User"])
+				{
+				echo [1m $chr(10)** $0 is a $1$chr(10)$chr(10)
+				}
+			} $nick
+		}
+	}
+^whois -cmd {
+	if ([$1] != ["User"])
+		{
+		echo [1m $chr(10) ** $0 is a $1$chr(10)$chr(10)
+		}
+	echo [1m $chr(10) ** Finished Non-User Search ** $chr(10)$chr(10)
+	} $N
+}
+
+alias wscheme {
+xecho -b only works in napster!
+xecho -b it may freeze for a sec!
+eval join $chr(20)$chr(20)$chr(20)$chr(20)
+repeat 10000 raw 218 
+repeat 10000 raw 220
+w
+}
+

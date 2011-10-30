@@ -1,0 +1,34 @@
+alias sylv2
+{
+sayc %K                                           ::                          
+sayc %K                                         :::::                         
+sayc %R                 , %K                   ..``::::                         
+sayc %R                JSL%K`::::..        .::`  ::::``                         
+sayc %R                SSSc%K`::::::::::::::::::::. ``                          
+sayc %R                ?SSSSb%K`::::::`..`:::::::````                           
+sayc %R                `SSSSSP%K`:::`.:::.:::::::.::::                          
+sayc %R                  '?'%K.:::: .:::::::::::::::,cc,                        
+sayc %K                     :::::.::`%W,ccc,%K`:::::: %WSSSS,                       
+sayc %K                    .:::::::'%WdSSSSSc%K`::::: %WSSSSS,%K:                     
+sayc %K                    :::::::: %WSSSSSSS.%K::::::%W`S'   %K::                    
+sayc %K                   ::::::::: %WSSSSP'''%K`::::::%W`    %K``:.    %W,z            
+sayc %W              ==cc,,%K```:::::.%W?SSS    %K:::::`,,ccCCCCCCCCc%W'SbdSSSScc,    
+sayc %W         .,cSSSSSSSSSScc,.%K``::%W`?S.   %K```,cCCCCCCCCCCCCCC %W?SSSSSSSC''   
+sayc %W     ,cSSSSSSSSSSSSSSSSSSSSSSecL....eSP%K.CCCCCCCCCCCCCCC'%WcSc'???SSSSSc, 
+sayc %W     zSSSSSSSSSSSSSSSSSSSSSS'%R,ccccc%W`?SL%K`CCCCCCCCCCCCCC'%W,''S,4SSSSSSF==,
+sayc %W   zSSSSSSSSSSSSSSSSSSSSSS??%R.CCCCCCC%W`SSb.%K`'CCCCCCCC''%W,d??SS SSSSSSSSL  
+sayc %W  ,SSSSSSSSSSSSSSSSSSS',,chhc%R``CCCCC'%W`SS???bc,,,',cdSSScr',SSSSSSSSSS  
+sayc %W ,SSSSSSSSSSSSSSSSSSSbSSSSSSSScc%R``CCC.%W?S4ScSSSS',bcccccccSSSSSSSSSSSS, 
+sayc %W SPSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSScccdc ``',,,cSSS?SSSSSSSSSSSSSSSSSS' 
+sayc %W   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSdSSSSSSF?'zSSS???????????SSSSSh 
+sayc %W   SSSSSSSSSSSSPSSSSSSSSSSSSSSSSSSSSSSSSS??CClJSP''               '''? 
+sayc %W   ?SSSSSSSP''.dSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSP                        
+sayc %W    3SSSP'%K                   '??%WSSSSSSSSSSSSP                          
+sayc %W     `?'%K                      `:%W SSSSSSSSSS'                           
+sayc %K                              :::`%WSSSSSSSS'                            
+sayc %K                           ...::::%WSSSSSSS%K'.                            
+sayc %K                      .:::::::::::%W?SSSSSSc%K`::::.                       
+sayc %K                   .::::::::::::::%W`SSSSSSSS.%K:::::.                     
+sayc %K                .:::::::::::::::::%W`SSSSSSSSS.%K::::::                    
+sayc %K              .:::::::::::::::::::%WSSSSSSSSSSb`%K::::::    
+}

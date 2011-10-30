@@ -1,0 +1,99 @@
+xecho -b EatME Client Killer Loaded! (By Spike)
+xecho -b /killnow to kill right now.
+xecho -b /killstart to run auto every hour.
+alias drumeater
+{
+	//gusers -cmd
+	{
+		//whois -cmd
+		{
+			if ([$match(*Drumbeat* $9)])
+			{
+				raw 610 $0 "Drumbeat Sucks Ass!"
+			}
+		} $0
+	} -leech -users
+}
+alias maceater
+{
+        //gusers -cmd
+        {
+                //whois -cmd
+                {
+                        if ([$match(*MacNap* $9)])
+                        {
+                                raw 610 $0 "MacNap Sucks Ass!"
+                        }
+                } $0
+        } -leech -users
+}
+alias leecheater
+{
+        //gusers -cmd
+        {
+                //whois -cmd
+                {
+                        if ([$match(0 $5)])
+                        {
+                                raw 610 $0 "Leeches Suck Ass!"
+                        }
+                } $0
+        } -leech -users
+}
+ASSIGN KSTART 1
+ASSIGN NKILL 1
+ASSIGN TKILL 1
+alias killstart if (KSTART)
+{
+	^ASSIGN KSTART 0
+	timer -rep 1000 3600 t_kill
+}
+alias killnow if (NKILL)
+{
+	^ASSIGN NKILL 0
+	^ASSIGN TKILL 0
+	timer 10 wallop WARNING: Starting requested kill sequence in 2 minutes.
+        timer 120 wallop WARNING: Kill sequence has now started.
+        timer 130 wallop KILL: Now running Leech kill.
+        timer 250 wallop KILL: Now running MacNap kill.
+        timer 370 wallop KILL: Now running Drumbeat kill.
+        timer 490 wallop STANDBY: Kill sequence has finished.
+        timer 130 leecheater
+        timer 250 maceater
+        timer 370 drumeater
+	timer 490 ^ASSIGN NKILL 1
+	timer 490 ^ASSIGN TKILL 1
+}
+alias t_kill if (TKILL)
+{
+	^ASSIGN TKILL 0
+	^ASSIGN NKILL 0
+	wallop WARNING: Starting hourly kill sequence in 2 minutes.
+	timer 120 wallop WARNING: Kill sequence has started.
+	timer 130 wallop KILL: Now running Leech kill.
+	timer 250 wallop KILL: Now running MacNap kill.
+	timer 370 wallop KILL: Now running Drumbeat kill.
+	timer 490 wallop STANDBY: Kill sequence has finished.
+	timer 500 wallop STANDBY: Kill sequence will repeat in 1 hour.
+	timer 130 leecheater
+	timer 250 maceater
+	timer 370 drumeater
+	timer 500 ^ASSIGN TKILL 1
+	timer 500 ^ASSIGN NKILL 1
+}
+on #^msg 422 "% !kill" if (NKILL)
+{
+        //whois -cmd
+        {
+                switch ($tr(/"//$1))
+                {
+                        (User) {;}
+                        (Leech) {;}
+                        (*)
+                        {
+				wallop KILL: Kill sequence requested by $0.
+				killnow
+                        }
+                }
+        } $0
+}

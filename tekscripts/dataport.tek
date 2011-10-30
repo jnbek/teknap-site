@@ -1,0 +1,9 @@
+/on -servermsg "Notification from *" {
+@port=[$9]+1
+/setdataport $3 $port}
+#this will fake a dataport error and trigger the script :) just for fun
+#hehe
+alias FDPERR
+{
+raw 626 $0
+}

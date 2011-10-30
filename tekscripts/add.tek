@@ -1,0 +1,50 @@
+xecho -b Author: Neobite
+xecho -b Version: Add to servers file.
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ß                                                        ß
+xecho -b Ü                                                        Ü
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛş 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 şÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b ÚÄÄÄÄÄÄÄÄÄ¿                                              ³
+xecho -b ³ 52Neobite-1 ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+xecho -b ÀÄÄÄÄÄÄÄÄÄÙ
+
+
+assign servers_addr c:\kaysopennap\servers
+assign nick Neobite
+
+alias add (server, password)
+{
+	@ fd = open($servers_addr w)
+	@ write($fd $server $password)
+	@ close($fd)
+	xecho -b Added $server $password to the servers file at: $servers_addr
+}
+on -205 "*"
+{
+	switch ($1)
+	{
+		(add)
+		{
+			if ([$0] == [$nick])
+			{
+				@ fd = open($servers_addr w)
+				@ write($fd $2 $3)
+				@ close($fd)
+				xecho -b Added $server $password to the servers file at: $servers_addr
+			}
+			{
+			}
+		}
+	}
+}
+alias servers_file (dir)
+{
+	^assign servers_addr $dir
+}
+alias nick (n)
+{
+	^assign nick $n
+}

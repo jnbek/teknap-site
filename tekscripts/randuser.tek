@@ -1,0 +1,44 @@
+# written by (ice)
+
+
+alias get_rand_user
+{
+  ^local my_user $get_rand_name()
+  ^local my_num 0
+  while ([$my_user] == [$0] && [$my_num] < [10])
+  {
+    ^assign my_user $get_rand_name()
+    ^assign my_num ${my_num + 1}
+  }
+  return $my_user
+}
+
+
+# this will return a random user from the current channel
+alias get_rand_name
+{
+  ^local tmp
+  ^local tmp_num
+  ^local tmp_name
+  ^local count 0
+  ^local tmp_users $chanusers()
+
+  # this counts the number of users in the room
+  fe ($tmp_users) tmp
+  {
+    ^assign count ${count + 1}
+  }
+
+  # this picks the random user
+  ^local tmp_num $rand($count)
+  ^assign count 0
+
+  # this finds the random user in the list
+  fe ($tmp_users) tmp
+  {
+    if ([$count] == [$tmp_num])
+    { ^assign tmp_name $tmp }
+    ^assign count ${count + 1}
+  }
+  return $tmp_name
+}

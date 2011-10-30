@@ -1,0 +1,72 @@
+xecho -b ** Anti-whois enabled
+
+on ^servermsg "*has requested your info*" 
+{
+	@checkwhois=[$0]
+	if (finditem(checkusrwhois $checkwhois) < [0])
+	{
+		@setitem(checkusrwhois $numitems(checkusrwhois) $checkwhois)
+		@setitem(repwhois $numitems(repwhois) $checkwhois)
+	}
+	@checkusritmwhois = finditem(checkusrwhois $checkwhois)
+	@repiwhois = getitem(repwhois $checkusritmwhois) + 1
+	@setitem(repwhois $checkusritmwhois $repiwhois)
+	switch ($repiwhois)
+	{
+		(1)
+		{
+			xecho ** $0 has whois'ed you.
+			msg $0 See anything you like, $0?
+			timer 20 { 
+                        xecho Timing out with user $0 after 20 seconds for anti-whois..
+			@delarray(repwhois) 
+			@delarray(checkusrwhois)
+			}
+		}
+		(2)
+		{
+			xecho ** $0 has whois'ed you. (2x)
+			whois $0
+			^on ^who "*"
+			{
+			raw 205 $0 Thanks for requesting my info,
+			raw 205 $0 Here is yours:
+			raw 205 $0 -------------------------------------------
+			raw 205 $0 Name:   $tr(/"//$0)
+			raw 205 $0 IP:     $tr(/"//$12)
+			raw 205 $0 Server: $tr(/"//$16)
+			raw 205 $0 Level:  $tr(/"//$1)
+			raw 205 $0 Status: $tr(/"//$4)
+			raw 205 $0 Client: $tr(/"//$9)
+			raw 205 $0 Channel(s): $tr(/"//$3)
+			raw 205 $0 Now stop whois'ing me, damnit..
+			on who -
+			}
+
+		}
+		(3)
+		{
+			xecho ** $0 has whois'ed you. (3x)
+			msg $0 Stop whois'ing me now, last warning..
+			# raw 610 $0 "Constant whois'ing!"
+		}
+		(4)
+		{
+			xecho ** $0 has whois'ed you. (4x)
+			msg $0 Stop whois'ing me now, won't you fuckhead?
+		        whois -cmd
+        		{
+		                switch ($tr(/"//$1))
+		                {
+                		        (Moderator) {;}
+		                        (Admin) {;}
+                		        (Elite) {;}
+		                        (*)
+                		        {
+						raw 610 $0 "Constant whois'ing!"
+					}
+				}
+			} $0
+		}
+	}
+}

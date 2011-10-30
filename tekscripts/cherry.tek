@@ -1,0 +1,28 @@
+xecho -b cherry script loaded ... by Princess
+/alias cherry
+{ 
+/sayc %g                 d888P
+/sayc %g       d8b d8888P%G:::%gP
+/sayc %g     d%G:::%g888b%G::::::%gP
+/sayc %g    d%G:::%gdP8888b%G:%gd8P
+/sayc %g   d%G:::%gdP 88b  Yb   %r.d8888b.
+/sayc %g  d%G::::%gP  88Yb  Yb %r.P%R::::::%rY8b
+/sayc %g  8%G:::%g8   88`Yb  Yb%rP%R::::   :::%rb
+/sayc %g  8%G:::%gP   88 `8   %r8!%R:::::::::::%rb
+/sayc %g  8%G:%gdP    88  Yb %rd!!!%R::::::::::%r8
+/sayc %r  %g8P    %r..%g88   %gYb%r8!!!%R::::::::::%rP
+/sayc %r   .d8%R:::::%rYb  d888VKb:!:!::!:8
+/sayc %r  d%R::::::  ::%rdP%R:::::::::%rb!!!!8
+/sayc %r 8!!%R::::::::%rP%R::::::::::::%rb!8P
+/sayc %r 8:!!%R::::::%rd%R::::::: ::::::%rb
+/sayc %r 8:!%R:::::::%r8!%R:::::::  ::::%r8
+/sayc %r 8:!!!%R:::::%r8!%R:::::::::::::%r8
+/sayc %r Yb:!!%R:::::%r8!!%R::::::::::::%r8
+/sayc %r  8b:!!!:!!8!!!:!%R:::::%r!!:dP
+/sayc %r   `8b:!!!:Yb!!!!%R:::::%r!d88
+/sayc %r       8b!!Y Y88!!!!!!!d8
+/sayc %r               Y88!!!!8
+
+}
+
+      

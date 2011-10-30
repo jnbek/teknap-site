@@ -1,0 +1,21 @@
+on ^join "*" { 
+if ( [$0] == N ) 
+{echo *** You have joined  \($0\) ***} 
+{m $1 welcome $1! your now $0
+m $1 Welcome to the Neked Room on the cool nap net..
+m $1 Thanks for cumin, please check you clothes at the door!} 
+m $1 remember be safe or you cyber stuff will itch!}
+} 
+
+on ^leave "*" {
+if ( [$0] == N ) 
+{echo *** You have left  \($0\) ***} 
+{m $1 HEY! you decided to leave? $0!
+m $1 heres you clothes back!
+m $1 i hope everything came out alright
+m $1 cum again anytime signed... funnibabe}
+
+
+}
+
+echo BOT...Loaded 

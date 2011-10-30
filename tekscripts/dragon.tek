@@ -1,0 +1,82 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/dragon1, /dragon2
+
+alias sayc {say $cparse("$*")}
+
+alias dragon1
+{
+sayc %r
+sayc %r   .:'                                  `:.
+sayc %r  ::'                                    `::
+sayc %r :: :.                                 .: ::
+sayc %r  `:. `:.             .             .:'  .:'
+sayc %r   `::. `::           !           ::' .::'
+sayc %r       `::.`::.    .' ! `.    .::'.::'
+sayc %r         `:.  `::::'':!:``::::'   ::'
+sayc %r         :'*:::.  .:' ! `:.  .:::*`:
+sayc %r        :: %RHHH:%r:.   ` ! '   .:%R:HHH%r ::
+sayc %r       ::: %R`H TH:%r:.  `!'  .:%R:HT H'%r :::
+sayc %r       ::..  %R`THHH:%r`:   :'%R:HHHT'%r  ..::
+sayc %r       `::      %R`T:%r `. .' %R:T'%r      ::'
+sayc %r         `:. .   %R:%r         %R:%r   . .:'
+sayc %r           `::'               `::'
+sayc %r             :'  .`.  .  .'.  `:
+sayc %r             :' ::.       .:: `:
+sayc %r             :' `:::     :::' `:
+sayc %r              `.  ``     ''  .'
+sayc %r               :`...........':
+sayc %r               ` :`.     .': '
+sayc %r                `:  ```'''  :'
+sayc %r
+}
+
+alias dragon2
+{
+sayc %C                               ,   ,
+sayc %G                               S,  S,     %C,
+sayc %G                                'ss.Sss. .s'
+sayc %C                        ,%G     .ssSSSSSSSs,
+sayc %G                        S. sSSSSSSSSSSS`SSSs
+sayc %G                        'SSSSSSSSSSSSSSS%Ro%GSSS       ,
+sayc %G                       sSSSSSSSSSSSSSSSSSSSSSs,  ,s
+sayc %G                      sSSSSSSSSS'SSSSS''''SSSSS'SSSS,
+sayc %G                      sSSSSSSSSs''SSSssssss'SSSSSSSS'
+sayc %G                     sSSSSSSSSSS'      `'''ss'S'Ss''
+sayc %G                     sSSSSSSSSSS,           `'''''
+sayc %G                     sSSSSSSSSSS,                 S.sSSs
+sayc %G                     sSSSSSSSSSSs,...            `sSS'  %C`
+sayc %G                 %C`%GssssSSSSSSSSSSSSSSSSS%g####%Gs.   .SS'S%C. %G.sSSs
+sayc %G                   `''''SSSSSSSSSSSSSSSSS%g#####%GSSSS'   sSS'  %C`
+sayc %G                       'SSSSSSSSSSSSSSSSSS%g####:''%G   .SSS:
+sayc %G                        'SSSSSSSSSSSSSSSSSSSSS%g##.%G  .SS' S
+sayc %G                         SS''SSSSSSSSSSSSSSSSSSSSSSSS'   %C`
+sayc %G                         SS'  'S'SSSSSSSSSSSSSSS%g###''
+sayc %C                        , '     '  %GSSSSSSSSSSSSS%g####.
+sayc %G                        S.       .sSSSSSSSSSSSSSS%g####.
+sayc %C            ,           %G'Ss.   ..ssSSSSSSSSSSSSSSS%g####
+sayc %G            S           .SSSSSSSSSSSSSSSSSSSSSSS%g#####'
+sayc %G            Ss     ..sSSSSSSSSSSSSSSSSSSSSSS%g######''
+sayc %G             `SSsSSSSSSSSSSSSSSSSSSSSSSS%g########'
+sayc %C      ,      %GsSSSSSSSSSSSSSSSSSSSSS%g#########'''
+sayc %G      S    sSSSSSSSSSSSSSSSSSSSSS%g#######'''%G  s%C'     ,
+sayc %G      SS..SSSSSSSSSSSSSSSSSS%g######''%G     ..,SS...  ,S
+sayc %G        `SSSSSSSSSSSSSSS%g######''%G     .sSSSSSSSSSSsSS
+sayc %G         SSSSSSSSSSSS%g#####'%G       .sSSSSSSSSSSSSSSSSSs.
+sayc %G         SSSSSSSSSSS%g#####'%G     sSSSSSSSSS%g#######%GSSSSSSSS.
+sayc %R    >%Y\<%G   SSSSSSSSSSS%g#####%G     sSSSSSSS%g###'    `####%GSSSSSSS.
+sayc %Y    %Y>%R\<%G  'SSSSSSSSSSSS%g####.%G   SSSSSSS%g###'        `###%GSSSSSS
+sayc %R   \<%Y\<%R>%Y>%G 'SSSSSSSSSSSSS%g####. %GSSSSSS%g###'           `###%GSSSSS
+sayc %Y   >%R\<%Y>%R\<%G  SSSSSSSSSSSSSS%g#####.%GSSSSS%g###'           .###%GSSSSS
+sayc %R  <%Y>%R>%Y\<%R\>%Y>%G  SSSSSSSSSSSSS%g######.%GSS%g##'            .###%GSSSSSS'
+sayc %R  >%Y\<%R\<%Y>%R\<%Y>%G `SSSSSSSSSSSSSSS%g#######.         ..####%GSSSSSSSS'
+sayc %Y >%R>\<%Y\<%R>%GS%Y>%R\<%Y>%G `SSSSSSSSSSSSSSSSSS%g###############%GSSSSSSSSS
+sayc %Y \<%R\<%Y>%R>%Y>%GSS%R>%Y\<%R\<%Y'%R.%G`'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,
+sayc %R >%Y\<%R\<%Y>%GSSSs%Y>%R\<%Y\<%R>%G  .`SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS''`SS
+sayc %Y \<%R.%Y>%GSSSSs%Y/%G     .sSSSSSS%g##%GSSSSSSSSSSSSSSSSSSSSSS''     %C'
+sayc %R  %Y'%R>%Y_%GSSSSSSSSSSSSSSSSS%g##'%G  SS        `SS.   `SS.
+sayc %G    `'SSSSSSSSSSSSSS%g#'%G      S          `S     `S
+sayc %G        `'''''''''''        %C'           '       '
+}

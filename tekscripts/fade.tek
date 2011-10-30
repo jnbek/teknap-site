@@ -1,0 +1,161 @@
+alias echoc {echo $cparse("$*")}
+alias stamp
+{
+ echo
+ echoc %WAuthor %n: %cTuToneBK :\)
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Fade Script Loaded %>02/fmenu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias fmenu
+{
+ echo
+ echoc %WUsage      %n: %C/fmenu %BFaded text menu
+ echoc %W           %n: %C/fade %c<color set> <text> %BFaded text
+ echoc %W           %n: %C/efade %c<color set> <text> %BFaded text in echo
+ echoc %W           %n: %C/mefade %c<color set> <text> %BFaded text in emote
+ echoc %W           %n: %C/mfade %c<user> <color set> <text>%BFaded text in msg to user
+ echoc %W           %n: %C/fadeall %c<text>%BFades all sets for text
+ echoc %WColor Sets %n: %W1 <%rDkRed%n-%RLtRed%n-%YYellow%n-%GLtGreen%n-%gDkGreen%Y>
+ echoc %W           %n: %W2 <%CLtCyan%n-%cDkCyan%n-%KDkGrey%n-%wLtGrey%n-%WWhite%Y>
+ echoc %W           %n: %W3 <%rDkRed%n-%RLtRed%n-%WWhite%n-%BLtBlue%n-%bDkBlue%Y>
+ echoc %W           %n: %W4 <%KDkGrey%n-%wLtGrey%n-%WWhite%n-%wLtGrey%n-%KDkGrey%Y>
+ echoc %W           %n: %W5 <%pDkPurple%n-%PLtPurple%n-%wLtGrey%n-%BLtBlue%n-%bDkBlue%Y>
+ echoc %W           %n: %W6 <%yBrown%n-%YYellow%n-%wLtGrey%n-%GLtGreen%n-%gDkGreen%Y>
+ echo
+}
+
+alias fadeall {@:cnt=1;while (cnt<7) {fade $cnt $0-;@cnt++}}
+alias mfade  m $0 $fader($1 $2-)
+alias fade   say $fader($0 $1-)
+alias efade  echo $fader($0 $1-)
+alias mefade me $fader($0 $1-)
+
+alias fader
+{
+ switch ($0)
+ {
+  (1) {return $cparse($clf( 1 $1-))}
+  (2) {return $cparse($clf(11 $1-))}
+  (3) {return $cparse($clf(21 $1-))}
+  (4) {return $cparse($clf(31 $1-))}
+  (5) {return $cparse($clf(41 $1-))}
+  (6) {return $cparse($clf(51 $1-))}
+  (*) {echoc %WError: %n1 - 6 only!}
+ }
+}
+
+alias clf (cnt, text)
+{
+ @:text_line=[]
+ switch ($cnt)
+ {
+  (1)
+  {
+   fec ($text) letters
+   {
+    if (cnt==11) {@cnt=1}
+    @text_line#=color_list($cnt)##letters
+    @cnt++
+   }
+   return $text_line
+  }
+  (11)
+  {
+   fec ($text) letters
+   {
+    if (cnt==21) {@cnt=11}
+    @text_line#=color_list($cnt)##letters
+    @cnt++
+   }
+   return $text_line
+  }
+  (21)
+  {
+   fec ($text) letters
+   {
+    if (cnt==31) {@cnt=21}
+    @text_line#=color_list($cnt)##letters
+    @cnt++
+   }
+   return $text_line
+  }
+  (31)
+  {
+   fec ($text) letters
+   {
+    if (cnt==41) {@cnt=31}
+    @text_line#=color_list($cnt)##letters
+    @cnt++
+   }
+   return $text_line
+  }
+  (41)
+  {
+   fec ($text) letters
+   {
+    if (cnt==51) {@cnt=41}
+    @text_line#=color_list($cnt)##letters
+    @cnt++
+   }
+   return $text_line
+  }
+  (51)
+  {
+   fec ($text) letters
+   {
+    if (cnt==61) {@cnt=51}
+    @text_line#=color_list($cnt)##letters
+    @cnt++
+   }
+   return $text_line
+  }
+  (*) {}
+ }
+}
+
+alias color_list (num)
+{
+ switch ($num)
+ {
+   (1)(10) {return %r}
+   (2) (9) {return %R}
+   (3) (8) {return %Y}
+   (4) (7) {return %G}
+   (5) (6) {return %g}
+
+  (11)(20) {return %C}
+  (12)(19) {return %c}
+  (13)(18) {return %K}
+  (14)(17) {return %w}
+  (15)(16) {return %W}
+
+  (21)(30) {return %r}
+  (22)(29) {return %R}
+  (23)(28) {return %W}
+  (24)(27) {return %B}
+  (25)(26) {return %b}
+
+  (31)(40) {return %K}
+  (32)(39) {return %w}
+  (33)(38) {return %W}
+  (34)(37) {return %w}
+  (35)(36) {return %K}
+
+  (41)(50) {return %p}
+  (42)(49) {return %P}
+  (43)(48) {return %w}
+  (44)(47) {return %B}
+  (45)(46) {return %b}
+
+  (51)(60) {return %y}
+  (52)(59) {return %Y}
+  (53)(58) {return %w}
+  (54)(57) {return %G}
+  (55)(56) {return %g}
+
+  (*) {}
+ }
+}

@@ -1,0 +1,67 @@
+# magnus
+# lame, beyond lame.. so fucking lame, my dick refuses to erect itself.
+
+package starman
+
+say oH HeLl FUck NO!@?3 i'VE goT StaRmAN(tM) iN mUH sEMeN!2? -- eEK!@#?
+
+alias star {
+	if ([$0]) {
+		if (ischannel($0)) {
+			starwhack $0
+		}{
+			userhost $0 -cmd {
+				if ([$3]!=[<UNKNOWN>]) {
+					starwhack $0
+				}{
+					xecho -b You SIlly FuK'N GoAT?@! $0 IsN'T OnLIne WH0re?!2 -- eeK!@#?
+				}
+			}
+		}
+	}{
+		xecho -b heLP1@?# You NEeD HELP!@?# eEEDiOT!@? /StAR <nICk/ChAN> - do'H?@
+	}
+}
+alias starwhack {
+	@ rainbow_is_func = 1
+	me tHiNKZ $0 DesERVeS uH sTArMan!?@(tm)! \(oh gNO!@# $rainbow(eEK!?))
+        msg $0 $ansicparse("%Y__/\\\\__%n")     $rainbow(YOu'vE)
+        msg $0 $ansicparse("%Y\\\\ %WoO %Y/%n")     $rainbow(beEN)
+        msg $0 $ansicparse("%Y/_%R\\\\/%Y_\\\\%n")     $rainbow(sTAr'd)
+        msg $0 $ansicparse("%Y  \\\\/%n")   $rainbow(mOtheRFaWKur!?@)
+	say $0\, taKe THAt BItZH!@#? $rainbow(aYAaYEYE?!@3)
+	^assign -rainbow_is_func
+}
+alias starver {
+	if ([$0]) {
+		msg $0 eY'e goTZ deMON iN MuH SeMEN and A sTarMaN(Tm) + rAINhaX0ReDNesS In Muh BawLz?!@ - eEK!@?
+	}{
+		send eY'e goTZ deMON iN MuH SeMEN and A sTarMaN(Tm) + rAINhaX0ReDNesS In Muh BawLz?!@ - eEK!@?
+	}
+}
+if (!bitchx(1)) {
+        load ansicparse
+}{
+        alias ansicparse {
+                return $cparse($sar(g/\\\\/\\/$*))
+        }
+}
+
+alias rainbow {
+        @:buf=[]
+        fec ($*) a b c d e f g {
+                @:buf#=ansicparse("%r$a%R$b%Y$c%G$d%B$e%P$f%p$g"))   
+        }
+        @:isfunc=[]
+        if (bitchx(1)) {
+                @:isfunc=rainbow_is_func
+        }{
+                @:isfunc=functioncall()
+        } 
+        if (isfunc) {
+                return $buf
+        }{
+                msg $T $buf
+        }
+} 
+

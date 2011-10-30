@@ -1,0 +1,194 @@
+/* Clone checker. Executes /gusers and stores the output in an array.
+   It then checks each IP for duplicates and stores them in a new array. */
+
+
+alias triple (server default "*", void)
+{
+	xecho -b Checking for clones on $server
+	^on ^831 "*"
+	{
+		^local cnt
+		for (@ cnt = [0], numitems(users) > cnt, @ cnt++)
+		{
+			if (matchitem(clones $getitem(users $cnt)) < 0)
+			{
+				^local blah
+				@ blah = getmatches(users % $word(1 $getitem(users $cnt)))
+				if (#blah > 2)
+				{
+					fe ($blah) clone
+					{
+						@ setitem(clones $numitems(clones) $getitem(users $clone))
+					}
+				}
+			}
+		}
+		if (numitems(clones))
+		{
+			xecho -b Nickname                         IP
+			for (@ cnt = [0], numitems(clones) > cnt, @ cnt++)
+			{
+				^local user
+				@ user = getitem(clones $cnt)
+				echo     $[32]word(0 $user) $word(1 $user)
+			}
+			xecho -b Found $numitems(clones) clone${numitems(clones) > 1 ? [s] : []}.
+		}{
+			xecho -b No clones found.
+		}
+		@ cleanup_clonechk()
+	}
+	^on ^832 "*"
+	{
+		@ setitem(users $numitems(users) $*)
+	}
+	^gusers $server
+}
+
+
+
+
+alias cleanup_mkill (void)
+{
+	^on 831 -
+	^on 832 -
+	@ delarray(mkill)
+	@ mkill.victim = mkill.reason = []
+	return 1
+}
+
+
+
+
+alias cleanup_clonechk (void)
+{
+	^on 831 -
+	^on 832 -
+	@ delarray(users)
+	@ delarray(clones)
+	return 1
+}
+
+
+
+
+/* Mass kill - works with nicks or IPs and does wildcard matching. */
+# alias mkill (victim, reason)
+# {
+#    if (victim)
+#    {
+#	xecho -b Finding matches for \"$victim\"
+#	@ mkill.victim = victim
+#	@ mkill.reason = reason
+#	^on ^831 "*"
+#	{
+#		if (numitems(mkill))
+#		{
+#			^local cnt
+#			xecho -b Nickname                         IP
+#			for (@ cnt = [0], numitems(mkill) > cnt, @ cnt++)
+#			{
+#				echo     $[32]word(0 $getitem(mkill $cnt)) $word(1 $getitem(mkill $cnt))
+#			}
+#			xecho -b Found $numitems(mkill) match${numitems(mkill) > 1 ? [es] : []}.
+#			input "Kill these users now? (y/N) "
+#			{
+#				switch ($tolower($left(1 $0)))
+#				{
+#					(y) {
+#						for (@ cnt = [0], numitems(mkill) > cnt, @ cnt++)
+#						{
+#							raw 610 $word(0 $getitem(mkill $cnt)) \"$mkill.reason\"
+#						}
+#					}
+#					(*) {}
+#				}
+#				@ cleanup_mkill()
+#			}
+#		}{
+#			xecho -b No matches found.
+#			@ cleanup_mkill()
+#		}
+#	}
+#	^on ^832 "*"
+#	{
+#		if (match($mkill.victim $0) || match($mkill.victim $1) && [$0] != N)
+#		{
+#			@ setitem(mkill $numitems(mkill) $*)
+#		}
+#	}
+#	^gusers * $victim
+#    }{
+#	xecho -b Usage: /mkill <string> [reason]
+#	xecho -b   - Mass kills all users matching <string>
+#	xecho -b   - Wildcards are accepted
+#    } 
+# }
+
+
+
+
+alias mkill (victim, reason)
+{
+    if (victim)
+    {
+	xecho -b Finding matches for \"$victim\"
+	@ mkill.victim = victim
+	@ mkill.reason = reason
+	^on ^831 "*"
+	{
+		if (numitems(mkill))
+		{
+			^local cnt
+			for (@ cnt = [0], numitems(mkill) > cnt, @ cnt++)
+			{
+				if ([$matchitem(mkill_ips $word(1 $getitem(mkill $cnt))] < [0])
+				{
+					$setitem($numitems(mkill_ips) $word(1 $getitem(mkill $cnt)) 
+				}
+			}
+			^local cnt_ips
+			for (@ cnt_ips = [0], numitems(mkill_ips) > cnt_ips, @ cnt_ips++)
+			{
+				xecho -b Nickname                         IP
+				fe ($getmatches(mkill $getitem(mkill_ips $cnt_ips))) Nicks_On_Ip 
+ 				{
+					echo     ****** Ip Group $cnt_ips ******
+					echo     $[32]word(0 $getitem(mkill $Nicks_On_Ip)) $word(1 $getitem(mkill $getitem(mkill $Nicks_On_Ip))
+				}
+				xecho -b Found These Users On $Nicks_On_Ip.
+				input "Kill these users now? (y/N) "
+				{
+					switch ($tolower($left(1 $0)))
+					{
+						(y) {
+							for (@ cnt = [0], numitems(mkill) > cnt, @ cnt++)
+							{
+								raw 610 $word(0 $getitem(mkill $Nicks_On_Ip)) \"$mkill.reason\"
+							}
+						}
+						(*) {}
+					}
+					@ cleanup_mkill()
+				}
+			}
+		}{
+			xecho -b No matches found.
+			@ cleanup_mkill()
+		}
+	}
+	^on ^832 "*"
+	{
+		if (match($mkill.victim $0) || match($mkill.victim $1) && [$0] != N)
+		{
+			@ setitem(mkill $numitems(mkill) $*)
+		}
+	}
+	^gusers * $victim
+    }{
+	xecho -b Usage: /mkill <string> [reason]
+	xecho -b   - Mass kills all users matching <string>
+	xecho -b   - Wildcards are accepted
+    } 
+}
+

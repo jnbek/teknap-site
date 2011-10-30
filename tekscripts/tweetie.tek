@@ -1,0 +1,47 @@
+alias tweetie
+{
+sayc %Y			                                       
+sayc %Y                          t   .                          
+sayc %Y                           ?  `                          
+sayc %Y                           l  `,  .                      
+sayc %Y                           `t  t  `                      
+sayc %Y                            ?  `  `                      
+sayc %Y                         _,,:cc,,,:.                     
+sayc %Y                   ,,cSSSSSS:SSSSSSSSSSSc,               
+sayc %Y               ,cSSSSSSSSSSSSSSSSSSSSSSSSSSh,            
+sayc %Y            ,cSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSc,         
+sayc %Y         ,dSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,       
+sayc %Y       ,SSSSS`,dSSSSSSSSSSSSSSSSSSSSSSSSShc`?SSSSSc      
+sayc %Y      ,SSSSSuSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSh,?SSSSL     
+sayc %Y      JSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSbSSSSS`    
+sayc %Y      SSSSSSSPSS?SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS`    
+sayc %Y      SSSSSSSS`Sb`SSSSSSSSSSSSSSSSSSSSS`S`dSSSSSSSSS     
+sayc %Y      `SSSSSSc `,nn,?SSSSSSSSSSSSSSS`,,`r`,dSSSSSSS'     
+sayc %Y       `SSSSSSS MMMMM`SSSSSSSSSSSSF,MMMb`SSSSSSSSS'      
+sayc %Y        `SSSSSS`MMTTM.?SSSSSSSSSSS,MMMMM SSSSSSSS'       
+sayc %Y         `SSSSS,M%B`::: %Y`SSSSSSSSSS'M%B`,,``%Y,SSSSSSS'        
+sayc %Y           ?SSSS,%B`` ``%Y SSSSSSSSSS%B ,`'``%Y JSSSSSP'         
+sayc %Y            ?SSSS,%B`  `%Y SSSSSSSSSS%B `'  `%Y,SSSSSF           
+sayc %Y             `SSSS.%B`-' %YSSSSSSSSSS,%B`--'%Y,SSSSS'            
+sayc %Y               SSSSShhSSSSS????SSShcSSSSSSS'             
+sayc %Y              dSSSSSSSSS `======' SSSSSSSSS:             
+sayc %Y              SSSSSSSSSSSSc,,,,cSSSSSSSSSSS'             
+sayc %Y               `?SSSSP`` `SSSSSS?????SS??`               
+sayc %Y                          SSSSS                          
+sayc %Y                         4SSSSSc                         
+sayc %Y                       ,SSSSSSS`c                        
+sayc %Y                      zS`SSSSSSS`S,                      
+sayc %Y                     zS`SSSSSSSSS`Sc                     
+sayc %Y                    `S`SSSSSSSSSS:?S                     
+sayc %Y                    `S`SSSSSSSSSSS:S                     
+sayc %Y                     ?LSSSSSSSSSSS:S                     
+sayc %Y                      ?SSSSSSSSSSSd'                     
+sayc %Y                      `SSSSSSSSSSF                       
+sayc %Y                       `?Sc`??3SF                        
+sayc %y                        CCC   CCC                        
+sayc %y  ,:`CC`C`:,,.          `CC   CCC              .,,,,,.   
+sayc %y CCC`CCCCCCCCCCCCCCCCCCCCCC   CC`CCCCCCCCCCCCCCCCCCCCCC`, 
+sayc %y ``,CCCCCCCCCCCCCCCCCCCCCCCC, `CCCCCCCCCCCCCCCCCCCCCC```C 
+sayc %y  CCCCCCCCCCCCCCCCCCCCCCC`'   `'CCCCCCCCCCCCCCCCCCCCCCC` 
+sayc %y   `''``CCCCCCCC``''               `'``CCCCCCCCCCCCCCC`  
+}

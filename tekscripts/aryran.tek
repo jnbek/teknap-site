@@ -1,0 +1,862 @@
+
+xecho -b ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+xecho -b ³                                                        ³
+xecho -b ³                                                        ³
+xecho -b ³                  11 ARYRAN.RC LOADED-1                     ³
+xecho -b ³                  11 Author: buttidsfijsrf-1                ³ 
+xecho -b ³                                                        ³
+xecho -b ³       ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿       ³
+xecho -b ÃÄÄÄÄÄÄÄÅÛÛ 11A11R11Y11R11A11N11 11J11U11S11T 11A 11L11I11T11T11L11E 11C11O11L11O11R 11S11C11R11I11P11T-1  ÛÛÅÄÄÄÄÄÄÄ´
+xecho -b ³       ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ       ³
+xecho -b ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+xecho -b 12Script Loaded! Type 10/menu12 to see list of scripts included in this script.-1
+
+
+alias menu
+{xecho -b 9 /fuck 10..whatever it is that attracts you-1
+ xecho -b 9 /crap 10..a crap of a laugh-1
+ xecho -b 9 /sick1 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick2 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick3 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick4 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick5 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick6 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick7 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick9 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick10 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick11 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick12 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick13 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick14 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick15 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick16 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick17 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick18 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick19 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick20 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick21 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick22 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick23 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick24 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick25 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick26 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick27 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick28 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick29 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick30 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick31 10..time to disgust some lam0rs-1
+ xecho -b 9 /sick32 10..time to disgust some lam0rs-1
+ xecho -b 9 /game 8 10..invite someone to play-1
+ xecho -b 9 /boot 8 10..give someone the fake boot-1
+ xecho -b 9 /hate 8 10..run over another user with hate-1
+ xecho -b 9 /saytime 10..tells the time what else?-1
+ xecho -b 9 /showcolors 10..looks like a color flood, but it's real easy to learn colors from it-1
+ xecho -b 9 /sayc2 8<what to say> 10..type in multicolor-1
+ xecho -b 9 /start 10..to talk in random color without typing sayc2 everytime-1
+ xecho -b 9 /stop 10..to stop talking in random color-1
+ xecho -b 9 /nate 10..the address to my website-1
+ xecho -b 9 /butt 10.. the address of my website
+}
+
+alias showcolors
+# (#)is a comment
+# %is the control charcter to tell client next number or letter is a color
+# 0 = white ..... 7= black, letters are C = turquoise, c = dull turquoise....
+{
+sayc %C%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %c%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %G%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %g%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %Y%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %W%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %w%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %B%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %b%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %M%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %m%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %R%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %r%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %K%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %k%0 0 %1 1 %2 2 %3 3 %4 4 %5 5 %6 6 %7 7 
+sayc %CC %cc %GG %gg %YY %WW %ww %BB %bb %MM or P %mm or p %RR %rr or y %KK
+}
+alias sayc { /eval say $cparse("$*") }
+alias sayme { /eval me $cparse("$*") }
+alias saymsg { /eval m $cparse("$*") }
+
+  assign SAYC2COLORLIST rgybmpcwRGYBMPCW
+	
+alias SAYC2
+	{
+	^local TEXTLINE  $*
+	^local STRING
+	^local BYTE
+	^local OUTPUTLINE
+	while ( [$TEXTLINE] != [] )
+		{
+		@ BYTE = left(1 $SAYC2COLORLIST)
+		@ STRING = mid(1 15 $SAYC2COLORLIST)
+		@ SAYC2COLORLIST = [$STRING$BYTE]
+		@ OUTPUTLINE = [$OUTPUTLINE%$BYTE]
+		@ BYTE = left(1 $TEXTLINE)
+		@ TEXTLINE = mid(1 999 $TEXTLINE)
+		@ OUTPUTLINE = [$OUTPUTLINE$BYTE]
+		}
+	say $cparse($OUTPUTLINE)
+	}
+
+alias game
+{
+say Hello Fine Chatters
+say This is a Game
+say This is a Game that i play
+say A game i also Made
+say This can be a fun but hard game
+say Are u gonna play ?
+say This game tells you if u got what it takes to be here
+say You r losing
+say You are all losing The Game
+say U just wish u could play as well as i do.
+say Why r u takin so long ??
+say A winner!!!!
+say it took ya a while but u won.
+say Well off to another potential client, Later !
+}
+alias boot
+{
+say Hi
+say i am a stalker.
+say goto another Server i will find You!
+say BOOT ME
+say Heh u cant boot shit!
+say if u nuke me, u will be muzzled
+say u want me to try and not nuke you ?
+say lam0r
+say FLOOD my im's
+say NO FUCK U
+say Get off me Nigga
+say Heh i bet ur flattered
+say dont talk to me
+say plz PLEASE talk to me im sorry
+say lmao, u cant boot shit!
+say well according to the napster chat laws booting is not prohibited
+say well time to annoy another channel
+}
+alias sayc
+{ 
+	eval say $cparse("$*")
+}
+/alias sick1
+{     
+/eval me fastly jacks off to gay male porn, right upon his orgasm he lifts his penis above the keyboard and slowely lets the clear-white cum ooze on the keys
+}
+/alias sick2
+{
+/eval me begins to rub his fingers along the cum soaked keys, orgasming with every stroke, and moaning with great delight 
+}
+/alias sick3
+{
+/eval me lays back and relaxes as cum flows through his cock, pouring onto the floor 
+}
+/alias sick4
+{
+/eval me begins to rub his inner thigh, grasping on to a dry puddle of semen, removing it and eating it with full satisfaction 
+}
+/alias sick5
+{
+/eval me orgasms with each bite of dried semen 
+}
+/alias sick6
+{
+/eval me pulls out a picture of his favorite little boy johnny
+}
+/alias sick7
+{
+/eval me gazez into the small boys eyes and violently beets his cock until he shoots his load, soaking the picture in warm cum 
+}
+/alias sick8 
+{
+/eval me inserts his moist finger into his rectum swirling it around inside the fetid cavity, quickly brings it up to his nose, eagerly savoring the foul stench of his own ass crack.
+}
+/alias sick9
+{
+/eval me grabs a razor and begins to shave his pubic hair, after all the hair is removed he begins to rub the pubes in his face 
+}
+/alias sick10
+{
+/eval me blows his load on the cum soaked couch, lifts his leg and notices cum soaked pubes all over is body, he then decides to wash them off with a nice shower of piss 
+}
+/alias sick11
+{
+/eval me attempts to ignite one his vicious farts with a cheap lighter, but succeeds only in scorching his dense and prickly anal hair.
+}
+/alias sick12
+{
+/say Are you aware of the discovery in the human body of a nerve that connects the eyeball to the asshole?
+}
+/alias sick13
+{
+/say It is called the anal optic nerve
+}
+/alias sick14
+{
+/say It is responsible for giving people a crappy outlook on life
+}
+/alias sick15
+{
+/say If you don't believe me, pull a hair from your ass and see if it doesn't bring tears to your eyes
+}
+/alias sick16
+{
+/say Ahhh i remember my childhood just like it was yesterday, i remember the first day i relized i was a gay ass fag boy 
+}
+/alias sick17
+{
+/eval me looks back in a picture book and see's himself being anal raped by his sister and her favorite dildo 
+}
+/alias sick18
+{
+/say there once was a lady named alice, who used a dynamite stick for a phallus. they found her vagina in south carolina and part of her anus in dallas.
+}
+/alias sick19
+{
+/say how bout the chinese couple who had a retarded baby.
+/say they named him SuM Ting Wong.
+}
+/alias sick20
+{
+/say hey how come folks from poland are called poles but folks from holland ain't called holes?
+}
+/alias sick21
+{
+/say I am only on napster to insult foreigners.
+}
+/alias sick22
+{
+/eval me begins to play with his balls then strokes his cock, then with one quick thrust he bends his head down between his knees trying to suck his cock 
+}
+/alias sick23
+{
+/say every time i eat alot of chicken and fart alot, it makes my balls smell like cabbage.
+}
+/alias sick24
+{
+/say even if christina aguilera shit her pants and walked around in it all day, i would still eat her out.
+}
+/alias sick25
+{
+/say i want to eat the queen of englands' vagina...sure, it would be icky, but a huge rush!!
+}
+/alias sick26
+{
+/say i would suck on jessica simpson's cervix until her forehead caved in.
+}
+/alias sick27
+{
+/say even if anna kournikova had a yeast infection accompanied by vaginal discharge, i would nevertheless perform cunnilingus on her.
+}
+/alias sick28
+{
+/say i would eat the corn and peanuts out of britney spears' feces.
+}
+/alias sick29
+{
+/eval me shits on the floor, and imagines the slimy brown goo pooring out of britneys ass
+}
+/alias sick30
+{
+/eval me bends down and begins to slurp up the shit, then looks up with his shit covered face, smiles and says, ''mmm mmm good'' 
+}
+/alias sick31
+{
+/eval me still isnt satisfied 
+}
+/alias sick32
+{
+/eval me slowely walks to the toilet and fastley grabs a huge brown log, tossing it into his mouth, and spraying cum in his pants 
+}
+alias sayc
+{ 
+	eval say $cparse("$*")
+}
+/alias hate 
+{
+/say hello vell peopl
+/say our alliesz combat 18 
+/say NATIOAL FRONT
+/say HELP UZ TAKE oVER u scum 
+/say THE MIGHTY nick griffen
+/say of  mighty b n p 
+/say haz his troops 
+/say ready u scum
+/say and combat 18 
+/say and all the 
+/say nazi worldvide 
+/say are waiting 
+/say for the signal
+/say u azzdogs
+/say u inferior scum
+/say u shit eaters
+/say u dare nsult a german
+/say supreme master
+/say u say that 
+/say we will put 
+/say German Swatsikas
+/say everywhere 
+/say on ur forheads 
+/say on the walls 
+/say on the buildings 
+/say on the moon 
+/say VHEN VE FIRE 
+/say NEWCLEAR VEOPONS 
+/say U R CITIES 
+/say VILL GO BOOM
+/say A BANG A BANG BOOM A BANG A BAAAAAAANG
+/say AND VE VILL LAUGH HAAAAHAAAA  HHHAAAAA HAAAAAAAA
+/say NAZIs ARE FEARED
+/say U B AFRAID OF NAZI
+/say EVERY VON SCARE OF NAZI
+/say U PEOPLE RUN FROM UZ
+/say U SEE NAZI U RUN FROM NAZI
+/say U SCARED OF NAzi
+/say are powerful
+/say nazi are in every citi
+/say for the signal
+/say u scum
+/say deztroy u scum all u poodle sackers
+/say u beef eatin turdz of lackey americoon dogz
+/say VE VON THE VOR 
+/say U SCUM DOGZ 
+/say VE VON VE KILLED MORE PEOPLEZ 
+/say THEN U DID 
+/say we will not be insulted by u
+/say we are supreme
+/say we are INdomitableVE 
+/say ARE CONQURERES 
+/say we are not just germans 
+/say we are aryans too
+/say hello how are u people 
+/say i hope u are vell 
+/say u will need to be vell
+/say that we are coming 
+/say and that you 
+/say will be taken over 
+/say by the german empire 
+/say of the 21 st centuary 
+/say u get ready  
+/say to be takren over 
+/say by the  great ones 
+/say of the german empire
+/say u may know 
+/say we fought u lowlifers last time 
+/say amnd we nearly wvon 
+/say but vere betrayed 
+/say by the treacgeous russions
+/say thos bucxkstabbers
+/say but this time 
+/say we  are  ready  
+/say to take  u inferior races over 
+/say and to control u all 
+/say u will become 
+/say part of the ggerman empire
+/say we will be your masters 
+/say andyou will become 
+/say the greatest nationsince 
+/say history begamnn u imbecil
+/say u sutopid irish dogs
+/say u pesky englanders
+/say u think u can stop us
+/say u think uu insult stop us 
+/say eh i will send van schmitt 
+/say to sort u dirty mongrel inpure bastarfs out
+/say all   come on  
+/say COME ON THEN COME ON 
+/say I TAKE YOU ALL ON 
+/say YOU NOTHING YOU SHITEATERS 
+/say NAZI ARE SUPREME
+/say the german empire 
+/say will take u over soon 
+/say already our brothers 
+/say the mighty koo cluk claN 
+/say are plotting to take 
+/say america oveR 
+/say then we will control america 
+/say znd then we control world
+/say ze inferior people 
+/say have no plkace in ze german empire 
+/say but they will help 
+/say to run it 
+/say they will be our slaves 
+/say will dig coal 
+/say will work in the kitchens 
+/say do ALL THE LABOURS 
+/say ALL THE INFERIORS 
+/say WILL MADE TO EAT SHITchores
+/say for their german masters 
+/say we are the superior race 
+/say notjust superior german race 
+/say but the superior german aryan
+/say super ace
+/say bow u w3ak skum
+/say U HAVE NO CHANCEW
+/say noh whats so Eva
+/say VE VILL USE 
+/say NEWTRUN VEOPONZ
+/say TO  STERILIZE 
+/say U SCAM FAGGS U
+/say MONKEY BASTARFS
+/say U GANG OF BULLY BASTARFS
+/say VE VILL FACK 
+/say U VITH MISSILEZ
+/say missiles
+/say vee invented missiles ve
+/say invented v10
+/say v20 rockets
+/say vee sent rockets 
+/say to bombt yo cities
+/say in vors ]ja u pieces of dirt
+/say ve soet u out
+/say vee atom veopons
+/say vee have ss20 
+/say ve have ss23 
+/say vee have ss 45
+/say vee ghave rbuy from collapeing russia 
+/say ha ha haaa 
+/say they cannot do without 
+/say us now
+/say ve vin again 
+/say russia collapses 
+/say without germany
+/say yu will collape too 
+/say ve superior intelligene 
+/say u bozzos
+/say u ameticoon assholes u
+/say vee bomb from air
+/say vee have missiles 
+/say ja ja?
+/say ve have pershingg missiles
+/say nio von can fire atom veapons at uz 
+/say ve have atom veapons 
+/say if ve have atom veapons 
+/say no one can fire atom
+/say veopons at uz
+/say u uderstanmd  ja
+/say u stopid vbastards
+/say u fack faced dogs u montrels
+/say u dont know your fatyhers
+/say u bastasrsds
+/say you wrong germans 
+/say are good people
+/say at LEAST ve know
+/say who ouir fathers ARE
+/say you sluts
+/say you hores
+/say alley cats
+/say and dopgs
+/say ve have disciplinw
+/say ve have order
+/say youi faggots Warum verpisst du dich nicht einfach
+/say ve are efficient
+/say u are falling to peceses 
+/say vithout uz 
+/say ve can save you 
+/say submit mnow and 
+/say ve will spare u
+/say u corrupted monkeys 
+/say u ape fackers
+/say Ich habe noch nie eine groessere SCHEISSE gehoert
+/say u remember ja
+/say ja?
+/say u faagots 
+/say you stole van braun from us
+/say u kidnapped 
+/say van braun
+/say u thieves
+/say u robbers
+/say u dog eared puppy shaggers
+/say u fack faced leftovers of a monkeys ass
+/say you listen 
+/say i right 
+/say u wrong
+/say germuns invented 
+/say evertythin
+/say u stole ideas
+/say van braun was aryan 
+/say he invented rockets
+/say and those rockets 
+/say ve fired at your ass 
+/say ja yo remember 
+/say u assholes
+/say you kidnapped van beaun 
+/say you rovvers 
+/say you dogs
+/say u bastarfs
+/say u lie in history
+/say getmany history is onkly correct 
+/say history u backstavbers
+/say u bullys
+/say u hganged u[p
+/say on one country
+/say notfair fight
+/say u wuill pay
+/say u penisess of fish faggots
+/say u low life mongrels
+/say we will level  paris
+/say and kick the eiffel tower over
+/say saand then nelsons colm
+/say ze will  see 
+/say vee are superior
+/say we will red planet of englander mongerls
+/say of joews
+/say of bluk peoples
+/say of stoopid irishers
+/say of those insufferable spaniards 
+/say wirth hoerrible chattering teetgh castanets 
+/say andtheir dreaful flemuco muzic
+/say we wil, sort the treacherous greeks 
+/say out with oilty dfood
+/say and then we sort 
+/say all the nigga lvers
+/say all the americoon fat slobs
+/say hail be to the nazi glory 
+/say YOU ANAL 
+/say BASTARFS
+/say we shall and 
+/say we will be grat
+/say u faffgetts
+/say u dogs
+/say u earthworms  
+/say achso...jaja is klar...
+/say hauptsache ich bin rassist du spinner....
+/say we will take u obver again 
+/say you fack faced montrels soon
+/say .we have hitler
+/say we have his D N A 
+/say you facks
+/say u ignorant SHITS
+/say U SPAWN OF DOGS
+/say VE HATE U ALL
+/say GET OF MY VORLD
+/say DROWN YOURSELF
+/say DONT COM TO MY COUNTRY 
+/say U FILTHUY SPERM
+/say DONT DEFILE OUR VOMAN 
+/say U MONGRELS BASTArfs
+/say ve  dont vant u scumv  
+/say vei beat shit out of u all
+/say u scum bombed dresden
+/say our u boats vill fire again
+/say ve vill conqur u all
+/say ve beat shit out of you
+/say ve have newclear veopons 
+/say hahhaaaa ve have pershing
+/say u azzholes
+/say ve have cruise mussiles
+/say u fackers
+/say ve are ready 
+/say to fack u in the azz
+/say U SCUM 
+/say VE ARE FEENIX GERMENS
+/say FEENIX GERMENS  
+/say RISE FROM ASH      EACXH TIME
+/say GERMEN ARYANS 
+/say ARE FEENIX FROM ASH 
+/say GERMEN CANNOT BE DEFEATED 
+/say U SCUM 
+/say U INFERIOR
+/say DOOOOOGGGGGGSSS!!!!!!
+/say U HHHHHOOOOOORRRREEEEEZZZZZZ!!!!!
+/say U FAAAAFFFFFFAAAAAAGGGGEEEETTTTTSSSS
+/say we clone hitler  
+/say ve have his d n a
+/say he  vill be born again
+/say you be scared very scared
+/say VE HAAATTTTEEEE UUUUU U 
+/say SSSCCCCUUUUUMMMMMMM!!!!
+/say U IIINNNFFFFEEEEERRRRIIIIOOOOOOOOOORAAAACCCCCCEEEEEESSSS  !!!!
+/say NAAAAZZZZZIII ARE  !!!
+/say we make 200000 hitlers    
+/say he will be leader again
+/say 7000000000 getrmans will follow 200000 hitlers 
+/say to certain victory
+/say we take we have 
+/say we scraped hitlerdna of bunker walls
+/say we have his  sperm
+/say we have 1000000000000 hitler sperm 
+/say we use hitler sperm 
+/say to impregnate your womans
+/say and your mothers
+/say and your will become half germuns 
+/say so that we can bear to look 
+/say at u r butt ugly faces 
+/say YOU FILTHY DIRTY BAGS OF SHIT
+/say COME ON THEN COME ON .
+/say I BEAT U ALL you are NOTHING
+/say VON NAZI 
+/say WORTH A HUNDRED OF YOU SCUM
+/say U APE FAckers
+/say germuns vill kick your azz
+/say u imbeciles
+/say U STUOPID INFERIOR
+/say COZ VE KILLED MORE
+/say JEWZ
+/say MORE BLACKS
+/say MORE ENGLSNDERZ
+/say MORE SCOTTZ
+/say MORE AMERICON SCUM
+/say VE KILLED MORE
+/say POLEZ
+/say FRENCH
+/say VE LILLEDS
+/say MORE RUSSIONZ
+/say ]THE WAR 
+/say THE WAR 
+/say U AZZHOLES ARE STUPID
+/say LIKE YOUR MOTHERZ
+/say ARE HORES
+/say YOUR FATHIERZ
+/say ARE DOGZ 
+/say OF DOGZ 
+/say OIF BASTARFZ
+/say OF HOREMASTERZ
+/say U FAGGZ 
+/say OF FISHPIG
+/say SHITZ OF AZZ 
+/say DONKZ 
+/say SMELLI
+/say on the moon
+/say blaack people will made to stand in the formation 
+/say of the german swastika 
+/say the supreme german swastika
+/say i have to go now 
+/say while u recover 
+/say from this vision 
+/say of german splendour
+/say hello howz are u 
+/say i hope you YOU ARE VELL 
+/say YOU WILL NEED TO BE V ELL 
+/say BECAUSE WE THE MIGHTY GERMUNS 
+/say ARE OMING T O TAke you  OVER JA?
+/say Y OU UNDERSTAND JA JA?
+/say YOU GET  ready to be talen
+/say da  FATHERLAND IS GOING
+/say TO SWALLOW ZE WHOLE.
+/say ZE CANNOT RESIST US WE
+/say eh?     wE      ARE INVINCIBL
+/say no u are wrong
+/say u did not win ww1 ww2 
+/say we rally von 
+/say that cos you cheated 
+/say u ganged  up on uz.
+/say it waz not a fair fight
+/say YOU CHEATS 
+/say YOU CHEATED IN THE WOR
+/say VEE GERMUNS WILL TAKE REVENGE
+/say HOW DARE U CONRADICT ME
+/say OU IMPURE FILTH
+/say U HALF BREED
+/say EH? JA NO
+/say NAW U INSULT UZ 
+/say U VILL PAY DEARLY
+/say MY DEPUTY IS SPETZEN 
+/say HE IS   BE  FEARED
+/say YOU ARE NOT GOING TO BE VELL
+/say sO ARE YOU   
+/say OUR SOLDIERS ARE BEST IN THE WORLD
+/say vell YOU SIT DOWN AND CRY
+/say CRY FOR THE DEFEAT YOU WILL SUFFER
+/say YOU WILL BE SICK.
+/say YOU FAFFGETTS
+/say u will have no countries 
+/say to call your own
+/say we  WILL TAKE OVER SOON
+/say U BOG ROLLSZ OF DOGS SPITTLE
+/say YOU need to be vell
+/say for i HAVE COME 
+/say TO TELL YOUY 
+/say WE GERMUNS VILL 
+/say TAKE U OVER SOON
+/say GERMAN SOLDIERS SORT U BASTARFS OUT 
+/say SOON    U GET READY
+/say YOU BASTARFSDS ARE LOSING YOUR RIGHTSZ 
+/say AND ONLY GURMABNS VILL HAVE RIGHTS
+/say YOU   CANNOT WIN OVER US 
+/say hITLER IS OUR LEADER.
+/say HE IS GOING TO BE BORN AGAIN 
+/say U WAGGETTS
+/say ze will ze that soon
+/say that the germans 
+/say will kick your sorry  ass
+/say u faffgetts  
+/say wer ist hier der rassist?  
+/say we are
+/say coming to conqur you again
+/say HAT VEE ARE CLEVER AND MORE 
+/say INTELLIGUNT THEN U HALFBREEDS
+/say ze people vill salute germun soldiers 
+/say in the streets on the beaches
+/say i n THE GERMUN CITIES
+/say bye fOR NOW SKUM
+}
+
+alias nate
+{               
+/eval sayc $cparse(" %1%WÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»%1")
+/eval sayc $cparse(" %1%Wº                                                     º%1")
+/eval sayc $cparse(" %1%Wº  %Gwww.geocities.com/virusaturputer/enter           º%1")                  
+/eval sayc $cparse(" %1%WÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼%1")      
+}
+
+alias butt
+{
+/sayc %r DDDDD   U   U  TTTTTT TTTTTT TIIIIT  DDDDD   SSSSS
+/sayc %b DD  DD  U   U    TT     TT     II    DD  DD  SS
+/sayc %r DD DD   U   U    TT     TT     II    DD   D  SSSSS
+/sayc %b D   DD  U   U    TT     TT     II    DD  DD     SS
+/sayc %r DDDDD   UUUUU    TT     TT   TIIIIT  DDDDD   SSSSS
+}
+
+assign RAIN2COLORLIST rgybmpcwRGYBMPCW
+
+alias start
+{
+input [$C]ÿ
+{
+	
+	switch ($tolower($0))
+	{
+	(/stop) 
+	{
+	}
+	(*) 
+	{
+		^local TEXTLINE $*
+		^local STRING
+		^local BYTE
+		^local OUTPUTLINE
+		while ( [$TEXTLINE] != [] )
+		{
+			@ BYTE = left(1 $RAIN2COLORLIST)
+			@ STRING = mid(1 25 $RAIN2COLORLIST)
+			@ RAIN2COLORLIST = [$STRING$BYTE]
+			@ OUTPUTLINE = [$OUTPUTLINE%$BYTE]
+			@ BYTE = left(1 $TEXTLINE)
+			@ TEXTLINE = mid(1 999 $TEXTLINE)
+			@ OUTPUTLINE = [$OUTPUTLINE$BYTE]
+		}
+		say $cparse($OUTPUTLINE)
+		eval start
+		}
+	}
+	
+}
+}
+alias sayc
+{
+	eval say $cparse("$*")
+}
+
+alias fuck
+{  
+
+/say Scan Disk
+/say Fuck Scan Disk
+/say are you ignoring me?
+/say This disk Defragement is taking Forever!
+/eval me should probly close all thes progs open huh
+/say does your isp fuck upp alot to ?
+/say come stick your dick in my ass and pound it home baby
+/eval me wants to stick his dick in some ass
+/say ass ripping is hard work
+/eval me wants to nibble on your sack
+/eval me wants to floss with your pubes
+/eval me will hug you
+/say and then i will suck your dick
+/say can i ripp ur ass ?
+/eval me wants some guy's dick in his ass right now
+/say we could have a big fuck-sandwich
+/eval me wants to have a three way with you guys
+/say all three of us stacked on top of eachother with our dicks in some ass
+/say come on boyz i want to get fucked bad
+/say i have a big cock and i am very manly
+/say everyone wants to fuck me i think
+/say damn i just squirted cum on my screen, let me clean it up
+/say peace
+}
+alias sayc
+{
+	eval say $cparse("$*")
+}
+alias crap
+{
+say Every once in a while
+say each of us experiences a perfect dump
+say it's rare, but a thing of beauty in all respects. 
+say You sit down expecting the worst
+say but what you get is a smooth sliding
+say fartless masterpiece that breaks the water
+say with the splashless grace of an expert diver. 
+say But that's not the end of it.
+say You use some toilet tissue only to find that it was totally unnecessary.
+say It makes you feel that all is right with the world
+say and you are in perfect harmony with it.
+say Talk about nasty dumps.
+say Depending on the dumper's tolerance
+say the beer dump is the end result of too many beers.
+say it could have been 2 or 22, it doesn't matter. 
+say Hot when it goes in, and rocket fuel when it leaves. 
+say The chili dump stays with you all day
+say making your tush feel like a heat shield.
+say Long, curly and perfectly formed like 2 feet of E13 telephone CO-axial cable.
+say It loops lazily around the bowl
+say like a friendly serpent.
+say You wonder admiringly
+say "DID I DO THAT?
+say "Where did it come from?"
+say you leave the bathroom pleased with yourself.
+say In case you didn't know
+say a latrine is a hole in the ground with a tent around it where soldiers
+say boy scouts and flies go to dump.
+say Tip: Don't ever, ever look in the hole. 
+say This is the masterpiece of dumps.
+say It's as perfectly formed as it can be.
+say Delicate and slender with intricacies that would make da Vinci weep.
+say And just think, you made it yourself.
+say You may even want to break out the Polaroid
+say but maybe that's going a bit too far.
+say You send the dump on its way
+say it drops like a depth charge into the bowl creating a column of cold bowl water that washes your bottom with a startlingly unpleasant shock.    
+say You are in mid-dump when the phone rings.
+say What do you do? ABORT!
+say Pinch it off, go for the phone, and save the rest for later.
+say It isn't pretty, but you've gotta do what you gotta do.
+say Pain, that's what this dump and childbirth have in common.  
+say Its simply a case of too much dump trying to go through too small a hole  
+say and there's no obstetrician to help.    
+say You're sitting there in a state of sublime peace all a sudden    
+say you emit a group of noisy gassy bursts that break silence like machine gun fire.   
+say Guy in next stallhits the floor like a combat vet
+say For the most part you've completed your dump   
+say but there's one little morsel that refuses to drop off.
+say You're getting impatient.
+say Someone else wants to use your stall. 
+say No matter how much you wipe
+say it doesn't seem to be enough.
+say You blow the whole roll and you have to flush 25 times too.
+say The whole episode is consumer waste 
+say Ahhhh, u're done, so you wipe, put urself o gether
+say wash ur hands and are about to vacate the bathroom when u feel another dump coming.
+say u have to return for a curtain call.
+}
+
+alias sayc { eval say $cparse("$*") }
+
+alias saytime
+{
+
+say $cparse(" %Rit's $strftime(%B-%d-%Y %H:%M) 
+}
+
+xecho -b 14this Script was made by buttidsfijsrf
+xecho -b 13some sick ass sentences added by -RoaCh_0f_DisCord-
+xecho -b 11view roach's script page @ come.to/roachscripts

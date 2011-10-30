@@ -1,0 +1,222 @@
+# Written by (ice)
+# --- updated by (ice) 10/2/2000 for security and message notification
+
+# global definitions
+assign TRUE  1
+assign FALSE 0
+
+# replace these !<whatever's> with anything you want the user to type in
+assign MSG_USER !msg
+assign GET_MSG  !getmsg
+assign DEL_MSG  !delmsg
+assign GET_TIME !time
+assign GET_HELP !help
+
+
+
+# nice little function to call all setup scripts necessary
+alias setup_all
+{
+  set_user_array
+  messages_on
+}
+
+
+alias set_user_array
+{
+  ^assign ret $delarray(STORED_MSGS)
+  ^assign ret $delarray(STORED_NAME)
+}
+
+
+
+alias messages_on
+{
+  ^assign allow_messages $true
+  echo **** ${toupper($MSG_USER)}, ${toupper($GET_MSG)}, ${toupper($DEL_MSG)}, ${toupper($GET_TIME)}, and ${toupper($GET_HELP)} are now available.
+}
+
+alias messages_off
+{
+  ^assign allow_messages $false
+}
+
+
+
+alias get_arg_one
+{
+  return $0
+}
+
+alias get_arg_two
+{
+  return $1
+}
+
+alias get_rest
+{
+  return $2-
+}
+
+
+
+alias notify_user
+{
+  ^local tmp_count 0
+  ^local tmp_num 0
+  ^local tmp_nums $getrmatches(STORED_NAME $0)
+  fe ($tmp_nums) tmp_num
+  { ^assign tmp_count ${tmp_count + 1} }
+  if ([$tmp_count] > [0])
+  { 
+    # echo $user_name was notified about $tmp_count messages
+    msg $0 ----- You have $tmp_count message(s) stored for you.
+    msg $0 ----- To get your message(s): /msg $N $GET_MSG
+  }
+}
+
+
+
+# this function tests for each !<whatever> case
+alias test_names 
+{
+  ^assign user_name $0
+  ^assign user_chan $1
+  ^assign user_msg  $2-
+  if ([$2] == [$GET_HELP])
+  {
+    if ([$allow_messages] == [1])
+    {
+      msg $user_name ----- /msg $N $GET_HELP   - for this menu
+      msg $user_name ----- /msg $N $MSG_USER    - to store a message for a user
+      msg $user_name ----- /msg $N $GET_MSG - to view all your messages
+      msg $user_name ----- /msg $N $DEL_MSG - to delete all your messages
+      msg $user_name ----- /msg $N $GET_TIME   - to see ${N}'s current time
+    }
+  }
+  if ([$2] == [$GET_TIME])
+  {
+    if ([$allow_messages] == [1])
+    {
+      # echo $user_name requested the time
+      msg $user_name ----- Current time is: $strftime(%B-%d-%Y %H:%M)
+    }
+  }
+  if ([$2] == [$MSG_USER])
+  {
+    if ([$allow_messages] == [1])
+    {
+      if ([$@3] > [0] && [$@4] > [0])
+      {
+        ^local target_user $3
+        ^local target_msg $4-
+        ^local target_num 0
+        ^local tmp_word
+        ^assign ret $setitem(STORED_NAME $numitems(STORED_NAME) $target_user)
+        ^assign ret $setitem(STORED_MSGS $numitems(STORED_MSGS) $user_name $strftime(%B-%d-%Y@%H:%M) $target_msg)
+        # echo $user_name sent a message to $target_user
+        msg $user_name ----- Stored message for ${target_user}.
+
+        # count total messages for user
+        fe ($getrmatches(STORED_NAME $3)) tmp_word
+        {
+          ^assign target_num ${target_num + 1}
+        }
+        # if more than one message, already on hotlist
+        if ([$target_num] > [1])
+        {
+          raw 603 $target_user
+        }
+        # else, this is the first message, add to hotlist
+        {
+          raw 207 $target_user
+        }
+      }
+      {
+        msg $user_name ----- Error: Correct usage: /msg $N $MSG_USER <user> <msg>.
+      }
+    }
+  }
+  if ([$2] == [$GET_MSG])
+  {
+    if ([$allow_messages] == [1])
+    {
+      ^local tmp_count 0
+      ^local tmp_num
+      ^local tmp_line
+      fe ($getrmatches(STORED_NAME $user_name)) tmp_num
+      {
+        ^assign tmp_count ${tmp_count + 1}
+        ^assign tmp_line $getitem(STORED_MSGS $tmp_num)
+        msg $user_name ----- Message From: $get_arg_one($tmp_line)
+        msg $user_name ----- Message Time: $get_arg_two($tmp_line)
+        msg $user_name ----- Message #${tmp_count}: $get_rest($tmp_line)
+        msg $user_name -----------------------------------------------------
+      }
+      if ([$tmp_count] == [0])
+      {
+        msg $user_name ----- Sorry, there are no stored messages for you.
+      }
+      {
+        # echo $user_name read $tmp_count messages
+        msg $user_name ----- To delete message(s): /msg $N $DEL_MSG
+      }
+    }
+  }
+  if ([$2] == [$DEL_MSG])
+  {
+    if ([$allow_messages] == [1])
+    {
+      ^local tmp_count 0
+      ^local tmp_num
+      ^local tmp_nums $getrmatches(STORED_NAME $user_name)
+      fe ($reverse($tmp_nums)) tmp_num
+      {
+        ^assign tmp_count ${tmp_count + 1}
+        ^assign ret $delitem(STORED_NAME $tmp_num)
+        ^assign ret $delitem(STORED_MSGS $tmp_num)
+      }
+      if ([$tmp_count] == [0])
+      {
+        msg $user_name ----- You have no stored messages to remove.
+      }
+      {
+        # echo $user_name deleted $tmp_count messages
+        msg $user_name ----- $tmp_count stored message(s) have been removed.
+        msg $user_name ----- To send a message: /msg $N $MSG_USER <user> <msg>
+        raw 303 $user_name
+      }
+    }
+  }
+}
+
+
+# this little /on checks the channel chat for anything that's said
+on #^public 1299 "*"
+{
+  test_names $0 $1 $2-
+}
+
+on #^msg 1298 "*"
+{
+  test_names $0 unknown $1-
+}
+
+on #^209 1297 "*"
+{
+  # echo Someone on my hotlist signed on/off: $*
+  if ([$allow_messages] == [$true])
+  {
+    notify_user $0
+  }
+}
+
+on #^604 1296 "*"
+{
+  # echo Person is already on my hotlist, and online: $*
+  if ([$allow_messages] == [$true])
+  {
+    notify_user $0
+  }
+}
+

@@ -1,0 +1,43 @@
+# written by (ice) for mxz500racer
+
+#global assigns
+assign true 1
+assign false 0
+assign allow_join_all 1
+
+
+on ^828 "*"
+{
+  if ([$join_all] == [$true])
+  {
+    join $0 
+    # eval say $*
+  }
+}
+
+
+alias join_on
+{
+  ^assign join_all $true
+}
+
+alias join_off
+{
+  ^assign join_all $false
+}
+
+alias turn_off_join
+{
+  on ^828 -
+}
+
+
+alias joinall
+{
+  if ([$allow_join_all] == [$true])
+  {
+    join_on
+    list
+    timer -ref 4321 15 { join_off }
+  }
+}

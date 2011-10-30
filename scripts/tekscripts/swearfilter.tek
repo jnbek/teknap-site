@@ -1,0 +1,23 @@
+/* assign here the words you want to filter out */
+@filtered_words = [asl aol nsync riaa]
+
+alias strnchr (chr,num,void) {
+   @:str_ret = []
+   repeat $num { @str_ret = str_ret ## chr }
+   return $str_ret
+}
+
+on ^public "*" {
+   @:input = [$2-]
+   @:count = 0
+   fe ($2-) wd {
+      @:pos = match($wd $filtered_words)
+      if (pos) {
+         @:len = strlen($word(${pos-1} $filtered_words))
+         @input = chngw($count $strnchr(* $len) $input)
+      }
+      @count++
+   }
+/* put here your publics format whatever it is */
+   echo <$0> $input 
+}

@@ -1,0 +1,35 @@
+@ delarray(hitlist)
+@ delarray(penalty)
+
+on ^servermsg "*has requested your info*"
+{
+ assign USER_NAME $0
+ showinfo
+}
+
+alias showinfo
+{
+ whois -cmd
+ {
+  if (finditem(hitlist $0) < [0])
+  {
+   @setitem(hitlist $numitems(hitlist) $0)
+   @setitem(penalty $numitems(penalty) 0)
+  }
+  @hitlistplace = finditem(hitlist $0)
+  @penal = getitem(penalty $hitlistplace) + 1
+  @setitem(penalty $hitlistplace $penal)
+  switch ($penal)
+  {
+   (1) {msg $0 Hey $0}
+   (2) {msg $0 How are you doing, $0?}
+   (3) {msg $0 This is the last time you can check my info $0}
+   (4) {msg $0 I warned you $0 you are now killed :);kill $0 I told you to stop}
+   (5) {msg $0 Guess you don't get it yet;setuserlevel $0 leech}
+   (6) {msg $0 Now I am pissed;kill $0 Get it now????}
+   (*) {msg $0 Lay off me BITCH!!!;kill $0 Stop you fucker!}
+  }
+ } $USER_NAME
+}
+
+echo Whois warn loaded....

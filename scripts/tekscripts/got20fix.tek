@@ -1,0 +1,18 @@
+# Revised 30/10/2001
+# Added notifying
+
+xecho -b Got20 bug fix script loaded!
+xecho -b Written by gircobain 12/10/2001
+xecho -b Thanks to Joey2cool, dot_com and all the other people that helped with this
+
+assign NOTIFY_GOT20 1
+assign NOTIFY_DELAY 1
+
+on ^window '% *$chr(20)*' {
+  xecho -w $0 $tr(/$chr(20)//$1-)
+  if (NOTIFY_GOT20) {
+    xecho -b -w $0 Got20 detected!
+    ^assign NOTIFY_GOT20 0
+    timer $NOTIFY_DELAY ^assign NOTIFY_GOT20 1
+  }
+}

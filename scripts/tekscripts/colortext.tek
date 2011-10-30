@@ -1,0 +1,884 @@
+# written by (ice)
+# edited by ashes
+
+# this just sets the random seed
+$srand($time())
+
+# global definitions
+assign TRUE  1
+assign FALSE 0
+
+# replace these !<whatever's> with anything you want the user to type in
+# the CSHOW variable is the channel name to show the commands in
+assign BIG    !big
+assign SBIG   !saybig
+assign HUGE   !huge
+assign SHUGE  !sayhuge
+assign MENU   !menu
+assign CSHOW #lunas_paintroom
+
+# nice little function to call all setup scripts necessary
+alias setup_all
+{
+  set_letters_array
+  set_colors_array
+  # this just sets the random seed
+  $srand($time())
+}
+
+# nice little functions to do /say /me and /msg
+alias saychan { raw 402 $cshow $cparse($*) }
+alias saychanme { raw 824 $cshow "$cparse($*)" }
+
+# nice little function to write in big letters the $0 arg
+alias saybig
+{
+  bigchar $get_index_nums($*)
+}
+
+
+# nice little function to write in huge letters the $0 arg
+alias sayhuge
+{
+  hugechar $get_index_nums($*)
+}
+
+
+# nice little function to write big letters
+alias bigchar
+{
+  ^assign -myline1
+  ^assign -myline2
+  ^assign -myline3
+  ^assign -myline4
+  ^assign mycount 0
+  fe ($*) myeach
+  {
+    if ([$mycount] < [13])
+    {
+      if ([$allow_colors] == [1])
+      {
+        ^assign randcolor $rand(13)
+        ^assign myline1 $myline1$getitem(col1 ${randcolor})
+        ^assign myline2 $myline2$getitem(col1 ${randcolor})
+        ^assign myline3 $myline3$getitem(col1 ${randcolor})
+        ^assign myline4 $myline4$getitem(col1 ${randcolor})
+      }
+      ^assign myline1 $myline1$getitem(w1 ${myeach})
+      ^assign myline2 $myline2$getitem(w2 ${myeach})
+      ^assign myline3 $myline3$getitem(w3 ${myeach})
+      ^assign myline4 $myline4$getitem(w4 ${myeach})
+      @ mycount++
+    }
+  } 
+  saychan $myline1
+  saychan $myline2
+  saychan $myline3
+  saychan $myline4
+}
+
+
+# nice little function to write huge letters
+alias hugechar
+{
+  ^assign -myline1
+  ^assign -myline2
+  ^assign -myline3
+  ^assign -myline4
+  ^assign -myline5
+  ^assign mycount 0
+  fe ($*) myeach
+  {
+    if ([$mycount] < [9])
+    {
+      if ([$allow_colors] == [1])
+      {
+        ^assign randcolor $rand(13)
+        ^assign myline1 $myline1$getitem(col1 ${randcolor})
+        ^assign myline2 $myline2$getitem(col1 ${randcolor})
+        ^assign myline3 $myline3$getitem(col1 ${randcolor})
+        ^assign myline4 $myline4$getitem(col1 ${randcolor})
+        ^assign myline5 $myline5$getitem(col1 ${randcolor})
+      }
+      ^assign myline1 $myline1$getitem(upw1 ${myeach})
+      ^assign myline2 $myline2$getitem(upw2 ${myeach})
+      ^assign myline3 $myline3$getitem(upw3 ${myeach})
+      ^assign myline4 $myline4$getitem(upw4 ${myeach})
+      ^assign myline5 $myline5$getitem(upw5 ${myeach})
+      @ mycount++ 
+    }
+  } 
+  saychan $myline1
+  saychan $myline2
+  saychan $myline3
+  saychan $myline4
+  saychan $myline5
+}
+
+
+# this sets the correct array numbers for each character
+alias get_index_nums
+{
+  ^assign -mystr
+  fec ($*) mylett
+  {
+    if ([$mylett] == [A]) { ^assign mystr $mystr 0 }
+    if ([$mylett] == [B]) { ^assign mystr $mystr 1 }
+    if ([$mylett] == [C]) { ^assign mystr $mystr 2 }
+    if ([$mylett] == [D]) { ^assign mystr $mystr 3 }
+    if ([$mylett] == [E]) { ^assign mystr $mystr 4 }
+    if ([$mylett] == [F]) { ^assign mystr $mystr 5 }
+    if ([$mylett] == [G]) { ^assign mystr $mystr 6 }
+    if ([$mylett] == [H]) { ^assign mystr $mystr 7 }
+    if ([$mylett] == [I]) { ^assign mystr $mystr 8 }
+    if ([$mylett] == [J]) { ^assign mystr $mystr 9 }
+    if ([$mylett] == [K]) { ^assign mystr $mystr 10 }
+    if ([$mylett] == [L]) { ^assign mystr $mystr 11 }
+    if ([$mylett] == [M]) { ^assign mystr $mystr 12 }
+    if ([$mylett] == [N]) { ^assign mystr $mystr 13 }
+    if ([$mylett] == [O]) { ^assign mystr $mystr 14 }
+    if ([$mylett] == [P]) { ^assign mystr $mystr 15 }
+    if ([$mylett] == [Q]) { ^assign mystr $mystr 16 }
+    if ([$mylett] == [R]) { ^assign mystr $mystr 17 }
+    if ([$mylett] == [S]) { ^assign mystr $mystr 18 }
+    if ([$mylett] == [T]) { ^assign mystr $mystr 19 }
+    if ([$mylett] == [U]) { ^assign mystr $mystr 20 }
+    if ([$mylett] == [V]) { ^assign mystr $mystr 21 }
+    if ([$mylett] == [W]) { ^assign mystr $mystr 22 }
+    if ([$mylett] == [X]) { ^assign mystr $mystr 23 }
+    if ([$mylett] == [Y]) { ^assign mystr $mystr 24 }
+    if ([$mylett] == [Z]) { ^assign mystr $mystr 25 }
+    if ([$mylett] == [ ]) { ^assign mystr $mystr 26 }
+    if ([$mylett] == [_]) { ^assign mystr $mystr 27 }
+    if ([$mylett] == [-]) { ^assign mystr $mystr 28 }
+    if ([$mylett] == [0]) { ^assign mystr $mystr 29 }
+    if ([$mylett] == [1]) { ^assign mystr $mystr 30 }
+    if ([$mylett] == [2]) { ^assign mystr $mystr 31 }
+    if ([$mylett] == [3]) { ^assign mystr $mystr 32 }
+    if ([$mylett] == [4]) { ^assign mystr $mystr 33 }
+    if ([$mylett] == [5]) { ^assign mystr $mystr 34 }
+    if ([$mylett] == [6]) { ^assign mystr $mystr 35 }
+    if ([$mylett] == [7]) { ^assign mystr $mystr 36 }
+    if ([$mylett] == [8]) { ^assign mystr $mystr 37 }
+    if ([$mylett] == [9]) { ^assign mystr $mystr 38 }
+    if ([$mylett] == [\(]) { ^assign mystr $mystr 39 }
+    if ([$mylett] == [\{]) { ^assign mystr $mystr 39 }
+    if ([$mylett] == [\[]) { ^assign mystr $mystr 39 }
+    if ([$mylett] == [\)]) { ^assign mystr $mystr 40 }
+    if ([$mylett] == [\}]) { ^assign mystr $mystr 40 }
+    if ([$mylett] == [\]]) { ^assign mystr $mystr 40 }
+    if ([$mylett] == [\:]) { ^assign mystr $mystr 41 }
+    if ([$mylett] == [\;]) { ^assign mystr $mystr 42 }
+    if ([$mylett] == [\.]) { ^assign mystr $mystr 43 }
+  }
+  return $mystr
+}
+
+
+# menu
+alias draw_menu
+{
+  saychan %W<><><><><><><><><><> %YMenu %W<><><><><><><><><><>
+  saychan %W<><><><><>  %Y$MENU %C- show this menu
+  saychan %W<><><><><>  %Y$BIG %C- repeat your name big
+  saychan %W<><><><><>  %Y$HUGE %C- repeat your name huge
+  saychan %W<><><><><>  %Y$SBIG %C- repeat your text big
+  saychan %W<><><><><>  %Y$SHUGE %C- repeat your text huge
+  saychan %W<><><><><><><><><><><><><><><><><><><><><><><><><>
+}
+
+
+# this function tests for each !<whatever> case
+alias test_letters 
+{
+  ^assign user_name $0
+  ^assign user_chan $1
+  ^assign user_msg  $2-
+  if ([$2] == [$MENU])
+  {
+    if ([$allow_menu] == [1])
+    {
+ 	draw_menu
+    }
+  }
+  if ([$2] == [$BIG])
+  {
+    if ([$allow_big] == [1])
+    {
+	saybig $user_name
+    }
+  }
+  if ([$2] == [$SBIG])
+  {
+    if ([$allow_saybig] == [1])
+    {
+         if ([$@3] == [0])
+         { saybig $user_name }
+         { saybig $3- }
+    }
+  }
+  if ([$2] == [$HUGE])
+  {
+    if ([$allow_huge] == [1])
+	{
+	      sayhuge $user_name
+	}
+  }
+  if ([$2] == [$SHUGE])
+  {
+    if ([$allow_sayhuge] == [1])
+    {
+	      if ([$@3] == [0])
+      	{ sayhuge $user_name }
+      	{ sayhuge $3- }
+    }
+  }
+}
+
+
+# this little /on checks the channel chat for anything that's said
+on #^public 199 "*"
+{
+    test_letters $*
+}
+
+# turn everything off
+alias turn_all_off
+{
+  menu_off
+  big_off
+  saybig_off
+  huge_off
+  sayhuge_off
+}
+
+
+# turn everything on
+alias turn_all_on
+{
+  menu_on
+  big_on
+  saybig_on
+  huge_on
+  sayhuge_on
+  colors_on
+}  
+
+
+# nice little function to turn menu on
+alias menu_on
+{
+  ^assign allow_menu 1
+  saychanme *** feel free to type !menu now, it's on ***
+}
+
+# nice little function to turn menu off
+alias menu_off
+{
+  ^assign allow_menu 0
+}
+
+
+
+
+# nice little function to turn big letters on
+alias big_on
+{
+  ^assign allow_big 1
+  saychanme *** feel free to type !big now, it's on ***
+}
+
+# nice little function to turn big letters off
+alias big_off
+{
+  ^assign allow_big 0
+}
+
+
+
+
+# nice little function to turn saybig letters on
+alias saybig_on
+{
+  ^assign allow_saybig 1
+  saychanme *** feel free to type !saybig now, it's on ***
+}
+
+# nice little function to turn saybig letters off
+alias saybig_off
+{
+  ^assign allow_saybig 0
+}
+
+
+
+
+# nice little function to turn huge letters on
+alias huge_on
+{
+  ^assign allow_huge 1
+  saychanme *** feel free to type !huge now, it's on ***
+}
+
+# nice little function to turn huge letters off
+alias huge_off
+{
+  ^assign allow_huge 0
+}
+
+
+
+
+# nice little function to turn sayhuge letters on
+alias sayhuge_on
+{
+  ^assign allow_sayhuge 1
+  saychanme *** feel free to type !sayhuge now, it's on ***
+}
+
+# nice little function to turn sayhuge letters off
+alias sayhuge_off
+{
+  ^assign allow_sayhuge 0
+}
+
+
+
+
+# nice little function to turn random colors on big letters on
+alias colors_on
+{
+  ^assign allow_colors 1
+  saychanme *** colors now on ***
+}
+
+# nice little function to turn random colors on big letters off
+alias colors_off
+{
+  ^assign allow_colors 0
+  saychanme *** colors now off ***
+}
+
+
+# these are the color arrays needed to draw random colors
+alias set_colors_array
+{
+  ^assign temp $setitem(col1 0 %r)
+  ^assign temp $setitem(col1 1 %g)
+  ^assign temp $setitem(col1 2 %b)
+  ^assign temp $setitem(col1 3 %c)
+  ^assign temp $setitem(col1 4 %m)
+  ^assign temp $setitem(col1 5 %w)
+  ^assign temp $setitem(col1 6 %R)
+  ^assign temp $setitem(col1 7 %G)
+  ^assign temp $setitem(col1 8 %B)
+  ^assign temp $setitem(col1 9 %C)
+  ^assign temp $setitem(col1 10 %M)
+  ^assign temp $setitem(col1 11 %Y)
+  ^assign temp $setitem(col1 12 %W)
+  if ([$numitems(col1)] != [13])
+  { saychanme Color array not set correctly! }
+  { saychanme Color array set correctly! }
+}
+
+
+# these are the arrays needed to draw the letters
+alias set_letters_array
+{
+  # A
+  ^assign temp $setitem(upw1  0 $chr(255 201 205 205 205 187 255))
+  ^assign temp $setitem(upw2  0 $chr(255 186 255 255 255 186 255))
+  ^assign temp $setitem(upw3  0 $chr(201 202 205 205 205 202 187))
+  ^assign temp $setitem(upw4  0 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5  0 $chr(189 255 255 255 255 255 189))
+  # B
+  ^assign temp $setitem(upw1  1 $chr(183 255 255 255 255 255 255))
+  ^assign temp $setitem(upw2  1 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3  1 $chr(204 205 205 205 205 205 187))
+  ^assign temp $setitem(upw4  1 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5  1 $chr(200 205 205 205 205 205 188))
+  # C
+  ^assign temp $setitem(upw1  2 $chr(201 205 205 205 205 205 190))
+  ^assign temp $setitem(upw2  2 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3  2 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw4  2 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw5  2 $chr(200 205 205 205 205 205 190))
+  # D
+  ^assign temp $setitem(upw1  3 $chr(255 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2  3 $chr(255 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3  3 $chr(201 205 205 205 205 205 185))
+  ^assign temp $setitem(upw4  3 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5  3 $chr(200 205 205 205 205 205 188))
+  # E
+  ^assign temp $setitem(upw1  4 $chr(201 205 205 205 205 205 190))
+  ^assign temp $setitem(upw2  4 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3  4 $chr(204 205 205 205 205 190 255))
+  ^assign temp $setitem(upw4  4 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw5  4 $chr(200 205 205 205 205 205 190))
+  # F
+  ^assign temp $setitem(upw1  5 $chr(201 205 205 205 205 205 190))
+  ^assign temp $setitem(upw2  5 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3  5 $chr(204 205 205 205 205 190 255))
+  ^assign temp $setitem(upw4  5 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw5  5 $chr(189 255 255 255 255 255 255))
+  # G
+  ^assign temp $setitem(upw1  6 $chr(201 205 205 205 205 205 190))
+  ^assign temp $setitem(upw2  6 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3  6 $chr(186 255 255 255 213 205 187))
+  ^assign temp $setitem(upw4  6 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5  6 $chr(200 205 205 205 205 205 188))
+  # H
+  ^assign temp $setitem(upw1  7 $chr(183 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2  7 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3  7 $chr(204 205 205 205 205 205 185))
+  ^assign temp $setitem(upw4  7 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5  7 $chr(189 255 255 255 255 255 189))
+  # I
+  ^assign temp $setitem(upw1  8 $chr(213 205 205 203 205 205 190))
+  ^assign temp $setitem(upw2  8 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw3  8 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw4  8 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw5  8 $chr(213 205 205 202 205 205 190))
+  # J
+  ^assign temp $setitem(upw1  9 $chr(213 205 205 203 205 205 190))
+  ^assign temp $setitem(upw2  9 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw3  9 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw4  9 $chr(183 255 255 186 255 255 255))
+  ^assign temp $setitem(upw5  9 $chr(200 205 205 188 255 255 255))
+  # K
+  ^assign temp $setitem(upw1 10 $chr(183 255 255 201 190 255 255))
+  ^assign temp $setitem(upw2 10 $chr(186 255 255 186 255 255 255))
+  ^assign temp $setitem(upw3 10 $chr(204 205 205 202 187 255 255))
+  ^assign temp $setitem(upw4 10 $chr(186 255 255 255 186 255 255))
+  ^assign temp $setitem(upw5 10 $chr(189 255 255 255 200 190 255))
+  # L
+  ^assign temp $setitem(upw1 11 $chr(183 255 255 255 255 255 255))
+  ^assign temp $setitem(upw2 11 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3 11 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw4 11 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw5 11 $chr(200 205 205 205 205 190 255))
+  # M
+  ^assign temp $setitem(upw1 12 $chr(201 205 187 255 201 205 187))
+  ^assign temp $setitem(upw2 12 $chr(186 255 186 255 186 255 186))
+  ^assign temp $setitem(upw3 12 $chr(186 255 200 205 188 255 186))
+  ^assign temp $setitem(upw4 12 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5 12 $chr(189 255 255 255 255 255 189))
+  # N
+  ^assign temp $setitem(upw1 13 $chr(201 205 205 187 255 255 183))
+  ^assign temp $setitem(upw2 13 $chr(186 255 255 186 255 255 186))
+  ^assign temp $setitem(upw3 13 $chr(186 255 255 186 255 255 186))
+  ^assign temp $setitem(upw4 13 $chr(186 255 255 186 255 255 186))
+  ^assign temp $setitem(upw5 13 $chr(189 255 255 200 205 205 188))
+  # O
+  ^assign temp $setitem(upw1 14 $chr(201 205 205 205 205 205 187))
+  ^assign temp $setitem(upw2 14 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3 14 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw4 14 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5 14 $chr(200 205 205 205 205 205 188))
+  # P
+  ^assign temp $setitem(upw1 15 $chr(201 205 205 205 205 205 187))
+  ^assign temp $setitem(upw2 15 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3 15 $chr(204 205 205 205 205 205 188))
+  ^assign temp $setitem(upw4 15 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw5 15 $chr(189 255 255 255 255 255 255))
+  # Q
+  ^assign temp $setitem(upw1 16 $chr(201 205 205 205 205 187 255))
+  ^assign temp $setitem(upw2 16 $chr(186 255 255 255 255 186 255))
+  ^assign temp $setitem(upw3 16 $chr(186 255 255 255 183 186 255))
+  ^assign temp $setitem(upw4 16 $chr(186 255 255 255 200 206 187))
+  ^assign temp $setitem(upw5 16 $chr(200 205 205 205 205 188 189))
+  # R
+  ^assign temp $setitem(upw1 17 $chr(201 205 205 205 205 205 187))
+  ^assign temp $setitem(upw2 17 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3 17 $chr(204 205 205 205 203 205 188))
+  ^assign temp $setitem(upw4 17 $chr(186 255 255 255 200 205 187))
+  ^assign temp $setitem(upw5 17 $chr(189 255 255 255 255 255 189))
+  # S
+  ^assign temp $setitem(upw1 18 $chr(201 205 205 205 205 205 190))
+  ^assign temp $setitem(upw2 18 $chr(186 255 255 255 255 255 255))
+  ^assign temp $setitem(upw3 18 $chr(200 205 205 205 205 205 187))
+  ^assign temp $setitem(upw4 18 $chr(255 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5 18 $chr(213 205 205 205 205 205 188))
+  # T
+  ^assign temp $setitem(upw1 19 $chr(213 205 205 203 205 205 190))
+  ^assign temp $setitem(upw2 19 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw3 19 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw4 19 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw5 19 $chr(255 255 255 189 255 255 255))
+  # U
+  ^assign temp $setitem(upw1 20 $chr(183 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2 20 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3 20 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw4 20 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw5 20 $chr(200 205 205 205 205 205 188))
+  # V
+  ^assign temp $setitem(upw1 21 $chr(183 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2 21 $chr(200 187 255 255 255 201 188))
+  ^assign temp $setitem(upw3 21 $chr(255 186 255 255 255 186 255))
+  ^assign temp $setitem(upw4 21 $chr(255 200 187 255 201 188 255))
+  ^assign temp $setitem(upw5 21 $chr(255 255 200 205 188 255 255))
+  # W
+  ^assign temp $setitem(upw1 22 $chr(183 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2 22 $chr(186 255 255 255 255 255 186))
+  ^assign temp $setitem(upw3 22 $chr(186 255 201 205 187 255 186))
+  ^assign temp $setitem(upw4 22 $chr(186 255 186 255 186 255 186))
+  ^assign temp $setitem(upw5 22 $chr(200 205 188 255 200 205 188))
+  # X
+  ^assign temp $setitem(upw1 23 $chr(183 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2 23 $chr(200 205 187 255 201 205 188))
+  ^assign temp $setitem(upw3 23 $chr(255 255 204 205 185 255 255))
+  ^assign temp $setitem(upw4 23 $chr(201 205 188 255 200 205 187))
+  ^assign temp $setitem(upw5 23 $chr(189 255 255 255 255 255 189))
+  # Y
+  ^assign temp $setitem(upw1 24 $chr(183 255 255 255 255 255 183))
+  ^assign temp $setitem(upw2 24 $chr(200 187 255 255 255 201 188))
+  ^assign temp $setitem(upw3 24 $chr(255 200 205 203 205 188 255))
+  ^assign temp $setitem(upw4 24 $chr(255 255 255 186 255 255 255))
+  ^assign temp $setitem(upw5 24 $chr(255 255 255 189 255 255 255))
+  # Z
+  ^assign temp $setitem(upw1 25 $chr(213 205 205 205 205 205 187))
+  ^assign temp $setitem(upw2 25 $chr(255 255 255 201 205 205 188))
+  ^assign temp $setitem(upw3 25 $chr(255 255 213 206 190 255 255))
+  ^assign temp $setitem(upw4 25 $chr(201 205 205 188 255 255 255))
+  ^assign temp $setitem(upw5 25 $chr(200 205 205 205 205 205 190))
+  # space
+  ^assign temp $setitem(upw1 26 $chr(255 255 255 255))
+  ^assign temp $setitem(upw2 26 $chr(255 255 255 255))
+  ^assign temp $setitem(upw3 26 $chr(255 255 255 255))
+  ^assign temp $setitem(upw4 26 $chr(255 255 255 255))
+  ^assign temp $setitem(upw5 26 $chr(255 255 255 255))
+  # underscore
+  ^assign temp $setitem(upw1 27 $chr(255 255 255 255))
+  ^assign temp $setitem(upw2 27 $chr(255 255 255 255))
+  ^assign temp $setitem(upw3 27 $chr(255 255 255 255))
+  ^assign temp $setitem(upw4 27 $chr(255 255 255 255))
+  ^assign temp $setitem(upw5 27 $chr(213 205 205 190))
+  # dash
+  ^assign temp $setitem(upw1 28 $chr(255 255 255 255))
+  ^assign temp $setitem(upw2 28 $chr(255 255 255 255))
+  ^assign temp $setitem(upw3 28 $chr(213 205 205 190))
+  ^assign temp $setitem(upw4 28 $chr(255 255 255 255))
+  ^assign temp $setitem(upw5 28 $chr(255 255 255 255))
+  # 0
+  ^assign temp $setitem(upw1 29 $chr(201 205 205 205 187))
+  ^assign temp $setitem(upw2 29 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw3 29 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw4 29 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw5 29 $chr(200 205 205 205 188))
+  # 1
+  ^assign temp $setitem(upw1 30 $chr(255 255 183 255 255))
+  ^assign temp $setitem(upw2 30 $chr(255 255 186 255 255))
+  ^assign temp $setitem(upw3 30 $chr(255 255 186 255 255))
+  ^assign temp $setitem(upw4 30 $chr(255 255 186 255 255))
+  ^assign temp $setitem(upw5 30 $chr(213 205 202 205 190))
+  # 2
+  ^assign temp $setitem(upw1 31 $chr(213 205 205 205 187))
+  ^assign temp $setitem(upw2 31 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw3 31 $chr(201 205 205 205 188))
+  ^assign temp $setitem(upw4 31 $chr(186 255 255 255 255))
+  ^assign temp $setitem(upw5 31 $chr(200 205 205 205 190))
+  # 3
+  ^assign temp $setitem(upw1 32 $chr(213 205 205 205 187))
+  ^assign temp $setitem(upw2 32 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw3 32 $chr(255 212 205 205 185))
+  ^assign temp $setitem(upw4 32 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw5 32 $chr(212 205 205 205 188))
+  # 4
+  ^assign temp $setitem(upw1 33 $chr(183 255 255 255 183))
+  ^assign temp $setitem(upw2 33 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw3 33 $chr(200 205 205 205 185))
+  ^assign temp $setitem(upw4 33 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw5 33 $chr(255 255 255 255 189))
+  # 5
+  ^assign temp $setitem(upw1 34 $chr(201 205 205 205 190))
+  ^assign temp $setitem(upw2 34 $chr(186 255 255 255 255))
+  ^assign temp $setitem(upw3 34 $chr(200 205 205 205 187))
+  ^assign temp $setitem(upw4 34 $chr(183 255 255 255 186))
+  ^assign temp $setitem(upw5 34 $chr(200 205 205 205 188))
+  # 6
+  ^assign temp $setitem(upw1 35 $chr(201 205 205 205 190))
+  ^assign temp $setitem(upw2 35 $chr(186 255 255 255 255))
+  ^assign temp $setitem(upw3 35 $chr(204 205 205 205 187))
+  ^assign temp $setitem(upw4 35 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw5 35 $chr(200 205 205 205 188))
+  # 7
+  ^assign temp $setitem(upw1 36 $chr(213 205 205 205 187))
+  ^assign temp $setitem(upw2 36 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw3 36 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw4 36 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw5 36 $chr(255 255 255 255 189))
+  # 8
+  ^assign temp $setitem(upw1 37 $chr(201 205 205 205 187))
+  ^assign temp $setitem(upw2 37 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw3 37 $chr(204 205 205 205 185))
+  ^assign temp $setitem(upw4 37 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw5 37 $chr(200 205 205 205 188))
+  # 9
+  ^assign temp $setitem(upw1 38 $chr(201 205 205 205 187))
+  ^assign temp $setitem(upw2 38 $chr(186 255 255 255 186))
+  ^assign temp $setitem(upw3 38 $chr(200 205 205 205 185))
+  ^assign temp $setitem(upw4 38 $chr(255 255 255 255 186))
+  ^assign temp $setitem(upw5 38 $chr(212 205 205 205 188))
+  # (
+  ^assign temp $setitem(upw1 39 $chr(255 201 190 255))
+  ^assign temp $setitem(upw2 39 $chr(255 186 255 255))
+  ^assign temp $setitem(upw3 39 $chr(255 186 255 255))
+  ^assign temp $setitem(upw4 39 $chr(255 186 255 255))
+  ^assign temp $setitem(upw5 39 $chr(255 200 191 255))
+  # )
+  ^assign temp $setitem(upw1 40 $chr(255 212 187 255))
+  ^assign temp $setitem(upw2 40 $chr(255 255 186 255))
+  ^assign temp $setitem(upw3 40 $chr(255 255 186 255))
+  ^assign temp $setitem(upw4 40 $chr(255 255 186 255))
+  ^assign temp $setitem(upw5 40 $chr(255 213 188 255))
+  # :
+  ^assign temp $setitem(upw1 41 $chr(255 201 187 255))
+  ^assign temp $setitem(upw2 41 $chr(255 200 188 255))
+  ^assign temp $setitem(upw3 41 $chr(255 255 255 255))
+  ^assign temp $setitem(upw4 41 $chr(255 201 187 255))
+  ^assign temp $setitem(upw5 41 $chr(255 200 188 255))
+  # ;
+  ^assign temp $setitem(upw1 42 $chr(255 201 187 255))
+  ^assign temp $setitem(upw2 42 $chr(255 200 188 255))
+  ^assign temp $setitem(upw3 42 $chr(255 255 255 255))
+  ^assign temp $setitem(upw4 42 $chr(255 255 183 255))
+  ^assign temp $setitem(upw5 42 $chr(255 213 188 255))
+  # . 
+  ^assign temp $setitem(upw1 43 $chr(255 255 255 255))
+  ^assign temp $setitem(upw2 43 $chr(255 255 255 255))
+  ^assign temp $setitem(upw3 43 $chr(255 255 255 255))
+  ^assign temp $setitem(upw4 43 $chr(255 201 187 255))
+  ^assign temp $setitem(upw5 43 $chr(255 200 188 255))
+
+  if ([$numitems(upw5)] != [44])
+  { saychanme "Huge Letter array not set correctly!" }
+  { saychanme "Huge Letter array set correctly!" }
+
+
+
+
+  # A
+  ^assign temp $setitem(w1  0 $chr(255 201 205 187 255))
+  ^assign temp $setitem(w2  0 $chr(201 202 205 202 187))
+  ^assign temp $setitem(w3  0 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4  0 $chr(189 255 255 255 189))
+  # B
+  ^assign temp $setitem(w1  1 $chr(183 255 255 255 255))
+  ^assign temp $setitem(w2  1 $chr(204 205 205 205 187))
+  ^assign temp $setitem(w3  1 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4  1 $chr(200 205 205 205 188))
+  # C
+  ^assign temp $setitem(w1  2 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2  2 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w3  2 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w4  2 $chr(200 205 205 205 190))
+  # D
+  ^assign temp $setitem(w1  3 $chr(255 255 255 255 183))
+  ^assign temp $setitem(w2  3 $chr(201 205 205 205 185))
+  ^assign temp $setitem(w3  3 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4  3 $chr(200 205 205 205 188))
+  # E
+  ^assign temp $setitem(w1  4 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2  4 $chr(204 205 205 190 255))
+  ^assign temp $setitem(w3  4 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w4  4 $chr(200 205 205 205 190))
+  # F
+  ^assign temp $setitem(w1  5 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2  5 $chr(204 205 205 190 255))
+  ^assign temp $setitem(w3  5 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w4  5 $chr(189 255 255 255 255))
+  # G
+  ^assign temp $setitem(w1  6 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2  6 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w3  6 $chr(186 255 255 213 187))
+  ^assign temp $setitem(w4  6 $chr(200 205 205 205 188))
+  # H
+  ^assign temp $setitem(w1  7 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2  7 $chr(204 205 205 205 185))
+  ^assign temp $setitem(w3  7 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4  7 $chr(189 255 255 255 189))
+  # I
+  ^assign temp $setitem(w1  8 $chr(213 205 203 205 190))
+  ^assign temp $setitem(w2  8 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w3  8 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w4  8 $chr(213 205 202 205 190))
+  # J
+  ^assign temp $setitem(w1  9 $chr(213 205 203 205 190))
+  ^assign temp $setitem(w2  9 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w3  9 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w4  9 $chr(200 205 188 255 255))
+  # K
+  ^assign temp $setitem(w1 10 $chr(183 255 201 190 255))
+  ^assign temp $setitem(w2 10 $chr(204 205 202 187 255))
+  ^assign temp $setitem(w3 10 $chr(186 255 255 186 255))
+  ^assign temp $setitem(w4 10 $chr(189 255 255 200 190))
+  # L
+  ^assign temp $setitem(w1 11 $chr(183 255 255 255 255))
+  ^assign temp $setitem(w2 11 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w3 11 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w4 11 $chr(200 205 205 205 190))
+  # M
+  ^assign temp $setitem(w1 12 $chr(201 187 255 201 187))
+  ^assign temp $setitem(w2 12 $chr(186 186 255 186 186))
+  ^assign temp $setitem(w3 12 $chr(186 200 205 188 186))
+  ^assign temp $setitem(w4 12 $chr(189 255 255 255 189))
+  # N
+  ^assign temp $setitem(w1 13 $chr(201 205 187 255 183))
+  ^assign temp $setitem(w2 13 $chr(186 255 186 255 186))
+  ^assign temp $setitem(w3 13 $chr(186 255 186 255 186))
+  ^assign temp $setitem(w4 13 $chr(189 255 200 205 188))
+  # O
+  ^assign temp $setitem(w1 14 $chr(201 205 205 205 187))
+  ^assign temp $setitem(w2 14 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w3 14 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4 14 $chr(200 205 205 205 188))
+  # P
+  ^assign temp $setitem(w1 15 $chr(201 205 205 205 187))
+  ^assign temp $setitem(w2 15 $chr(204 205 205 205 188))
+  ^assign temp $setitem(w3 15 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w4 15 $chr(189 255 255 255 255))
+  # Q
+  ^assign temp $setitem(w1 16 $chr(201 205 205 187 255))
+  ^assign temp $setitem(w2 16 $chr(186 255 255 186 255))
+  ^assign temp $setitem(w3 16 $chr(186 255 213 206 190))
+  ^assign temp $setitem(w4 16 $chr(200 205 205 188 255))
+  # R
+  ^assign temp $setitem(w1 17 $chr(201 205 205 205 187))
+  ^assign temp $setitem(w2 17 $chr(204 205 205 203 188))
+  ^assign temp $setitem(w3 17 $chr(186 255 255 200 187))
+  ^assign temp $setitem(w4 17 $chr(189 255 255 255 189))
+  # S
+  ^assign temp $setitem(w1 18 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2 18 $chr(200 205 205 205 187))
+  ^assign temp $setitem(w3 18 $chr(255 255 255 255 186))
+  ^assign temp $setitem(w4 18 $chr(213 205 205 205 188))
+  # T
+  ^assign temp $setitem(w1 19 $chr(213 205 203 205 190))
+  ^assign temp $setitem(w2 19 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w3 19 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w4 19 $chr(255 255 189 255 255))
+  # U
+  ^assign temp $setitem(w1 20 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2 20 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w3 20 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4 20 $chr(200 205 205 205 188))
+  # V
+  ^assign temp $setitem(w1 21 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2 21 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w3 21 $chr(200 187 255 201 188))
+  ^assign temp $setitem(w4 21 $chr(255 200 205 188 255))
+  # W
+  ^assign temp $setitem(w1 22 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2 22 $chr(186 201 205 187 186))
+  ^assign temp $setitem(w3 22 $chr(186 186 255 186 186))
+  ^assign temp $setitem(w4 22 $chr(200 188 255 200 188))
+  # X
+  ^assign temp $setitem(w1 23 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2 23 $chr(200 205 203 205 188))
+  ^assign temp $setitem(w3 23 $chr(201 205 202 205 187))
+  ^assign temp $setitem(w4 23 $chr(189 255 255 255 189))
+  # Y
+  ^assign temp $setitem(w1 24 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2 24 $chr(200 205 203 205 188))
+  ^assign temp $setitem(w3 24 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w4 24 $chr(255 255 189 255 255))
+  # Z
+  ^assign temp $setitem(w1 25 $chr(213 205 205 205 187))
+  ^assign temp $setitem(w2 25 $chr(255 255 201 205 188))
+  ^assign temp $setitem(w3 25 $chr(201 205 188 255 255))
+  ^assign temp $setitem(w4 25 $chr(200 205 205 205 190))
+  # space
+  ^assign temp $setitem(w1 26 $chr(255 255 255 255))
+  ^assign temp $setitem(w2 26 $chr(255 255 255 255))
+  ^assign temp $setitem(w3 26 $chr(255 255 255 255))
+  ^assign temp $setitem(w4 26 $chr(255 255 255 255))
+  # underscore
+  ^assign temp $setitem(w1 27 $chr(255 255 255 255))
+  ^assign temp $setitem(w2 27 $chr(255 255 255 255))
+  ^assign temp $setitem(w3 27 $chr(255 255 255 255))
+  ^assign temp $setitem(w4 27 $chr(213 205 205 190))
+  # dash
+  ^assign temp $setitem(w1 28 $chr(255 255 255 255))
+  ^assign temp $setitem(w2 28 $chr(213 205 205 190))
+  ^assign temp $setitem(w3 28 $chr(255 255 255 255))
+  ^assign temp $setitem(w4 28 $chr(255 255 255 255))
+  # 0
+  ^assign temp $setitem(w1 29 $chr(201 205 205 205 187))
+  ^assign temp $setitem(w2 29 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w3 29 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4 29 $chr(200 205 205 205 188))
+  # 1
+  ^assign temp $setitem(w1 30 $chr(255 255 183 255 255))
+  ^assign temp $setitem(w2 30 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w3 30 $chr(255 255 186 255 255))
+  ^assign temp $setitem(w4 30 $chr(212 205 202 205 190))
+  # 2
+  ^assign temp $setitem(w1 31 $chr(213 205 205 205 187))
+  ^assign temp $setitem(w2 31 $chr(201 205 205 205 188))
+  ^assign temp $setitem(w3 31 $chr(186 255 255 255 255))
+  ^assign temp $setitem(w4 31 $chr(200 205 205 205 190))
+  # 3
+  ^assign temp $setitem(w1 32 $chr(213 205 205 205 187))
+  ^assign temp $setitem(w2 32 $chr(255 213 205 205 185))
+  ^assign temp $setitem(w3 32 $chr(255 255 255 255 186))
+  ^assign temp $setitem(w4 32 $chr(212 205 205 205 188))
+  # 4
+  ^assign temp $setitem(w1 33 $chr(183 255 255 255 183))
+  ^assign temp $setitem(w2 33 $chr(200 205 205 205 185))
+  ^assign temp $setitem(w3 33 $chr(255 255 255 255 186))
+  ^assign temp $setitem(w4 33 $chr(255 255 255 255 189))
+  # 5
+  ^assign temp $setitem(w1 34 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2 34 $chr(200 205 205 205 187))
+  ^assign temp $setitem(w3 34 $chr(183 255 255 255 186))
+  ^assign temp $setitem(w4 34 $chr(200 205 205 205 188))
+  # 6
+  ^assign temp $setitem(w1 35 $chr(201 205 205 205 190))
+  ^assign temp $setitem(w2 35 $chr(204 205 205 205 187))
+  ^assign temp $setitem(w3 35 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4 35 $chr(200 205 205 205 188))
+  # 7
+  ^assign temp $setitem(w1 36 $chr(213 205 205 205 187))
+  ^assign temp $setitem(w2 36 $chr(255 255 255 255 186))
+  ^assign temp $setitem(w3 36 $chr(255 255 255 255 186))
+  ^assign temp $setitem(w4 36 $chr(255 255 255 255 189))
+  # 8
+  ^assign temp $setitem(w1 37 $chr(201 205 205 205 187))
+  ^assign temp $setitem(w2 37 $chr(204 205 205 205 185))
+  ^assign temp $setitem(w3 37 $chr(186 255 255 255 186))
+  ^assign temp $setitem(w4 37 $chr(200 205 205 205 188))
+  # 9
+  ^assign temp $setitem(w1 38 $chr(201 205 205 205 187))
+  ^assign temp $setitem(w2 38 $chr(200 205 205 205 185))
+  ^assign temp $setitem(w3 38 $chr(255 255 255 255 186))
+  ^assign temp $setitem(w4 38 $chr(212 205 205 205 188))
+  # (
+  ^assign temp $setitem(w1 39 $chr(255 201 190 255))
+  ^assign temp $setitem(w2 39 $chr(255 186 255 255))
+  ^assign temp $setitem(w3 39 $chr(255 186 255 255))
+  ^assign temp $setitem(w4 39 $chr(255 200 191 255))
+  # )
+  ^assign temp $setitem(w1 40 $chr(255 212 187 255))
+  ^assign temp $setitem(w2 40 $chr(255 255 186 255))
+  ^assign temp $setitem(w3 40 $chr(255 255 186 255))
+  ^assign temp $setitem(w4 40 $chr(255 213 188 255))
+  # :
+  ^assign temp $setitem(w1 41 $chr(255 201 187 255))
+  ^assign temp $setitem(w2 41 $chr(255 200 188 255))
+  ^assign temp $setitem(w3 41 $chr(255 201 187 255))
+  ^assign temp $setitem(w4 41 $chr(255 200 188 255))
+  # ;
+  ^assign temp $setitem(w1 42 $chr(255 201 187 255))
+  ^assign temp $setitem(w2 42 $chr(255 200 188 255))
+  ^assign temp $setitem(w3 42 $chr(255 255 183 255))
+  ^assign temp $setitem(w4 42 $chr(255 213 188 255))
+  # . 
+  ^assign temp $setitem(w1 43 $chr(255 255 255 255))
+  ^assign temp $setitem(w2 43 $chr(255 255 255 255))
+  ^assign temp $setitem(w3 43 $chr(255 201 187 255))
+  ^assign temp $setitem(w4 43 $chr(255 200 188 255))
+
+  if ([$numitems(w4)] != [44])
+  { saychanme Big Letter array not set correctly! }
+  { saychanme Big Letter array set correctly! }
+}

@@ -1,0 +1,17 @@
+##its a badmouth script##
+
+xecho -b Badmouth loaded
+xecho -b Author: [-ReD-PhOeNiX-]
+
+assign SWEAR_TRIGGER shit piss fuck cunt cocksucker motherfucker dick twat
+
+on #-public 1123 "*"
+{
+ if (rmatch($2- *$SWEAR_TRIGGER\*))
+ {
+  say $0 No Swearing here Thank you!!
+  muzzle $0 Quote $0 : $2-
+  timer -refnum tmuz 15 unmuzzle $0 Don't ever let me catch you sayin $2- again!
+  m $0 dont say $2- again
+ }
+}

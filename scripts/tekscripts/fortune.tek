@@ -1,0 +1,137 @@
+# Written by (ice) as an example to help others write scripts
+# ... updated 10/3/2000 for security purposes
+
+# global definitions
+assign TRUE  1
+assign FALSE 0
+
+# replace these !<whatever's> with anything you want the user to type in
+assign FORTUNE !fortune
+assign REPEAT !repeat
+
+
+# nice little function to call all setup scripts necessary
+alias setup_all
+{
+  set_fortunes_array
+  # this just sets the random seed
+  $srand($time())
+}
+
+
+# this just sets up all the fortunes into an array
+alias set_fortunes_array
+{
+  ^assign temp $setitem(fortune1 0 You will receive money from unexpected friends!)
+  ^assign temp $setitem(fortune1 1 You are unfortunately bound to have a bad life!)
+  ^assign temp $setitem(fortune1 2 You will be kicked off this server within the next five minutes!)
+  ^assign temp $setitem(fortune1 3 You will get laid tonight!)
+  ^assign temp $setitem(fortune1 4 You will not get laid for the next 6 months!)
+  ^assign temp $setitem(fortune1 5 You will meet a new friend online tonight!)
+
+  # to add more, just increase the number of the array
+
+  say Fortune1 array set correctly!
+}
+
+
+
+# this simply turns off flood warning
+alias set_myflood { set flood_warning off }
+
+
+# this function returns a random fortune from fortune1 array
+alias get_rand_fortune
+{
+  ^assign mynum $rand($numitems(fortune1))
+  return $getitem(fortune1 $mynum)
+}
+
+
+
+# this function tests for each !<whatever> case
+alias test_names 
+{
+  ^assign user_name $0
+  ^assign user_chan $1
+  ^assign user_msg  $2-
+  if ([$2] == [$REPEAT])
+  {
+    if ([$allow_repeat] == [1])
+    {
+      saymsg $user_name %wdid you just say: `%R$user_msg%w' in the %B$user_chan %wchannel?
+    }
+  }
+  if ([$2] == [$FORTUNE])
+  {
+    if ([$allow_fortune] == [1])
+    {
+      say $user_name, $get_rand_fortune() 
+    }
+  }
+}
+
+
+# this little /on checks the channel chat for anything that's said
+on #^public 99 "*"
+{
+  test_names $0 $1 $2-
+}
+
+
+# this just prints a nice little colored ICE message
+alias ice
+{
+  sayme %W$chr(213 205 205 205 203 205 205 205 190) %B$chr(201 205 205 205 205 205 205 205 190) %R$chr(201 205 205 205 205 205 205 205 190)
+  sayme %W$chr(255 255 255 255 186 255 255 255 255) %B$chr(186 255 255 255 255 255 255 255 255) %R$chr(186 255 255 255 255 255 255 255 255)
+  sayme %W$chr(255 255 255 255 186 255 255 255 255) %B$chr(186 255 255 255 255 255 255 255 255) %R$chr(204 205 205 205 205 205 205 190 255)
+  sayme %W$chr(255 255 255 255 186 255 255 255 255) %B$chr(186 255 255 255 255 255 255 255 255) %R$chr(186 255 255 255 255 255 255 255 255)
+  sayme %W$chr(213 205 205 205 202 205 205 205 190) %B$chr(200 205 205 205 205 205 205 205 190) %R$chr(200 205 205 205 205 205 205 205 190)
+}
+
+
+# this just prints a nice little colored ICE message
+alias ice2
+{
+  sayme %BI%RC%WE %Yi%Gs %Ch%We%Gr%Pe
+}
+
+
+# nice little function to turn all !<whatever> things off
+alias turn_all_off
+{
+  repeat_off
+  fortune_off
+}
+
+
+# nice little function to turn repeat on
+alias repeat_on
+{
+  ^assign allow_repeat 1
+  echo *** !repeat is now on ***
+}
+
+# nice little function to turn repeat off
+alias repeat_off
+{
+  ^assign allow_repeat 0
+  echo *** !repeat is now off ***
+}
+
+
+
+
+# nice little function to turn fortune on
+alias fortune_on
+{
+  ^assign allow_fortune $true
+  echo *** !fortune is now on ***
+}
+
+# nice little function to turn fortune off
+alias fortune_off
+{
+  ^assign allow_fortune $false
+  echo *** !fortune is now off ***
+}

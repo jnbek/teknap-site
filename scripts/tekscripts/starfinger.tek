@@ -1,0 +1,21 @@
+#blah blah blah
+#decko blahblahblahblah
+#and some other crap goes here and there too--->
+#something or another
+
+alias starfinger (nick, void)
+{
+	if (nick)
+	{
+	        timer 1 me $cparse(tHiNKZ $nick DesERVeS uH sTArMan!?@\(tm\)! \(oh gNO!@# %re%RE%YK%G!%B?%n\))
+		timer 2 msg $nick $cparse(%Y       __\\/\\\\__)
+		timer 2 msg $nick $cparse(%Y  n    \\\\ %W%Fo%n%WO%Y \\/    n        %rY%RO%Yu%G\'%Bv%Me)
+		timer 2 msg $nick $cparse(%Y  H   %B_%Y\\/_%R\\\\/%Y_\\\\%B_%Y   H         %rb%Re%YE%GN)
+		timer 2 msg $nick $cparse(%Y nHnn%B\\/ \\\\_\\%Y\\\\/%B_\\/ \\\\%YnnHn       %rs%RT%YA%Gr%B\'%Md)
+		timer 2 msg $nick $cparse(%Y<V VV %B\\/      \\\\%Y VV V>  %rm%RO%Yt%Gh%Be%MR%mF%ra%RW%YK%Gu%Br%M!%m?%r@)
+		timer 2 msg $nick $cparse(%Y \\\\__\\\\\\/%B|      |%Y\\\\/__\\/)
+                timer 3 say $cparse($nick\, taKe THAt BItZH%n!@#? %ra%RY%YA%Ga%BY%ME%mY%rE%R?%Y!%G@%B3)
+	}{
+		xecho -b $cparse(%nheLP1@?# You NEeD HELP!@?# eEEDiOT!@? /StARfInGeR <nICk> - do'H?@)
+	}
+}

@@ -1,0 +1,135 @@
+# magnus
+# lame, beyond lame.. so fucking lame, my dick refuses to erect itself.
+# sTArMaN(Tm) TekNap ported by Spike.
+# look in my tekscripts directory if you want the original bitchx starman.
+
+alias starver
+{
+	if ([$0] != [])
+	{
+		msg $0 eY'e goTZ deMON iN MuH SeMEN and A sTarMaN(Tm) + rAINhaX0ReDNesS In Muh BawLz?!@ - eEK!@?
+	}{
+		say eY'e goTZ deMON iN MuH SeMEN and A sTarMaN(Tm) + rAINhaX0ReDNesS In Muh BawLz?!@ - eEK!@?
+	}
+}
+alias stargot (void) {say $cparse(oH HeLl FUck NO!@?3 i'VE goT StaRmAN(tM) iN mUH sEMeN!2? -- eEK!@#?)}
+alias star (nick, void)
+{
+	if ([$nick] != [])
+	{
+		if (!star.got)
+		{
+			stargot
+			pause 1
+			@star.got = [1]
+		}
+		@star.nick = [$nick]
+		^on ^servermsg "User * not *" {}
+		^on #^404 110 "User is not *"
+		{
+			^on #^404 110 -"User is not *"
+			xecho -b You SIlly FuK'N GoAT?@! $star.nick IsN'T OnLIne WH0re?!2 -- eeK!@#?
+		}
+		timer 1 me $cparse(tHiNKZ $nick DesERVeS uH sTArMan!?@\(tm\)! \(oh gNO!@# %re%RE%YK%G!%B?%w\))
+		timer 2 msg $nick $cparse(%Y__\\\/\\\\__     %rY%RO%Yu%G\'%Bv%Me)
+		timer 2 msg $nick $cparse(%Y\\\\ %0%W%Fo%n%WO%Y \\/      %rb%Re%YE%GN)
+		timer 2 msg $nick $cparse(%Y\\/_%R\\\\\/%Y_\\\\     %rs%RT%YA%Gr%B\'%Md)
+		timer 2 msg $nick $cparse(  %Y\\\\\/   %rm%RO%Yt%Gh%Be%MR%mF%ra%RW%YK%Gu%Br%M!%m?%r@)
+		timer 3 say $cparse($nick\, taKe THAt BItZH%n!@#? %ra%RY%YA%Ga%BY%ME%mY%rE%R?%Y!%G@%B3)
+		timer 5
+		{
+			^on #^404 110 -"User is not *"
+			^on ^servermsg -"User * not *"
+			@star.nick = []
+		}
+	}{
+		xecho -b $cparse(heLP1@?# You NEeD HELP!@?# eEEDiOT!@? /StAR <nICk/ChAN> - do'H?@)
+	}
+}
+alias starbig (nick, void)
+{
+	if ([$nick] != [])
+	{
+		if (!star.got)
+		{
+			stargot
+			pause 1
+			@star.got = [1]
+		}
+		@star.nick = [$nick]
+		^on ^servermsg "User * not *" {}
+		^on #^404 110 "User is not *"
+		{
+			^on #^404 110 -"User is not *"
+			xecho -b You SIlly FuK'N GoAT?@! $star.nick IsN'T OnLIne WH0re?!2 -- eeK!@#?
+		}
+		timer 1 me $cparse(tHiNKZ $nick DesERVeS uH sTArMan!?@\(tm\)! \(oh gNO!@# %re%RE%YK%G!%B?%w\))
+		timer 2 msg $nick $cparse(              %Y______\\)
+		timer 2 msg $nick $cparse(             %Y\\\/ /  \\\\ \\\\)
+		timer 2 msg $nick $cparse(            %Y\\\/ /    \\\\ \\\\)
+		timer 2 msg $nick $cparse( %Y_____ ____\\\/_/      \\\\_\\\\____ _____      %rY%RO%Yu%G\'%Bv%Me)
+		timer 2 msg $nick $cparse(%Y|_____|_____|        |_____|_____|\\)
+		timer 2 msg $nick $cparse(%Y__               %W ___%Y           __\\)
+		timer 2 msg $nick $cparse(%Y\\\\ \\\\         %0%W%F___%n%W  \\\/ _ \\\\%Y         \\\/ \\/\\)
+		timer 2 msg $nick $cparse( %Y\\\\ \\\\       %0%W%F\\/ _ \\\\%n%W| | | |%Y       \\\/ \\/       %rb%Re%YE%GN)
+		timer 2 msg $nick $cparse(  %Y\\\\ \\\\     %0%W%F| \(_\) %n%W| |_| |%Y      \\\/ \\\/)
+		timer 2 msg $nick $cparse(   %Y\\\\_\\\\     %0%W%F\\\\___\\\/%n%W \\\\___\\\/%Y      \\/_\\/)
+		timer 2 msg $nick $cparse(    %Y__      %R__      __%Y      __)
+		timer 2 msg $nick $cparse(   %Y\\\/ \\\/      %R\\\\ \\\\    \\/ \\/%Y      \\\\ \\\\        %rs%RT%YA%Gr%B\'%Md)
+		timer 2 msg $nick $cparse(  %Y\\\/ \\\/        %R\\\\ \\\\  \\/ \\/%Y        \\\\ \\\\)
+		timer 2 msg $nick $cparse( %Y\\\/_\\\/_______   %R\\\\_\\\\\\/_\\/%Y   _______\\\\_\\\\)
+		timer 2 msg $nick $cparse( %Y|_________|          |_________|\\)
+		timer 2 msg $nick $cparse(           %Y__        __            %rm%RO%Yt%Gh%Be%MR%mF%ra%RW%YK%Gu%Br%M!%m?%r@)
+		timer 2 msg $nick $cparse(           %Y\\\\ \\\\      \\/ \\/\\)
+		timer 2 msg $nick $cparse(            %Y\\\\ \\\\    \\/ \\/\\)
+		timer 2 msg $nick $cparse(             %Y\\\\_\\\\__\\/_\\/\\)
+		timer 3 say $cparse($nick\, taKe THAt BItZH%n!@#? %ra%RY%YA%Ga%BY%ME%mY%rE%R?%Y!%G@%B3)
+		timer 5
+		{
+			^on #^404 110 -"User is not *"
+			^on ^servermsg -"User * not *"
+			@star.nick = []
+		}
+	}{
+		xecho -b $cparse(heLP1@?# You NEeD HELP!@?# eEEDiOT!@? /StARBiG <nICk/ChAN> - do'H?@)
+	}
+}
+/* Starfinger, courtosy of decko. Thanks dude! :) */
+alias starfinger (nick, void)
+{
+	if ([$nick] != [])
+	{
+		if (!star.got)
+		{
+			stargot
+			pause 1
+			@star.got = [1]
+		}
+		@star.nick = [$nick]
+		^on ^servermsg "User * not *" {}
+		^on #^404 110 "User is not *"
+		{
+			^on #^404 110 -"User is not *"
+			xecho -b You SIlly FuK'N GoAT?@! $star.nick IsN'T OnLIne WH0re?!2 -- eeK!@#?
+		}
+	        timer 1 me $cparse(tHiNKZ $nick DesERVeS uH sTArMan!?@\(tm\)! \(oh gNO!@# %re%RE%YK%G!%B?%n\))
+		timer 2 msg $nick $cparse(%Y       __\\/\\\\__)
+		timer 2 msg $nick $cparse(%Y  n    \\\\ %W%Fo%n%WO%Y \\/    n        %rY%RO%Yu%G\'%Bv%Me)
+		timer 2 msg $nick $cparse(%Y  H   %B_%Y\\/_%R\\\\/%Y_\\\\%B_%Y   H         %rb%Re%YE%GN)
+		timer 2 msg $nick $cparse(%Y nHnn%B\\/ \\\\_\\%Y\\\\/%B_\\/ \\\\%YnnHn       %rs%RT%YA%Gr%B\'%Md)
+		timer 2 msg $nick $cparse(%Y<V VV %B\\/      \\\\%Y VV V>  %rm%RO%Yt%Gh%Be%MR%mF%ra%RW%YK%Gu%Br%M!%m?%r@)
+		timer 2 msg $nick $cparse(%Y \\\\__\\\\\\/%B|      |%Y\\\\/__\\/)
+                timer 3 say $cparse($nick\, taKe THAt BItZH%n!@#? %ra%RY%YA%Ga%BY%ME%mY%rE%R?%Y!%G@%B3)
+		timer 5
+		{
+			^on #^404 110 -"User is not *"
+			^on ^servermsg -"User * not *"
+			@star.nick = []
+		}
+	}{
+		xecho -b $cparse(%nheLP1@?# You NEeD HELP!@?# eEEDiOT!@? /StARfInGeR <nICk> - do'H?@)
+	}
+}
+
+@star.got = 1
+stargot

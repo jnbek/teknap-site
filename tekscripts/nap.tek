@@ -1,0 +1,20 @@
+alias napster
+{  
+
+sayc %G       Napster Forever
+sayc %B            .....  
+sayc %B        .AAAAAAAAAAA.
+sayc %B      .AAA' %W.ooo. %B'AAA.
+sayc %W   b %BAAA%W.oOO%wOOOOO%WOOo.%BAAA %Wd
+sayc %W   Hb%BA %Wd%wOOBBBBBBBBBOO%Wb %BA%WdH
+sayc %B  d%WH%wH%Wbd%wOOBBBBBBBBBBBOO%Wbd%wH%WH%Bb
+sayc %B dH%WH%wHOOBBBBBBBBBBBBBBBBOO%WH%BHb
+sayc %B qH%WH%wHOb%CqIIIb%wqBBBp%CdIIIp%wdOO%WH%BHp
+sayc %B  q%WH%wHOOb%CqIIIb%wqBp%CdIIIp%wdBOO%WH%Bp
+sayc %W    q%wOOBBBBBBBBBBBBBBBBB%Wp
+sayc %W     q%wOOBBBBb%Bqyp%wdBBBBOO%Wp
+sayc %W      q%wOOBBBBb%B'%wdBBBBOO%Wp
+sayc %W       'q%wOOp%Bboood%wqOO%Wp'
+sayc %W         'q%wOOBBBOO%Wp'
+sayc %W           '''''''
+}

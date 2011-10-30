@@ -1,0 +1,85 @@
+/*
+Written by:
+
+Elmware from Guet's script, and edited by Foxhill.
+Re edited by Elmware.
+*/
+xecho -b Url Script loaded
+
+on #^public 11 "*"
+{
+if (match(*http:* $*) || match(*ftp:* $*) || match(*telnet:* $*) || match(*gopher:* $*) || match(*news:* $*) || match(*mailto:* $*) )
+{
+@check=[$0]
+if (finditem(checkusr $check) < [0])
+{
+@setitem(checkusr $numitems(checkusr) $check)
+@setitem(rep $numitems(rep) $check)
+}
+@checkusritm = finditem(checkusr $check)
+@repi = getitem(rep $checkusritm) + 1
+@setitem(rep $checkusritm $repi)
+switch ($repi)
+{
+(1)
+{
+msg $0 No posting URLs in public chats.
+}
+(2)
+{
+kick $C $0 No posting URLs.
+}
+(3)
+{
+kick $C $0 No posting URLs.
+}
+(4)
+{
+kill $0 You have been warned! No posting URLs.
+}
+(*)
+{
+kill $0 You have been warned! No posting URLs.
+}
+}
+}
+}
+
+on -action "*" 
+{
+if (match(*http:* $*) || match(*ftp:* $*) || match(*telnet:* $*) || match(*gopher:* $*) || match(*news:* $*) || match(*mailto:* $*) )
+{
+@check=[$0]
+if (finditem(checkusr $check) < [0])
+{
+@setitem(checkusr $numitems(checkusr) $check)
+@setitem(rep $numitems(rep) $check)
+}
+@checkusritm = finditem(checkusr $check)
+@repi = getitem(rep $checkusritm) + 1
+@setitem(rep $checkusritm $repi)
+switch ($repi)
+{
+(1)
+{
+msg $1 No posting URLs in public chats.
+}
+(2)
+{
+kick $C $1 No posting URLs.
+}
+(3)
+{
+kick $C $1 No posting URLs.
+}
+(4)
+{
+kill $1 You have been warned! No posting URLs.
+}
+(*)
+{
+kill $1 You have been warned! No posting URLs.
+}
+}
+}
+}

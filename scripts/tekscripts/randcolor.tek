@@ -1,0 +1,51 @@
+# written by (ice) for heart :-)
+
+alias sayc
+{
+  eval say $cparse("$*")
+}
+
+alias get_rand_color
+{
+  ^local CNUM $rand(8)
+  if ([$CNUM] == [0])
+  { return %R }
+  if ([$CNUM] == [1])
+  { return %G }
+  if ([$CNUM] == [2])
+  { return %Y }
+  if ([$CNUM] == [3])
+  { return %B }
+  if ([$CNUM] == [4])
+  { return %M }
+  if ([$CNUM] == [5])
+  { return %P }
+  if ([$CNUM] == [6])
+  { return %C }
+  if ([$CNUM] == [7])
+  { return %W }
+}
+
+
+alias saychar
+{
+  ^local mychar
+  ^local mystr
+  fec ($*) mychar
+  { ^assign mystr $mystr$get_rand_color()$mychar }
+  sayc $mystr
+}
+
+alias sayword
+{
+  ^local myword
+  ^local mystr
+  fe ($*) myword
+  { ^assign mystr $mystr $get_rand_color()$myword }
+  sayc $mystr
+}
+
+alias sayline
+{
+  sayc $get_rand_color()$*
+}

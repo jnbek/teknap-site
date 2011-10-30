@@ -1,0 +1,108 @@
+# southpark bitchx addon versions:
+# STAN = v1
+# KYLE = v2
+# southpark bitchx addon script (version KYLE) by nuxx
+# (nuxx@wow.atlasta.net)
+# 
+# greets to: fiction (for helping me with for())
+
+^eval set format_version ${format_version} + [southpark(v2)]
+
+@ rankenny.0 = [I like girls with big fat tittys, I like girls with big vagina. -southpark(kenny)]
+@ rankenny.1 = [It's what your moms use when their alone -southpark(kenny)]
+@ rankenny.2 = [Look at the size of his boobs! -southpark(kenny)]
+@ rankenny.3 = [Maybe she can suck my dick -southpark(kenny)]
+@ rankenny.4 = [Oh my god I think they're screwing -southpark(kenny)]
+@ rankenny.5 = [And I want to take off your bra.. -southpark(kenny)]
+@ rankenny.6 = [I have to go fart -southpark(kenny)]
+@ rankenny.7 = [I did, i gotta go shit -southpark(kenny)]
+@ rankenny.8 = [Where they take a knife and stick your pee pee. -southpark(kenny)]
+@ rankenny.9 = [It looks like it's made of silicon! -southpark(kenny)]
+@ kennylen = 10
+
+@ rancartman.0 = [My mom says theres a lot of black people in Africa -southpark(cartman)]
+@ rancartman.1 = [IM NOT FAT! IM BIG BONED! -southpark(cartman)]
+@ rancartman.2 = [Somebody's bakin brownies -southpark(cartman)]
+@ rancartman.3 = [Yeah i want cheesy poofs! -southpark(cartman)]
+@ rancartman.4 = [Yeah, I only weigh 90 pounds! -southpark(cartman)]
+@ rancartman.5 = [beefcake.. BeefCake.. BEEFCAKE!!! -southpark(cartman)]
+@ rancartman.6 = [Mom? Can you get me some weight gain 4000? -southpark(cartman)]
+@ rancartman.7 = [OK! THAT DOES IT! WHY DOES EVERYTHING TODAY INVOLVE THINGS EITHER GOIN IN OR COMING OUT OF MY ASS?!@?!?!?!? -southpark(cartman)]
+@ rancartman.8 = [I want my salsbury steak! -southpark(cartman)]
+@ rancartman.9 = [Kick ass -southpark(cartman)]
+@ rancartman.10 = [This is like the gun i used in 'nam -southpark(cartman)]
+@ cartmanlen = 11
+
+@ rankyle.0 = [OH MY GOD! They killed Kenny! You bastard! -southpark(kyle)]
+@ rankyle.1 = [OH MY GOD! Jay Leno's chin killed Kenny! You bastard! -southpark(kyle)]
+@ rankyle.2 = [Nope. Their leaving. HEY YOU SCRAWNY ASS SHIT! WHAT THE FUCK IS WRONG WITH YOU? -southpark(kyle)]
+@ rankyle.3 = [YOU MUST BE SOME KIND OF *beep* TO BE ABLE TO IGNORE A CRYING CHILD! -southpark(kyle)]
+@ rankyle.4 = [YOU KNOW WHAT YOU FUCKING LIKE! YOU LIKE TO FUCK *beep* *beep* *beep* -southpark(kyle)]
+@ rankyle.5 = [And my dad will start yelling. Wheres your brother kyle? You weren't looking out for your little brother kyle. -southpark(kyle)]
+@ rankyle.6 = [You know he cant think on his own Kyle. Brush and floss Kyle. Where has that finger been Kyle? -southpark(kyle)]
+@ rankyle.7 = [Cartman! There's an 80 foot satellite dish sticking out of your ass! -southpark(kyle)]
+@ rankyle.8 = [Well Stan, you wanna know what I think? *fart* -southpark(kyle)]
+@ rankyle.9 = [Ready Ike? Kick the baby! -southpark(kyle)]
+@ rankyle.10 = [STOP THE BUSS!! MS. CRABTREE!! YOU HAVE TO STOP THIS BUS! -southpark(kyle)]
+@ kylelen = 11
+
+@ ranstan.0 = ["Yeah whatever you fat bitch." "WHAT DID YOU SAY?!" "I said i have a bad itch" -southpark(stan)]
+@ ranstan.1 = ["Well we cant do anything for now, that fat bitch wont let us" "WHAT DID YOU SAY?!" "I said that rabbits eat lettuce." "Oh, well yes, they certainly do" -southpark(stan)]
+@ ranstan.2 = [Cartman always makes stuff up Ned, you cant believe a word he says -southpark(stan)]
+@ ranstan.3 = [Dude! That kicks ass! -southpark(stan)]
+@ ranstan.4 = [Okay cartman we got out of school you can stop farting fire now. -southpark(stan)]
+@ ranstan.5 = [When do i get to make sweet love? -southpark(stan)]
+@ stanlen = 6
+
+alias kenny if ([$0]) {
+  switch ($tolower($0)) {
+    (index) {echo kenny.....;for (@i=0, i < kennylen, @i++) {
+        eval echo $(i) - $rankenny[$i]}^assign -i}
+    (rand) {eval say $rankenny[$rand($kennylen)]}
+    (spec) {eval say $rankenny[$1]}}}
+
+alias cartman if ([$0]) {
+  switch ($tolower($0)) {
+    (index) {echo cartman.....;for (@i=0, i < cartmanlen, @i++) {
+        eval echo $(i) - $rancartman[$i]}^assign -i}
+    (rand) {eval say $rancartman[$rand($cartmanlen)]}
+    (spec) {eval say $rancartman[$1]}}}
+
+alias kyle if ([$0]) {
+  switch ($tolower($0)) {
+    (index) {echo kyle.....;for (@i=0, i < kylelen, @i++) {
+        eval echo $(i) - $rankyle[$i]}^assign -i}
+    (rand) {eval say $rankyle[$rand($kylelen)]}
+    (spec) {eval say $rankyle[$1]}}}
+
+alias stan if ([$0]) {
+  switch ($tolower($0)) {
+    (index) {echo stan.....;for (@i=0, i < stanlen, @i++) {
+        eval echo $(i) - $ranstan[$i]}^assign -i}
+    (rand) {eval say $ranstan[$rand($stanlen)]}
+    (spec) {eval say $ranstan[$1]}}}
+
+alias sphelp {
+  eval echo $repeat(70 -)
+  echo southpark.bx by nuxx (nuxx@wow.atlasta.net)...
+  echo i was bored, and i was thinking about watching southpark videos
+  echo so i made this. its really simple to use actually..
+  echo to get a random quote from say kenny, do:
+  echo     /kenny rand
+  echo to get an index of all the kenny quotes, do:
+  echo     /kenny index
+  echo and finally to say a specific quote, do:
+  echo     /kenny spec <num> where <num> is the quote number (see index)
+  eval echo $repeat(70 -)
+}
+eval echo $repeat(70 -)
+echo southpark.bx by nuxx (nuxx@wow.atlasta.net) loaded.
+eval echo southpark.bx stats: $kennylen kenny lines
+eval echo southpark.bx stats: $cartmanlen cartman lines
+eval echo southpark.bx stats: $kylelen kyle lines
+eval echo southpark.bx stats: $stanlen stan lines
+echo southpark.bx help: /sphelp
+eval echo $repeat(70 -)
+echo if you have any more quotes from any of the southpark characters,
+echo email them to me (my address is above) with the quote and your irc
+echo nick, and i'll give ya greets too ;)

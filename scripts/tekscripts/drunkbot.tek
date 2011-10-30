@@ -1,0 +1,48 @@
+/*
+PyroGod69
+
+!drink with drunkbot and get plastered
+
+*/
+
+assign D1 $0 drinks a keg of beer.
+assign D2 $0 spills beer on the moron in front of him.
+assign D3 $0 leans over the toilet an pukes.
+assign D4 $0 trips over his own feet in a fit of drunkeness.
+assign D5 $0 leans to far back in the chair and spills all of his beer.
+assign D6 $0 gets pissed cuz his beer has too much head.
+assign D7 $0 falls down on the floor drunk and stupid.
+assign D8 $0 chugs a sixer.
+assign D9 $0 pisses in the corner and doesn't say anything.
+assign D10 $0 sits and stares at the football game while yelling at the tv.
+assign D11 $0 tries to drive but get breathalyzed by the pigs.
+assign D12 $0 puts a lamp shade on his head and dances around.
+assign D13 $0 screws the town whore and gets all of his money taken.
+assign D14 $0 lets out a MANLY belch.
+assign D15 $0 gets into the liquor cabnit and passes out.
+assign D16 $0 lies down in his own puke and garbage and passes out.
+assign D17 $0 starts a bar fight with a fellow drunk.
+assign D18 $0 drinks a fifth of vadka and can't hold his liquor.
+assign D19 $0 skips his AA meeting to go boozin.
+assign D20 $0 gets promptly escorted out of a lodge meeting.
+assign D21 $0 spills his beer on a cocktail waitress and gets the shit slapped outta him.
+assign D22 $0 gets beer on a hot chick and she has to take off her shirt.
+assign D23 $0 gets so plastered that he fucks his mother.
+assign D24 $0 gets a liver transplant.
+assign D25 $0 falls in a ditch and lays there ass some sober folks go by.
+assign D26 $0 grabs the ass of an 18-year-old hottie and it progresses to third base. 
+
+
+on -public "*" 
+{
+	switch ($2)
+	{
+		(!drink)
+		{
+			eval say $(D$rand(27))
+		}
+		(*)
+		{
+		}
+	}
+}

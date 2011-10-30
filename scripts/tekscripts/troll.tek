@@ -1,0 +1,68 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/troll
+
+alias sayc {say $cparse("$*")}
+
+alias troll
+{
+sayc %G                             s
+sayc %G                            sS.
+sayc %G                        S, SSs,
+sayc %G                         SSsSSSSs,   s
+sayc %G                          SSsSSSSSSs,Ss.
+sayc %G                           SSsSSSSSSSSss
+sayc %G                          sSSsSSSSSSSsSSS. s
+sayc %G                         sSSSsSSSSSSSSSsSSsSs,
+sayc %G                       sSSSSsSSSSSSSSSSSsSSSSSS,
+sayc %G                  s sSSSSSSsSSSSSSSSSSSsSSSsSSSSs,
+sayc %G                 sSsSSSSSSsSSSSSSSSSSSsSSSSSSSSSSSSs
+sayc %G               sSSsSSSSSSSSSSSSSSSSSSsSSSSSSsSSSSSSSS,
+sayc %G             sSSSSSSSSSSSSSSSSSSSSSSSSsSSSSSSSSSSSSSSSs,
+sayc %G           sSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSsSSSSSSSSSSs
+sayc %G          SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,
+sayc %G        .SSSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSsSSSSSSSSSSSSS,
+sayc %G        SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS,
+sayc %G       .SSSSSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSsSSSSSSSSSSSSSSSSS
+sayc %G       SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+sayc %G      .sSSSSSSSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'
+sayc %G      SSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs
+sayc %G      SSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsS
+sayc %G      SSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsSSS
+sayc %G      `SSSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsSSSSS
+sayc %G       SSSSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsSSSSSSS'
+sayc %G       `SSSSSSsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsSSSSSSSS
+sayc %G        SSSSSsSSSSSSSSS%yxxxxxxxxxxxxxxxxxxxx%GSSSSSSSSsSSSSSS'
+sayc %G        `SSSSSSSSSSS%yx,:mmmmmnvxx:::xxvnmmmmm:,x%GSSSSSSSSSS'
+sayc %G         `SSSSSSS%y.vnnmmvvvvvmmnxx:xxnmmvvvvvmmnnv.%GSSSSSS'
+sayc %G          `S%yxxxx,vnnmmvv'  `vmmnx:xnmmv'  `vvmmnnv,xxx%GS'
+sayc %y          xvmnnnvnnmmmvv,  .vnnnv:vnnnv,  .vvmmmnnvnnnmvx
+sayc %y         :vm:xxnvnnnnnnnvvvvx:mmmmmmm:xvvvvnnnnnnnvnxx:mv:
+sayc %y         `vmm:xnvnnmmmmnnvx:mmmmmmmmmmm:xvnnmmmmnnvnx:mmv'
+sayc %y           `vmmnvnnmmmmnvvx:mxxmmmmmxxm:xvvnmmmmnnvnmmv'
+sayc %y              `vvvnnnvvv:vvvvvnnnnnnnvvvvv:vvvnnnvvv'
+sayc %y                `vvnnn:vvv:vvvvvvvvvvvvv:vvv:nnnvv'
+sayc %y                    `vvnnnvv:x:x:x:x:x:vvnnnvv'
+sayc %y                    .,vx xnnnmmmmmmmmmnnnx xv,.
+sayc %y                 .,vvnnnvvx:x:x:x:x:x:x:xvvnnvv,.
+sayc %y             .,vvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvv,.
+sayc %y           ,vvnnnnnnnnvvvvnnnnnnnnnnnnnnvvvvnnnnnnnnvv,
+sayc %y        ,vvnnnnnnnnnvvmmmmnnnnnnnnnnnnnnmmmmvvnnnnnnnnnvv,
+sayc %y     .vvnnnnnnnnnn `mmmmnnnnnnnnnnnnnnnnnnmmmm' nnnnnnnnnnvv.
+sayc %y   .vvnnnnnnnnnn'  mmnnnnnnnnnnnnnnnnnnnnnnnnmm  `nnnnnnnnnnvv.
+sayc %y  vmmvnmmvnmmv'   .nnnnnnnnnnnnnnnnnnnnnnnnnnnn,   `vmmnvmmnvmmv
+sayc %y  `nmxnmxnmx'     nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn     `xmnxmnxmn'
+sayc %y                  nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+sayc %y                  nnnnnnnnnnnnnn<*>nnnnnnnnnnnnn
+sayc %y                 .vmmnnnnnnnnnnnnnnnnnnnnnnnnmmv,
+sayc %y               .vnvmmmmnnnnnnnnnnnnnnnnnnnnmmmmvnv.
+sayc %y              .vvnvvvmmmmnnnnnnnnnnnnnnnnmmmmvvvnvv.
+sayc %y              vvnnnnvvvvmmmmnnnnnnnnnnnmmmvvvvvnnnvv
+sayc %y             .vvnnnnnnnvvvvvvvv'   `vvvvvvvnnnnnnnvv.
+sayc %y             vvnnnnnnnnnnnnnnvv     vvnnnnnnnnnnnnnvv
+sayc %y            .vvnnnnnnnnnnnnnnnv     vnnnnnnnnnnnnnnvv.
+sayc %y            vnmnvnmnvnmnvnmnvnm.   .mnvnmnvnmnvn%B~N~%ynmv
+sayc %y            vmmmxmmmxmmmxmmmxmmm   mmmxmmmxmmmxmmmxmmm
+}

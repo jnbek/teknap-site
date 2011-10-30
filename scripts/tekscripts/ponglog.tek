@@ -1,0 +1,47 @@
+# Ponglog script v1.1
+# Written by Juhah and DJHyperbyte
+
+eval xecho -b $cparse(%GPong logger %Wv1.1)
+eval xecho -b $cparse(%GCreated by: %WJuhah %Gand %WDJHyperbyte)
+eval xecho -b $cparse(%GUsage: %W/ponglog on/off %Gto turn logging on or off)
+
+ASSIGN LOG_PATH //c/teknap/
+ASSIGN MAX_PONG 3000
+
+alias ponglog
+{
+  switch ($0)
+  {
+    (off)
+    {
+      ^on #-servermsg 232 -"Pong from server *"
+      xecho -b $cparse(%GPonglog has been turned %WOFF)
+    }
+    (on)
+    {
+      ^on #-servermsg 232 "Pong from server *"
+      {
+        @ fd = open($LOG_PATH/$3.log w)
+        ^assign LAST_PONG $after([ $4)
+        if ([$LAST_PONG] >= [$MAX_PONG]
+        {
+          ^assign LINE_WRITE $strftime(%X) 3000
+        }
+        {
+          ^assign LINE_WRITE $strftime(%X) $after([ $4)
+        }
+        @ write($fd $LINE_WRITE)
+        @ close($fd)
+        ^assign -LAST_PONG
+        ^assign -LINE_WRITE
+        ^assign -FD
+      }
+      xecho -b $cparse(%GPonglog has been turned %WON)
+    }
+    (*)
+    {
+      xecho -b $cparse(%GUsage: %W/ponglog on/off %Gto turn logging on or off)
+    }
+  }
+}
+

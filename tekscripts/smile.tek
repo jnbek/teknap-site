@@ -1,0 +1,50 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YNeo
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/smile, /smiley
+
+alias sayc {say $cparse("$*")}
+
+alias smile
+{
+sayc
+sayc         %Y@@@@            @@@@
+sayc        %Y@%b@@@@%Y@          @%b@@@@%Y@
+sayc       %Y @%b@@@@%Y@          @%b@@@@%Y@
+sayc         %Y@@@@            @@@@
+sayc 
+sayc    %Y@                             @
+sayc     %Y@@                         @@
+sayc       %Y@@@                   @@@
+sayc          %Y@@@@@         @@@@@
+sayc             %Y@@@@@@@@@@@@@
+sayc              %R@    @    @
+sayc              %R@    @    @
+sayc              %R@    @    @
+sayc              %R@    @    @
+sayc               %R@       @
+sayc                %R@@@@@@@
+}
+
+alias smiley
+{
+sayc %Y      .o#############o.
+sayc %Y    .o#################o.
+sayc %Y  .o####' `#######' `####o.
+sayc %Y .######   #######   ######.
+sayc %Y.#######. .#######. .#######.
+sayc %Y#############################
+sayc %Y#############################
+sayc %Y#############################
+sayc %Y#############################
+sayc %Y`###########################'
+sayc %Y `###.`###############'.###'
+sayc %Y  `###.`#############'.###'
+sayc %Y    `###.`##%r000000%Y#'.###'
+sayc %Y      `####%r000%Ro%r0000%Y###'
+sayc %Y        `*#%r0000%Ro%r000%Y#*'
+sayc %r          0000%Ro%r000'
+sayc %r          `00%Ro%r000'
+sayc %r           `000*'
+} 

@@ -1,0 +1,21 @@
+" "
+alias Smiley
+
+{ eval sayc $cparse("%Y      .o#############o.")
+eval sayc $cparse("%Y    .o#################o.")
+eval sayc $cparse("%Y  .o####' `#######' `####o.")
+eval sayc $cparse("%Y .######   #######   ######.")
+eval sayc $cparse("%Y.#######. .#######. .#######.")
+eval sayc $cparse("%Y#############################")
+eval sayc $cparse("%Y#############################")
+eval sayc $cparse("%Y#############################")
+eval sayc $cparse("%Y#############################")
+eval sayc $cparse("%Y`###########################'")
+eval sayc $cparse("%Y `###.`###############'.###'")
+eval sayc $cparse("%Y  `###.`#############'.###'")
+eval sayc $cparse("%Y    `###.`##%r000000%Y#'.###'")
+eval sayc $cparse("%Y      `####%r000%Ro%r0000%Y###'")
+eval sayc $cparse("%Y        `*#%r0000%Ro%r000%Y#*'")
+eval sayc $cparse("%r          0000%Ro%r000'")
+eval sayc $cparse("%r          `00%Ro%r000'")
+eval sayc $cparse("%r           `000*'") }

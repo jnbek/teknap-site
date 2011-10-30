@@ -1,0 +1,148 @@
+xecho -b TekNap Schemes Loaded
+xecho -b Author: NiTeBiTe
+alias xechoc
+{
+	xecho -b $cparse("$*")
+}
+
+alias scheme
+{
+	xechoc %WScheme List:
+	xechoc %W(%R1%W)%R Red Scheme
+	xechoc %W(%R2%W)%p Purple Scheme
+	xechoc %W(%R3%W)%G Green Scheme
+	xechoc %W(%R4%W)%B Blue Scheme
+	xechoc %W(%R5%W)%Y Yellow Scheme
+	xechoc %W(%R6%W)%W White Scheme
+	input "What Scheme To Use? " if ([$0])
+	{
+	switch ($0)
+		{
+			(1) {scheme1
+			xechoc %RRed Scheme Set}
+			(2) {scheme2
+			xechoc %PPurple Scheme Set}
+			(3) {scheme3
+			xechoc %GGreen Scheme Set}
+			(4) {scheme4
+			xechoc %BBlue Scheme Set}
+			(5) {scheme5
+			xechoc %YYellow Scheme Set}
+			(6) {scheme6
+			xechoc %WWhite Scheme Set}
+			(*) {echoc %GPick A Real Scheme}
+		}	
+	}
+}
+
+alias echoc
+{
+	echo $cparse("$*")
+}
+
+alias scheme1
+{
+	^on ^servermsg "*"
+	{
+	echoc %Rù%Wí%Rù%W %R$0-
+	}
+	^on ^public "*"
+	{
+		echoc %R<%r$0%R> %r$2-
+	}
+	^on ^824 "*"
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echoc %R$1 $chra 
+	}
+}
+
+alias scheme2
+{
+	^on ^servermsg "*"
+	{
+	echoc %Rù%Wí%Rù%W %P$0-
+	}
+	^on ^public "*"
+	{
+		echoc %P<%p$0%P> %p$2-
+	}
+	^on ^824 "*"
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echoc %P$1 $chra 
+	}
+}
+
+alias scheme3
+{
+	^on ^servermsg "*"
+	{
+	echoc %Rù%Wí%Rù%W %G$0-
+	}
+	^on ^public "*"
+	{
+		echoc %G<%g$0%G> %g$2-
+	}
+	^on ^824 "*"
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echoc %G$1 $chra 
+	}
+}
+
+alias scheme4
+{
+	^on ^servermsg "*"
+	{
+	echoc %Rù%Wí%Rù%W %B$0-
+	}
+	^on ^public "*"
+	{
+		echoc %B<%b$0%B> %b$2-
+	}
+	^on ^824 "*"
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echoc %B$1 $chra 
+	}
+}
+
+alias scheme5
+{
+	^on ^servermsg "*"
+	{
+	echoc %Rù%Wí%Rù%W %Y$0-
+	}
+	^on ^public "*"
+	{
+		echoc %Y<%y$0%Y> %y$2-
+	}
+	^on ^824 "*"
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echoc %Y$1 $chra 
+	}
+}
+alias scheme6
+{
+	^on ^servermsg "*"
+	{
+	echoc %Rù%Wí%Rù%W %W$0-
+	}
+	^on ^public "*"
+	{
+		echoc %W<%w$0%W> %w$2-
+	}
+	^on ^824 "*"
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echoc %W$1 $chra 
+	}
+}

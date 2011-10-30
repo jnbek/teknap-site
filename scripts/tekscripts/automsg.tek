@@ -1,0 +1,39 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Automsg Script Loaded %>02/am_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+assign A1 I'm sorry, but I am currently away from my computer.....be back in a few.  q:o)
+assign A2 THANX  q:o)
+@msgss=0
+
+alias afk
+{
+ @msgss=1
+}
+
+alias back
+{
+ @msgss=0
+}
+
+on #-msg 431 "*"
+{
+ if (msgss)
+ {
+  echo 54$0 messaged u!
+  m $0 $A1
+  m $0 $A2
+ }
+}
+
+alias am_menu
+{
+ echo /afk  - Set's status to away.
+ echo /back - Set's status to back.
+}

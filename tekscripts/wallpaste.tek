@@ -1,0 +1,75 @@
+#***************************************************************
+# WALLOP PASTE/QUERY! By Spike. Last updated: 04/21/02
+# Toggle it with /wp for paste and /wq for query. Now you can
+# use wallop the same way as you use query. ;-) A small bug has
+# been fixed regarding to default teknap paste. Doh' ME! :P
+#***************************************************************
+xecho -b ***************************
+xecho -b Wallop paste/query loaded!
+xecho -b ./WQ toggles query.
+xecho -b ./WP toggles paste.
+xecho -b ***************************
+xecho -b Wouldnt it be better to have this in your rc file instead? :)
+
+ASSIGN WALL_PASTE 0
+ASSIGN WALL_QUERY 0
+alias wp (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign WALL_PASTE 0
+		}
+		(1)
+		(on)
+		{
+			^assign WALL_PASTE 1
+		}
+		(*)
+		{
+			@WALL_PASTE = WALL_PASTE ? [0] : [1]
+		}
+	}
+		xecho -b Wallop paste is now ${WALL_PASTE ? [[ON]] : [[OFF]]}
+}
+alias wq (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign WALL_QUERY 0
+		}
+		(1)
+		(on)
+		{
+			^assign WALL_QUERY 1
+		}
+		(*)
+		{
+			@WALL_QUERY = WALL_QUERY ? [0] : [1]
+		}
+	}
+		xecho -b Wallop query is now ${WALL_QUERY ? [[ON]] : [[OFF]]}
+}
+on ^paste "*"
+{
+	if (WALL_PASTE)
+	{
+		wal $1-
+	}{
+		msg $0 $1-
+	}
+}
+on ^input "*"
+{
+	if (WALL_QUERY && !match($CMDCHARS* $0))
+	{
+		sendline $CMDCHARS\wal $*
+	}{
+		sendline $*
+	}
+}

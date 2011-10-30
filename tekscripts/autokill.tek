@@ -1,0 +1,35 @@
+*Author: Neobite.
+xecho -b Author: Neobite
+xecho -b Version: Autokill
+xecho -b /1 = on
+xecho -b /0 = off
+assign -A
+alias 1
+{
+	if (!A)
+	{
+		^assign A 1
+		xecho -b Your Autokill script is on.
+	}
+	{
+		xecho -b You Autokill script is already on!
+	}
+}
+alias 0
+{
+	if (A)
+	{
+		^assign -A
+		xecho -b Your Autokill script is off.
+	}
+	{
+		xecho -b Your Autokill script is already off!
+	}
+}
+on ^flood "% PUBLIC *" 
+{	
+	if (A)
+	{
+		raw 610 $0 "You have been killed by a machine"
+	}
+}

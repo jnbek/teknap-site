@@ -1,0 +1,47 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/tongue
+
+alias sayc {say $cparse("$*")}
+
+alias tongue
+{
+sayc %R                    ..:::..
+sayc %R                  .!!!UWWX!.    ..!!!!!!.
+sayc %R                 !!!WSSSSSB!. .!!!USSSSW!!.
+sayc %R               :!!!MR##SSSR!!!!!!9SSSSSSE!!
+sayc %R              :!!!!!!!!!!!!!!!!!!!!!!!T!!!!:
+sayc %R             :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+sayc %R           .!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:
+sayc %R          .!!!!!XUSSNU!!!!!!!!!!!!!!!!!!!!!!!.
+sayc %R        .!!!!!tSSSSSSSSW!!!!XWSSSSSSW!!!!!!!!!.
+sayc %R      .!!!:'   #SSSSSSSSSSSSSSSSSSSSSSX!!!!!!!!.
+sayc %R    .!!!!'         ?SSSSSSSSSSSSSSSSSSSW!!!!!!!!!.
+sayc %R  .!!!!.        %r :!!!!!!!'%R   #SSSSS#.#SSSR!!!!!!!!!.
+sayc %R    !!!!.     %r.!!!!!!!!:    .....!!!!!!!!!..%R !!!!!!!.
+sayc %R     !!!!.  %r:!!!!!!!!!' .!!!!!!!!!!!!!!!!!!!!%R !!!!!'
+sayc %R      !!!!:%r!!!!!XW!!' :!!!!!!!!!!!!!!!!!!!!%R !!!!!'
+sayc %R       !!%r!!!!!WSR!! .!!!!!!!!!!!!WS?!!!!!!%R !!!!'
+sayc %r       !!!!!XSSx!! :!!!!!!!!!!!XSS!!!!!!%R !!!!!'
+sayc %r      !!!!!WSS?!! !!!!!!!!!!!!@SR!!!!!%R :!!!!!'
+sayc %r    .!!!!!@SS!!! !!!!!!!!!!!!SSR!!!!!%R !!!!!!
+sayc %r   .!!!!!SSS?!! !!!!!!!!!!!!SSR!!!!!%R !!!!!!
+sayc %r  .!!!!!@SSx!! !!!!!!!!!!!!SSS!!!!!%R !!!!!!'
+sayc %r  !!!!!9SSR!!'.!!!!!!!!!!!8SS!!!!!%R !!!!!!'
+sayc %r .!!!!XSSS!!! !!!!!!!!!!!tSSx!!!!%R .!!!!!:
+sayc %r !!!!!9SSR!!! !!!!!!!!!!XSSS!!!!'%R.!!!!!!
+sayc %r.!!!!!SSS!!!!!!!!!!!!!!!SSSx!!!!%R !!!!!!'
+sayc %r!!!!!!SSE!!!!!!!!!!!!!!9SSS!!!!%R .!!!!!:
+sayc %r!!!!!!!M!!!!!!!!!!!!!!tSSS!!!!!%R !!!!!:
+sayc %r!!!!!!!!!!!!!!!!!!!!!tSSSR!!!!%R !!!!!:
+sayc %r'!!!!!!!!!!!!!!!!!!!tSSSS!!!!!%R !!!!'
+sayc %r :!!!!!!!!!!!!!!!!!!SSSS!!!!!%R !!''
+sayc %r  :!!!!!!!!!!!!!!!!!!SS!!!!!i
+sayc %r   '!!!!!!!!!!!!!!!!!!!!!!!'
+sayc %r    '!!!!!!!!!!!!!!!!!!!!:'
+sayc %r      '!!!!!!!!!!!!!!!!:'
+sayc %r        '!!!!!!!!!!!!i'
+sayc %r		''''''
+}

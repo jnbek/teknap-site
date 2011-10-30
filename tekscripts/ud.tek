@@ -1,0 +1,4 @@
+alias ul (uls) {repeat $uls {raw 220}}
+alias dl (dls) {repeat $dls {raw 218}}
+
+eval echo $cparse(%WUsage: %Y/ul %y\(num\)     %Y/dl %y\(num\))

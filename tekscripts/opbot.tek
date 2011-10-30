@@ -1,0 +1,97 @@
+xecho -b Opbot loaded!
+xecho -b Written by gircobain 22/10/2001
+
+@chanlist = [#channel1 #channel2 #channel3]
+@delarray(oplist)
+@setitem(oplist 0 user1 user2 user3 user4)
+@setitem(oplist 1 user1 user2 user3)
+@setitem(oplist 2 user1 user2 user3 user4)
+
+on #-msg 984 "% op %" {
+  assign user $0
+  assign chan $2
+  if (match($chan $chanlist)) {
+    assign oplist $getitem(oplist ${match($chan $chanlist)-1})
+    whois -cmd {
+      if (match($1 "Moderator" "Admin" "Elite") || match($user $oplist)) {
+        op $chan $user
+      }{
+        msg $user Failed: access denied
+      }
+      ^assign -user
+      ^assign -chan  
+      ^assign -oplist 
+    } $user
+  }{
+    msg $user Failed: channel not in the list
+  }
+}
+
+on #-public 148 "% % !op" {
+  assign user $0
+  assign chan $1
+  if (match($chan $chanlist)) {
+    assign oplist $getitem(oplist ${match($chan $chanlist)-1})
+    whois -cmd {
+      if (match($1 "Moderator" "Admin" "Elite") || match($user $oplist)) {
+        op $chan $user
+      }{
+        msg $user Failed: access denied
+      }
+      ^assign -user
+      ^assign -chan
+      ^assign -oplist
+    } $user
+  }{
+    msg $user Failed: channel not in the list
+  }
+}
+
+on #-msg 723 "% list %" {
+  assign user $0
+  assign chan $2
+  if (match($chan $chanlist)) {
+    assign oplist $getitem(oplist ${match($chan $chanlist)-1})
+    whois -cmd {
+      if (match($1 "Moderator" "Admin" "Elite") || match($user $oplist)) {
+        msg $user Oplist for channel $chan:
+        fe ($oplist) op { msg $user $op }
+      }{
+        msg $user Failed: access denied
+      }
+      ^assign -user
+      ^assign -chan
+      ^assign -oplist
+    } $user
+  }{
+    msg $user Failed: channel not in the list
+  }
+}
+
+on #-public 287 "% % !list" {
+  assign user $0
+  assign chan $1
+  if (match($chan $chanlist)) {
+    assign oplist $getitem(oplist ${match($chan $chanlist)-1})
+    whois -cmd {
+      if (match($1 "Moderator" "Admin" "Elite") || match($user $oplist)) {
+        msg $user Oplist for channel $chan:
+        fe ($oplist) op { msg $user $op }
+      }{
+        msg $user Failed: access denied
+      }
+      ^assign -user
+      ^assign -chan
+      ^assign -oplist
+    } $user
+  }{
+    msg $user Failed: channel not in the list
+  }
+}
+
+on #-join 527 "*" {
+  @:chindex = match($0 $chanlist)
+  if (chindex) {
+    if (match($1 $getitem(oplist ${chindex-1}))) op $0 $1
+  }
+}

@@ -1,0 +1,57 @@
+echo hellloikkkalooonie
+/* AUTO-MUZZLE FOR TEKNAP                                                         */           
+/* Note: From Limey                                                               */
+/* Note: This sript was originally written with Mod+ involved so some alterations */
+/*       were necessary to make it useable by an Op.                              */
+/* Alterations by: Samhoklanach (samhoklanach@mail.com)                           */
+/*       (a) The "raw" messages were replaced with m chanserv <command> $C $nick  */
+/*       (b) Added a private message to the flooder asking them to please not     */
+/*           flood.                                                               */
+/* 10.12.2000 Alteration by: Samhoklanach (samhoklanach@mail.com)                 */
+/*       (a) Commented out the private message.                                   */
+
+assign AUTO_MUZZLE 0
+assign AUTO_MUZZLE_TIME 60
+#assign CHAN #asgard
+
+/* Toggle auto-muzzle on/off */
+alias automuzzle (arg, void)
+{
+	switch ($arg)
+	{
+		(0) {^assign AUTO_MUZZLE 0}
+		(1) {^assign AUTO_MUZZLE 1}
+		(off) {^assign AUTO_MUZZLE 0}
+		(on) {^assign AUTO_MUZZLE 1}
+		(*) {@ AUTO_MUZZLE = AUTO_MUZZLE ? [0] : [1]}
+	}
+	xecho -b Auto-muzzle has been ${AUTO_MUZZLE ? [activated] : [de-activated]}
+}
+		
+
+on #+flood 1001 "% PUBLIC *" if (AUTO_MUZZLE)
+{
+	^assign chan $2
+	^assign nick $0
+	^assign type $1
+	if (finditem(pubflood $nick) < [0])
+	{
+		@ setitem(pubflood $numitems(pubflood) $nick)
+		whois -cmd
+		{
+			switch ($tr(/"//$1))
+			{
+				(Elite) {#}
+				(Admin) {#}
+				(Moderator) {#}
+				(*) {
+					xecho -b PUBLIC flooding detected from $nick on $chan - Muzzling for $AUTO_MUZZLE_TIME seconds
+                                        m chanserv muzzle $chan $nick \"Auto-muzzle for $AUTO_MUZZLE_TIME seconds: Flooding.\"
+					timer $AUTO_MUZZLE_TIME eval m chanserv unmuzzle $chan $nick \"Auto-muzzle for $AUTO_MUZZLE_TIME seconds elapsed.\";@ delitem(pubflood $finditem(pubflood $nick))
+				}
+			}
+		} $nick
+	}
+	wait -cmd @ chan = nick = type = []
+}
+

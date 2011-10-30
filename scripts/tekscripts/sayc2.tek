@@ -1,0 +1,20 @@
+assign SAYC2COLORLIST rgybmpcwRGYBMPCW
+	
+alias SAYC2
+	{
+	^local TEXTLINE  $*
+	^local STRING
+	^local BYTE
+	^local OUTPUTLINE
+	while ( [$TEXTLINE] != [] )
+		{
+		@ BYTE = left(1 $SAYC2COLORLIST)
+		@ STRING = mid(1 15 $SAYC2COLORLIST)
+		@ SAYC2COLORLIST = [$STRING$BYTE]
+		@ OUTPUTLINE = [$OUTPUTLINE%$BYTE]
+		@ BYTE = left(1 $TEXTLINE)
+		@ TEXTLINE = mid(1 999 $TEXTLINE)
+		@ OUTPUTLINE = [$OUTPUTLINE$BYTE]
+		}
+	say $cparse($OUTPUTLINE)
+	}

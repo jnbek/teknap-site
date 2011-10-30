@@ -1,0 +1,43 @@
+xecho -b Stats in the Chat 1.0
+xecho -b written 1-23-2002
+#RebeccaLynn
+timer -rep -1 575 raw 10115 all
+on ^10115 "*"
+{
+Say  <<<< Getting StoogeNap Network Stats>>>>
+Say $0 servers reporting $2 plus one servers linked holding $3 users with $4 files $5 gigs shared globally . There are $6 active channels and $10 registered users.
+}
+#
+#
+#
+#
+#>>10115 214 2 417 132533 2297 9 1011765979 41656 255805 20 ** 1.02 1.07 0.22 71499066 36590220 0
+#>>10115 215 1 215 80872 1057 8 1011765979 41403 262375 20 **  1.48 0.82 0.22 70966875 36277196 0
+#>>10115 215 1 215 80257 1057 8 1011765979 41347 260579 20 **1.48 0.82 0.22 70966875 36277196 0
+#>>10115 214 2 389 125614 2208 8 1011765979 41772 257019 20 **1.78 1.63 0.47 71716341 36753514 0
+#>>10115 215 1 405 132442 2729 8 1011765979 41969 261933 20 **1.57 0.95 0.27 71941637 36899400 0
+#
+#Example:>> christnap.servequake.com servers reporting 2 plus one servers linked holding 417 users 132533 files 2297 gigs. There are 9 active channels and 20 registered users.
+#10115 = raw command number
+#
+#1                <clients>	number of locally connected clients
+#2                <servers>	number of locally connected servers
+#3	<users>		total number of global users
+#4	<files>		number of files in the db
+#5	<gigs>		total size of all files shared
+#6	<channels>	number of active channels
+#7	<time>		time at which the server was started
+#8	<uptime>	number of seconds of uptime
+#9	<memory>	if debugging is enabled, this will show the memory
+#			currently in use, otherwise it will be -1
+#10	<numusers>	number of registered users		
+# anything after the ** i have no idea what they mean
+#probably something to do with lag time and bytes in/out
+
+
+
+
+
+
+
+

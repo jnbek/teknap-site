@@ -1,0 +1,81 @@
+xecho -b Anti-kick script loaded
+xecho -b by gircobain 12/01/2001
+
+@ANTIKICK_ON = 1
+@delarray(KICKERS)
+@delarray(KCHANS)
+@delarray(KJOINS)
+
+@secs_grounded = 30
+
+alias ANTIKICK {
+  if ([$0] == []) {
+    xecho -b Anti-kick is currently ${ANTIKICK_ON?[ON]:[OFF]}
+  }{
+    switch ($0) {
+      (on) {
+        @ANTIKICK_ON = 1
+        xecho -b Anti-kick is now ON
+      }
+      (off) {
+        @ANTIKICK_ON = 0
+        xecho -b Anit-kick is now OFF  
+      }
+      (*) {
+        xecho -b Anti-kick is now ${ANTIKICK_ON?[ON]:[OFF]}
+        xecho -b Usage: /antikick on|off
+      }
+    }
+  }
+}
+
+on #-404 2 "You were kicked*" if (ANTIKICK_ON && !match($7 #*)) {
+  @:KICKER = [$before(: $7)]
+  @:KCHAN = [$5]
+  @setitem(KICKERS $numitems(KICKERS) $KICKER)
+  @setitem(KCHANS $numitems(KCHANS) $KCHAN)
+  @setitem(KJOINS $numitems(KJOINS) 0)
+  on #-404 1 "*opped you*" {
+    kick $KCHAN $KICKER you kick me, you get kicked
+    msg $KICKER $secs_grounded seconds grounded because of that :P
+    timer $secs_grounded {
+      @KICKER = getitem(KICKERS 0)
+      @delitem(KICKERS 0)
+      @KCHAN = getitem(KCHANS 0)
+      @delitem (KCHANS 0)
+      @:NJOIN = getitem(KJOINS 0)
+      @delitem(KJOINS 0)
+      if (NJOIN==3) cunban $KCHAN $KICKER
+      msg $KICKER ok you might come back now but behave!    
+
+    }
+    on #404 2 -"*opped you*"
+    @KICKER =
+    @KCHAN =
+  }
+}
+
+on #-406 2 "*" if (ANTIKICK_ON) {
+  if ((INDEX = finditem(KICKERS $1))>-1) {
+    @NJOIN = getitem(KJOINS $INDEX) + 1
+    @setitem(KJOINS $INDEX $NJOIN)
+    @KICKER = getitem(KICKERS $INDEX)
+    @KCHAN = getitem(KCHANS $INDEX)
+    switch ($NJOIN) {
+      (2) {
+        kick $KCHAN $KICKER last warning: wait 60s or be banned!
+      }
+      (3) {
+        cban $KCHAN $KICKER "I warned ya..."
+        kick $KCHAN $KICKER bye bye!!!
+      }
+      (*) {
+        kick $KCHAN $KICKER I said grounded!
+      }
+    }
+  }
+  @INDEX =
+  @NJOIN =
+  @KICKER =
+  @KCHAN =
+}

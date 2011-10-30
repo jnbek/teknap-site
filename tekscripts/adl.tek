@@ -1,0 +1,70 @@
+/*********************************
+ *   Type: Auto-detect script    *
+ * Author: TuToneBK              *
+ *   Name: ADL (AutoDetectLeech) *
+ *********************************/
+
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Auto Detect Leech Script Loaded %>02/adl_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias adl_menu
+{
+ echo
+ echo 57usage for this script is : 54/detect [on/off] 57to toggle on/off
+ echo                               54/detect    to check status
+ echo
+}
+
+alias detect (tog)
+{
+ if (!tog)
+ {
+  if (timer(leechrep))
+  {
+   echo $cparse("%BDetect is set to %Yon.")
+  }
+  {
+   echo $cparse("%BDetect is set to %Roff.")
+  }
+ }
+ {
+  switch ($tog)
+  {
+   (on)
+   {
+    if (timer(leechrep))
+    {
+     echo $cparse("%BDetect is already set to %Yon.")
+    }
+    {
+     timer -refnum leechrep -rep -1 30 ^guser -l -cmd
+     {
+      raw 610 $0 "You are not welcome here!!!"
+     }
+    }
+   }
+   (off)
+   {
+    if (!timer(leechrep))
+    {
+     echo $cparse("%BDetect is already set to %Roff.")
+    }
+    {
+     echo $cparse("%BDetect is set to %Roff.")
+     timer -del leechrep
+    }
+   }
+   (*)
+   {
+    echo $cparse(%WError:%Y On/Off or leave blank.)
+   }
+  }
+ }
+}

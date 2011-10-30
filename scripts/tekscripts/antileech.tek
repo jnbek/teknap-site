@@ -1,0 +1,30 @@
+xecho -b gorhead_leech_check 
+eval xecho -b $cparse("%Ymodified by TuToneBK") 
+
+on -607 "*" 
+{ 
+@nick=[$0] 
+@filename=[$1] 
+^whois -cmd 
+{ 
+ if ([$5]>0) 
+ { 
+  echo $nick $filename 
+  queue -clear 
+  raw 608 $nick $filename 
+ } 
+ { 
+  if (match($tr(/"//$2) *mod* *admin* *elite*)) 
+  { 
+   queue -clear 
+   raw 608 $nick $filename 
+  } 
+  { 
+   msg $nick NO SHARES, NO DOWNLOADS! 
+  } 
+  { 
+   raw 610 $nick Please Share Next Time! 
+  } 
+ } 
+} $nick 
+}

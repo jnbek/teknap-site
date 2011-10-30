@@ -1,0 +1,22 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YYellow/Neo??
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/peek
+
+alias sayc {say $cparse("$*")}
+
+alias peek
+{
+sayc
+sayc    %RPeeK%W-%RA%W-%RBoo
+sayc
+sayc           %y||            ||   %W(\../)   %y||           ||
+sayc          %y_||____________||____%W(oo)%y____||___________||_
+sayc          %y-||------------||---%y----%y-----||-----------||-
+sayc         %y _||____________||___%W( __ )%y___||___________||_
+sayc          %y-||------------||-----%R@%y------||-----------||-
+sayc           %y||            ||   %W||%W ||    %y||           ||%YNEO/2000
+sayc      %G^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sayc         %G^^^^^^^^          ^^^^^^^^^^           ^^^^^^^^^^^^^^^
+}

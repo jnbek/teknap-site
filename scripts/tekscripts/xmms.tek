@@ -1,0 +1,70 @@
+/*
+ * XMMS Media Player Script.
+ * (spike, drogoh) August 08 2002
+ */
+
+@xmmslogo = [[xmms/tek]]
+
+alias play (void) ^$xmms(play);_songs
+
+alias next (void) ^$xmms(next);if (!SONGECHO) timer .5 song
+
+alias prev (void) ^$xmms(prev);if (!SONGECHO) timer .5 song
+
+alias stop (void) ^$xmms(stop);_songd
+
+alias paus (void) ^$xmms(pause)
+
+alias songs (void) _songs
+
+alias hear (void)
+{
+	@:xst = [$after(\\" $xmms(info))]
+	@:xsn = [$before(\\" $xst)]
+	me hears $xsn $xmmslogo
+}
+
+alias song (void)
+{
+	@:xst = [$after(\\" $xmms(info))]
+	@:xsn = [$before(\\" $xst)]
+	xecho -b -w pub $xmmslogo $xsn $xmmslogo
+}
+
+alias _songs
+{
+	^assign songecho 1
+	^timer -ref songecho -repeat -1 5 _song
+}
+
+alias _songd
+{
+	^assign -songecho
+	^timer -del songecho
+}
+
+alias xmmsstart if (!XMMSECHO)
+{
+	^assign xmmsecho 1
+	^timer -ref xmmsecho -repeat -1 5 _song
+	xecho -b XMMS Song echo enabled.
+	xecho -b To disable, type /xmmsstop
+}
+
+alias xmmsstop if (XMMSECHO)
+{
+	^assign -xmmsecho
+	^timer -del xmmsecho
+	xecho -b XMMS Echo disabled.
+}
+
+alias _song if (XMMSECHO || SONGECHO)
+{
+	@xmms0 = [$xmms(info)]
+	if ([$xmms0] != [$xmms1])
+	{
+		@xmms1 = [$xmms0]
+		if (XMMSECHO) {hear}
+		if (SONGECHO) {song}
+	}
+}

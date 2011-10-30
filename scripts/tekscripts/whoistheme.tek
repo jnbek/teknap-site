@@ -1,0 +1,491 @@
+/*
+ * TekNap - Enhanced Whois System.
+ *
+ * Author: Spike <spike@spyke.sytes.net> - August 15 2002.
+ * This script is best added straight to your runcom file
+ * or loaded from there. Special thanks goes to gircobain
+ * and fudd for giving me some of the code and guidelines.
+ * Please report any bugs found to my above email address.
+ *
+ * Update: August 23 2002.
+ * A minor bug relating to user link stats and user status
+ * being cut off too short was addressed and fixed. sorry. :)
+ */
+
+/*
+ * Main Settings.
+ */
+
+/* color of normal text */
+assign MAINTEXTCOLOR %w
+
+/* color of border */
+assign BORDERCOLOR %K
+
+/* color of text highlights */
+assign TEXTCOLOR %W
+
+/* number of space offsets */
+assign OFFSET 0
+
+/* enable finger whoisback */
+assign FINGER_WHOIS 1
+
+/* finger whoisback max interval in seconds */
+assign FINGER_INT 240
+
+/* beep on being fingered */
+assign FINGER_BEEP 0
+
+/* execute finger whoisback commands */
+assign FINGER_CMMD 0
+
+/*
+ * clock format
+ * some of the features here use the current time
+ * of day, the format for how it is layed out is set
+ * here. it defaults to a standard am/pm 12 hour clock.
+ */
+assign CLOCK_LAYOUT %I:%M%p
+
+/*
+ * disable mod+ ignoring 
+ * normally mod+ are excluded from finger commands
+ * and repeated whoisbacks. enabling this will include
+ * them as well. this can be annoying, thus which is why
+ * it is disabled by default. use at your own risk.
+ */
+assign ENABLE_MODS 0
+
+/* 
+ * *nix hostname resolver
+ * this is usually left enabled.
+ * tho it is not compatible with windows,
+ * it will disable itself if windows is used.
+ * since i added a check to see if windows exists.
+ */
+assign RESOLVE_IP 1
+
+/*
+ * finger commands
+ * $nick = whoising user
+ * please dont abuse these, they are meant for sillyness
+ * and were never intended to kill or ban users. if i hear
+ * any reports of misusing this feature, then i will rid it.
+ */
+assign FINGER_CMD1 /msg $nick Ick! Dun finger meeeeeeee!!!!!!
+assign FINGER_CMD2 /say w00t! $nick fingered me!!!! RAPE!!!!!
+
+/*************************************************/
+/* END OF SETTINGS - SCRIPTING BEGINS BELOW HERE */
+/*************************************************/
+
+/* clears item array */
+@delarray(items)
+
+/* this checks if *nix is used */
+if (RESOLVE_IP)
+{
+	if (match(*WIN32* $uname(%s)))
+	{
+		^assign RESOLVE_IP 0
+	}{
+		^assign RESOLVE_IP 1
+	}
+}
+
+/* this executes finger commands */
+alias _fcmd (nick, void)
+{
+	if (FINGER_CMMD)
+	{
+		EVAL $FINGER_CMD1
+		EVAL $FINGER_CMD2
+	}
+}
+
+/* format string */
+alias _fstr
+{
+	@:str = [$*]
+	@function_return = TEXTCOLOR ## left(1 $str) ## [$MAINTEXTCOLOR] ## mid(1 $@str $str)
+}
+
+/* offset converter */
+alias _oset (nchar)
+{
+	@:string = []
+	for (@:count=0, count<nchar, @count++) {
+	@string = string ## [ ]}
+	@function_return = string
+}
+
+/* border header */
+alias _eheader (title, name, maxlinelength)
+{
+	@:line = _oset($OFFSET) ## [$BORDERCOLOR$chr(201)$chr(205)<$TEXTCOLOR$title$BORDERCOLOR>]
+	@:spacer = (maxlinelength - @name)/2 - (@title + 4)
+	for (@:count=0, count<spacer, @count++) {@line = line ## chr(205)}
+	@line = line ## [<$TEXTCOLOR$name$BORDERCOLOR>]
+	@spacer = maxlinelength - (spacer + @title + @name + 7)
+	for (@count=0, count<spacer, @count++) {@line = line ## chr(205)}
+	@line = line ## chr(187) ## [%n]
+	echo $cparse($line)
+}
+
+/* border line */
+alias _eline
+{
+	@:label = tr(/"//$0)
+	@:info = tr(/"//$1)
+	@:maxlabellength = [$2]
+	@:maxlinelength = [$3]
+	@:maxinfolength = maxlinelength - (maxlabellength + 7)
+	@label = _fstr($(\[$maxlabellength\]label))
+	@info = [$(\[$maxinfolength\]info)]
+	@:line = _oset($OFFSET) ## [$BORDERCOLOR$chr(186) %n] ## label ## [$TEXTCOLOR : $MAINTEXTCOLOR] ## info ## [$BORDERCOLOR $chr(186)%n]
+	echo $cparse($line)
+}
+
+/* border bottom */
+alias _ebottom (maxlinelength)
+{
+	@:line = _oset($OFFSET) ## BORDERCOLOR ## chr(200)
+	for (@:count=1, count<maxlinelength-1, @count++) {@line = line ## chr(205)}
+	@line = line ## chr(188) ## [%n]
+	echo $cparse($line)
+}
+
+/* border items */
+alias _eitem
+{
+	@:maxlabellength = 0
+	@:maxinfolength = 0
+	for (@count=1, count<=numitems(items), @count++) {
+	@:line = word(0 $getitem(items $count))
+	if (@line > maxlabellength) @maxlabellength = @line
+	@line = word(1 $getitem(items $count))
+	if (@line > maxinfolength) @maxinfolength = @line}
+	@:title = word(0 $getitem(items 0))
+	@:name = word(1 $getitem(items 0))
+	@:maxlinelength = maxlabellength + maxinfolength + 7
+	if ((maxlinelength/2)<(@title + @name/2 + 6)) @maxlinelength = (@title + @name/2 + 6)*2
+	_eheader $getitem(items 0) $maxlinelength
+	for (@count=1, count<numitems(items), @count++) {
+	@:line = getitem(items $count)
+	_eline $line $maxlabellength $maxlinelength}
+	_ebottom $maxlinelength
+}
+
+/* link speed function */
+alias _glink (speed, void)
+{
+	@:speed_string = ["?" "14.4K" "28.8K" "33.6K" "56.7K" "64K ISDN" "128K ISDN" "Cable" "DSL" "T1" "T3 >"]
+	return "$word($speed $speed_string)"
+}
+
+/* simple time converter */
+alias _gtime (otime, void)
+{
+	@:time_string = []
+	@:days = otime / 86400
+	@:hours = otime % 86400
+	@:mins = hours % 3600
+	@:hours = hours / 3600
+	@:mins = mins / 60
+	if ([$days] == [0]) {}
+	if ([$days] == [1]) {@time_string = days ## [ Day, ]}
+	if ([$days] > [1]) {@time_string = days ## [ Days, ]}
+	if ([$hours] < [10]) {@time_string = time_string ## [0] ## hours ## [:]}
+	if ([$hours] >= [10]) {@time_string = time_string ## hours ## [:]}
+	if ([$mins] < [10]) {@time_string = time_string ## [0] ## mins}
+	if ([$mins] >= [10]) {@time_string = time_string ## mins}
+	@function_return = ["$time_string"]
+}
+
+/* mutes 'user is offline' */
+alias _isof (void) {^on ^servermsg "User * not *" {_ison}}
+
+/* reverses above mute */
+alias _ison (void) {^on ^servermsg -"User * not *"}
+
+/* changes Admin to a fancy Administrator */
+alias _ulv (ulv, void)
+{
+	if (ulv)
+	{
+		if (match($ulv Admin))
+		{
+			@function_return = ["Administrator"]
+		}{
+			@function_return = [$ulv]
+		}
+	}
+}
+
+/* hostname resolver for whois */
+alias _ripwhois (ipa, void)
+{
+	if (ipa && resolve_ip)
+	{
+		//nslookup -cmd
+		{
+			if ([$1] != [<NULL>])
+			{
+				@HNWHOIS = [$1]
+				_dwhois $dwhois
+			}{
+				@NUWHOIS = [(NULL)]
+				_dwhois $dwhois
+			}
+		} $ipa
+	}
+}
+
+/* hostname resolver for whowas */
+alias _ripwhowas (ipa, void)
+{
+	if (ipa && resolve_ip)
+	{
+		//nslookup -cmd
+		{
+			if ([$1] != [<NULL>])
+			{
+				@HNWHOWAS = [$1]
+				_dwhowas $dwhowas
+			}{
+				@NUWHOWAS = [(NULL)]
+				_dwhowas $dwhowas
+			}
+		} $ipa
+	}
+}
+
+/* hostname resolver for finger whoisback */
+alias _ripfinger (ipa, void)
+{
+	if (ipa && resolve_ip)
+	{
+		//nslookup -cmd
+		{
+			if ([$1] != [<NULL>])
+			{
+				@HNFINGER = [$1]
+				_dfinger $dfinger
+			}{
+				@NUFINGER = [(NULL)]
+				_dfinger $dfinger
+			}
+		} $ipa
+	}
+}
+
+/* whois command structure */
+alias whois (nick, void)
+{
+	if (nick)
+	{
+		_ISOF
+		//whois -cmd
+		{
+			if ([$0] != [])
+			{
+				_ISON
+				@DWHOIS = [$*]
+				@HNWHOIS = NUWHOIS = []
+				if (RESOLVE_IP && [$12] != [])
+				{
+					_ripwhois $12
+				}{
+					_dwhois $dwhois
+				}
+			}
+		} $nick
+	}{
+		whois $N
+	}
+}
+
+/* whowas command structure */
+alias whowas (nick, void)
+{
+	if (nick)
+	{
+		//whowas -cmd
+		{
+			if ([$0] != [])
+			{
+				@DWHOWAS = [$*]
+				@HNWHOWAS = NUWHOWAS = IP_S = []
+				/* ip has to be converted from long format and reversed */
+				/* joey2cool's simple method to achieve this is used */
+				@:REVP = longtoip($1)
+				repeat 3 {@IP_S=[.]##before(1 . $REVP)##IP_S
+				@:REVP = after(1 . $REVP)}
+				@IP_S = REVP##IP_S
+				if (RESOLVE_IP && [$1] != [])
+				{
+					_ripwhowas $IP_S
+				}{
+					_dwhowas $dwhowas
+				}
+			}
+		} $nick
+	}{
+		whowas $N
+	}
+}
+
+/* whois display array */
+alias _dwhois
+{
+	if ([$0] != [])
+	{
+		_ULV $1
+		@delarray(items)
+		@setitem(items 0 WHOIS $0)
+		@setitem(items 1 "User Status" "$tr(#"##$_ulv($1)) \($tr(#"##$4)\)")
+		@setitem(items 2 "Login Time" "$strftime(${time() - [$2]} $CLOCK_FORMAT %x)")
+		@setitem(items 3 "Online Time" "$tr(#"##$_gtime($2)) \($tr(#"##$_glink($8))\)")
+		/* this channel match string is for slavanap compat, ugh! */
+		if (!match(" * " $3))
+		{
+			@setitem(items 4 "Channels" "$mid(1 ${strlen($3)-3} $3)")
+		}{
+			@setitem(items 4 "Channels" "$mid(2 ${strlen($3)-4} $3)")
+		}
+		/* totals dont exist unless you are mod+ so remove them if so */
+		if ([$10] != [] && [$11] != [])
+		{
+			@setitem(items 5 "File Status" "S:$5 U:$7\($11\) D:$6\($10\)")
+		}{
+			@setitem(items 5 "File Status" "S:$5 U:$7 D:$6")
+		}
+		@setitem(items 6 "Client Name" $9)
+		/* since email addresses, hostnames and servernames */
+		/* (mod) dont always exist, a complex array is used */
+		if ([$12] != [] && [$13] != [] && [$14] != [])
+		{
+			if ([$15] != [] && [$15] != [unknown] && [$12] != [])
+			{
+				@setitem(items 7 "EM Address" $15)
+				@setitem(items 8 "Port Status" "L:$13 D:$14")
+				if ([$16] != [] && [$12] != [])
+				{
+					@setitem(items 9 "IP Address" "$12 [$16] $NUWHOIS")
+					if ([$HNWHOIS] != []) @setitem(items 10 "Host Name" $HNWHOIS)
+				}{
+					@setitem(items 9 "IP Address" "$12 $NUWHOIS")
+					if ([$HNWHOIS] != []) @setitem(items 10 "Host Name" $HNWHOIS)
+				}
+			}{
+				@setitem(items 7 "Port Status" "L:$13 D:$14")
+				if ([$16] != [] && [$12] != [])
+				{
+					@setitem(items 8 "IP Address" "$12 [$16] $NUWHOIS")
+					if ([$HNWHOIS] != []) @setitem(items 9 "Host Name" $HNWHOIS)
+				}{
+					@setitem(items 8 "IP Address" "$12 $NUWHOIS")
+					if ([$HNWHOIS] != []) @setitem(items 9 "Host Name" $HNWHOIS)
+				}
+			}
+		}
+		$_eitem()
+	}
+}
+
+/* whowas display array */
+alias _dwhowas
+{
+	if ([$0] != [])
+	{
+		@delarray(items)
+		@setitem(items 0 WHOWAS $0)
+		@setitem(items 1 "Last Online" "$strftime($3 $CLOCK_FORMAT %x)")
+		@setitem(items 2 "Client Name" $4)
+		/* ip must be converted from long and reversed */
+		if ([$2] != [])
+		{
+			@setitem(items 3 "IP Address" "$IP_S [$2] $NUWHOWAS")
+			if ([$HNWHOWAS] != []) @setitem(items 4 "Host Name" $HNWHOWAS)
+		}{
+			@setitem(items 3 "IP Address" "$IP_S $NUWHOWAS")
+			if ([$HNWHOWAS] != []) @setitem(items 4 "Host Name" $HNWHOWAS)
+		}
+		$_eitem()
+	}
+}
+
+/* finger whoisback display array */
+alias _dfinger
+{
+	if ([$0] != [])
+	{
+		_ULV $1
+		@delarray(items)
+		@setitem(items 0 FINGER $0)
+		@setitem(items 1 "User Status" "$tr(#"##$_ulv($1)) \($tr(#"##$4)\)")
+		@setitem(items 2 "Online Time" "$tr(#"##$_gtime($2)) \($tr(#"##$_glink($8))\)")
+		if ([$10] != [] && [$11] != [])
+		{
+			@setitem(items 3 "File Status" "S:$5 U:$7\($11\) D:$6\($10\)")
+		}{
+			@setitem(items 3 "File Status" "S:$5 U:$7 D:$6")
+		}
+		@setitem(items 4 "Client Name" $9)
+		if ([$12] != [] && [$16] != [])
+		{
+			@setitem(items 5 "IP Address" "$12 [$16] $NUFINGER")
+			if ([$HNFINGER] != []) @setitem(items 6 "Host Name" $HNFINGER)
+		}{
+			if ([$12] != [])
+			{
+				@setitem(items 5 "IP Address" "$12 $NUFINGER")
+				if ([$HNFINGER] != []) @setitem(items 6 "Host Name" $HNFINGER)
+			}
+		}
+		$_eitem()
+	}
+}
+
+/* whois offline display array */
+on ^605 "*"
+{
+	if ([$0] != [])
+	{
+		@UL = []
+		_ULV $1
+		@delarray(items)
+		@setitem(items 0 WHOIS $0)
+		@setitem(items 1 "User Status" $_ulv($1))
+		@setitem(items 2 "Last Online" "$strftime($2 $CLOCK_FORMAT %x)")
+		$_eitem()
+	}
+}
+
+/* finger whoisback controller structure */
+on #^404 300 "% has requested your info"
+{
+	if (FINGER_BEEP) {beep}
+	/* the setitem/finditem arrays are used to prevent whois wars */
+	if (FINGER_WHOIS || FINGER_REPLY) if (finditem(whoisc $0) < [0])
+	{
+		@setitem(whoisc $numitems(whoisc) $0)
+		//whois -cmd
+		{
+			@DFINGER = [$*]
+			@HNFINGER = NUFINGER = []
+			if (RESOLVE_IP && [$12] != [])
+			{
+				_ripfinger $12
+			}{
+				_dfinger $dfinger
+			}
+			if (match($1 User Leech) || ENABLE_MODS)
+			{
+				if (FINGER_CMMD) _fcmd $0
+				timer $FINGER_INT @delitem(whoisc $finditem(whoisc $0))
+			}
+		} $0
+	}
+}

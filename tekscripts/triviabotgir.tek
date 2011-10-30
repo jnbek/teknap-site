@@ -1,0 +1,449 @@
+# Trivia script by gircobain 19/08/2001
+# WARNING: RUN THIS SCRIPT WITH TEKNAP 1.3G ONLY
+# WARNING: IT'LL NOT WORK PROPERLY WITH OLDER VERSIONS
+# Aliases:
+# /start = starts the game
+# /stop = stops the game
+# /load_questions = loads question's file
+# /save_scores = saves scores to file
+# Be sure to set TRIVIA_CHAN, TRIVIA_FILE
+# and SCORES_FILE to the proper values 
+
+xecho -b Trivia script by gircobain 19/08/2001
+xecho -b Trivia script loaded!
+xecho -b Type /start to start the game, /stop to stop
+
+@TRIVIA_ON = 0
+@NOTIFY = 1
+@BETWEEN_QUESTIONS = 0
+@NEXTQTIMER = 3
+@QTIMEOUT = 75
+@TRIVIA_CHAN = [#trivia]
+@TRIVIA_FILE = [~/triviaq.txt]
+@SCORES_FILE = [~/scores.txt]
+@timer_loop = 0
+@start_time
+
+@question = []
+@answer =
+@champion = []
+@record = 0
+@winner = [nobody]
+@wins = 0
+@asked = 0
+
+alias get_question {
+  return $0
+}
+
+alias get_answer {
+  return $1-
+}
+
+alias answer {
+  echo $answer
+}
+
+alias cheat {
+  if (!BETWEEN_QUESTIONS) raw 402 $TRIVIA_CHAN $word(0 $answer)
+}
+
+alias position (nick) {
+  @:pts = getitem(points $matchitem(nicks $nick))
+  @:sorted_pts = numsort($listarray(points))
+  @:count = 1
+  for (@:nw = numwords($sorted_pts)-1,nw>=0,@nw--) {
+   if (word($nw $sorted_pts) > pts) @count++
+  }
+  return $count
+}
+
+alias ord (position) {
+  switch ($right(2 $position)) {
+    (11) (12) (13) { return ${position ## [th]} }
+  }
+  switch ($right(1 $position)) {
+    (1) { return ${position ## [st]} }
+    (2) { return ${position ## [nd]} }
+    (3) { return ${position ## [rd]} }
+  }
+  return ${position ## [th]}
+}
+
+alias gettimestring (timeinsecs, void) { 
+  stack push set Floating_Point
+  set Floating_Point 0
+  @:time_string = []
+  @:days = timeinsecs / 86400
+  @:hours = (timeinsecs % 86400) / 3600
+  @:mins = ((timeinsecs % 86400) % 3600) / 60
+  @:secs = ((timeinsecs % 86400) % 3600) % 60
+  switch ($days) {
+    (0) {}
+    (1) { @time_string = days ## [ day ] }
+    (*) { @time_string = days ## [ days ] }
+  }
+  switch ($hours) {
+    (0) {}
+    (1) { @time_string = time_string ## hours ## [ hour ] }
+    (*) { @time_string = time_string ## hours ## [ hours ] }
+  }
+  switch ($minutes) {
+    (0) {}
+    (1) { @time_string = time_string ## mins ## [ min ] }
+    (*) { @time_string = time_string ## mins ## [ mins ] }
+  }
+  switch ($seconds) {
+    (0) {}
+    (1) { @time_string = time_string ## secs ## [ sec] }
+    (*) { @time_string = time_string ## secs ## [ secs] }
+  }
+  stack pop set Floating_Point
+  @function_return = time_string
+}
+
+alias load_questions {
+  ^local fd, line
+  @delarray(questions)
+  @delarray(answers)
+  if (fexist($TRIVIA_FILE) == -1) {
+    xecho -b File $TRIVIA_FILE not found
+    return 0
+  }
+  if (fd = open($TRIVIA_FILE r)) {
+    while (!eof($fd)) {
+      @line = read($fd)
+      if (!eof($fd)) {
+        @setitem(questions $numitems(questions) $word(0 $get_question($line)))
+        @setitem(answers $numitems(answers) $get_answer($line))
+      }
+    }
+  }{
+    xecho -b Could not open file $TRIVIA_FILE
+    return 0
+  }
+  if (close($fd) == -1) {
+    xecho -b Error while closing file $TRIVIA_FILE
+    return 0
+  }
+  return 1
+}
+
+alias load_scores {
+  ^local fd
+  @delarray(nicks)
+  @delarray(points)
+  @winner = [nobody]
+  @wins = 0
+  if (fexist($SCORES_FILE) == -1) {
+    if (fd = open($SCORES_FILE w)) {
+      @write($fd nobody)
+      @write($fd 0)
+      if (close($fd) == -1) {
+        xecho -b Error while closing file $SCORES_FILE
+        return
+      }
+    }{
+      xecho -b Could not open file $SCORES_FILE
+      return
+    }
+  }
+  if (fd = open($SCORES_FILE r)) {
+    while (!eof($fd)) {
+      @setitem(nicks $numitems(nicks) $read($fd))
+      @setitem(points $numitems(points) $read($fd))
+    }
+    @champion = getitem(nicks 0)
+    @delitem(nicks 0)
+    @record = getitem(points 0)
+    @delitem(points 0)
+    if (close($fd) == -1) {
+      xecho -b Error while closing file $SCORES_FILE
+      return
+    }
+  }{
+      xecho -b Could not open file $SCORES_FILE
+      return
+  }
+}
+
+alias save_scores {
+  ^local fd, count, nick, pts
+  if (unlink($SCORES_FILE)) {
+    xecho -b File error: permission denied
+    return
+  }
+  if (fd = open($SCORES_FILE w)) {
+    if (champion == []) { @write($fd nobody) }{ @write($fd $champion) }
+    if (record == []) { @write($fd 0) }{ @write($fd $record) }
+    for (@count = 0, count<numitems(nicks), @count++) {
+      @nick = getitem(nicks $count)
+      if (nick != []) @write($fd $nick)
+      @pts = getitem(points $count)
+      if (pts != []) @write($fd $pts)
+    }
+  }{
+    xecho -b Could not open file $SCORES_FILE
+    return
+  }
+  if (close($fd) == -1) {
+    xecho -b Error while closing file $SCORES_FILE
+    return
+  }
+#  xecho $cparse(%R*** Scores have been backed up ***)
+}
+
+alias show_scores(count) {
+  ^local n1, n2, flag, scores, topscores, line
+  @scores =  numsort($listarray(points))
+  raw 402 $TRIVIA_CHAN $cparse(%R**** Top $count Scores ****)
+  if (count>numwords($scores)) @count = numwords($scores)
+  for (@n1 = numwords($scores)-1, n1>=numwords($scores)-count, @n1--) {
+    @flag = 0
+    for (@n2 = 0, n2<numitems(nicks), @n2++) {
+      if ((getitem(points $n2) == word($n1 $scores)) && (match($n2 $topscores)<1) && (!flag)) {
+        @line = [%W\[] ## [$[-2]{#topscores +1}\]%y ] ## [$[20]getitem(nicks $n2)] ## [  %c ] ## [$[-5]getitem(points $n2)]
+        raw 402 $TRIVIA_CHAN $cparse($line)
+        push topscores $n2 
+        @flag = 1
+      }
+    }
+  }
+  raw 402 $TRIVIA_CHAN $cparse(%C$champion %Bhas the actual record with%C $record %Bin a row!)
+  ^assign -topscores
+}
+
+alias start_trivia {
+  @start_time = time()
+  @TRIVIA_ON = 1
+  ^set random_source 2
+  load_questions
+  load_scores
+  @srand($time())
+  topic $TRIVIA_CHAN $cparse(%GTrivia is currently On, come play!)
+  raw 402 $TRIVIA_CHAN $cparse(%RTrivia is now On!)
+  raw 402 $TRIVIA_CHAN $cparse(%RThere are currently%Y $numitems(questions) %Rquestions)
+  raw 402 $TRIVIA_CHAN $cparse(%RThe Game will begin now!)
+  timer 75 {
+    timer -ref NEWQ -rep -1 450 {
+      raw 402 $TRIVIA_CHAN $cparse(%yType%G /msg $N newq %yto find out how to submit new questions)
+    }
+  }
+  timer -ref SCORES -rep -1 900 {
+    @timer_loop++
+    if (timer_loop == 4) @timer_loop = 1
+    switch ($timer_loop) {
+      (1) (2) { @show_scores(5) }
+      (3) { @show_scores(20) }
+    }
+  }
+  timer -ref SVSCORES -rep -1 300 { save_scores }
+  ask_question
+  return 1
+}
+
+
+alias stop_trivia {
+  @TRIVIA_ON = 0
+  raw 402 $TRIVIA_CHAN $cparse(%RThe Game has stopped!)
+  raw 402 $TRIVIA_CHAN $cparse(%RTrivia is now Off)
+  topic $TRIVIA_CHAN $cparse(%GTrivia is currently Off)
+  save_scores
+  timer -del NEXTQ
+  timer -del NEWQ
+  timer -del SCORES
+  timer -del SVSCORES
+  @timer_loop = 0
+}
+
+alias ask_question {
+  ^local number
+  @number = numitems(questions) > 1 ? rand(${numitems(questions)-1}) : 0
+  @question = getitem(questions $number)
+  @answer = getitem(answers $number)
+  @delitem(questions $number)
+  @delitem(answers $number)
+  @asked++
+  if (!numitems(questions)) load_questions
+  raw 402 $TRIVIA_CHAN $cparse(%g$question)
+  @BETWEEN_QUESTIONS = 0
+  timer -refnum NEXTQ $QTIMEOUT {
+    raw 402 $TRIVIA_CHAN $cparse(%BToo late for this one)
+    @BETWEEN_QUESTIONS = 1
+    timer $NEXTQTIMER {
+      raw 402 $TRIVIA_CHAN $cparse(%BHere comes the next question!)
+      timer $NEXTQTIMER ask_question
+    }
+  }
+}
+
+alias start {
+  raw 402 $TRIVIA_CHAN !start
+}
+
+alias stop {
+  raw 402 $TRIVIA_CHAN !stop
+}
+
+on #-public 987 '% $TRIVIA_CHAN !start' {
+  if ([$0] != [$N]) {
+    whois -cmd {
+      if ([$1] == ["Admin"] || [$1] == ["Elite"]) {
+        if (!TRIVIA_ON) start_trivia
+      }{
+        raw 402 $TRIVIA_CHAN $cparse(%WHAH! You wish you could start me up, $0\...)
+      }
+    } $0
+  }{
+    if (!TRIVIA_ON) start_trivia
+  }
+}
+
+
+on #-public 654 '% $TRIVIA_CHAN !stop' {
+  if ([$0] != [$N]) {
+    whois -cmd {
+      if ([$1] == ["Admin"] || [$1] == ["Elite"]) {
+        if (TRIVIA_ON) stop_trivia
+      }{
+        raw 402 $TRIVIA_CHAN $cparse(%W$0, you can't stop me mate!)
+      }
+    } $0
+  }{ 
+    if (TRIVIA_ON) stop_trivia
+  }
+}
+
+on #-public 321 '% $TRIVIA_CHAN *' if (TRIVIA_ON && !BETWEEN_QUESTIONS) {
+  local pts, ans, pos
+  fe ($answer) ans {
+    if ([$2-] == ans) {
+      @BETWEEN_QUESTIONS = 1
+      @question = answer = []
+      timer -del NEXTQ
+      raw 402 $TRIVIA_CHAN $cparse(%BWay to go%C $0 %B! The answer was%C $ans)
+      if ([$0] == winner) {
+        @wins++
+        raw 402 $TRIVIA_CHAN $cparse(%c$winner %Bhas%c $wins %Bwins in a row!)
+        if (wins>record) {
+          @champion = winner
+          @record = wins
+        }
+      }{
+        @winner = [$0]
+        @wins = 1
+      }
+      @pos = matchitem(nicks $0)
+      if (pos>-1) {
+        @pts = getitem(points $pos) + 1
+        @setitem(points $pos $pts)
+        if (pts == 1000) raw 402 $TRIVIA_CHAN !user $0 2
+      }{
+        @setitem(nicks $numitems(nicks) $0)
+        @setitem(points $numitems(points) 1)
+      }      
+      timer $NEXTQTIMER {
+        raw 402 $TRIVIA_CHAN $cparse(%BHere comes the next question!)
+        timer $NEXTQTIMER ask_question
+      }
+    }
+  }
+}
+
+on #-public 555 '% $TRIVIA_CHAN !won*' if ([$2] == [!won] && TRIVIA_ON) { 
+  if ([$3] == []) {
+    @nick = [$0]
+  }{
+    @nick = [$3]
+  }
+  @pos = matchitem(nicks $nick)
+  if (pos>-1) {
+    raw 402 $TRIVIA_CHAN $cparse(%Y$getitem(nicks $pos) %cis in the%Y $ord($position($nick)) %cplace with%Y $getitem(points $pos) %cwins)
+  }{
+    raw 402 $TRIVIA_CHAN $cparse(%Y$nick has never scored)
+  }
+}
+
+on #-public 294 '$N $TRIVIA_CHAN !next' if (TRIVIA_ON && !BETWEEN_QUESTIONS) {
+  timer -del NEXTQ
+  raw 402 $TRIVIA_CHAN $cparse(%BToo late for this one)
+  @BETWEEN_QUESTIONS = 1
+  timer $NEXTQTIMER {
+    raw 402 $TRIVIA_CHAN $cparse(%BHere comes the next question!)
+    timer $NEXTQTIMER ask_question
+  }
+}
+
+on #-public 777 '% $TRIVIA_CHAN !repeat' if (TRIVIA_ON && !BETWEEN_QUESTIONS) {
+  raw 402 $TRIVIA_CHAN $cparse(%BThe question was:%c $question)
+}
+
+on #-public 737 '% $TRIVIA_CHAN !scores' if (TRIVIA_ON) {
+  @show_scores(10)
+}
+
+on #-public 360 '% $TRIVIA_CHAN !asked' if (TRIVIA_ON) {
+  raw 402 $TRIVIA_CHAN $cparse(%cThere have been asked%W $asked %cquestions.)
+}
+
+on #-public 285 '% $TRIVIA_CHAN !questions' if (TRIVIA_ON) {
+  raw 402 $TRIVIA_CHAN $cparse(%cThere are currently%W ${numitems(questions)+asked} %cquestions in the database.)
+}
+
+on #-public 895 '% $TRIVIA_CHAN !uptime' if (TRIVIA_ON) {
+  @:uptime = gettimestring(${time() - start_time})
+  raw 402 $TRIVIA_CHAN $cparse(%cTrivia has been running for%W $uptime %c\(since%W $strftime($start_time %b %d %X)%c\))
+}
+
+on #-msg 456 "% newq" {
+    msg $0 To submit a question, type /msg $N addq "Question" "Answer 1" "Answer 2" and so on
+    msg $0 E.g. /msg $N addq "Name one of gircobain's favourite bands" "Nirvana" "Black Sabbath"
+    msg $0 Please don't use quotations within the question and/or answer(s)
+    msg $0 Correct submission will activate a response from the bot
+}
+
+on #-msg 205 "% addq *" {
+  ^local line, quest, ans, error, each_ans
+  @error = 0
+  @line = [$2-]
+  @quest = get_question($line)
+  @ans =  get_answer($line)
+  if (word(0 $quest) == []) @error = 1
+  if (left(1 $quest) != ["] || right(1 $quest) != ["]) @error = 1
+  if (left(1 $ans) != ["] || right(1 $ans) != ["]) @error = 1
+  fe ($ans) each_ans {
+    if (each_ans == []) @error = 1
+  }
+  if (numwords($line) != numwords($ans) + 1) @error = 1
+  if (error) {
+     msg $0 Error submitting the question. Please try again
+  }{
+     msg $0 Question successfully logged.
+     @quest = [(]  ## [$0] ## [) ] ## word(0 $quest)
+     @setitem(questions $numitems(questions) $quest)
+     @setitem(answers $numitems(answers) $ans)
+     @line = ["]  ## quest ## [" ] ## [$ans]
+     @fd = open($TRIVIA_FILE w)
+     @write($fd $line)
+     @close($fd)
+  }
+}
+
+on #-join 390 '$TRIVIA_CHAN *' if (NOTIFY) {
+  if ([$1] != [$N]) {
+    msg $1 Welcome to the Trivia room, $1
+    if (TRIVIA_ON) {
+      msg $1 !repeat to repeat a question, !won to show points, !scores to show high scores
+      msg $1 Enjoy your stay and have fun!
+    }{
+      msg $1 We're sorry but the Trivia game is currently off
+    }
+  }
+}
+
+on #-leave 921 '$TRIVIA_CHAN *' if (NOTIFY) {
+  if ([$0] != [$N]) {
+    msg $1 Thanks for stopping by, $1
+    msg $1 Come back anytime!
+  }
+}

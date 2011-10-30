@@ -1,0 +1,23 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YJeepFreak
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/hooters
+
+alias sayc {say $cparse("$*")}
+
+alias hooters
+{
+sayc %y
+sayc %y 000    000
+sayc %y 000    000             0000000000000             .d000b.
+sayc %y 000    000             0000000000000            000` `000.
+sayc %y 000    000                  000                 000.   `000
+sayc %y 0000000000                  000                  `000.
+sayc %y 0000000000  .d0b.   .d0b.   000    .d0b.   00 .d00 `000.
+sayc %y 000    000 00   00 00   00  000  .000 000  00000     `000.
+sayc %y 000    000 00   00 00   00  000  000,,,000 000` `00b   .000
+sayc %y 000    000 00   00 00   00  000  Y0.    .  000   `000..000`
+sayc %y 000    000  YD0DY   YD0DY   000   `YD0DY   000     `0000P
+}
+

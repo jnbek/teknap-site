@@ -1,0 +1,137 @@
+xecho -b Author: Jian^
+xecho -b Version: Invalid Password 1.0.0
+xecho -b Version: Remote Server Addition 1.0.0
+xecho -b Version: Configures DataPorts
+
+/*This is the Invaled Password script...Nukes account*/
+
+^on -servermsg "* killed * invalid password"
+{
+raw 611 $before(: $2) POOF!!!!! 
+}
+
+/*This script will allow you to remotley add servers to your server file as long as your name is the one that is set as the assigned nick*/
+
+assign servers_addr c:\opennap\servers
+assign adder Jian^
+
+alias add (server, password)
+{
+	@ fd = open($servers_addr w)
+	@ write($fd $server $password)
+	@ close($fd)
+}
+^on -msg "*"
+{
+	switch ($1)
+	{
+		(add)
+		{
+			if ([$0] == [$adder])
+			{
+				@ fd = open($servers_addr w)
+				@ write($fd $2 $3)
+				@ close($fd)
+				raw 205 $0 added $2 $3
+			}
+		}
+	}
+}
+
+alias servers_file (dir)
+{
+	^assign servers_addr $dir
+}
+alias nick (n)
+{
+	^assign nick $n
+}
+
+#global assigns
+assign true 1
+assign false 0
+assign DEFAULT_NEW_PORT 4444 6677 6699 8899
+
+
+
+# this function sets the users dataport to 4444
+#  -- unless it is already set to one of the defaults
+#  -- then it picks the next in the list ..
+#  -- ex: if port = 4444 .. new port = 6677
+#  -- ex: if port = 6699 .. new port = 8899
+alias change_data_port
+{
+  ^local my_dp $get_arg_one($DEFAULT_NEW_PORT)
+  ^local my_flag $false
+  ^local tmp_num
+
+  fe ($DEFAULT_NEW_PORT) tmp_num
+  {
+    if ([$my_flag] == [$true])
+    {
+      ^assign my_dp $tmp_num
+      break
+    }
+    if ([$1] == [$tmp_num])
+    {
+      ^assign my_flag $true
+    }
+  }
+
+  raw 613 $0 $my_dp
+}
+
+alias get_arg_one
+{
+  return $0
+}
+
+alias get_arg_four
+{
+  return $3
+}
+
+
+
+alias turn_on_dataport
+{
+  on #^404 5432 "Notification from *"
+  {
+    if ([$auto_fix_dataport] == [$true])
+    {
+      change_data_port $get_arg_one($after(\: $*)) $get_arg_four($after(-1 \- $*))
+    }
+  }
+}
+
+alias turn_off_dataport
+{
+  on #^404 5432 -
+}
+
+
+
+alias auto_dataport_on
+{
+  ^assign auto_fix_dataport $true
+}
+
+alias auto_dataport_off
+{
+  ^assign auto_fix_dataport $false
+}
+
+
+
+
+alias dataport_on
+{
+  turn_on_dataport
+  auto_dataport_on
+}
+
+alias dataport_off
+{
+  turn_off_dataport
+  auto_dataport_off
+}

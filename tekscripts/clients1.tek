@@ -1,0 +1,46 @@
+# Client stats command
+# Written by DJHyperbyte
+
+eval xecho -b $cparse(%RClient stats %Band %Rwhowas %Bcommand.)
+eval xecho -b $cparse(%BSyntax:)
+eval xecho -b $cparse(%R  /clients   /whowas %B<username>)
+eval xecho -b $cparse(%BWritten by %RDJHyperbyte.)
+
+alias clients
+{
+        ^assign TOTAL_CLIENTS 0
+        ^assign MOST_USED 0
+        ^assign CLIENT_NAME unknown
+        raw 10118
+}
+
+on ^10118 "*"
+{
+  if ([$MOST_USED] == [])
+  {
+    ^assign MOST_USED 0
+  }
+  if ([$0] != [])
+  {
+    if ([$1-] >= [$MOST_USED])
+    {
+      ^assign MOST_USED $1-
+      ^assign CLIENT_NAME $0
+    }
+    ^assign TOTAL_CLIENTS ${TOTAL_CLIENTS + 1}
+    if ([$1] == [1])
+    {
+      xecho 9$0 15is used 8$1 15time.
+    }
+    {
+      xecho 9$0 15is used 8$1 15times.
+    }
+  }
+  {
+    xecho 15--- 12There are 8$TOTAL_CLIENTS 12different clients on this server.
+    xecho 15--- 12Client 9$CLIENT_NAME 12is used most, with 8$MOST_USED 12times 15---
+    ^assign -MOST_USED
+    ^assign -CLIENT_NAME
+  }
+}
+

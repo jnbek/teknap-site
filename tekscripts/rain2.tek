@@ -1,0 +1,38 @@
+xecho -b Author: Unknown
+xecho -b Updated: Neobite
+
+assign RAIN2COLORLIST rgybmpcwRGYBMPCW
+	
+alias start
+{
+input [$C]ÿ
+{
+	
+	switch ($tolower($0))
+	{
+	(/stop) 
+	{
+	}
+	(*) 
+	{
+		^local TEXTLINE $*
+		^local STRING
+		^local BYTE
+		^local OUTPUTLINE
+		while ( [$TEXTLINE] != [] )
+		{
+			@ BYTE = left(1 $RAIN2COLORLIST)
+			@ STRING = mid(1 25 $RAIN2COLORLIST)
+			@ RAIN2COLORLIST = [$STRING$BYTE]
+			@ OUTPUTLINE = [$OUTPUTLINE%$BYTE]
+			@ BYTE = left(1 $TEXTLINE)
+			@ TEXTLINE = mid(1 999 $TEXTLINE)
+			@ OUTPUTLINE = [$OUTPUTLINE$BYTE]
+		}
+		say $cparse($OUTPUTLINE)
+		eval start
+		}
+	}
+	
+}
+}

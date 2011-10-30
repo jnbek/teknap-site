@@ -1,0 +1,8 @@
+eval say $cparse( .                          )
+eval say $cparse( .             %CmMm  %w_[_]_   )
+eval say $cparse( .            %W/%y(_)%W\\  %y(_)    )
+eval say $cparse( .           %W/%y/%W\)^\(%y\\ %w//:\\\\   )
+eval say $cparse( .          %W/\%y(%W/%R&@&%W\%y)%w\\|~|/   )
+eval say $cparse( .         %W/ /-~%G`%W~-\\ %w|||    )
+eval say $cparse( .         %W`/       \\%w|||    )
+eval say $cparse( .       %R --%W`--------%w'-'%R--  ) 

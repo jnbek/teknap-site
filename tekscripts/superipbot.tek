@@ -1,0 +1,232 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04SuperIPBot Script Loaded %>02/sib_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias sib_menu
+{
+echo
+echo 57 To toggle bot type : 54/tog_sib (on/off) [Leave blank to check status]
+echo 57 Triggers           : 54.sup (username)?  [Don't forget the ?]
+echo 57                    : 54~check   [check who is bot]
+echo 57                    : 54~syntax   [check syntax]
+echo 57In message triggers : 54ip (username)
+echo 57                    : 54!! (password)   [toggle on and off]
+echo 57    to check status : 54!!
+echo
+}
+
+alias get_sibpw
+{
+ ^assign sib_pw $"What would you like the password to be?? "
+ timer -refnum load_yn 5 load_yn
+}
+get_sibpw
+
+alias tog_sib (tog)
+{
+ if (!tog)
+ {
+  if (bot_tog==1)
+  {echo 53SuperIPBot 57is active!}
+  {echo 53SuperIPBot 57is inactive!}
+ }
+ {
+  switch ($tog)
+  {
+   (on)
+   {
+    if (bot_tog == 1)
+    {echo 53SuperIPBot 57is already on!}
+    {
+     @bot_tog=1
+     echo 53SuperIPBot 57is now active!
+    }
+   }
+   (off)
+   {
+    if (bot_tog==0)
+    {echo 53SuperIPBot 57is already off!}
+    {
+     @bot_tog=0
+     echo 53SuperIPBot 57is now inactive!
+    }
+   }
+   (*)
+   {
+    echo 57Enter '00,4453on00,0157' or '00,4453off00,0157' to toggle or just54 /tog_sib 57to view status
+    type /tog_sib
+   }
+  }
+ }
+}
+
+alias load_yn
+{
+ input_char "Would you like to turn SuperIPBot on? [Y/N]"
+ {
+  switch ($0)
+  {
+   (y) {tog_sib on}
+   (n) {tog_sib off}
+   (*) {echo 53Y or N please!!;load_yn}
+  }
+ }
+}
+
+on #-public 777 "*"
+{
+ ^assign ipgetter $0
+ switch ($2)
+ {
+  (~syntax)
+  {
+   if (bot_tog==1)
+   {
+    msg $ipgetter .sup (username)?  [Don't forget the ?]
+    msg $ipgetter      or message me and type
+    msg $ipgetter ip (username)
+    echo 57 Giving syntax to $ipgetter
+   }
+   {
+    msg $ipgetter Sorry $ipgetter but it is not runnin now.....msg me with !! and the password 2 turn it on
+   }
+  }
+  (~check)
+  {
+   if (bot_tog==1)
+   {
+    me is the one $ipgetter  :)  *[<http://www.tutoneinc.com>]*
+    msg $ipgetter Hey $ipgetter, if you type ~syntax you will get the proper syntax usage.
+    echo 57 Telling $ipgetter i'm the bot :)
+   }
+   {
+    msg $ipgetter Sorry $ipgetter but it is not runnin now.....msg me with !! and the password 2 turn it on
+   }
+  }
+  (.sup)
+  {
+   if (bot_tog==1)
+   {
+    raw 211 $before(1 ? $3)
+   }
+   {
+    msg $ipgetter Sorry $ipgetter but it is not runnin now.....msg me with !! and the password 2 turn it on
+   }
+  }
+  (*)
+  {
+  }
+ }
+}
+
+@cnt=0
+@num_left=5
+on #^msg 777 "*"
+{
+ ^assign ipgetter $0
+ switch ($1)
+ {
+  (!!)
+  {
+   if (![$2])
+   {
+    if (bot_tog==1)
+    {
+     msg $ipgetter The bot is on!!
+    }
+    {
+     msg $ipgetter The bot is off!!
+    }
+   }
+   {
+    switch ($2)
+    {
+     ($sib_pw)
+     {
+      if (!bot_tog)
+      {
+       tog_sib on
+       msg $ipgetter Thank you $ipgetter, the bot is now on. :)   Enjoy!!
+       @cnt=0
+       @num_left=5
+      }
+      {
+       tog_sib off
+       msg $ipgetter Thank you $ipgetter, the bot is now off.
+       @cnt=0
+       @num_left=5
+      }
+     }
+     (*)
+     {
+      @cnt++
+      if (cnt<num_left)
+      {
+       @num_left--
+       msg $ipgetter Please enter the correct password $ipgetter
+       msg $ipgetter You have $num_left chances before you are temporarily ignored
+      }
+      {
+       msg $ipgetter You are being ignored for 10 minutes...BLAH
+       ignore $ipgetter
+       echo $cparse("%YIgnoring $ipgetter for 10 minutes")
+       timer 600 ignore -remove $ipgetter
+       timer 601 echo $cparse("%YUnignored $ipgetter")
+      }
+     }
+    }
+   }
+  }
+  (ip)
+  {
+   if (bot_tog == 1)
+   {
+    raw 211 $2
+   }
+   {
+    msg $ipgetter Sorry $ipgetter but the bot is off right now
+    msg $ipgetter If u type !! and the password u can turn it on
+   }
+  }
+  (*)
+  {
+  }
+ }
+}
+on ^0 "Both you and % *" {}
+on #^213 777 "*"
+{
+ ^on ^public "*" {}
+ ^on ^msg "*" {}
+ @:name=[$0]
+ @:blah_ip=[]
+ @:chg_ip=longtoip($1)
+ repeat 3
+ {
+  @blah_ip=[.]##before(1 . $chg_ip)##blah_ip
+  @chg_ip=after(1 . $chg_ip)
+ }
+ @blah_ip=chg_ip##blah_ip
+ @:IPGL=[~/IPsGotOn]##strftime(%a%b%d)##[.txt]
+ @:fd=open($IPGL w)
+ if (blah_ip==[...])
+ {
+  msg $ipgetter Sorry $ipgetter, but $name's IP is currently unavailable :)
+  echo 57Could not get $name's IP for $ipgetter
+  @write($fd Could not get $name's IP for $ipgetter at $strftime(%I:%M %p) on $strftime(%a%b%d)\.)
+ }
+ {
+  msg $ipgetter Hello $ipgetter\, $name's IP is : $ip_dig
+  echo 57Getting $name\'s IP [$ip_dig] for $ipgetter
+  @write($fd $ipgetter got $name\'s IP [$ip_dig] at $strftime(%I:%M %p) on $strftime(%a%b%d)\.)
+ }
+ @close($fd)
+ ^on public -"*"
+ ^on msg -"*"
+}

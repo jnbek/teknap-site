@@ -1,0 +1,52 @@
+# written by (ice) for taliesman
+
+assign EntryMessage Welcome, please no swearing or flooding
+assign ExitMessage Thanks for stopping by, come again soon
+
+
+
+# this function sets the entry message to whatever you specify
+alias SetEntryMessage
+{
+  ^assign EntryMessage $*
+}
+
+# this function sets the exit message to whatever you specify
+alias SetExitMessage
+{
+  ^assign ExitMessage $*
+}
+
+
+
+# this function turns the entry message active
+alias EntryMessageOn
+{
+  on #^join 99 "*"
+  {
+    eval msg $1 $EntryMessage
+  }
+}
+
+# this function turns the entry message off
+alias EntryMessageOff
+{
+  on #join 99 -
+}
+
+
+
+# this function turns the exit message active
+alias ExitMessageOn
+{
+  on #^leave 199 "*"
+  {
+    eval msg $1 $ExitMessage
+  }
+}
+
+# this function turns the exit message off
+alias ExitMessageOff
+{
+  on #leave 199 -
+}

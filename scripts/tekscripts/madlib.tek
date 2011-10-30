@@ -1,0 +1,377 @@
+# written by (ice)
+# ... updated 10/3/2000 for security purposes
+
+# global assigns
+assign TRUE     1
+assign FALSE    0
+
+assign MAD_LIB_TO     30
+assign NUM_REMINDERS  3
+assign MAD_LIB_HEADER #
+assign MAD_LIB_FOOTER *
+assign allow_show_menu 1
+
+assign MAD_LIB_START  !madlib
+assign SHOW_MENU      !menu
+assign MAD_LIB_OTHER  !other
+assign MAD_LIB_PICK   !pick
+assign STOP_MAD_LIB   !STOP
+assign START_MAD_LIB  !START
+
+assign MADLIBFILE ~/madlibs.txt
+@ madlibfd = 0
+
+
+
+# this function tests for each !<whatever> case
+alias test_names 
+{
+  ^assign user_name $0
+  ^assign user_chan $1
+  ^assign user_msg  $2-
+  if ([$2] == [$MAD_LIB_START])
+  {
+    if ([$allow_mad_lib] == [$true])
+    {
+      mad_lib_off
+      mad_lib_create $user_name
+    }
+  }
+  if ([$2] == [$SHOW_MENU])
+  {
+    if ([$allow_show_menu] == [1])
+    {
+      mad_lib_menu
+    }
+  }
+  if ([$MAD_LIB_STARTED] == [$true] && [$2] == [$MAD_LIB_PICK])
+  {
+    if ([$user_name] == [$MAD_LIB_USER])
+    {
+      if ([$@3] > [0])
+      {
+        timer -d 110
+        if ([$3] > [0] && [$3] < [10])
+        { ^assign MAD_LIB_WORD_$MAD_LIB_TRIGGER $getitem(MAD_LIB_TEMP_ARRAY $3) }
+        { ^assign MAD_LIB_WORD_$MAD_LIB_TRIGGER $3- }
+        ^assign ret $delarray(MAD_LIB_TEMP_ARRAY)
+        mad_lib_next
+      }
+    }
+  }
+  if ([$MAD_LIB_STARTED] == [$true] && [$2] == [$MAD_LIB_OTHER])
+  {
+    if ([$user_name] == [$MAD_LIB_USER])
+    {
+      if ([$@3] > [0])
+      {
+        timer -d 110
+        ^assign MAD_LIB_WORD_$MAD_LIB_TRIGGER $3-
+        ^assign ret $delarray(MAD_LIB_TEMP_ARRAY)
+        mad_lib_next
+      }
+    }
+  }
+}
+
+
+
+
+
+# this function reads the entire madlibfile and puts it into arrays
+alias load_madlib_file
+{
+  ^local tmp_arrayname
+  ^local tmp_count -1
+  ^local tmp_num
+
+  fe ($MAD_LIBS_INDEX) tmp_arrayname
+  { ^assign ret $delarray(MAD_LIB_ARRAY_$tmp_arrayname) }
+  
+  while (! eof($0))
+  {
+    ^assign MAD_LIB_INDEX $read($0)
+    ^assign tmp_count $numitems(MAD_LIBS_INDEX)
+    if ([$@tmp_count] == [0])
+    { ^assign tmp_count 0 }
+    ^assign ret $setitem(MAD_LIBS_INDEX $tmp_count $MAD_LIB_INDEX)
+    # echo array: MAD_LIB_ARRAY_$MAD_LIB_INDEX
+    ^assign MAD_LIB_LINE $read($0)
+    ^assign tmp_num 0
+    while ([$get_first_arg($MAD_LIB_LINE)] != [$MAD_LIB_FOOTER] && ! eof($0))
+    {
+      ^assign ret $setitem(MAD_LIB_ARRAY_$MAD_LIB_INDEX $tmp_num $MAD_LIB_LINE)
+      # echo line # $tmp_num : $MAD_LIB_LINE
+      ^assign MAD_LIB_LINE $read($0)
+      ^assign tmp_num ${tmp_num + 1}
+    }
+  }
+  return ${tmp_count + 1}
+}
+
+
+# nice little function to set the trivia file
+alias set_madlib_file
+{
+  # $0 should be a valid filename
+  ^assign MADLIBFILE $*
+  @ madlibfd = open($MADLIBFILE r)
+  # echo $madlibfd
+  ^assign ret $load_madlib_file($madlibfd)
+  @ close($madlibfd)
+  start_stop_on
+  mad_lib_on
+  say ---------- Mad-libs have been loaded, feel free to type $MAD_LIB_START
+}
+
+
+# nice little function to turn !mad-lib on 
+alias mad_lib_on
+{
+  ^assign allow_mad_lib $true
+}
+
+# nice little function to turn !mad-lib off
+alias mad_lib_off
+{
+  ^assign allow_mad_lib $false
+}
+
+
+# nice little function to turn menu on 
+alias showmenu_on
+{
+  ^assign allow_show_menu $true
+}
+
+# nice little function to turn show menu off
+alias showmenu_off
+{
+  ^assign allow_show_menu $false
+}
+
+
+# nice little function to turn !STOP & !START on 
+alias start_stop_on
+{
+  ^assign allow_startstop_madlib $true
+}
+
+# nice little function to turn !STOP & !START off
+alias start_stop_off
+{
+  ^assign allow_startstop_madlib $false
+}
+
+
+on #^public 111 "*"
+{
+  test_names $0 $1 $2-
+}
+
+
+on #^msg 444 "*"
+{
+  test_names $0 unknown $1-
+
+  if ([$1] == [$STOP_MAD_LIB])
+  {
+    if ([$allow_startstop_madlib] == [1])
+    {
+      timer -d 199
+      timer -d 110
+      mad_lib_off
+      say ---------- Mad-libs has been paused, will start again soon
+      msg $0 Mad-libs paused, to start up type $START_MAD_LIB !!
+    }
+  }
+  if ([$1] == [$START_MAD_LIB])
+  {
+    if ([$allow_startstop_madlib] == [1])
+    {
+      mad_lib_on
+      say ---------- Mad-libs has started, type: $MAD_LIB_START
+      msg $0 Mad-libs started, to pause type $STOP_MAD_LIB !!
+    }
+  }
+}
+
+
+alias get_first_arg
+{
+  return $0
+}
+
+
+alias get_second_arg
+{
+  return $1
+}
+
+
+alias get_remaining_args
+{
+  return $2-
+}
+
+
+alias pick_rand
+{
+  ^local tmp_word
+  ^local tmp_count 0
+  ^local tmp_num
+
+  fe ($*) tmp_word
+  { ^assign tmp_num ${tmp_num + 1} }
+
+  ^assign tmp_num $rand($tmp_num)
+  fe ($*) tmp_word
+  {
+    if ([$tmp_num] == [$tmp_count])
+    { break }
+  }
+  return $tmp_word
+}
+
+
+alias mad_lib_menu
+{
+  say <><><><><><><><> Mad-lib Menu <><><><><><><><>
+  say <><><><><>  $SHOW_MENU - to show this menu
+  say <><><><><>  $MAD_LIB_START - to start a mad-lib
+  say <><><><><>  $MAD_LIB_PICK - to choose a word
+  say <><><><><>  $MAD_LIB_OTHER - to choose another word
+  say <><><><><><><><><><><><><><><><><><><><><><><>
+}
+
+
+alias mad_lib_say
+{
+  ^assign MAD_LIB_STARTED $false
+  say --------------- ${MAD_LIB_USER}'s Story ----------------
+  while ([$MAD_LIB_COUNT] < [$numitems(MAD_LIB_ARRAY_$MAD_LIB_INDEX)])
+  {
+    eval say $getitem(MAD_LIB_ARRAY_$MAD_LIB_INDEX $MAD_LIB_COUNT)
+    ^assign MAD_LIB_COUNT ${MAD_LIB_COUNT + 1}
+  }
+  ^local tmp_var
+  fe ($MAD_LIB_VARS) tmp_var
+  { ^assign -MAD_LIB_WORD_$tmp_var }
+  ^assign -MAD_LIB_USER
+  ^assign -MAD_LIB_INDEX
+  ^assign -MAD_LIB_LINE
+  ^assign -MAD_LIB_TRIGGER
+  mad_lib_on
+  say --------------- The End ----------------
+}
+
+
+alias mad_lib_create 
+{
+  ^assign MAD_LIB_STARTED $true
+  ^assign MAD_LIB_USER $0
+  ^assign MAD_LIB_INDEX $getitem(MAD_LIBS_INDEX $rand($numitems(MAD_LIBS_INDEX)))
+  ^assign MAD_LIB_COUNT -1
+  mad_lib_next
+  timer -ref 110 $MAD_LIB_TO { mad_lib_remind }
+}
+
+
+alias mad_lib_next
+{
+  ^local tmp_word
+  ^assign MAD_LIB_REMINDERS 0
+  ^assign MAD_LIB_COUNT ${MAD_LIB_COUNT + 1}
+  ^assign MAD_LIB_LINE $getitem(MAD_LIB_ARRAY_$MAD_LIB_INDEX $MAD_LIB_COUNT)
+  if ([$get_first_arg($MAD_LIB_LINE)] == [$MAD_LIB_HEADER])
+  {
+    ^assign MAD_LIB_TRIGGER $get_second_arg($MAD_LIB_LINE)
+    ^assign MAD_LIB_WORD_$MAD_LIB_TRIGGER $pick_rand($get_remaining_args($MAD_LIB_LINE))
+    ^assign MAD_LIB_VARS $MAD_LIB_VARS $MAD_LIB_TRIGGER
+    say --------------- ${MAD_LIB_USER}, I need a $toupper($MAD_LIB_TRIGGER) ----------
+    ^assign tmp_count 1
+    ^assign ret $setitem(MAD_LIB_TEMP_ARRAY 0 none)
+    fe ($get_remaining_args($MAD_LIB_LINE)) tmp_word
+    {
+      ^assign ret $setitem(MAD_LIB_TEMP_ARRAY $tmp_count $tmp_word)
+      say ---------- to use: ${toupper($tmp_word)}, type: $MAD_LIB_PICK $tmp_count
+      ^assign tmp_count ${tmp_count + 1}
+    }
+    say ---------- or for another word, type: $MAD_LIB_OTHER [your word(s)]
+    # echo default: ${MAD_LIB_WORD_$MAD_LIB_TRIGGER}
+    timer -ref 110 $MAD_LIB_TO { mad_lib_remind }
+  }
+  {
+    mad_lib_say
+  }
+}
+
+
+alias mad_lib_remind
+{
+  ^assign MAD_LIB_REMINDERS ${MAD_LIB_REMINDERS + 1}
+  if ([$MAD_LIB_REMINDERS] > [$NUM_REMINDERS])
+  {
+    msg $MAD_LIB_USER You took too long to choose, using the default.
+    mad_lib_next
+  }
+  {
+    say --------------- ${MAD_LIB_USER}, I need a $toupper($MAD_LIB_TRIGGER) ----------
+    ^assign tmp_count 1
+    fe ($get_remaining_args($MAD_LIB_LINE)) tmp_word
+    {
+      say ---------- to use: ${toupper($tmp_word)}, type: $MAD_LIB_PICK $tmp_count
+      ^assign tmp_count ${tmp_count + 1}
+    }
+    say ---------- or for another word, type: $MAD_LIB_OTHER [your word(s)]
+    # echo default: ${MAD_LIB_WORD_$MAD_LIB_TRIGGER}
+    timer -ref 110 $MAD_LIB_TO { mad_lib_remind }
+  }
+}
+
+
+alias get_rand_user
+{
+  ^local my_user $get_rand_name()
+  ^local my_num 0
+  while ([$my_user] == [$0] && [$my_num] < [10])
+  {
+    ^assign my_user $get_rand_name()
+    ^assign my_num ${my_num + 1}
+  }
+  if ([$my_num] == [10])
+  { return Snoopy }
+  { return $my_user }
+}
+
+
+# this will return a random user from the current channel
+alias get_rand_name
+{
+  ^local tmp
+  ^local tmp_num
+  ^local tmp_name
+  ^local count 0
+  ^local tmp_users $chanusers()
+
+  # this counts the number of users in the room
+  fe ($tmp_users) tmp
+  {
+    ^assign count ${count + 1}
+  }
+
+  # this picks the random user
+  ^local tmp_num $rand($count)
+  ^assign count 0
+
+  # this finds the random user in the list
+  fe ($tmp_users) tmp
+  {
+    if ([$count] == [$tmp_num])
+    { ^assign tmp_name $tmp }
+    ^assign count ${count + 1}
+  }
+  return $tmp_name
+}
+
+

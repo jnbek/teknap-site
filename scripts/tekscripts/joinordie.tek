@@ -1,0 +1,47 @@
+xecho -b Warn Loaded
+xecho -b Author: ~N~ with lots of help from Neobite
+
+
+alias warn
+{
+	^guser
+	^on ^832 "*"
+	{
+		whois $0
+		^on ^who "*"
+		{
+			if ([$rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*)]  < 1)
+			{
+				raw 205 $0 Please Join A Channel. If You Do Not Comply, You Will Be Killed Within 2 Minutes.
+			}
+			{
+			}
+		}
+	}
+	timer -ref leech 120 {
+		^guser
+		^on ^832 "*"
+		{
+			whois $0
+			^on ^who "*"
+			{
+				if ([$rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*)]  < 1)
+				{
+					raw 610 $0 "You Were Warned. You Must Join A Channel On This Server!"
+					timer 250 guser
+				}
+				{ 
+				}
+			}
+		}
+	}
+}
+^on ^msg "*"
+{
+	msg $0 I Am A Bot. Do Not Talk To Me For I Will Not Talk Back. Leech Join Channel Script Written By ~N~.
+}
+^on -404 "* is ignoring you"
+{
+	raw 610 $0 "Don't Ignore The Bot!"
+}
+

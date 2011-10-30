@@ -1,0 +1,77 @@
+# Hamster/Lamer Killer. Wrote for Khaytsus by Spike.
+# This was writted because of some lam0rs that keep flooding NE chatrooms.
+# Based on my custom automuzzler. Works with public other too. :)
+# The kill words are wildcarded. any word placed here is used anywhere. example.
+# suck would be *suck* = sucks, suckness, cocksuckers, im sure ya get the idea.
+# You can have as many words on one line seperated by a space each.
+# The time is how long before the line counter is reset. 5 seconds.
+# The line is thus how many lines the ass can flood in the time seconds.
+# Warn just displays when the script has been triggered. default 1 = on.
+# And kill, DUH! The default on/off assign. :)
+# I just updated this for some lame mason jar asshole that floods rooms.
+
+
+ASSIGN HAMSTER_WORD hamster khay lame suck fuck mason asshole assh0le mas0n jar rum0ur rumour
+ASSIGN HAMSTER_TIME 10
+ASSIGN HAMSTER_LINE 2
+ASSIGN HAMSTER_WARN 1
+ASSIGN HAMSTER_KILL 1
+
+xecho -b Hamster exterminator Loaded!
+xecho -b Let the asshole killing begin!
+eval timer 1 xecho -b Assigned words: $HAMSTER_WORD
+eval timer 1 xecho -b Flood time: $HAMSTER_TIME seconds.
+eval timer 1 xecho -b Flood line: $HAMSTER_LINE lines.
+
+on #^public 600 '% % *\\[$HAMSTER_WORD\\]*' _hamster $0 $1
+on #^public_other 600 '% % *\\[$HAMSTER_WORD\\]*' _hamster $0 $1
+on #^824 600 '% % *\\[$HAMSTER_WORD\\]*' _hamster $1 $0
+alias _hamster
+{
+	@check=[x$0x]
+	if (finditem(checkusr $check) < [0])
+	{
+		@setitem(checkusr $numitems(checkusr) $check)
+		@setitem(rep $numitems(rep) $check)
+	}
+		@checkusritm = finditem(checkusr $check)
+		@repi = getitem(rep $checkusritm) + 1
+		@setitem(rep $checkusritm $repi)
+	switch ($repi)
+	{
+		(1)
+		{
+			eval timer $HAMSTER_TIME
+			{
+				@delarray(rep)
+				@delarray(checkusr)
+			}
+		}
+		($HAMSTER_LINE)
+		{
+		if (HAMSTER_WARN) eval xecho -b PUBLIC Lameness detected from $0 on $1.
+	        if (HAMSTER_KILL) if (finditem(hamflood $0) < [0])
+        	{
+			@setitem(hamflood $numitems(hamflood) $0)
+			^assign CC $1
+			//whois -cmd
+			{
+				switch ($tr(/"//$1))
+				{
+					(Elite) {;}
+					(Admin) {;}
+					(Moderator) {;}
+					(*)
+					{
+						if (HAMSTER_KILL) eval xecho -b ANTI-LAMER: Killed lamor $0 from server.
+						if (HAMSTER_KILL) eval //kill $0 You die now.
+						if (HAMSTER_KILL) @delitem(hamflood $finditem(hamflood $0))
+					}
+				}
+			} $0
+		}}
+		(*)
+		{
+		}
+	}
+}

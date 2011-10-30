@@ -1,0 +1,65 @@
+# ipbot by joey2cool
+
+xecho -b 52
+xecho -b 52       ipBOT 1.0 Loaded!
+xecho -b 52
+
+^assign ipbot_nick ipbot
+^assign ipbot_trigger !ipbot
+^assign IPS  c:\teknap\SavedIps.txt
+^on ^751 "*" {
+^raw 322 $0
+ignore $0
+}
+^on ^752 "*" {
+^raw 322 $0
+ignore $0
+}
+on -406 "*"
+{
+^assign ipview_nick $1
+^assign ipview_shared $2
+^assign ipview_chan $0
+if ([$ipview_nick] != [$ipbot_nick]) {
+if ([$ipview_working] != [true]) {
+^assign ipview_working true
+^raw 211 $ipview_nick
+^on ^213 "*" {
+^assign ipview_ip $1
+@ ipdigit_4 = [$ipview_ip] / [16777216]
+@ ipview_ip2 = [$ipdigit_4] * [16777216]
+@ ipview_ip2 = [$ipview_ip] - [$ipview_ip2]
+@ ipdigit_3 = [$ipview_ip2] / [65536]
+@ ipview_ip3 = [$ipdigit_3] * [65536]
+@ ipview_ip3 = [$ipview_ip2] - [$ipview_ip3]
+@ ipdigit_2 = [$ipview_ip3] / [256]
+@ ipdigit_1 = [$ipdigit_2] * [256]
+@ ipdigit_1 = [$ipview_ip3] - [$ipdigit_1]
+@ ipview_ip = [$ipdigit_1] ## [.] ## [$ipdigit_2] ## [.] ## [$ipdigit_3] ## [.] ## [$ipdigit_4]
+
+if ([$ipview_ip] != [0.0.0.0]) {
+
+###################################################
+# this part says the ip in the channel... you dont need it really
+@ sentence = [Nickname: ] ## [$ipview_nick] ## [ IP: ] ## [$ipview_ip]
+say $sentence
+###################################################
+# this part logs the time,nick,and ip
+@ fd = open($IPS w)
+@ write($fd Time: $T)
+@ write($fd Name: $ipview_nick)
+@ write($fd Ip  : $ipview_ip)
+@ write($fd)
+@ close($fd)
+###################################################
+
+^assign ipview_ip 0.0.0.0
+}
+
+
+^assign ipview_working false
+}
+
+}
+}
+}

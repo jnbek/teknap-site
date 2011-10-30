@@ -1,0 +1,8 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/boom \(user\)
+
+alias mec {me $cparse("$*")}
+alias boom (user) {mec %1%Y D Y N A M I T E ! %0%W---------* %GHey %B$user, %YCATCH!!!}

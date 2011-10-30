@@ -1,0 +1,51 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/nuke
+
+alias sayc {say $cparse("$*")}
+
+alias nuke
+{
+sayc %G				............
+sayc %G                      ..::::::::::::::::::..
+sayc %G                  ..:::::''    .....     ``:::::..
+sayc %G                .::''' ....:::::::::::::....  ```::.
+sayc %G              .::'   .:::::::::::::::::::::::.    `::.
+sayc %G             ::    .:::::::::::::::::::::::::::.     ::
+sayc %G            ::     :::::::::::::::::::::::::::::      ::
+sayc %G           ::       :::'    `:::::::::'    `:::        ::
+sayc %G          .:                  `:::::'                   :.
+sayc %G          ::           ...:::::::::::::::...            ::
+sayc %G         .:               `````:::::'''''                :.
+sayc %G         ::                    :::::                     ::
+sayc %G        .:                     :::::                      :.
+sayc %G        ::                     :::::                      ::
+sayc %G      .::::..                  :::::                   ..::::.
+sayc %G     ::%K.o.%G`:::..           .:  :::::  :.          ..::::'%K.o.%G::
+sayc %G    :: %KHHHboo.%G`::::..      :::: ::: ::::       ..:::'%K.oodHHH%G ::
+sayc %G   :: %KdHHHHHHHboo.%G`::::.    `:::::::::'    ..:::'%K.oodHHHHHHHb %G::
+sayc %G   : %KdHHHHHHHHHHHHboo.%G`:::. .. `:::' .. .:::'%K.oodHHHHHHHHHHHHb %G:
+sayc %G  ::%K HHHHHHHHH'OOOO`HHboo.%G   `::...::' %K  .oodHH'OOOO`HHHHHHHHH %G::
+sayc %G  : %KdHHHHHHH'OOOOOOOO`HHHHboo.%G `:::'%K .oodHHHH'OOOOOOOO`HHHHHHHb %G:
+sayc %G :: %KHHHHHHH'OOOOOOOOOO`HHHHHHH       HHHHHHH'OOOOOOOOOO`HHHHHHH %G::
+sayc %G : %KdHHHHHHHHHHHH||HHHHHHHHHHH'.dHHHb.`HHHHHHHHHHH||HHHHHHHHHHHHb%G :
+sayc %G:: %KHHHHHHHHHHH--++--HHHHHHHHH HHHHHHH HHHHHHHHH--++--HHHHHHHHHHH %G::
+sayc %G::%K HHHHHHHHHHHHH||HHHHHHHHHHH HHHHHHH HHHHHHHHHHH||HHHHHHHHHHHHH %G::
+sayc %G::.......................... %K `8HHHP'  %G..........................::
+sayc %G`::::::::::::::::::::::::::  %KHbo. .odH  %G::::::::::::::::::::::::::'
+sayc %G                     `::::: %K.HHHHHHHHH.%G :::::'
+sayc %G                       `::: %KdHHHHHHHHHb %G:::'
+sayc %G                         :'%K.HHHHHHHHHHH.%G`:
+sayc %G                        .: %KdHHH%WLive%KHHHHb %G:.
+sayc %G                        ::%K.HHHHH%Win%KHHHHHH.%G::
+sayc %G                       :: %KdHHHH%WFear%KHHHHHb %G::
+sayc %G                       ::%K.HHHHHHHHHHHHHHH.%G::
+sayc %G                      ::%K dHHHHHHHHHHHHHHHb %G::
+sayc %G                      ::%K.HHHHHHHHHHHHHHHHH.%G::
+sayc %G                     ::%K dHHHHHHHHHHHHHHHHHb%G ::
+sayc %G                     ::%K HHHHHHHHHHHHHHHHHHH%G ::
+sayc %G                     `::%K`**HHHHHHHHHHHHH**'%G::'
+sayc %G                       `-...-----------...-'
+}

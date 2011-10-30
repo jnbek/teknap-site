@@ -1,0 +1,47 @@
+xecho -b Warn Loaded
+xecho -b Author: ~N~ with lots of help from Neobite
+
+
+alias warn
+{
+	^guser
+	^on ^832 "*"
+	{
+		whois $0
+		^on ^who "*"
+		{
+			if ([$rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*)]  < 1)
+			{
+				raw 205 $0 This is just a request Please could you Join the  80's room and thanks for the support  .
+			}
+			{
+			}
+		}
+	}
+	timer -ref leech 120 {
+		^guser
+		^on ^832 "*"
+		{
+			whois $0
+			^on ^who "*"
+			{
+				if ([$rmatch($3 *#* *a* *b* *c* *d* *e* *f* *g* *h* *i* *j* *k* *l* *m* *n* *o* *p* *q* *r* *s* *t* *u* *v* *w* *x* *y* *z* *1* *2* *3* *4* *5* *6* *7* *8* *9* *0*)]  < 1)
+				{
+					raw 205 $0 Awwww you didnt join but its ok :)
+					timer 250 guser
+				}
+				{ 
+				}
+			}
+		}
+	}
+}
+^on ^msg "*"
+{
+	msg $0 I Am A Bot. Do Not Talk To Me For I Will Not Talk Back. Leech Join Channel Script Written By ~N~.
+}
+^on -404 "* is ignoring you"
+{
+	raw 205 $0 Don't Ignore The Bot!its not nice to ignore stupid bots
+}
+

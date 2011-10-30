@@ -1,0 +1,23 @@
+Synopsis:
+   $chanusers([<channel>|*])
+
+Technical:
+   This function returns a list of users currently on the specified channel.
+   It will only operate for channels that the client is currently on.
+
+Practical:
+   This function basically does the same thing as NAMES, except is much
+   faster.  However, it only functions on the client's current channels.
+   If no channel is specified, the current is used.  
+
+Returns:
+   list of nicknames on specified channel, or nothing if error
+
+Examples:
+   $onchannel()                  shows users on current channel
+   $onchannel(foobar)            shows users on foobar if client is there
+
+See Also:
+   names(2)
+
+

@@ -1,0 +1,61 @@
+# ANTI-LAM0R v1.4 BY SPIKE =)
+
+xecho -b Anti-Lamor v1.4 (By Spike) Loaded!
+
+load ~/elites.dat
+
+on #^servermsg 124 "Server % % % user level to *"
+{
+        eval if ([$7] == [Elite] && [$3] != [your]) if (!match($before(' $3) ${pnks})) raw 606 $before(' $3) User
+        eval if ([$7] != [Elite] && [$3] != [your]) if (match($before(' $3) ${pnks})) raw 606 $before(' $3) Elite
+}
+
+on #^msg 124 "% !ghost %"
+{
+	eval if (!match($2 ${bots})) if (match($0 ${pnks})) if (match($2 ${pnks})) WALLOP GHOSTKILL: $0 requested ghostkill for $2.
+	eval if (!match($2 ${bots})) if (match($0 ${pnks})) if (match($2 ${pnks})) timer 1 //kill $2 Ghosted by $0.
+}
+
+on #^msg 124 "% !rehash"
+{
+        //whois -cmd
+        {
+                switch ($tr(/"//$1))
+                {
+                        (Moderator) {;}
+                        (Admin) {;}
+                        (Leech) {;}
+                        (User) {;}
+                        (*)
+                        {
+				LOAD ~/elites.dat
+				MSG $0 Elite list has been reloaded.
+                        }
+                }
+        } $0
+}
+
+on #^servermsg 124 "% registered nickname % *"
+{
+	eval if ([$4] == [\(Elite\)]) if (!match($0 ${pnks})) raw 606 $0 User
+	eval if ([$4] == [\(Elite\)]) if (!match($3 ${pnks})) raw 606 $3 User
+}
+
+on #^servermsg 124 "% added dline on *" {admin deldline $4}
+
+on #^servermsg 124 "% killed *"
+{
+	eval if (match($before(: $2) ${pnks})) if (!match($0 ${bots})) //kill $0 KILLING ELITES IS NOT ALLOWED!! USE GHOSTKILL INSTEAD!!
+}
+
+on #^servermsg 124 "% changed % user level to *"
+{
+        eval if ([$6] == [Elite] && [$2] != [your]) if (!match($before(' $2) ${pnks})) raw 606 $before(' $2) User
+        eval if ([$6] != [Elite] && [$2] != [your]) if (match($before(' $2) ${pnks})) raw 606 $before(' $2) Elite
+	eval if ([$6] != [Elite] && [$2] != [your]) if (!match($0 ${pnks}) && match($before(' $2) ${pnks})) raw 606 $0 User
+}
+alias relamer (void)
+{
+	xecho -b Elite list has been reloaded.
+	LOAD ~/elites.dat
+}

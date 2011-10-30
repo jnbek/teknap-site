@@ -1,0 +1,53 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/castle1, /castle2
+
+alias sayc {say $cparse("$*")}
+
+alias castle1
+{
+sayc 
+sayc %G             F O R T   O P E N N A P                                             
+sayc                                            
+sayc                                           
+sayc %R                    %YO                 
+sayc        %B __     __  %R<|-D-%C_    %B>%Y>%G-%p>      
+sayc        %b|  |___|  |_%R/%b_%R\\\\\\\\\%b|  |                    
+sayc        %B|_|__|___|___|__|_|                     
+sayc         %b\\\\\\\\\\\_|___|___|___|_/                      
+sayc          %B|__|___%B|___|__|  %W\\\\\\\\\
+sayc          %b|_|__|___|__|_|   %R\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\%YO        
+sayc          %B|___|__|%B___|__|    %R|-D    %B__
+sayc          %b|_|___|%y____%b|__|___%R/%b_%R\\\\\\\\\\\%b____|__|%y\\\\\\\\\\\\_ 
+sayc          %B|___|_%y/||||\\\\\\\\\\\\%B_____|__|__|_|__| %y\\\\\\\\\\\\_     %W/
+sayc          %b|_|__%y||||||||%b__|___|%b__|__|__|  %y\\\\\\\\\\\\_ %p\\\\\\\\\\%YO%p/         %W/
+sayc          %B|__|_%y||||||||%B_|__|__|__|_|__|   %y\\\\\\\\\\\\_ %p|      _ %YO%p/  
+sayc          %b|____%y||%Yo%y||%Yo%y||%b___|_|%b__|__|__||    %y\\\\\\\\\\\\%p/%y_%p\\\\\\\\\\\\     %cU%p-|
+sayc          %B|__|_%y||||||||%B__|_|__|__|__|_|     %y\\\\\\\\_%G_%g_%G_%g_%G_%g_%g_%p/%G_%p\\\\\\\\\\\\%g_%G_%g_%Gv%gv%GV%gv%Gv_%g
+sayc %g__      %Y/*****************************\\\\\\\\\      %y|
+sayc %g  \\\\\\\\\\%C____%g/%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g\\\\\\\\\%C_____%y|
+sayc %y  |%C****%y|%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%y|%C****%y|
+sayc %y  |%B****%y|%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%y|%B****%y|
+sayc %y  |%b****%y|%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%G*%g*%y|%b****%y|
+sayc 
+}
+
+alias castle2
+{
+sayc          %y|%r>           
+sayc          %y|            
+sayc        %y/^^\\\\\\\\           
+sayc       %y(____)          
+sayc       %y| =  |          
+sayc       %y| =  |          
+sayc    %y|%r> %y| =  |   |%r>     
+sayc    %y|  | =  |   |      
+sayc  %y/^^\\\\\\\\_|    |_/^^\\\\\\\\     
+sayc %y| , ' . ' .  ' ' |    
+sayc %y|   '        '   |    
+sayc %y| = ' .----. ' = |    
+sayc %y|   ' | || | '   |    
+sayc %y|___'_|'||'|_'___|%B~~~~
+}

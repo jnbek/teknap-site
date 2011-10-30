@@ -1,0 +1,53 @@
+xecho -b Author: Neobite
+xecho -b Version: Time stamping
+
+^on ^public "*"
+{
+	if ([$0] == [$N])
+	{
+		echo 54[-152$strftime(%X)-154]-1 55<-1$055>-1 $2-	
+	}
+	{
+		echo 55[-152$strftime(%X)-155]-1 54<-1$054>-1 $2-
+	}
+}
+on ^action "*"
+{
+	if ([$1] == [$N])
+	{
+		echo 55[-152$strftime(%X)-155]-1 57$1--1
+	}
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echo 54[-152$strftime(%X)-154]-1 57$1--1
+	}
+}
+^on ^628 "*"
+{
+	if ([$1] == [$N])
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echo 55[-152$strftime(%X)-155]-1 51$0/$1--1
+	}
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echo 54[-152$strftime(%X)-154]-1 51$0/$1--1
+	}
+}
+^on ^627 "*"
+{
+	if ([$1] == [$N])
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echo 55[-152$strftime(%X)-155]-1 53$0/$1--1
+	}
+	{
+		@chrl=[$2-]
+		@chra=[$tr(/"//$chrl)]
+		echo 54[-152$strftime(%X)-154]-1 53$0/$1--1
+	}	
+}

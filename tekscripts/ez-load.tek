@@ -1,0 +1,84 @@
+xecho -b Ez-Load Loaded
+xecho -b Author: ~N~
+
+*note: when editing the directories make sure to keep the slash this kind of slash (/) or it will not work correctly*
+assign S1 c:/teknap/teknap/scripts/talk
+assign S2 c:/teknap/teknap/scripts/coloredmotd
+assign S3 c:/teknap/teknap/scripts/anti-lag
+assign S4 c:/teknap/teknap/scripts/bans
+assign S5 c:/teknap/teknap/scripts/rainbow
+assign S6 c:/teknap/teknap/scripts/autorelink
+assign S7 c:/teknap/teknap/scripts/colors
+assign S8 c:/teknap/teknap/scripts/backwards
+assign S9 c:/teknap/teknap/scripts/pepsi
+assign S10 c:/teknap/teknap/scripts/hall
+
+alias load1
+{
+eval load $S1
+}
+alias load2
+{
+eval load $S2
+}
+alias load3
+{
+eval load $S3
+}
+alias load4
+{
+eval load $S4
+}
+alias load5
+{
+eval load $S5
+}
+alias load6
+{
+eval load $S6
+}
+alias load7
+{
+eval load $S7
+}
+alias load8
+{
+eval load $S8
+}
+alias load9
+{
+eval load $S9
+}
+alias load10
+{
+eval load $S10
+}
+
+alias loadall
+{
+eval load $S1
+eval load $S2
+eval load $S3
+eval load $S4
+eval load $S5
+eval load $S6
+eval load $S7
+eval load $S8
+eval load $S9
+eval load $S10
+}
+
+alias ~N~
+{
+echo /load1 - Loads First Script
+echo /load2 - Loads Second Script
+echo /load3 - Loads Third Script
+echo /load4 - Loads Fourth Script
+echo /load5 - Loads Fifth Script
+echo /load6 - Loads Sixth Script
+echo /load7 - Loads Seventh Script
+echo /load8 - Loads Eighth Script
+echo /load9 - Loads Ninth Script
+echo /load10 - Loads Tenth Script
+echo /loadall - Loads All Scripts
+}

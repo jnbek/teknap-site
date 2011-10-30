@@ -1,0 +1,34 @@
+/* confucious messages */
+assign C1 Confucious say Virginity like bubble, one prick, all gone.  
+assign C2 Confucious say Man who run in front of car get tired.
+assign C3 Confucious say Man who run behind car get exhausted.
+assign C4 Confucious say Man with hand in pocked feel cocky all day.
+assign C5 Confuciuos say Foolish man give wife grand piano, wise man give wife upright organ. 
+assign C6 Confucious say Man who walk through airport turnstile sideways going to Bangkok.  
+assign C7 Confucious say Man with one chopstick go hungry.
+assign C8 Confucious say Man who scratch ass should not bite fingernails. 
+assign C9 Confucious say Man who eat many prunes get good run for money. 
+assign C10 Confucious say Baseball is wrong, Man with four balls cannot walk.
+assign C11 Confucious say Panties not best thing on earth but next to best thing on earth.
+assign C12 Confucious say War does not determine who is right war determines who is left.
+assign C13 Confucious say Wife who put husband in doghouse soon find him in cathouse. 
+assign C14 Confucious say Man who fight with wife all day get no piece at night. 
+assign C15 Confucious say It take many nails to build crib but one screw to fill it.
+assign C16 Confucious say Man who drive like hell bound to get there.
+assign C17 Confucious say Man who stand on toilet is high on pot.
+assign C18 Confucious say Man who live in glass house should change clothes in basement.
+assign C19 Confucious say Man who fish in other mans well often catch crabs.
+assign C20 Confucious say Man who fart in church often sit in own pew.
+assign C21 Confucious say Crowded elevator smell different to midget.
+
+
+assign CONFUCIOUS_TRIGGER confucious
+
+/* confucious */
+on -public '% % $confucious_trigger*'
+{
+eval say $(C$rand(32))
+}
+
+
+

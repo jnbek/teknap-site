@@ -1,0 +1,60 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Napster Seekster Script Loaded %>02/seek (user)
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+@stop_flag = 0
+on ^connect "*" {}
+on ^210 "*" {}
+on ^3 "*" {}
+on ^window "*ttempting to get *" {}
+on ^404 "information on % is not available." {
+   @stop_flag = 1
+   echo $cparse("%YUser %W$2 %Yis offline")
+}
+on ^404 "user % is not a known user" {
+   @stop_flag = 1
+   echo $cparse("%YUser %W$1 %Yis not registered")
+}
+on ^605 "*" {
+   @stop_flag = 1
+   echo $cparse("%YUser %W$0 %Yis offline")
+}
+
+alias seek (name) {
+   @:except_by = [203 206 209 215 237 238]
+   @:serv_b4=suppress_server_motd
+   ^set suppress_server_motd on
+   for (@:cnt = 197,cnt<=239,@cnt++) {
+      if (stop_flag) break
+      if (match($cnt $except_by)) continue
+      if (cnt == 239) {
+         eval server 216.220.186.$cnt:7777:$N
+      }{
+         eval server 216.220.186.$cnt::$N
+      }
+      echo $cparse("%YTrying %B$S %Yin search of %W$name")
+      pause 2
+      whois -cmd {
+          if (match($4 "Active")) {
+             echo $cparse("%YUser %W$name %Yfound on %B$S")
+             @stop_flag = 1
+          }{
+             echo $cparse("%YUser %W$name %Yis not on %B$S")
+          }
+      } $name
+      pause 2
+   }
+   ^on 210 -"*"
+   ^on 3 -"*"
+   ^on connect -"*"
+   ^on 404 -"*"
+   ^on 605 -"*"
+   ^on window -"*ttempting to get *"
+   ^set suppress_server_motd $serv_b4
+}

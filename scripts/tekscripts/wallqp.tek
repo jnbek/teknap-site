@@ -1,0 +1,68 @@
+# WALLOP PASTE/QUERY! By Spike. 03/12/02
+# Toggle it with /wp for paste and /wq for query. :)
+# Now you can paste entire things from a webpage in wallop. 
+#*************************************************************
+
+ASSIGN WALL_PASTE 0
+ASSIGN WALL_QUERY 0
+
+alias wp (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign WALL_PASTE 0
+		}
+		(1)
+		(on)
+		{
+			^assign WALL_PASTE 1
+		}
+		(*)
+		{
+			@WALL_PASTE = WALL_PASTE ? [0] : [1]
+		}
+	}
+		xecho -b Wallop paste is now ${WALL_PASTE ? [[ON]] : [[OFF]]}
+}
+alias wq (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0)
+		(off)
+		{
+			^assign WALL_QUERY 0
+		}
+		(1)
+		(on)
+		{
+			^assign WALL_QUERY 1
+		}
+		(*)
+		{
+			@WALL_QUERY = WALL_QUERY ? [0] : [1]
+		}
+	}
+		xecho -b Wallop query is now ${WALL_QUERY ? [[ON]] : [[OFF]]}
+}
+on ^paste "*"
+{
+	if (WALL_PASTE)
+	{
+		wal $1-
+	}{
+		say $1-
+	}
+}
+on ^input "*"
+{
+	if (WALL_QUERY && !match($CMDCHARS* $0))
+	{
+		sendline $CMDCHARS\wal $*
+	}{
+		sendline $*
+	}
+}

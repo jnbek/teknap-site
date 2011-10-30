@@ -1,0 +1,69 @@
+xecho -b x is loaded
+xecho -b Author: blah--phuck
+
+alias sayc
+{ 
+	eval say $cparse("$*")
+}
+alias x
+
+
+
+{
+eval sayc %r                                ,:::::::::,.
+eval sayc %r                             ,:!!!!!!!!!!!!!!!::,
+eval sayc %r                          ,:!!!!!!!!!!!!!!!!!!!!!!!:,
+eval sayc %r                        :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!:,
+eval sayc %r                      :!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!''''-
+eval sayc %r                     :!!!!!!!!!!!!!!!!!!!!!!'''``%W_.,nmnndMMMMMMMn
+eval sayc %r                   .!!!!!!!!' !!!!!!''``%W_..xnndMMMMMMMMMMMMMMMMMMb
+eval sayc %r                  :!!!!!!!! :!!''`%W.xndMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+eval sayc %r                 :!!!!!!!!  %W`_.nmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,
+eval sayc %r                :!!!!!!'`%W.xnMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+eval sayc %r               :!!!!!'%W.ndMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMn
+eval sayc %r              :!!!!'%W,dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMPPPP'''''''TTMMb
+eval sayc %r             :!!!!'%W,MP'MMMMMMMMMMMMMMMMMMPPP''''`%Y.,,ccr===$$$$$c`%W=nMMMr
+eval sayc %r             !!!!! %WMP dMMMMMMMMMMMPP''%Y.,cccdSSSSSSSSSShc, `?SSSSh.%W'MMM
+eval sayc %r            `!!!!! %W',dMMMMMMPP'' %Y,ccSSSSSSSSSSSSSSSSSSSSSSc,`SSSSS %W4MM
+eval sayc %r            `!!!! %W,dMMMMP''  %Y,cSSSSSSSSSSSSSSSSSSSSSSSSSSSSScSSSSSr%W`T
+eval sayc %r            `!!! %WuMMMP'%Y.zd',cSS?SSSSSSSSSSSSSSSSSSSS??SS SSSSSSSSSS
+eval sayc %r            `!! %W:MMMP%Y,SSSScS'SS SSSSSSSSSSSSSSSSSSSSF<SF SPPSSSSSSS
+eval sayc %W           _,,_ MMMM %Y<SSSSSS ?S.'SSSSSSSSSSSSSSSSSSS'dP dS',SSSSSSP
+eval sayc %W      ,dh:MMMMM 4MMML %YSSSS'?h.'S ?SSSSSSSSSSSSSSSSS' ' zF zSSSSSSS'
+eval sayc %W     dMMMMMMMMMn 'TTM %YSSSSc,'? %W.,.%Y'SSSSSSSSSSSSSSP'%W,MM,%Y ,dSSSSSSS'
+eval sayc %W    dMMMMMMMMMMMMmnx..%Y`SSSSSS %W4MMMn %Y?SSSSSSSSSSSS %WuMMMM %Y?SSSSSSSP
+eval sayc %W  .nMMMMMMMMMMMMMMMMMM,%Y`SSSSS %WMMMMMb %YSSSSSSSSSSSF%W,MMMMM %YdSSSSSSP
+eval sayc %W  MMMMMMMMMMMMMMMMMMMM  %Y'SSSS %WMM''`'-%Y`SSSSSSSSSS %W`'%B..%W`T %YSSSSSSP
+eval sayc %W  MMMMMMMMMMMMMMMMMMMP   %Y?SSS %WT'%B,SSh  %YSSSSSSSSSS  %BcSSL  %YSSSSSP
+eval sayc %W  jMMMMMMMMMMMMMMMMM'     %Y?SSh%W' %Bd???S %Y?SSSSSSSSS %Bd' `S %YdSSSSP
+eval sayc %W   TMMMMMMMMMMMMMMM'       %Y'SSr %BSF  ?h%Y<SSSSSSSSS %BP   F %YSSSSP
+eval sayc %W     'MMMMMMMMMMMP'         %Y`SS.%B`L  dF%Y:SSSSSSSSS.%B?  / %YdSSSP
+eval sayc %W      '4MMM''PP''            %Y`ss.%B`- ' %YdSSSSSSSSSh .,,zdSS'
+eval sayc %W        `'`                    %YShcsshcSSS??'''??SSSSSSSSSh.
+eval sayc %W                              %YdSSSSSSSP' %yj????  %Y'SSSSSSSSSS
+eval sayc %Y                             ,SSSSSSSS . %y-===-'%Y.,cSSSSSSSSF
+eval sayc %Y                              ?SSSSSSS???ScccSSS??SSSSSSP'
+eval sayc %Y                               `'??''%W.xn %Y?SSSSP'%Wxn
+eval sayc %W                                     'MMbx.,,,nmMM
+eval sayc %W                                       '''PPPPP''
+eval sayc %r                                      :!!!!!!!!!!
+eval sayc %r                                     :!'!!!!!!!!<!
+eval sayc %r                                    :!' !!!!!!!, !:
+eval sayc %r                                   :!! !!!!!!!!! `!.
+eval sayc %r                                   `! :!!!!!!!!!! !!
+eval sayc %r                                   `!:!!!!!!!!!!!:'
+eval sayc %r                                     !!!!!!!!!!!!!
+eval sayc %W                                  .xr%r`!!!!!!!!!!!! %Wh.
+eval sayc %W                                 uMMM,%r`'`<!!!!''`%W,dMM
+eval sayc %W                                 4MMMMmnn,.,,,ndMMMMP
+eval sayc %W                                  4MMMMMMMMMMMMMMMP'
+eval sayc %W                                    `'44MMMMPP''
+eval sayc %y                                        cr    c,
+eval sayc %y                                        SS    Sh              .,...
+eval sayc %y                    ,ccSSSSccccc,,,..,,,cS.   ?S,,,..,,,cccdSSSSSSSSh.
+eval sayc %y                  zS???SSSSSSSSSSSSSSSSSSSh   <SSSSSSSSSSSSSSSSSL.,.`?S
+eval sayc %y                  ?',cSSSSSSSSSSSSSSSSSSSSP'  `SSSSSSSSSSSSSSSSSSSSc '
+eval sayc %y                   <SSSSSSSSSSSSSSSSSS??'       '??SSSSSSSSSSSSSSSSSS
+eval sayc %y                    ?SSSSSSSSSSSSS??'               ''??SSSSSSSSSP''
+eval sayc %y                       ''''''''''                         `''''
+}

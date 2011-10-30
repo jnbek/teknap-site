@@ -1,0 +1,59 @@
+alias sayc
+{ 
+	/eval say $cparse("$*")
+}
+
+alias msgc
+{ 
+	/eval msg $cparse("$*")
+}
+
+alias mec
+{ 
+	/eval me $cparse("$*")
+}
+
+alias announcec
+{ 
+	/eval admin announce $cparse("$*")
+}
+
+alias opsayc
+{ 
+	/eval wall $cparse("$*")
+}
+
+alias ctopic (channel, text)
+{
+	eval topic $channel $cparse("$text")
+}
+
+alias rd
+{
+	/sayc %1%R$
+}
+
+alias yl
+{
+	/sayc %3%Y$
+}
+
+alias gr
+{
+	/sayc %2%G$
+}
+
+alias cy
+{
+	/sayc %6%C$
+}
+
+alias bl
+{
+	/sayc %4%B$
+}
+
+alias pl
+{
+	/sayc %5%P$
+}

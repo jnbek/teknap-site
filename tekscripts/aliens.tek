@@ -1,0 +1,53 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/a_dance, /a_head
+
+alias sayc {say $cparse("$*")}
+
+alias a_dance
+{ 
+sayc %G               .o######0o. 
+sayc %G              0###########0.      .
+sayc %G             o####'%R0`%G######0.     ## ##n
+sayc %G             #####%R000`%G######0  ._ ##.##.nn
+sayc %G             0####o%R'0'%G###%R0.%G##  ##o.######"
+sayc %G     o00o.    0#####o,##.%R0'%G,#'  `#######`
+sayc %G   .0#####0.   0###########0     ########
+sayc %G  .0#######0.   `0#########'  _.o###'`00'
+sayc %G .0###########o._ `#################       _  .
+sayc %G 0####' `#########################0      .0#0n0
+sayc %G #####.    `#####################'    _  0#####
+sayc %G 0#####.     `###################._.o##o.#####'
+sayc %G  0#####..##mn  `#############################
+sayc %G   0#########_     `##################'######`
+sayc %G     ##########       `############'  `#####`
+sayc %G      .########         '########'       `##'
+sayc %G      #### ######       0######'
+sayc %G       ## .###,##  .o#o ######.
+sayc %G           ##    .0############.
+sayc %G               .n###############
+}
+
+alias a_head
+{
+sayc %C      -   =     B    E    L    I    E    V    E   =  -
+sayc %G                       .adOOOOOOOOOba.
+sayc %G                      dOOOOOOOOOOOOOOOb
+sayc %G                     dOOOOOOOOOOOOOOOOOb
+sayc %G                    OOOOOOOOOOOOOOOOOOOOO
+sayc %G                   OP..'YOOOOOOOOOOOP...YO
+sayc %G                   OO     `YOOOOOP'     OO
+sayc %G                   OOb      `OOO'      dOO
+sayc %G                   YOOo  %W.%G   OOO   %W.%G  oOOP
+sayc %G                   `OOOo     OOO     oOOO'
+sayc %G                    `OOOb._,dOOOb._,dOOO'
+sayc %G                     `OOOOOOOOOOOOOOOOO'
+sayc %G                      OOOOOOOOOOOOOOOOO
+sayc %G                      YOOOOOOOOOOOOOOOP
+sayc %G                      `OOOOOOOOOOOOOOO'
+sayc %G                        `OOOOOOOOOOO'
+sayc %G                         `~OOOOO~'     
+sayc %C     -   =     B    E    L    I    E    V    E   =  -
+}

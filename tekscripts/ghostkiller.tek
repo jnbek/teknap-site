@@ -1,0 +1,12 @@
+xecho -b Ghost Killer Loaded
+xecho -b Author: ~N~
+
+^on -servermsg "* killed * ghost *"
+{
+raw 610 $before(: $2) "Damn Ghosts! Stop Haunting Our Server!"
+}
+^on -servermsg "* killed * nick collision *"
+{
+raw 610 $before(: $2) "Damn Ghosts! Stop Haunting Our Server!"
+}
+

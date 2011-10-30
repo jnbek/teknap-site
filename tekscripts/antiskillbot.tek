@@ -1,0 +1,43 @@
+xecho -b Anti-Skillbot script loaded
+xecho -b by gircobain 12/01/2001
+
+@ANTISKILLBOT_ON = 1
+
+@NOT_ALLW = [o c u r]
+@ALLW = [oh see you are]
+
+alias ANTISKILLBOT {
+  if ([$0] == []) {
+    xecho -b Anti-Skillbot is currently ${ANTISKILLBOT_ON?[ON]:[OFF]}
+  }{
+    switch ($0) {
+      (on) {
+        @ANTISKILLBOT_ON = 1
+        xecho -b Anti-Skillbot is now ON
+      }
+      (off) {
+        @ANTISKILLBOT_ON = 0
+        xecho -b Anit-Skillbot is now OFF  
+      }
+      (*) {
+        xecho -b Anti-Skillbot is now ${ANTISKILLBOT_ON?[ON]:[OFF]}
+        xecho -b Usage: /antiskillbot on|off
+      }
+    }
+  }
+}
+
+on ^input "*" {
+  @TEXT = [$0-]
+  if (ANTISKILLBOT_ON) {
+    @COUNT = 0
+    @INDEX = 0
+    fe ($0-) EACH_WORD {
+      if ((INDEX = findw($EACH_WORD $NOT_ALLW))>-1) {
+        @TEXT = chngw($COUNT $word($INDEX $ALLW) $TEXT)
+      }
+      @COUNT++
+    }
+  }
+  sendline $TEXT
+}

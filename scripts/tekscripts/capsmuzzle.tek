@@ -1,0 +1,100 @@
+# Caps-Based Muzzle 
+# author : Eric Williams (SkiLLio)
+@ ::muzzle_first = 60
+@ ::muzzle_second = muzzle_first*4
+@ delarray(uppercase)
+@ delarray(repcaps)
+@ delarray(penalty)
+@ delarray(hitlist)
+@ capsmuzz = 1
+
+alias capsmuzzle (toggle, void)
+{
+@ saidalready = 0
+	if (toggle)
+	{
+		switch ($toggle)
+		{
+			(off) {
+					if (capsmuzz == 0)  
+					{ 
+						xecho -b Caps-muzzle is already inactive! 
+						@ saidalready = 1
+					}{ 
+					 @ capsmuzz = 0
+					 @ delarray(uppercase)
+					 @ delarray(repcaps)
+					 @ delarray(penalty)
+					 @ delarray(hitlist)			
+					 }
+			      }
+			(on)  {
+					if (capsmuzz == 1)  
+					{ 
+						xecho -b Caps-muzzle is already active! 
+						@ saidalready = 1
+					}{ @ capsmuzz = 1}
+			      }
+			(*)   { xecho -b Usage: /capsmuzzle on/off }
+		}	
+	if (capsmuzz == 1 && saidalready == 0) xecho -b Caps-muzzle is now active.
+	if (capsmuzz == 0 && saidalready == 0) xecho -b Caps-muzzle is now inactive.
+	} { xecho -b Usage: /capsmuzzle on/off }
+}
+
+on -403 '*' if (capsmuzz == 1)
+{
+^assign capschan $0
+^assign capper $1
+@ caps = 0
+@ chars = 0
+    	fec ( $2- ) z 
+	{
+		if ( ascii($z) > 64 && ascii($z) < 123) 
+			{ if (ascii($z) < 91 || ascii($z) > 96)    @ chars++ }
+         	if ( ascii($z) >= 65 && ascii($z) <= 90 )  @ caps++ 
+	}
+	if (chars < 1)  @ chars = 1 
+	^assign percent ${(caps*10)/(chars)}
+	if (caps > 3 && percent > 7)
+	{
+		if (finditem(uppercase $1) < [0])
+		{
+			@ setitem(uppercase $numitems(uppercase) $capper)
+			@ setitem(repcaps $numitems(repcaps) 0)
+		}
+	@ capsplace = finditem(uppercase $capper)
+	@ numcaps =  getitem(repcaps $capsplace) + 1
+	@ setitem(repcaps $capsplace $numcaps)
+	timer -ref capsmuzztimer 20 {@ delitem(repcaps $capsplace);@ delitem(uppercase $capsplace)}
+		if (numcaps > 2)
+		{ 
+					@ delitem(repcaps $capsplace)
+					@ delitem(uppercase $capsplace)
+						if (finditem(hitlist $capper) < [0]) 
+						{
+							@ setitem(hitlist $numitems(hitlist) $capper)
+							@ setitem(penalty $numitems(penalty) 0)
+						}
+					@ hitlistplace = finditem(hitlist $capper)
+					@ penal = getitem(penalty $hitlistplace) + 1
+					@ setitem(penalty $hitlistplace $penal)
+						switch ($penal)
+						{
+							(1) {
+								raw 622 $capper \"Muzzle for $muzzle_first seconds: Try tapping that caps lock key.\"
+								timer $muzzle_first eval raw 623 $1 \"Caps give me a headache\"
+							}  
+							(2) {
+								raw 622 $capper \"Muzzle for $muzzle_second seconds: Lay off the caps.\"
+					  			timer $muzzle_second eval raw 623 $1 \"Lay off the damn caps.\"
+					  		}	
+							(*) {
+					 			raw 606 $capper leech
+					   			raw 829 $capschan $capper \"Caps Again? : j00 are leechified now :)\"
+								@ penal = 1
+					  		}		
+						}
+  		}
+	}
+}

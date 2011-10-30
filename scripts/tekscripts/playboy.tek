@@ -1,0 +1,32 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YJeepFreak
+echoc %WEdited: %YKim_Kimma
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/playboy
+
+alias sayc {say $cparse("$*")}
+
+alias playboy
+{
+sayc %K G %RO %BT  %cP %CL %WA %CY %cB %BO %RY %K??
+sayc
+sayc %W                    A  
+sayc %W                   @@
+sayc %W      b.          d@@b
+sayc %W      @@@b        @@@b
+sayc %W      Y@@@@b     d@@@b
+sayc %W        Y@@@@b   d@@@b
+sayc %W          Y@@@b  `@@@/       
+sayc %W            `Y@@ @@@@
+sayc %W          .d@@@@@@@@b.
+sayc %W        .@@@%Kd@b%W@@@@@@@.  
+sayc %W      .d@@@%K@@@@@%W@@@@@@@`
+sayc %W      @@@@@@%KY@Y%W@@@@@@@@@` 
+sayc %W     @@@@@@@@@@@@@@@@@@@b
+sayc %W     Y@@@@@@@@@@@@@@@@@b    
+sayc %W      Y@@@@@@@@@@@@@@@b'
+sayc %W       d@@@@@@@@@@@@@b'   
+sayc %W        `d@@@@@@@@@@b'
+sayc %w          88888888888
+}   

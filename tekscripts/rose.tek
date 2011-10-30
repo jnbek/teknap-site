@@ -1,0 +1,65 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/rose [1|2]
+
+alias sayc {echo $cparse("$*")}
+
+alias rose (num)
+{
+ switch ($num)
+ {
+  (1)
+  {
+   sayc %r                     ..ooo.
+   sayc %r                 .888888888.
+   sayc %r                 88'P''''T'''T888 8o
+   sayc %r             o8o 8.8''8 88o.''8o 8o
+   sayc %r            88 . o88o8 8 88.''8 88P''o
+   sayc %r           88 o8 88 oo.8 888 8 888 88
+   sayc %r           88 88 88o888'' 88''  o888 88
+   sayc %r           88.''8o.''T88P.88''. 88888 88
+   sayc %r           888.''888.''88P''.o8 8888 888
+   sayc %r           ''888o''8888oo8888 o888 o8P''
+   sayc %r            ''8888.''''888P''P.888''.88P
+   sayc %r             ''88888ooo  888P''.o888
+   sayc %r               ''''8P''''.oooooo8888P
+   sayc %g      .oo888ooo.  %r  888888888P8
+   sayc %g    o88888''888''88o.  %r''8888''''.88   %g.oo888oo..
+   sayc %g     8888'' ''88 88888.       88''.o88888888''888.
+   sayc %g     ''8888o.''''o 88''88o.    o8''.888''888''88 ''88P
+   sayc %g      T888C.oo. ''8.''8''8   o8''o888 o88'' ''.888''
+   sayc %g       88888888o ''8 8 8  .8 .8''88 8''''.o888o8P
+   sayc %g        ''8888C.o8o  8 8  8'' 8 o'' ...o''''''8888
+   sayc %g          ''88888888 '' 8 .8  8   88888888888''
+   sayc %g            ''8888888o  .8o'' o8o..o8oo88''
+   sayc %g                ''888'' 88''  888888888''''
+   sayc %g                    o8P       ''888''''''
+   sayc %g              ...oo88
+   sayc %g     ''8oo...oo888''''       
+   sayc %g       ''''888'''' 
+  }
+  (2)
+  {
+   sayc %R                                               :. ,..
+   sayc %R                                             .' :~.':_.,
+   sayc %R                                           .'   ::.::'.'
+   sayc %R                                          :     ::'  .:
+   sayc %W                                       %G`.%R:     .:  .:
+   sayc %G                                         `::--.%R:'.::'
+   sayc %G                                           |. _:===-'
+   sayc %G                                          / /
+   sayc %G                         ,---.---.    __,','
+   sayc %G                        <~`.  `   )   >','.,---..
+   sayc %G                         `v`` | ,' .-'.:,'_____   `.
+   sayc %G                             )|'.-~.--~~--.   ~~~-. '
+   sayc %G                           _/-'_.-~        ``---.._`.|
+   sayc %G                      _.-~~_.-~                    `'' 
+   sayc %G               _..--~~_.<~~
+   sayc %G    __...---~~~_..--~~
+   sayc %G ,'___...---~~~
+  }
+  (*) {echoc %WError: %Y[1|2] only please.}
+ }
+}

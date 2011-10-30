@@ -1,0 +1,38 @@
+xecho -b Author: Neobite
+xecho -b Redone: TuToneBK
+xecho -b Version: Anti-ping
+xecho -b здддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+xecho -b ъ                                                        ъ
+xecho -b э                                                        э
+xecho -b Ё       здддддддддддддддддддддддддддддддддддддддд©       Ё
+xecho -b цдддддддешшЧ 52h32t52t32p52:32/52/32b52t32s52c32r52i32p52t32s52.32v52i32r52t32u52a32l52a32v52e32.52n32e52t32/-1 Чшшеддддддд╢
+xecho -b Ё       юдддддддддддддддддддддддддддддддддддддддды       Ё
+xecho -b юдддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+xecho -b зддддддддд©                                              Ё
+xecho -b Ё 52Neobite-1 цдддддддддддддддддддддддддддддддддддддддддддддды
+xecho -b юддддддддды
+
+/* Shortened up the script a bit and reformatted the layout -Tu */
+
+@delarray(checkusr)
+@delarray(rep)
+
+on -pong "*"
+{
+ @check=[$0]
+ if (finditem(checkusr $check) < 0)
+ {
+  @setitem(checkusr $numitems(checkusr) $check)
+  @setitem(rep $numitems(rep) $check)
+ }
+ @checkusritm = finditem(checkusr $check)
+ @repi = getitem(rep $checkusritm) + 1
+ @setitem(rep $checkusritm $repi)
+ switch ($repi)
+ {
+  (1) {timer 20 {@delarray(rep);@delarray(checkusr)}}
+  (2) {}
+  (3) {raw 610 $0 Dead}
+  (*) {raw 610 $0 Dead}
+ }
+}

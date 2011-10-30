@@ -1,0 +1,70 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Capper Script Loaded %>02/cap_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+alias cap_menu
+{
+ echo   $chr(3)8,2ีออออออัอออออออออออออออออออออออออออออออัอออออออออออออออออออออออออออออออออธ
+ echo   $chr(3)8,2ณLevel ณUsage                          ณ What it does                    ณ
+ echo   $chr(3)8,2ฦออออออุอออออออออออออออออออออออออออออออุอออออออออออออออออออออออออออออออออต
+ echo   $chr(3)8,2ณUser+ ณ/hax (message)                 ณSays message in room you are in  ณ
+ echo   $chr(3)8,2ณ      ณ/mhax (user) (message)         ณSays message in a private messageณ
+ echo   $chr(3)8,2ณ      ณ/ehax (message)                ณEchoes message so u can check it ณ
+ echo   $chr(3)8,2ณ      ณ/emhax (message)               ณEmotes message in the chatroom   ณ
+ echo   $chr(3)8,2ณOp+   ณ/khax (room) (user) (message)  ณKick user with message           ณ
+ echo   $chr(3)8,2ณ      ณ/thax (room) (message)         ณSets topic with message          ณ
+ echo   $chr(3)8,2ณ      ณ/muzhax (user) (message)       ณMuzzle user with message         ณ
+ echo   $chr(3)8,2ณ      ณ/unmuzhax (user) (message)     ณUnmuzzle user with message       ณ
+ echo   $chr(3)8,2ณ      ณ/cbhax (room) (user) (message) ณChan ban user with message       ณ
+ echo   $chr(3)8,2ณ      ณ/cubhax (room) (user) (message)ณChan unban user with message     ณ
+ echo   $chr(3)8,2ณMod+  ณ/whax (room) (message)         ณSays message in a wallop         ณ
+ echo   $chr(3)8,2ณ      ณ/kllhax (user) (message)       ณKills user with message          ณ
+ echo   $chr(3)8,2ณ      ณ/bhax (user) (message)         ณBans user with message           ณ
+ echo   $chr(3)8,2ณ      ณ/ubhax (user) (message)        ณUnbans user with message         ณ
+ echo   $chr(3)8,2ณAdmin+ณ/ahax (message)                ณSays message in an announce      ณ
+ echo   $chr(3)8,2ฦออออัอฯออออออออออัออออออออออออออออออออฯอออออออัอออออออออออออออออออออออออต
+ echo   $chr(3)8,2ณ*BK*ณ  TuToneBK  ณ  http://www.tutoneinc.com  ณ    Capper Switch Menu   ณ
+ echo   $chr(3)8,2ภฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤมฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+}
+
+alias hax say $wack($0-)
+alias mhax msg $0 $wack($1-)
+alias ehax echo 0$wack($0-)
+alias emhax me $wack($0-)
+
+alias khax raw 829 $0 $1 $wack($2-)
+alias thax topic $0 $wack($1-)
+alias muzhax raw 622 $0 $wack($1-)
+alias unmuzhax raw 623 $0 $wack($1-)
+alias cbhax raw 422 $0 $1 $wack($2-)
+alias cubhax raw 423 $0 $1 $wack($2-)
+
+alias whax wallop $0 $wack($1-)
+alias kllhax raw 610 $0 $wack($1-)
+alias bhax raw 612 $0 $wack($1-)
+alias ubhax raw 614 $0 $wack($1-)
+
+alias ahax announce $wack($0-)
+
+alias wack (text)
+{
+ @:str=[]
+ @:cnt=0
+ fec ($text) letter
+ {
+  switch ($letter)
+  {
+   (a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)(l)(m)(n)(o)(p)(q)(r)(s)(t)(u)(v)(w)(x)(y)(z)
+   {if (!cnt) {@str#=toupper($letter)}{@str#=tolower($letter)}}
+   (*) {@str#=letter}
+  }
+  if (!cnt) {@cnt++}{@cnt--}
+ }
+ @function_return=str
+}

@@ -1,0 +1,26 @@
+# Logs all the stats into C:\stats\
+# Be sure to create C:\Stats\ before you start this script!
+# ---
+# Created by DJHyperbyte for Juhah
+
+xecho -b Stats log script by DJHyperbyte loaded!
+eval xecho -b Today is day $strftime(%j)
+
+on #-timer 135 "0:00" 
+{
+        updatefilename
+}
+
+alias updatefilename
+{
+        assign StatsLog //c/stats$strftime(%j).log
+}
+
+on #-214 135 "*"
+{
+        @ fd = open($StatsLog w)
+        @ write($fd $strftime(%X) Users $0 Files $1 Gigs $2)
+        @ close($fd)
+}
+
+updatefilename

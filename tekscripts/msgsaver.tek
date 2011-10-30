@@ -1,0 +1,74 @@
+alias stamp
+{
+ echo
+ echo $cparse("%WAuthor %n: %cTuToneBK :\)")
+ @sf1_b4=status_format1
+ set status_format1 01,00TuToneBK's 04Message Saver Script Loaded %>02/msg_menu for menu
+ timer -refnum statbar 8 ^set status_format1 $sf1_b4
+}
+stamp
+
+## You MUST modify the NICKS part of this script...put in what
+## people call u.
+
+alias msg_menu
+{
+echo
+echo 53Usage : 57/msg [on|off| ] 02To toggle and check status
+echo
+}
+
+@MS=[~/MessagesFor]##strftime(%a,%b/%d)##[.txt]
+@RMS=[~/RoomMessagesFor]##strftime(%a,%b/%d)##[.txt]
+@NICKS=[tu tone bk tt]
+@allow_msgs=0
+
+alias msgs (tog)
+{
+ if (!tog)
+ {
+  if (allow_msgs=1)
+  {echo 53 Message Saver is On}
+  {echo 53 Message Saver is Off}
+ }
+ {
+  switch ($tog)
+  {
+   (on)
+   {
+    if (allow_msgs=1)
+    {echo 53 Message Saver is already On}
+    {
+     @allow_msgs=1
+     echo 53 Message Saver On
+     me is AFK. IM $N to leave a message.
+     ^on ^msg "*"
+     {
+      msg $0 Sorry but i'm away right now...this message was recorded in a log. Thank You.
+      @:fd = open($MS w)
+      @write($fd [$strftime(%I:%M %p)] $0 : $1-)
+      @close($fd)
+     }
+     ^on ^public "% % *\\[${NICKS}\\]*"
+     {
+      echo 57 $0 said ur name.
+      @:fd=open($RMS w)
+      @write($fd [$strftime(%I:%M %p)]<$1> $0 : $2-)
+      @close($fd)
+     }
+    }
+   }
+   (off)
+   {
+    if (allow_msgs=0)
+    {echo 53 Message Saver is already Off}
+    {
+     @allow_msgs=0
+     echo 51 Message Saver Off
+     ^on msg -"*"
+     ^on public -"% % *\\[${NICKS}\\]*"
+    }
+   }
+  }
+ }
+}

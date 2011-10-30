@@ -1,0 +1,42 @@
+/* yomama messages */
+assign C1 $3 Yo mama's so stupid, I tought her how to do the running man and I havent seen the bitch sence.
+assign C2 $3 Yo mama's so stupid, if she spook her mind she would be speechless.
+assign C3 $0 Yo mama's so stupid, she married Yo daddy.
+assign C4 $3 Yo mama's so stupid, she thought asphalt was skin disease
+assign C5 $3 Yo mama's so stupid, she tried to insult you and started with "Yo mama's so...."
+assign C6 $3 Yo mama's so stupid, she used a vibrator for a egg beater
+assign C7 $3 Yo mama's so stupid, she went to the gap to get her teeth fixed
+assign C8 $3 Yo mama's so stupid, you can make her eyes twinkel by shining a light in her ears.
+assign C9 $3 Yo mama's so old, i told her to act her age and the bitch died
+assign C10 $3 Yo mama's so old, she walked into a antique store and they kept her
+assign C11 $3 Yo mama's so big, her belly button's got a echo
+assign C12 $3 Yo mama's so big, when you climb to the top of her your ears pop
+assign C13 $3 Yo mama's so fat that when she steps on the scales it says "To Be Continued"
+assign C14 $3 Yo mama's so fat, when she is wearing a bathing suit it looks like she is smuggling grapes
+assign C15 $3 Yo mama's so fat, she ain't on a diet, she is on a triet... She be like "What ya'll eating? I'll try it"
+assign C16 $3 Yo mama's so fat, no one can talk behind her back
+assign C17 $3 Yo mama's so fat, her cereal bowl came with a lifeguard
+assign C18 $3 Yo mama's so fat, everytime she wears high heels, she strikes oil
+assign C19 $3 Yo mama's so fat, a picture of her fell off the wall
+assign C20 $3 Yo mama's so nasty, she has more crabs then Red Lobster
+assign C21 $3 Yo mama's so nasty, she has got more clap then a auditorium
+assign C22 $3 Yo mama's so nasty, she has a sign between her lags that says. "Warning: May cause irration, drowsiness, and a rash or breakouts"
+assign C23 $3 Yo mama's so nasty, i called her up for phone sex and she gave me a ear infection
+assign C24 $3 Yo mama's so ugly, when she went to taco bell everyone ran for the border
+assign C25 $3 Yo mama's so ugly, yo father's breath smells like shit' cause he would rather kiss her ass
+assign C26 $3 Yo mama's so ugly, well... look at you
+assign C27 $3 Yo mama's so ugly, the doc is still smacking her ass
+assign C28 $3 Yo mama's so ugly, she has to creep up on water to drink it
+assign C29 $3 Yo mama's so ugly, she has a sign in the yard that says "Beware of dog"
+assign C30 $3 Yo mama's so ugly, it looks like she ran the 100 meter dash in a 90 meter gym.
+assign C31 $3 Yo mama's so ugly, her pillow cries at night
+
+assign yomama_TRIGGER yomama
+
+/* yomama */
+on -public '% % $yomama_trigger*'
+{
+eval say $(C$rand(32))
+}
+
+

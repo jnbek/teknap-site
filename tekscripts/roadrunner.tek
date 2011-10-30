@@ -1,0 +1,73 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/roadrunner
+
+alias sayc {say $cparse("$*")}
+
+alias roadrunner
+{
+sayc %B                          ?S,
+sayc %B                          SSSb
+sayc %B                           ?SSb
+sayc %B                           ?SSSc
+sayc %B                             ?SSS,
+sayc %B                              SSSS
+sayc %B                               SSS,
+sayc %B                   ,       ,   SSSF
+sayc %B                   SSb,    SS,  SSF
+sayc %B                    ~SSSc  ?SS  ~~?
+sayc %B                      ?SSSc SSc,``%b!!!!!!:,      `!:,
+sayc %B                    SS, SSSSSSSSS~      %b`'!!:,   `!!>
+sayc %B                    `SSSSSSSSSP~'%b:<!!!!>:,.!!!!:  `!!
+sayc %B                     `SSSSSSF%b,!!!!!''```!'!!<!!!!!: `!>
+sayc %B                       ?SSSF%b:!!!'   ,<!!'!!` !!!!!!!<!!>!
+sayc %B                         ~Sb,,SSS %b!!!! !' !!!!!!!!!!!!! )
+sayc %B                           3SSSSS %b! ,!!!!',!!!!!',:!!!!!/
+sayc %B                          Sc SSSS%b'  ! !!!:!!!!>)<!!!!!!'
+sayc %B                          `Sb,SSSL %b< ,!' !!!!!!!!!!!!'
+sayc %B                           `SSSSSS   %b:!  !  !!!!!!!!'
+sayc %B                             ?SSSS,  %b`!      !<!!!!'
+sayc %B                             ?SSSS,  %b`!      !<!!!!'
+sayc %B                              SSSSF          %b!>`!!><!
+sayc %B                         c, Sc SSSb          %b!',c,`!!<b%W,
+sayc %B                         ~S,SS,SSS~           %bSS~~?,`%WSS:
+sayc %B                         ?cSSSSSSS          %b,SSLdP ,,~%WS:_
+sayc %B                      SS, ~SSSSSSF          %bdSSSSL%Y<SS%b,?S'   %Y,c
+sayc %B                      `SSS,?SSSSP           %b?SSSSS %YSSS%b~c%Y,,dSSS
+sayc %B                       `SSScSSSF             %b`~????,%Y~SSSSSSSSP
+sayc %B                        `SSSSSP               S~     %Y`?SSSP~
+sayc %B                          ~SSS               ,S
+sayc %B                         S,SS                JF
+sayc %B                        S`SS~                S'
+sayc %B                        ~SS~                :S
+sayc %B                        SSS                 SF
+sayc %B                        `SS                dS'
+sayc %B                         3S               ,SF
+sayc %B                         JScccc,.       ,cSSF
+sayc %B   ,,:::::::::,_         SSSSSSSSSSSSSSSSSSS'
+sayc %B,:(((:::::))):,,`'''%b<::,(((<!!!!!))):%B,~~?SSS
+sayc %B''''''      ````'''%b<!!!:::!!!!!!!!!!!!!!%B SS~
+sayc %B                        %bc,,!!!!!!!!!!!'
+sayc %y                      ,dSSSSSSP~,c
+sayc %y                   4SS,`~,, ==~
+sayc %y                    ?SSS SSF
+sayc %y                     SSS<SS
+sayc %y                     ?SS<SS
+sayc %y                     ?SS<S
+sayc %y                      SF<S
+sayc %y                      Sb:S
+sayc %y                      SS.S
+sayc %y                      SS.S
+sayc %y                      SS<S
+sayc %y                      SS<S
+sayc %y             ,,       SS SS
+sayc %W        z%yc-zSSc,~==~cSSS SSb,                 .
+sayc %y           ?SSSSSSSSSSSSS.~SSSSScc,,.`~':::~CC~?b%W. 
+sayc %y                  ~?SSSSSSSSSSccccc,~~~~?SSSSSSSb,
+sayc %y                        ~??ScSc,,`~~?SSSS ,ccc,~~`%W?
+sayc %y                             `?SSSSSSShc.?SSSSSS
+sayc %y                                `?SSSSSSSc ??~ ~%W?
+sayc %y                                    ~SSF?S%W.
+}

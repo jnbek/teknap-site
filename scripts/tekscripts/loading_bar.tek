@@ -1,0 +1,25 @@
+alias bar
+{
+if ([$0] <= [99]) {
+@ te.cnt = 0
+@ te.arg = [$0] / 10
+@ te.bar = [%b]
+while (te.cnt < te.arg) {
+@ te.bar = [$te.bar]##[Û]
+@ te.cnt = te.cnt + 1
+}
+@ te.bar = [$te.bar]##[%K]
+@ te.cnt = 0
+while (te.cnt < ([10] - te.arg)) {
+@ te.bar = [$te.bar]##[ú]
+@ te.cnt = te.cnt + 1
+}
+@ te.bar = [$te.bar]##[%n]
+^set INPUT_PROMPT Loading: $cparse(%K[$te.bar%K]%n $0% )
+}
+if ([$0] == [100]) {
+^set INPUT_PROMPT $cparse(%BLoading complete%W!)
+@IN_PUT=[[$C] ]
+timer 3 ^set INPUT_PROMPT $IN_PUT
+}
+}

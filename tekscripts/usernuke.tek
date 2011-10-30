@@ -1,0 +1,88 @@
+# user cleanup script - khaytsus
+# i hope i got this right, the initial tests seems ok, but who knows. :P
+# toggle it on and off with /activenuke
+# the default state of the script on load can also be set with the assign below.
+# the alias's that start with _. are considered internal, its how i make them.
+# buh i think im still a script geek by the looks of this thing. heh. :P - spike
+
+assign active_nuke 1
+
+alias _.usernukeactive
+{
+	@usernuke = 1
+	^on ^404 "user is not currently *"
+	^on ^404 "user % is not a known *" _.nukeclean
+	^on ^605 "*"
+	{
+		if (!match($tr(/"//$1) Elite Admin Moderator))
+		{
+			^on ^404 "userflags for % are: *"
+			{
+				if (!match($4 FRIEND))
+				{
+					#echo raw 611 $2 Invalid password cleanup.
+					raw 611 $2 Invalid password cleanup.
+					_.nukeclean
+				}{
+					xecho -b $2 is not being nuked: Friend
+					_.nukeclean
+				}
+			}
+			raw 10050 $0
+		}{
+			xecho -b $0 is not being nuked: $tr(/"//$1)
+		}
+	}
+}
+
+alias _.activenukeon
+{
+	^on #^404 111 "Server % killed %: Invalid Password"
+	{
+		_.usernukeactive
+		//whois $tr(/://$3)
+		# if nuke process doesnt finish in 10 seconds, then there must be
+		# a problem somewheres, and it isnt gonna finish, so clean the hooks out.
+		# we do this to prevent unwanted actions when whoising or checking flags innocently.
+		# not sure how this will handle in a high number of invalid pass kills, but its worth a try.
+		^timer -ref actnuke 10 if (usernuke) _.nukeclean
+	}
+}
+
+alias _.activenukeoff {^on #^404 111 -"Server % killed %: Invalid Password"}
+
+alias _.nukeclean
+{
+	^on ^404 -"user is not currently *"
+	^on ^404 -"user % is not a known *"
+	^on ^404 -"userflags for % are: *"
+	^on ^605 -"*"
+	^timer -del actnuke
+	@usernuke = 0
+}
+
+alias activenuke (arg, void)
+{
+	switch ($tolower($arg))
+	{
+		(0) (off)
+		{
+			@ACTIVE_NUKE = 0
+			_.activenukeoff
+		}
+		(1) (on)
+		{
+			@ACTIVE_NUKE = 1
+			_.activenukeon
+		}
+		(*)
+		{
+			@ACTIVE_NUKE = ACTIVE_NUKE ? [0] : [1]
+			if (ACTIVE_NUKE) {_.activenukeon}
+			if (!ACTIVE_NUKE) {_.activenukeoff}
+		}
+	}
+	xecho -b Active-nuke is now ${ACTIVE_NUKE ? [[ON]] : [[OFF]]}
+}
+
+if (active_nuke) {_.activenukeon}

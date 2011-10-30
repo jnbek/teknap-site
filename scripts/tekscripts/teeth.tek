@@ -1,0 +1,25 @@
+alias echoc {echo $cparse("$*")}
+echoc %WAuthor: %YUnknown
+echoc %WRedone: %YTuToneBK
+echo
+echoc %W Usage: %Y/teeth
+
+alias sayc {say $cparse("$*")}
+
+alias teeth
+{
+sayc %r                   .d:....:b.
+sayc %r                .:!!!!!!!!!!!!:.
+sayc %r           .::!!!!!!!!!!!!!!!!!!!!::.
+sayc %r    ..::!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!::..
+sayc %r..```. %W. eeee .... ... %r'~'%W ... .... eeee . %r.'''..
+sayc %r `!h:.%W S SSSS SSSS SSSSb dSSSS SSSS SSSS S %r.:h!'
+sayc %r  `!!!!.%W `SSS 'SS' 'SSS' `SSS` 'SS' SSS'%r.!!!!!'
+sayc %r    `!!!!.%W`SS%r .   .  ......   .   .%W SS'%r.!!!!'
+sayc %r     `!!!! %WSS%r !!!!!!!!!!!!!!!!!!!!! %WSS%r !!!!'
+sayc %r       `!!h %W`%r !!!!!!!!!!!!!!!!!!!!! %W'%r d!!'
+sayc %r         `!h !!!!!!!!!!!!!!!!!!!!!!! d!'
+sayc %r          ``!!!!!!!!!!!!!!!!!!!!!!!!''
+sayc %r             ``!!!!!!!!!!!!!!!!!!''
+sayc %r                 ```!!!!!!!!'''
+}

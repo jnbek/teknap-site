@@ -1,0 +1,10 @@
+xecho -b Little Bitch Killer loaded.
+xecho -b Author: Neobite
+xecho -b Version: Little Bitch Killer 0.1.0
+xecho -b
+eval me Hey everyone, request my info.
+
+on 404 "* has requested your info"
+{
+	raw 610 $0 "My info is none of your business bitch - LBK script in action."
+}

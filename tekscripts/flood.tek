@@ -1,0 +1,48 @@
+xecho -b Flood Protection Loaded, Type /1 to actiave.  -  __guesswho__  :P
+
+assign -A
+alias 1
+{
+	if (!A)
+	{
+		^assign A 1
+		xecho -b Your Autokill script is on.
+	}
+	{
+		xecho -b Your Autokill script is already on!
+	}
+}
+alias 0
+{
+	if (A)
+	{
+		^assign -A
+		xecho -b Your Autokill script is off.
+	}
+	{
+		xecho -b Your Autokill script is already off!
+	}
+}
+
+alias byebye
+{
+whois $0
+on ^who $0
+{
+ban $c $12 Dont Flood!
+ban $C $0 DOnt Flood!
+cban $C $12 Dont Flood!
+cban $C $0 Dont Flood!!
+}
+kill $0 Dont Flood!
+kick $0 Dont Flood!
+msg $0 Dont FLOOD!!!!!!!!!!!!!!!!!!!
+}
+
+on ^flood "% PUBLIC *" 
+{	
+	if (A)
+	{
+		byebye $0
+	}
+}

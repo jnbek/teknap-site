@@ -1,0 +1,21 @@
+# Whowas command
+# Written by DJHyperbyte
+
+eval xecho -b $cparse(%RWhowas %Bcommand.)
+eval xecho -b $cparse(%BSyntax:)
+eval xecho -b $cparse(%R  /whowas %B<username>)
+eval xecho -b $cparse(%BWritten by %RDJHyperbyte.)
+
+alias whowas
+{
+  raw 10121 $0-
+}
+
+on ^10121 "*"
+{
+  xecho 9ÚÄÄÄ 15WhoWas user information: 9ÄÄÄ
+  xecho 9³ 16User          16: 15$0
+  xecho 9³ 16S15erver        16: 15$2
+  xecho 3³ 16C15lient        16: 15$4
+  xecho 3³ 16L15ogged out at 16: 15$strftime($3 %x at %X)
+}

@@ -1,0 +1,75 @@
+# input linewrapper, add lopster style linewrapping to teknap! 
+# taken from spikenap - Spike
+
+/*
+ * Linewrapper Settings
+ * --------------------
+ * Linewrapping is a feature adopted from the popular *nix based Lopster client.
+ * Normally, text longer then the server can handle will get cut off. This allows a full
+ * line of text to be said into a chatroom without that annoying cutoff length getting in your way.
+ */
+
+/* MAX_LINE_LENGTH
+ * This sets the maximum length a line can be on certain commands before it becomes wrapped and continued.
+ * The default is 150 since OpenNap seems to not like more then this amount before cutting off text.
+ */
+assign MAX_LINE_LENGTH 150
+
+/* MAX_LINE_COMMAND
+ * This sets the commands that the linewrapper function should work on, normally only chatting commands are used.
+ */
+assign MAX_LINE_COMMAND say opsay ops wallop wal me announce glo global
+
+/* MAX_LINE_MSGCOMM
+ * Since instant message commands have to be processed differently, they have to be specified seperately here instead.
+ */
+assign MAX_LINE_MSGCOMM m msg
+
+#####################################
+
+on ^input "*"
+{
+	if (strlen($*) < max_line_length)
+	{
+		if (match($0 ${cmdchars}me))       
+		{
+			sendline $tr(#"#'#$*)
+		}{
+			sendline $*
+		}
+	}{
+		@:cmd = :firstw = :line = []
+		@firstw = word(0 $*)
+		if (match($cmdchars* $firstw))
+		{
+			@cmd = rest($@cmdchars $firstw)
+			if (match($cmdchars* $cmd)) @cmd = rest($@cmdchars $cmd)
+			if (match($cmd $max_line_command) || match($cmd $max_line_msgcomm))
+			{
+				if (match($cmd $max_line_msgcomm))
+				{
+					@firstw = firstw ## [ $1]
+					@line = tr(#"#'#$2-)
+				}{
+					@line = tr(#"#'#$1-)
+				}
+				while ([$@line] > 0)
+				{
+					@:padline = leftw($numwords($left($max_line_length $line)) $line)
+					sendline $firstw $padline
+					@line = rest(${strlen($padline) + 1} $line)
+				}
+			}{
+				sendline $*
+			}
+		}{
+			@line = tr(#"#'#$*)
+			while ([$@line] > 0)
+			{
+				@:padline = leftw($numwords($left($max_line_length $line)) $line)
+				sendline $padline
+				@line = rest(${strlen($padline) + 1} $line)
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+xecho -b Lamer Loaded
+xecho -b Author: ~N~
+
+alias spam (shit)
+{
+	eval say $shit
+	timer 10 eval spam $shit
+}
+
+alias flood (stuff)
+{
+	eval say $stuff
+	eval flood $stuff
+}
+
+alias pingflood (person, why)
+{
+	eval ping $person $why
+	eval pingflood $person $why
+}
+
+alias whoisflood (user)
+{
+	eval whois $user
+	eval whoisflood $user
+}
+
+alias msgflood (bitch, lala)
+{ 
+	eval msg $bitch $lala
+	eval msgflood $bitch $lala
+}
+
+alias repeatconnect (server)
+{
+	server $server
+	eval repeatconnect $server
+}
+
+alias echothem
+{
+	^on ^public "*"
+	{
+	msg $0 $2-
+	}
+}
+

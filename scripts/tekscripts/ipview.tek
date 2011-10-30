@@ -1,0 +1,55 @@
+#IPVIEW.RC
+#by joey2cool
+#http://geocities.com/joey2cool/teknap_scripts
+#
+#This script shows a user's IP address on Napster servers
+#
+#This also works on OpenNap but only users that are sharing
+#Secial Note for Napster v2.0 BETA 8-9.4 and TekNap 1.3c-f :
+#There is a bug in these clients in which you can get someone's IP if they are sharing or not
+#It works by having the affected client connect to your dataport.
+#This script automatically exploits the bug, but you need a connection watching program
+#in order for you to see them attempt to connect.
+#Dont be a lam0r! use this script for good not evil!
+
+xecho -b 52
+xecho -b 52       IPVIEW Loaded!
+xecho -b 52
+alias ipview {
+^assign ipview_nick $0
+if ([$ipview_nick] == [""]) {
+beep
+xecho 52Error : You need to specify a nickname
+}
+if ([$ipview_nick] != [""]) {
+xecho -b 52==============================
+xecho -b 52Finding out $ipview_nick's IP
+^raw 211 $ipview_nick
+^on ^213 "*" {
+^assign ipview_ip $1
+if ([$ipview_ip] != 0 ) {
+@ ipdigit_4 = [$ipview_ip] / [16777216]
+@ ipview_ip2 = [$ipdigit_4] * [16777216]
+@ ipview_ip2 = [$ipview_ip] - [$ipview_ip2]
+@ ipdigit_3 = [$ipview_ip2] / [65536]
+@ ipview_ip3 = [$ipdigit_3] * [65536]
+@ ipview_ip3 = [$ipview_ip2] - [$ipview_ip3]
+@ ipdigit_2 = [$ipview_ip3] / [256]
+@ ipdigit_1 = [$ipdigit_2] * [256]
+@ ipdigit_1 = [$ipview_ip3] - [$ipdigit_1]
+^assign dot .
+@ ipview_ip = [$ipdigit_1] ## [$dot] ## [$ipdigit_2] ## [$dot] ## [$ipdigit_3] ## [$dot] ## [$ipdigit_4]
+xecho -b 52IP: $ipview_ip
+}
+if ([$ipview_ip] == 0 ) {
+xecho -b 52IP could not be found
+^raw 641 $ipview_nick
+^on ^642 "*" {
+}
+}
+^assign ipview_ip ""
+^assign ipview_nick ""
+xecho -b 52==============================
+}
+}
+}
