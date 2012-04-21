@@ -322,7 +322,7 @@ sub sidebar {
 }
 
 sub readDirs {    # Right Sidebar
-    my $realpath = qq(/usr/local/www/irc/teknap/help);
+    my $realpath = qq(/usr/local/www/irc/teknap-site/help);
     use vars qw($content @lvl1 @lvl2 @lvl3);
 
     chdir $realpath;
@@ -435,7 +435,7 @@ sub scripts {
     $scripts .= $q->p(qq(<a href="#scripts" class="dummy" onclick='Combo("allscripts", {duration: 3, scaleX: true, scaleContent: true})'><strong>Click here to browse all the scripts</strong></a> or <a title="Download the entire Script Archive" href="download.pl?id=15"><strong>Download the entire Script Archive here</strong></a>.));
     $scripts .= qq(<script type="text/javascript"> showDiv("allscripts"); </script>);
     $scripts .= $q->h4('TekNap Scripts Archive');
-    chdir('/usr/local/www/irc/teknap/tekscripts');
+    chdir('/usr/local/www/irc/teknap-site/tekscripts');
     my @a = glob('*');
     foreach my $a (@a) {
         $scripts .= qq(<a title="$a" href="download.pl?id=$a"><strong> [ $a ] </strong></a>);
